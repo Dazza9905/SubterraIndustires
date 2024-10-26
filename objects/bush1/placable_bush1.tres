@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=7 format=3 uid="uid://bgndltsiclgk2"]
+
+[ext_resource type="Texture2D" uid="uid://c0i7wblb4mnyl" path="res://Art/picel art pack/TX Plant.png" id="1_wmfvj"]
+[ext_resource type="PackedScene" uid="uid://c2mvmpxexe4lm" path="res://objects/bush1/bush1.tscn" id="2_foy0m"]
+[ext_resource type="Script" path="res://addons/grid_building/building_system/building_rules/building_rule.gd" id="3_2n4ox"]
+[ext_resource type="Script" path="res://addons/grid_building/building_system/placeable/placeable.gd" id="4_1oqhx"]
+[ext_resource type="Resource" uid="uid://bfovx17d4ihxw" path="res://objects/tags/tag_plant.tres" id="5_aowlj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfopl"]
+atlas = ExtResource("1_wmfvj")
+region = Rect2(32, 192, 32, 32)
+
+[resource]
+script = ExtResource("4_1oqhx")
+display_name = &""
+icon = SubResource("AtlasTexture_bfopl")
+packed_scene = ExtResource("2_foy0m")
+tags = Array[Resource]([ExtResource("5_aowlj")])
+placement_rules = Array[ExtResource("3_2n4ox")]([])
+keep_script_paths = Array[NodePath]([])
+ignore_base_rules = false
+movable = true
+demolishable = true
+rotateable = false
+flippable_h = true
+flippable_v = false
