@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CategoricalTag" load_steps=4 format=3 uid="uid://bfovx17d4ihxw"]
+
+[ext_resource type="Texture2D" uid="uid://c0i7wblb4mnyl" path="res://Art/picel art pack/TX Plant.png" id="1_y7mew"]
+[ext_resource type="Script" path="res://addons/grid_building/categorical_tag.gd" id="2_00nvc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e06xe"]
+atlas = ExtResource("1_y7mew")
+region = Rect2(32, 192, 32, 32)
+
+[resource]
+script = ExtResource("2_00nvc")
+display_name = &"plants"
+icon = SubResource("AtlasTexture_e06xe")

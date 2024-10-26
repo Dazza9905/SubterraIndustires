@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="BuildingSettings" load_steps=3 format=3 uid="uid://c3m8q73xr2622"]
+
+[ext_resource type="Script" path="res://addons/grid_building/building_system/building_settings.gd" id="1_n4c0f"]
+[ext_resource type="PackedScene" uid="uid://l00rt6twodlt" path="res://objects/building/rule_check_indicator_32x32.tscn" id="1_oh6uf"]
+
+[resource]
+script = ExtResource("1_n4c0f")
+rule_check_indicator_template = ExtResource("1_oh6uf")
+add_placeable_instance = true
+preview_modulate_color = Color(0.6, 0.6, 1, 0.8)
+preview_instance_z_index = 100
+rotate_increment_degrees = 90.0
+enable_rotate = true
+enable_flip_horizontal = true
+enable_flip_vertical = true
+drag_multi_build = false
+show_debug = false

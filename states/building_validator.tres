@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlacementValidator" load_steps=3 format=3 uid="uid://bwspljaj6dkkv"]
+
+[ext_resource type="Script" path="res://addons/grid_building/building_system/building_rules/building_rule.gd" id="1_4bmmf"]
+[ext_resource type="Script" path="res://addons/grid_building/building_system/building_rules/placement_validator.gd" id="2_66fkk"]
+
+[resource]
+script = ExtResource("2_66fkk")
+base_rules = Array[ExtResource("1_4bmmf")]([])
+all_succeeded_message = "All building placement validation checks passed"
+failed_validations_message = "--- Rules Failed ---"
+failed_message_base = "Failed Placement"
+show_debug = false
