@@ -1,22 +1,118 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=32 format=3 uid="uid://ctc8rnt7qr81d"]
 
+[ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
+[ext_resource type="Script" path="res://addons/grid_building/building_system/building_system.gd" id="2_nm046"]
+[ext_resource type="Resource" uid="uid://ucdwu3ex850" path="res://addons/grid_building/template/resources/building_state.tres" id="2_w8ih0"]
 [ext_resource type="PackedScene" uid="uid://dyu3r0c48yjm2" path="res://Levels/game_level.tscn" id="3_a0ki7"]
+[ext_resource type="Resource" uid="uid://diroyvqk6awol" path="res://addons/grid_building/template/resources/building_settings.tres" id="3_u22ps"]
+[ext_resource type="Resource" uid="uid://yvq8d5kf20xy" path="res://addons/grid_building/template/resources/building_actions.tres" id="4_jm3f0"]
+[ext_resource type="Resource" uid="uid://bhk3251n317e" path="res://addons/grid_building/template/resources/placement_validator.tres" id="5_4tt52"]
+[ext_resource type="Resource" uid="uid://046oq4e4qwsd" path="res://addons/grid_building/template/resources/mode_state.tres" id="6_xwb55"]
+[ext_resource type="Resource" uid="uid://d0hx3bpam0rdq" path="res://addons/grid_building/template/resources/targeting_state.tres" id="7_mrlq7"]
+[ext_resource type="Resource" uid="uid://cj5672bxn3l3g" path="res://addons/grid_building/template/resources/mode_actions.tres" id="8_7q4qh"]
+[ext_resource type="Resource" uid="uid://cob2kk7haei2t" path="res://addons/grid_building/template/resources/grid_targeting_settings.tres" id="10_l40sv"]
+[ext_resource type="Script" path="res://addons/grid_building/manipulation_system/manipulation_system.gd" id="11_q1326"]
+[ext_resource type="Resource" uid="uid://blhldcte2skql" path="res://addons/grid_building/template/resources/manipulation_state.tres" id="12_cbhbh"]
+[ext_resource type="Resource" uid="uid://c1cskokmxod5m" path="res://addons/grid_building/template/resources/manipulation_settings.tres" id="13_yxfha"]
+[ext_resource type="Resource" uid="uid://b2v2lrmt10tbc" path="res://addons/grid_building/template/resources/manipulation_messages.tres" id="14_5nujg"]
+[ext_resource type="Resource" uid="uid://dbkoum2vbx2ha" path="res://addons/grid_building/template/resources/manipulation_actions.tres" id="15_y2q6i"]
+[ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_positioner/grid_positioner_2d.gd" id="16_nvb6h"]
+[ext_resource type="PackedScene" uid="uid://b85csecsg3tsa" path="res://addons/grid_building/template/components/grid_targeter.tscn" id="17_s2f07"]
+[ext_resource type="Script" path="res://addons/grid_building/manipulation_system/manipulation_parent.gd" id="18_5n0aq"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="19_tn0h0"]
+[ext_resource type="PackedScene" uid="uid://ctr73a3smgupf" path="res://addons/grid_building/template/indicator/rule_check_indicator_16x16_minimal.tscn" id="20_skc42"]
+[ext_resource type="Script" path="res://addons/grid_building/components/grid_state_assigner.gd" id="23_1geoc"]
+[ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player.tscn" id="23_pxl76"]
+[ext_resource type="PackedScene" uid="uid://erm78oe3trac" path="res://addons/grid_building/ui/placement_selection/placeable_selection_ui.tscn" id="24_12s6v"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="25_njtw1"]
+[ext_resource type="Resource" uid="uid://bxlqnss2birpq" path="res://objects/categories/plant.tres" id="26_w3lc3"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="27_pk7sx"]
+[ext_resource type="Resource" uid="uid://ccp455r8uupdi" path="res://objects/placables/bush_small_1.tres" id="28_nyp5n"]
+[ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://objects/placables/bush_large_1.tres" id="29_5njd3"]
+[ext_resource type="PackedScene" uid="uid://bui0pc2uo57iu" path="res://addons/grid_building/ui/game_log/build_log.tscn" id="29_gkur3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6fte"]
+size = Vector2(31.9, 31.9)
 
 [node name="Gameplay" type="Node"]
 
+[node name="Systems" type="Node" parent="."]
+
+[node name="BuildingSystem" type="Node" parent="Systems"]
+script = ExtResource("2_nm046")
+state = ExtResource("2_w8ih0")
+settings = ExtResource("3_u22ps")
+actions = ExtResource("4_jm3f0")
+placement_validator = ExtResource("5_4tt52")
+mode_state = ExtResource("6_xwb55")
+targeting_state = ExtResource("7_mrlq7")
+mode_actions = ExtResource("8_7q4qh")
+
+[node name="GridTargetingSystem" type="Node" parent="Systems"]
+script = ExtResource("1_ulsyg")
+state = ExtResource("7_mrlq7")
+settings = ExtResource("10_l40sv")
+mode_state = ExtResource("6_xwb55")
+
+[node name="ManipulationSystem" type="Node" parent="Systems"]
+script = ExtResource("11_q1326")
+state = ExtResource("12_cbhbh")
+settings = ExtResource("13_yxfha")
+messages = ExtResource("14_5nujg")
+actions = ExtResource("15_y2q6i")
+placement_validator = ExtResource("5_4tt52")
+targeting_state = ExtResource("7_mrlq7")
+mode_state = ExtResource("6_xwb55")
+building_state = ExtResource("2_w8ih0")
+mode_actions = ExtResource("8_7q4qh")
+
 [node name="World" type="Node2D" parent="."]
 
-[node name="GameLevel" parent="World" instance=ExtResource("3_a0ki7")]
+[node name="GridPositioner" type="ShapeCast2D" parent="World"]
+z_index = 1000
+shape = SubResource("RectangleShape2D_x6fte")
+target_position = Vector2(0, 0)
+collide_with_areas = true
+script = ExtResource("16_nvb6h")
+mode_state = ExtResource("6_xwb55")
+targeting_state = ExtResource("7_mrlq7")
+targeting_settings = ExtResource("10_l40sv")
 
-[node name="TileMapLayer3" parent="World/GameLevel" index="0"]
-tile_set = null
+[node name="GridTargeter" parent="World/GridPositioner" instance=ExtResource("17_s2f07")]
+scale = Vector2(2, 2)
 
-[node name="TileMapLayer2" parent="World/GameLevel" index="1"]
-tile_set = null
+[node name="ManipulationParent" type="Node2D" parent="World/GridPositioner"]
+script = ExtResource("18_5n0aq")
+manipulation_state = ExtResource("12_cbhbh")
 
-[node name="TileMapLayer" parent="World/GameLevel" index="2"]
-tile_set = null
+[node name="RuleCheckIndicatorManager" type="Node2D" parent="World/GridPositioner/ManipulationParent"]
+script = ExtResource("19_tn0h0")
+placement_validator = ExtResource("5_4tt52")
+indicator_template = ExtResource("20_skc42")
+targeting_state = ExtResource("7_mrlq7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GridStateAssigner" type="Node" parent="World" node_paths=PackedStringArray("target_map", "maps", "objects_parent")]
+script = ExtResource("23_1geoc")
+targeting_state = ExtResource("7_mrlq7")
+building_state = ExtResource("2_w8ih0")
+target_map = NodePath("../Game Level/TileMapLayer3")
+maps = [NodePath("")]
+objects_parent = NodePath("../GridObjects")
 
-[editable path="World/GameLevel"]
+[node name="Game Level" parent="World" instance=ExtResource("3_a0ki7")]
+
+[node name="GridObjects" type="Node2D" parent="World"]
+
+[node name="Player" parent="World" instance=ExtResource("23_pxl76")]
+position = Vector2(246, 199)
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
+building_system = NodePath("../../Systems/BuildingSystem")
+category_tags = Array[ExtResource("25_njtw1")]([ExtResource("26_w3lc3")])
+placeables = Array[ExtResource("27_pk7sx")]([ExtResource("28_nyp5n"), ExtResource("29_5njd3")])
+
+[node name="BuildLog" parent="UserInterface" instance=ExtResource("29_gkur3")]
+
+[editable path="World/Game Level"]

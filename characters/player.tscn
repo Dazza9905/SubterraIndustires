@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2rq8myd0wwne"]
+
+[ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="1_viuuy"]
+[ext_resource type="Script" path="res://addons/grid_building/user/user_assigner.gd" id="2_i15o5"]
+[ext_resource type="Resource" uid="uid://wyagesi4fad5" path="res://addons/grid_building/template/resources/user_state.tres" id="3_g7yyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpvh0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5uw5"]
+atlas = ExtResource("1_viuuy")
+region = Rect2(0, 0, 32, 64)
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cpvh0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = SubResource("AtlasTexture_w5uw5")
+
+[node name="UserAssigner" type="Node" parent="." node_paths=PackedStringArray("user_root")]
+script = ExtResource("2_i15o5")
+user_state = ExtResource("3_g7yyi")
+user_root = NodePath("..")
