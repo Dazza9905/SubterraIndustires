@@ -75,6 +75,11 @@ off_mode={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_11="Targetable"
+2d_physics/layer_12="UsedSpace"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

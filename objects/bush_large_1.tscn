@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds0fsd8byy8cn"]
+[gd_scene load_steps=8 format=3 uid="uid://ds0fsd8byy8cn"]
 
 [ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_l1bd4"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_gqdai"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_j7g2b"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_8c3dx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ruwme"]
 atlas = ExtResource("1_l1bd4")
@@ -9,7 +12,18 @@ region = Rect2(208, 176, 64, 64)
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqvl1"]
 radius = 40.0
 
+[sub_resource type="Resource" id="Resource_24p1h"]
+script = ExtResource("4_8c3dx")
+move_rules = Array[ExtResource("3_j7g2b")]([])
+ignore_base_rules = false
+rotateable = false
+flip_horizontal = true
+flip_vertical = false
+movable = true
+demolishable = true
+
 [node name="BushSmall-1" type="StaticBody2D"]
+collision_layer = 3072
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -17,3 +31,8 @@ texture = SubResource("AtlasTexture_ruwme")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_hqvl1")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_gqdai")
+settings = SubResource("Resource_24p1h")
+root = NodePath("..")

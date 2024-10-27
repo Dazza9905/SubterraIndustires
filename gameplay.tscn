@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=35 format=3 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
 [ext_resource type="Script" path="res://addons/grid_building/building_system/building_system.gd" id="2_nm046"]
@@ -16,7 +16,9 @@
 [ext_resource type="Resource" uid="uid://c1cskokmxod5m" path="res://addons/grid_building/template/resources/manipulation_settings.tres" id="13_yxfha"]
 [ext_resource type="Resource" uid="uid://b2v2lrmt10tbc" path="res://addons/grid_building/template/resources/manipulation_messages.tres" id="14_5nujg"]
 [ext_resource type="Resource" uid="uid://dbkoum2vbx2ha" path="res://addons/grid_building/template/resources/manipulation_actions.tres" id="15_y2q6i"]
+[ext_resource type="Script" path="res://addons/grid_building/components/target_highlighter.gd" id="16_84yio"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_positioner/grid_positioner_2d.gd" id="16_nvb6h"]
+[ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/highlight_settings.gd" id="17_2vu25"]
 [ext_resource type="PackedScene" uid="uid://b85csecsg3tsa" path="res://addons/grid_building/template/components/grid_targeter.tscn" id="17_s2f07"]
 [ext_resource type="Script" path="res://addons/grid_building/manipulation_system/manipulation_parent.gd" id="18_5n0aq"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="19_tn0h0"]
@@ -30,6 +32,16 @@
 [ext_resource type="Resource" uid="uid://ccp455r8uupdi" path="res://objects/placables/bush_small_1.tres" id="28_nyp5n"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://objects/placables/bush_large_1.tres" id="29_5njd3"]
 [ext_resource type="PackedScene" uid="uid://bui0pc2uo57iu" path="res://addons/grid_building/ui/game_log/build_log.tscn" id="29_gkur3"]
+
+[sub_resource type="Resource" id="Resource_ogy2c"]
+script = ExtResource("17_2vu25")
+build_preview_color = Color(0.6, 0.6, 1, 0.8)
+move_valid_color = Color(0.2, 1, 0.2, 1)
+move_invalid_color = Color(1, 0.2, 0.2, 1)
+active_manipulation_color = Color(0.2, 0.2, 1, 0.7)
+demolish_valid_color = Color(0.2, 1, 0.2, 1)
+demolish_invalid_color = Color(1, 0.2, 0.2, 1)
+reset_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6fte"]
 size = Vector2(31.9, 31.9)
@@ -66,12 +78,20 @@ mode_state = ExtResource("6_xwb55")
 building_state = ExtResource("2_w8ih0")
 mode_actions = ExtResource("8_7q4qh")
 
+[node name="TargetHighlighter" type="Node" parent="Systems/ManipulationSystem"]
+script = ExtResource("16_84yio")
+mode_state = ExtResource("6_xwb55")
+targeting_state = ExtResource("7_mrlq7")
+manipulation_state = ExtResource("12_cbhbh")
+highlight_settings = SubResource("Resource_ogy2c")
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="GridPositioner" type="ShapeCast2D" parent="World"]
 z_index = 1000
 shape = SubResource("RectangleShape2D_x6fte")
 target_position = Vector2(0, 0)
+collision_mask = 1024
 collide_with_areas = true
 script = ExtResource("16_nvb6h")
 mode_state = ExtResource("6_xwb55")
@@ -96,10 +116,13 @@ script = ExtResource("23_1geoc")
 targeting_state = ExtResource("7_mrlq7")
 building_state = ExtResource("2_w8ih0")
 target_map = NodePath("../Game Level/TileMapLayer3")
-maps = [NodePath("")]
+maps = [null]
 objects_parent = NodePath("../GridObjects")
 
 [node name="Game Level" parent="World" instance=ExtResource("3_a0ki7")]
+
+[node name="Camera2D" parent="World/Game Level" index="3"]
+zoom = Vector2(0.995, 0.995)
 
 [node name="GridObjects" type="Node2D" parent="World"]
 

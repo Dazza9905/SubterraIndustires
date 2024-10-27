@@ -11,6 +11,7 @@ atlas = ExtResource("1_viuuy")
 region = Rect2(0, 0, 32, 64)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2049
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cpvh0")
