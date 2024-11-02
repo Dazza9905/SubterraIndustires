@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2rq8myd0wwne"]
+[gd_scene load_steps=7 format=3 uid="uid://c2rq8myd0wwne"]
 
+[ext_resource type="Script" path="res://characters/player.gd" id="1_cwch7"]
 [ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="1_viuuy"]
 [ext_resource type="Script" path="res://addons/grid_building/user/user_assigner.gd" id="2_i15o5"]
 [ext_resource type="Resource" uid="uid://wyagesi4fad5" path="res://addons/grid_building/template/resources/user_state.tres" id="3_g7yyi"]
@@ -12,6 +13,8 @@ region = Rect2(0, 0, 32, 64)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2049
+collision_mask = 2049
+script = ExtResource("1_cwch7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cpvh0")
