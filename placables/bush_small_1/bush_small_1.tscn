@@ -1,20 +1,20 @@
 [gd_scene load_steps=8 format=3 uid="uid://b628pgb8ny31m"]
 
-[ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_v31qx"]
-[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_ceoai"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_ugbk3"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_x8wdt"]
+[ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_ymvff"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_77hbh"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_n0ujn"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_0o0cy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ruwme"]
-atlas = ExtResource("1_v31qx")
+atlas = ExtResource("1_ymvff")
 region = Rect2(32, 192, 32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_38t67"]
 radius = 16.0
 
 [sub_resource type="Resource" id="Resource_yikfv"]
-script = ExtResource("4_x8wdt")
-move_rules = Array[ExtResource("3_ugbk3")]([])
+script = ExtResource("4_0o0cy")
+move_rules = Array[ExtResource("3_n0ujn")]([])
 ignore_base_rules = false
 rotateable = false
 flip_horizontal = true
@@ -33,11 +33,6 @@ texture = SubResource("AtlasTexture_ruwme")
 shape = SubResource("CircleShape2D_38t67")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("2_ceoai")
-settings = SubResource("Resource_yikfv")
-root = NodePath("..")
-
-[node name="Manipulatable2" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("2_ceoai")
+script = ExtResource("2_77hbh")
 settings = SubResource("Resource_yikfv")
 root = NodePath("..")
