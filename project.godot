@@ -16,9 +16,9 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=120
 config/icon="res://icon.svg"
 
-[debug]
+[autoload]
 
-settings/stdout/print_fps=true
+MaterialEnum="*res://components/custom_types/material_enum.gd"
 
 [display]
 
@@ -106,6 +106,7 @@ move_down={
 
 2d_physics/layer_11="Targetable"
 2d_physics/layer_12="UsedSpace"
+2d_physics/layer_20="Belt"
 
 [rendering]
 

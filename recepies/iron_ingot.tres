@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://blam2r0req27f"]
+
+[ext_resource type="Script" path="res://components/custom_types/recipe.gd" id="1_6iusl"]
+
+[resource]
+script = ExtResource("1_6iusl")
+input_materials = Array[Material]([null])

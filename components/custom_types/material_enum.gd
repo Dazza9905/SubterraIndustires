@@ -1,10 +1,9 @@
-extends Node
 
-@export var recepie: Recipe
 
+enum MATERIAL_ITEM { IRON, COPPER }
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
