@@ -1,10 +1,11 @@
 extends Node
 
-@export var recepie: Recipe
+@export var recipe: Recipe
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	for material in recipe.input_materials:
+		print(material)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

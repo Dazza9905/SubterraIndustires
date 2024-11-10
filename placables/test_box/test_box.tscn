@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://baeqdh3fam55a"]
+
+[ext_resource type="Texture2D" uid="uid://d11swyrhcasno" path="res://art/downloaded/pixel_art_pack/TX Props.png" id="1_vqf0t"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_vqd5t"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_bd5y3"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_gjr1l"]
+[ext_resource type="Script" path="res://components/assembler.gd" id="5_xa28g"]
+[ext_resource type="Resource" uid="uid://blam2r0req27f" path="res://recepies/iron_ingot.tres" id="6_g177s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s81fj"]
+atlas = ExtResource("1_vqf0t")
+region = Rect2(160, 16, 32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r6487"]
+size = Vector2(31.9, 31.9)
+
+[sub_resource type="Resource" id="Resource_0nltr"]
+script = ExtResource("4_gjr1l")
+move_rules = Array[ExtResource("3_bd5y3")]([])
+ignore_base_rules = false
+rotateable = false
+flip_horizontal = false
+flip_vertical = false
+movable = true
+demolishable = true
+
+[node name="TestBox" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_s81fj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_r6487")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_vqd5t")
+settings = SubResource("Resource_0nltr")
+root = NodePath("..")
+
+[node name="Assembler" type="Node" parent="."]
+script = ExtResource("5_xa28g")
+recipe = ExtResource("6_g177s")

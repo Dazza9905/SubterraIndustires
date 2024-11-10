@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_6iusl")
-input_materials = Array[Material]([null])
+input_materials = Array[int]([0, 0, 1, 0, 0])
