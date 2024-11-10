@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=40 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
 [ext_resource type="Script" path="res://addons/grid_building/building_system/building_system.gd" id="2_nm046"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player/player.tscn" id="23_pxl76"]
 [ext_resource type="PackedScene" uid="uid://erm78oe3trac" path="res://addons/grid_building/ui/placement_selection/placeable_selection_ui.tscn" id="24_12s6v"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="25_njtw1"]
+[ext_resource type="Script" path="res://custom_types/grid_hashmap.gd" id="26_rsn26"]
 [ext_resource type="Resource" uid="uid://bxlqnss2birpq" path="res://placables/categories/plant.tres" id="26_w3lc3"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="27_pk7sx"]
 [ext_resource type="Resource" uid="uid://ccp455r8uupdi" path="res://placables/bush_small_1/bush_small_1.tres" id="28_nyp5n"]
@@ -134,6 +135,9 @@ tile_map_data = PackedByteArray("AAALAAcAAgADAAMAAAALAAgAAgADAAAAAAALAAkAAgADAAE
 
 [node name="Player" parent="World" instance=ExtResource("23_pxl76")]
 position = Vector2(528, 269)
+
+[node name="Dictionary" type="Node" parent="World"]
+script = ExtResource("26_rsn26")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 

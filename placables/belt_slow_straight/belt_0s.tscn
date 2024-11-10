@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://kbhoioejyouu"]
+[gd_scene load_steps=8 format=3 uid="uid://kbhoioejyouu"]
 
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_mbni2"]
 [ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belt_slow_straight/belt_0s_frames.tres" id="1_tm2ff"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_yskhy"]
@@ -20,6 +21,7 @@ size = Vector2(31.9, 31.9)
 
 [node name="BeltSlowStraight" type="StaticBody2D"]
 collision_layer = 527360
+script = ExtResource("1_mbni2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_tm2ff")

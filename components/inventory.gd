@@ -1,5 +1,6 @@
-extends Node
-
+extends Component
+class_name StorageComponent
+@export var slots: Array[Slot]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
