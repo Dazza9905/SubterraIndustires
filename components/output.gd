@@ -1,4 +1,4 @@
-extends IOComponent
+extends Component
 class_name OutputComponent
 
 # Called when the node enters the scene tree for the first time.

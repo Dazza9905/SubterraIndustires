@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=41 format=4 uid="uid://ctc8rnt7qr81d"]
 
+[ext_resource type="Script" path="res://TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
 [ext_resource type="Script" path="res://addons/grid_building/building_system/building_system.gd" id="2_nm046"]
 [ext_resource type="Resource" uid="uid://ucdwu3ex850" path="res://addons/grid_building/template/resources/building_state.tres" id="2_w8ih0"]
@@ -51,7 +52,10 @@ reset_color = Color(1, 1, 1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6fte"]
 size = Vector2(31.9, 31.9)
 
-[node name="Gameplay" type="Node"]
+[node name="Game" type="Node"]
+
+[node name="Timer" type="Timer" parent="."]
+script = ExtResource("1_4s1je")
 
 [node name="Systems" type="Node" parent="."]
 

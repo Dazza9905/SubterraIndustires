@@ -1,6 +1,4 @@
-extends Component
-class_name InputComponent
-
+extends Resource
 
 
 # Called when the node enters the scene tree for the first time.
