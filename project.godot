@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Enums="*res://custom_types/enums.gd"
+Globals="*res://custom_types/globals.gd"
 
 [display]
 
@@ -28,7 +29,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/grid_building/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/grid_building/plugin.cfg")
 
 [filesystem]
 

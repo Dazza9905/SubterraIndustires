@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
 [ext_resource type="Script" path="res://addons/grid_building/building_system/building_system.gd" id="2_nm046"]
 [ext_resource type="Resource" uid="uid://ucdwu3ex850" path="res://addons/grid_building/template/resources/building_state.tres" id="2_w8ih0"]
-[ext_resource type="PackedScene" uid="uid://dyu3r0c48yjm2" path="res://Levels/game_level.tscn" id="3_a0ki7"]
+[ext_resource type="PackedScene" uid="uid://dyu3r0c48yjm2" path="res://levels/game_level.tscn" id="3_a0ki7"]
 [ext_resource type="Resource" uid="uid://diroyvqk6awol" path="res://addons/grid_building/template/resources/building_settings.tres" id="3_u22ps"]
 [ext_resource type="Resource" uid="uid://yvq8d5kf20xy" path="res://addons/grid_building/template/resources/building_actions.tres" id="4_jm3f0"]
 [ext_resource type="Resource" uid="uid://bhk3251n317e" path="res://addons/grid_building/template/resources/placement_validator.tres" id="5_4tt52"]
@@ -54,9 +54,6 @@ size = Vector2(31.9, 31.9)
 
 [node name="Game" type="Node"]
 
-[node name="Timer" type="Timer" parent="."]
-script = ExtResource("1_4s1je")
-
 [node name="Systems" type="Node" parent="."]
 
 [node name="GridSystems" type="Node" parent="Systems"]
@@ -95,6 +92,9 @@ mode_state = ExtResource("6_xwb55")
 targeting_state = ExtResource("7_mrlq7")
 manipulation_state = ExtResource("12_cbhbh")
 highlight_settings = SubResource("Resource_ogy2c")
+
+[node name="TimeTickSystem" type="Node" parent="Systems"]
+script = ExtResource("1_4s1je")
 
 [node name="World" type="Node2D" parent="."]
 
@@ -158,5 +158,9 @@ offset_top = 5.0
 offset_right = 1143.0
 offset_bottom = 54.0
 script = ExtResource("34_0rdo6")
+
+[node name="Button" type="Button" parent="UserInterface"]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [editable path="World/Game Level"]
