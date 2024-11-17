@@ -26,3 +26,7 @@ func load_levels():
 				level_picker_container.add_child(level_entry)
 			file_name = dir.get_next()
 		dir.list_dir_end()
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_packed(load("res://hud/main_menu.tscn"))

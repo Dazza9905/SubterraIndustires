@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="CategoricalTag" load_steps=4 format=3 uid="uid://dixmv6k7i2vvi"]
 
-[ext_resource type="Texture2D" uid="uid://duuj8vhp2qt8r" path="res://placables/belt_slow_straight/belt_0s_seq.png" id="1_vajug"]
+[ext_resource type="Texture2D" uid="uid://duuj8vhp2qt8r" path="res://placables/bush_large_1/belt_0s_seq.png" id="1_cpk74"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="2_7tbj6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkx8v"]
-atlas = ExtResource("1_vajug")
+atlas = ExtResource("1_cpk74")
 region = Rect2(0, 0, 32, 32)
 
 [resource]

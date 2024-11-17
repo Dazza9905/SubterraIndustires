@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://duuj8vhp2qt8r"
-path="res://.godot/imported/belt_0s_seq.png-9547b6c5f23112cbd1bf593b26a1f7d8.ctex"
+path="res://.godot/imported/belt_0s_seq.png-0814d9d38ba32a6324e1c14cec3c8850.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placables/belt_slow_straight/belt_0s_seq.png"
-dest_files=["res://.godot/imported/belt_0s_seq.png-9547b6c5f23112cbd1bf593b26a1f7d8.ctex"]
+source_file="res://placables/bush_large_1/belt_0s_seq.png"
+dest_files=["res://.godot/imported/belt_0s_seq.png-0814d9d38ba32a6324e1c14cec3c8850.ctex"]
 
 [params]
 

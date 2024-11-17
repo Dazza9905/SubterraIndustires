@@ -96,6 +96,9 @@ highlight_settings = SubResource("Resource_ogy2c")
 [node name="TimeTickSystem" type="Node" parent="Systems"]
 script = ExtResource("1_4s1je")
 
+[node name="ReferenceSystem" type="Node" parent="Systems"]
+script = ExtResource("26_rsn26")
+
 [node name="World" type="Node2D" parent="."]
 
 [node name="GridPositioner" type="ShapeCast2D" parent="World"]
@@ -139,9 +142,6 @@ tile_map_data = PackedByteArray("AAALAAcAAgADAAMAAAALAAgAAgADAAAAAAALAAkAAgADAAE
 
 [node name="Player" parent="World" instance=ExtResource("23_pxl76")]
 position = Vector2(528, 269)
-
-[node name="Dictionary" type="Node" parent="World"]
-script = ExtResource("26_rsn26")
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 

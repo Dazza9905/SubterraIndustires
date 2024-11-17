@@ -11,6 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(tick_delta)
+	#print(tick_delta)
 #	TODO: tick() signal function
-	
+#	TODO: spammy print()
+	pass
