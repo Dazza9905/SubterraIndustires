@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b628pgb8ny31m"]
+[gd_scene load_steps=9 format=3 uid="uid://b628pgb8ny31m"]
 
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_4a7kb"]
 [ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_ymvff"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_77hbh"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_n0ujn"]
@@ -24,6 +25,7 @@ demolishable = true
 
 [node name="BushSmall-1" type="StaticBody2D"]
 collision_layer = 3073
+script = ExtResource("1_4a7kb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
