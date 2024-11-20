@@ -21,10 +21,16 @@ func _connect_to_reference_system():
 	else:
 		print("ReferenceSystem node not found!")
 
+func update():
+	var components: Component
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_connect_to_reference_system()
+	
 	
 func _exit_tree() -> void:
 	_connect_to_reference_system()
@@ -32,6 +38,7 @@ func _exit_tree() -> void:
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+# un used in game logic, use update() instead
 func _process(delta: float) -> void:
 	pass
 	
