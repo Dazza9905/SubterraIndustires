@@ -1,9 +1,6 @@
 extends Node	
 
-
-
-var grid_hashmap: Dictionary = {"bannana": 1}
-var x: int = 3
+var grid_hashmap: Dictionary
 	
 func _on_build_succesfull(grid_object: GridObject):
 	var position: Vector2i
@@ -26,14 +23,19 @@ func _on_build_succesfull(grid_object: GridObject):
 	for cell in grid_object.ocuppied_cells:
 		grid_hashmap[cell] = grid_object
 		
+	print("added:")
 	print_dict()
 	
 	
 func _on_object_removed_from_grid(ocuppied_cells: Array[Vector2i]):
-	print(ocuppied_cells)
 	for cell in ocuppied_cells:
 		grid_hashmap.erase(cell)
-	print_dict()
+		print(".")
+	print("removed:")
+	for key in grid_hashmap.keys():
+		var value = grid_hashmap[key]
+		print("Key: ", key, " - Value: ", value)
+	print("removed<--")
 
 func print_dict():
 	for key in grid_hashmap.keys():

@@ -1,8 +1,12 @@
 extends Node
 
-var ticks_per_second: int = 32
-var tick_max_time: float = 1.0 / ticks_per_second
+var ticks_per_second: int = 4
+var tick_max_delta: float = 1.0 / ticks_per_second
 var tick_delta: float = 0
+var tick_num: int = 0
+
+signal belt_tick
+signal machine_tick
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +16,16 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print(tick_delta)
-#	TODO: tick() signal function
-#	TODO: spammy print()
+	tick_delta = tick_delta + delta
+	if(tick_delta >= tick_max_delta):
+		tick_delta = tick_delta - tick_max_delta
+		tick_num = tick_num + 1
+		#print("Tick num: ", tick_num, "\t Tick delta: ", tick_delta)
+		if tick_num % 2 == 0:
+			emit_signal("belt_tick")
+			#print("Belt tick!")
+		else:
+			emit_signal("machine_tick")
+			#print("Machine tick!")
+			
 	pass

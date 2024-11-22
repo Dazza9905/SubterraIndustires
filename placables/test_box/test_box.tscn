@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://baeqdh3fam55a"]
+[gd_scene load_steps=9 format=3 uid="uid://baeqdh3fam55a"]
 
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6n65p"]
 [ext_resource type="Texture2D" uid="uid://d11swyrhcasno" path="res://art/downloaded/pixel_art_pack/TX Props.png" id="1_vqf0t"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_vqd5t"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_bd5y3"]
@@ -24,6 +25,7 @@ demolishable = true
 
 [node name="TestBox" type="StaticBody2D"]
 collision_layer = 3073
+script = ExtResource("1_6n65p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, -17.5)

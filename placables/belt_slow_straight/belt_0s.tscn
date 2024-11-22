@@ -24,7 +24,6 @@ demolishable = true
 [node name="BeltSlowStraight" type="StaticBody2D"]
 collision_layer = 527360
 script = ExtResource("1_mbni2")
-ocuppied_cells = Array[Vector2i]([Vector2i(0, 0)])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_tm2ff")
