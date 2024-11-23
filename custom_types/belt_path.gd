@@ -1,12 +1,17 @@
-class_name IOComponent
-extends Component
+extends Node
+class_name BeltPath
 
-@export var position_in_OC: int
-@export var io_direction: Side
+var belts: Array[BeltComponent]
 
-func global_pos() -> Vector2i:
-	return self.get_parent().get_parent().occupied_cells[position_in_OC]
+func add_belt(belt: BeltComponent):
+	pass
 
+func append_belt():
+	pass
+
+func update():
+	pass
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

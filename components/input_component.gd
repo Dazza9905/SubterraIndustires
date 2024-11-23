@@ -1,5 +1,9 @@
-extends Component
+extends IOComponent
 class_name InputComponent
+
+func get_IO_port_connection():
+	
+	Globals.ref_system.get_GO(self.global_pos() + v)
 
 
 

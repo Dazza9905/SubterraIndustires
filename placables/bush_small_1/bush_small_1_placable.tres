@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://ccp455r8uupdi"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://de8o88bvo72qh"]
 
 [ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_ivqt3"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_qqrd4"]

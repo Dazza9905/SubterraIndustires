@@ -105,8 +105,9 @@ move_down={
 
 [layer_names]
 
+2d_physics/layer_10="PlayerCollision"
 2d_physics/layer_11="Targetable"
-2d_physics/layer_12="UsedSpace"
+2d_physics/layer_12="Grid_UsedSpace"
 2d_physics/layer_20="Belt"
 
 [rendering]

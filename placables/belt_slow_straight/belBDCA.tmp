@@ -39,35 +39,13 @@ script = ExtResource("2_s3413")
 settings = SubResource("Resource_xewl6")
 root = NodePath("..")
 
-[node name="BeltPathID" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Components" type="Node" parent="."]
 
 [node name="InputComponent" type="Node" parent="Components"]
 script = ExtResource("6_fhmup")
-position_in_OC = null
-io_direction = null
-active_component = null
 
 [node name="OutputComponent" type="Node" parent="Components"]
 script = ExtResource("7_p0th6")
 
-[node name="BeltComponent" type="Node" parent="Components" node_paths=PackedStringArray("input", "output")]
+[node name="BeltComponent" type="Node" parent="Components"]
 script = ExtResource("8_3p8j0")
-input = NodePath("../InputComponent")
-output = NodePath("../OutputComponent")
-active_component = true
