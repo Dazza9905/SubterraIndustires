@@ -28,12 +28,12 @@ collision_layer = 3073
 script = ExtResource("1_6n65p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, -17.5)
+position = Vector2(9.53674e-07, -1.50008)
 scale = Vector2(2, 1.39583)
 texture = SubResource("AtlasTexture_s81fj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, -16)
+position = Vector2(0, -8.01086e-05)
 shape = SubResource("RectangleShape2D_r6487")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]

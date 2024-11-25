@@ -1,5 +1,5 @@
-extends Node	
-
+extends Node2D
+class_name GridReferenceSystem
 # - hold refernces to the objects
 # - handles the operations when adding and removing objects from grid
 # - signal connection
@@ -18,11 +18,12 @@ func GO_built(grid_object: GridObject):
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
 	connect_GO_to_GRS(grid_object)
 
-func GO_destroyed(ocuppied_cells: Array[Vector2i]):
+func GO_destroyed(grid_object: GridObject):
+	var ocuppied_cells: Array[Vector2i] = grid_object.ocuppied_cells
 	for cell in ocuppied_cells:
 		reference_hashmap.erase(cell)
 
-func get_GO(coordinates: Vector2i):
+func get_GO_from_XY(coordinates: Vector2i):
 	return reference_hashmap[coordinates]
 
 func asign_GP_cells_to_GO(grid_object: GridObject):
@@ -31,7 +32,7 @@ func asign_GP_cells_to_GO(grid_object: GridObject):
 	position.y = (grid_object.position.y - 16) / 32
 	
 	#get indicators (for teir position)
-	var collision_indicators = $"../../World/GridPositioner/ManipulationParent/RuleCheckIndicatorManager".get_children()
+	var collision_indicators = Globals.rule_check_indicator_manager.get_children()
 	
 	#for each indicator create a entry in dictionary
 	for indicator in collision_indicators:

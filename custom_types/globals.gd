@@ -11,8 +11,9 @@ enum SlotFlag {
 	INVALID
 }
 
-@onready var ref_system = get_node("/root/Systems/TimeTickSystem")
-
+@onready var grid_ref_system: GridReferenceSystem = get_node("/root/Game/World/GridReferenceSystem") as GridReferenceSystem
+@onready var time_tick_system: TimeTickSystem = $Systems/TimeTickSystem
+@onready var rule_check_indicator_manager: RuleCheckIndicatorManager = $World/GridPositioner/ManipulationParent/RuleCheckIndicatorManager
 
 
 
@@ -24,3 +25,4 @@ enum SlotFlag {
 # COMP - Component
 # OC - occupied_cells
 # BP - BeltPath
+# XY - coordinates	

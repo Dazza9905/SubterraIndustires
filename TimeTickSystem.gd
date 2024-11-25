@@ -1,4 +1,5 @@
 extends Node
+class_name TimeTickSystem
 
 var ticks_per_second: int = 4
 var tick_max_delta: float = 1.0 / ticks_per_second

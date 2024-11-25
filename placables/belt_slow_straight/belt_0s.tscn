@@ -59,12 +59,11 @@ vertical_alignment = 1
 
 [node name="InputComponent" type="Node" parent="Components"]
 script = ExtResource("6_fhmup")
-position_in_OC = null
-io_direction = null
-active_component = null
+io_direction = 1
 
 [node name="OutputComponent" type="Node" parent="Components"]
 script = ExtResource("7_p0th6")
+io_direction = 3
 
 [node name="BeltComponent" type="Node" parent="Components" node_paths=PackedStringArray("input", "output")]
 script = ExtResource("8_3p8j0")

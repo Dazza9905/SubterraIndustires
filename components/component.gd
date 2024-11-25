@@ -11,16 +11,13 @@ extends Node
 # example: I/O, Slot/Buffer, Storage
 @export var active_component: bool = false # default: false
 
+@onready var parent_GO: GridObject = self.get_parent().get_parent()
+
+
+#This parent class sould not be used as it is!
+
 func update():
-	if active_component:
-		assert(false, "The method 'cupdate' must be overridden in the subcomponent. This parent class sould not be used as it is!
-		Fix: overwithe the function with behivior that should happen when updated")
-	else:
-		pass
+	assert(false, "The method 'update()' must be overridden in the child class.")
 
 func connect_to_tick():
-	if active_component:
-		assert(false, "The method 'connect_to_tick' must be overridden in the subclass.
-		Fix: overwithe the function with behivior that connects the object to a tick signal or pass if passive")
-	else:
-		pass
+	assert(false, "The method 'connect_to_tick()' must be overridden in the child class.")

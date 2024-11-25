@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://e0bb5cdctgjb"]
+
+[ext_resource type="Texture2D" uid="uid://blcnvwc6bn5om" path="res://debug/io_ports/in.png" id="1_52v8h"]
+
+[node name="InDebug" type="Sprite2D"]
+scale = Vector2(0.25, 1)
+texture = ExtResource("1_52v8h")
+offset = Vector2(48, 0)
