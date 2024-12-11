@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Variable for movement speed
-var speed = 200
+var speed = 10000
 
 
 
@@ -22,12 +22,12 @@ func _physics_process(delta):
 	)
 	# Normalize input direction to maintain consistent speed when moving diagonally
 	if input_direction.length() > 0:
-		input_direction = input_direction.normalized()	
+		input_direction = input_direction.normalized()
 		
-	var input_velocity = input_direction * speed
+	var input_velocity = (input_direction * speed)*delta
 
 	# Apply delta to scale movement by frame time for frame rate independence
-	velocity = input_velocity + conveyor_velocity
+	velocity = (input_velocity + conveyor_velocity)
 	
 
 	# Move the character using the move_and_slide method

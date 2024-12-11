@@ -7,19 +7,11 @@ class_name BeltComponent
 @export var belt_path: BeltPath
 @export var debug_label: Label
 
-
-func _ready() -> void:
-	pass
-
 func update() -> void:
-	pass
-
-func _process(delta: float) -> void:
 	pass
 
 func connect_to_tick():
 	pass
-	
 	
 func connect_to_BP():
 	pass

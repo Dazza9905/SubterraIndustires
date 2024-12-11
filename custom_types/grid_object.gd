@@ -5,35 +5,32 @@ extends StaticBody2D
 var main_cell: Vector2i
 var ocuppied_cells: Array[Vector2i]
 
-
-
-
-func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
-	
 func _exit_tree() -> void:
 	var parent = get_parent()
 	if parent == GridReferenceSystem:
 		var grid_ref_system: GridReferenceSystem = parent
 		grid_ref_system.GO_destroyed(self)
-	
-func has_COMP_of_type(component_to_find) -> bool:
-	if self.has_node("Components"):
-		for component in $Components.get_children():
-			if component == component_to_find:
-				return true
-		return false
-	else: 
-		return false
+
+
+func request_connection(calling_comp: IOComponent):
+	# Look through all components and find IO component with valid parameters
+	if has_node("Components:"):
+		for comp in $Components.get_children():
+			if GlobalMethods.are_IO_COMPs_diff(comp, calling_comp):
+				print("Components are diff")
+				if (GlobalMethods.are_IO_COMPs_facing_opposite_dir(comp, calling_comp)):
+					print("Components are facing opposite direction")
+					print("WE GOT CONNECTION!")
+					(comp as IOComponent).IO_connection = calling_comp
+					return comp
+				else:
+					print("aaaaaablelble")
 
 func connect_components():
 	if has_node("Components:"):
-		var compoenents: Array[Component] = $Components.get_children() as Array[Component]
-		for comp in compoenents:
-			comp.connect_to_tick()
+		var components: Array[Node] = $Components.get_children()
+		for comp in components:
+			(comp as Component).connect_to_tick()
 	else:
 		print(self.name, " has no components")
 			

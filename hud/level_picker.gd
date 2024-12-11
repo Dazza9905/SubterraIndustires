@@ -8,11 +8,6 @@ const LEVELS_PATH = "res://levels/"
 func _ready() -> void:
 	load_levels()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
 	
 func load_levels():
 	var dir = DirAccess.open(LEVELS_PATH)
