@@ -18,6 +18,8 @@ extends Node2D
 func get_parent_GO() -> GridObject:
 	return self.get_parent().get_parent()
 
+func get_GRS() -> GridReferenceSystem:
+	return self.get_parent().get_parent().get_parent()
 
 func update():
 	assert(false, "The method 'update()' must be overridden in the child class.")

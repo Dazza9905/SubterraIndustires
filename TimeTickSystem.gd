@@ -5,8 +5,6 @@ var ticks_per_second: int = 4
 var tick_max_delta: float = 1.0 / ticks_per_second
 var tick_delta: float = 0
 var tick_num: int = 0
-
-signal belt_tick
 signal machine_tick
 
 # Called when the node enters the scene tree for the first time.

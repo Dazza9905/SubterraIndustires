@@ -30,36 +30,16 @@ extends Component
 #Holds reference to connedted object
 var IO_connection: IOComponent
 
-
 func get_io_con():
-	var target_XY = GlobalMethods.rotate(self.cell_offset + self.get_parent_GO().main_cell + GlobalMethods.rotate(Vector2(1,0), roundi(self.rotation_degrees)), roundi(self.get_parent_GO().rotation_degrees))
+	var target_XY: Vector2i = GlobalMethods.rotate(self.cell_offset + self.get_parent_GO().main_cell + GlobalMethods.rotate(Vector2(1,0), roundi(self.rotation_degrees)), roundi(self.get_parent_GO().rotation_degrees))
 	print("TARGET:", target_XY)
-
-
-func refresh_IO_connection():
-	print("===", self.name, "===")
-	get_io_con()
-	var grid_ref_system: GridReferenceSystem = self.get_parent().get_parent().get_parent()
-	
-	var target_GO = grid_ref_system.get_GO_from_XY( GlobalMethods.rotate(self.cell_offset + self.get_parent_GO().main_cell + GlobalMethods.rotate(Vector2(1,0), roundi(self.rotation_degrees)), roundi(self.get_parent_GO().rotation_degrees)))
-	print(get_target_cell())
-	if target_GO == parent_GO: #err if its own
-		printerr("IOComponent is targeting its own GridObject")
-		return
-	if (target_GO != null):
+	var target_GO: GridObject = get_GRS().get_GO_from_XY(target_XY)
+	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
-	else:
-		print("no target GO")
-	
-func connect_to_tick():
-	refresh_IO_connection()
-	
 
-func get_target_cell() -> Vector2i:
-	print("before: ", rotation_degrees)
-	return GlobalMethods.rotate((GlobalMethods.rotate(Vector2i(1, 0), roundi(rotation_degrees)) + cell_offset + parent_GO.main_cell), roundi(parent_GO.rotation_degrees))
-	
-	
+func connect_to_tick():
+	get_io_con()
+
 #=========DEBUG============
 var debug_in: PackedScene = preload("res://debug/io_ports/in_debug.tscn")
 var debug_out: PackedScene = preload("res://debug/io_ports/out_debug.tscn")
@@ -67,7 +47,7 @@ var in_sprite: Sprite2D
 var out_sprite: Sprite2D
 
 func _process(delta: float) -> void:
-	if (IO_connection is IOComponent): #is valid conn
+	if (IO_connection): #is valid conn
 		if (Globals.show_debug_io_conn):
 			(out_sprite.get_child(0) as Sprite2D).visible = true
 			(in_sprite.get_child(0) as Sprite2D).visible = true
@@ -84,3 +64,13 @@ func _init() -> void:
 		out_sprite = debug_out.instantiate()
 		#in_sprite.rotation_degrees = io_deg
 		#out_sprite.rotation_degrees = io_deg
+
+static func facing_opposite_dir(comp1: IOComponent, comp2: IOComponent) -> bool:
+	var comp1_deg: float = comp1.rotation_degrees + comp1.parent_GO.rotation_degrees
+	var comp2_deg: float = comp2.rotation_degrees + comp2.parent_GO.rotation_degrees
+	print("Degs: ", comp1_deg, " -- ", comp2_deg)
+	return is_equal_approx(roundi(comp1_deg + 180.0) % 360, comp2_deg)
+
+
+static func are_diff(comp1: Node, comp2: Node) -> bool:
+	return (comp1 is InputComponent and comp2 is OutputComponent) or (comp1 is OutputComponent and comp2 is InputComponent)

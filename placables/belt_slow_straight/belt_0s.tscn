@@ -69,4 +69,3 @@ script = ExtResource("6_fhmup")
 
 [node name="OutputComponent" type="Node2D" parent="Components"]
 script = ExtResource("7_p0th6")
-base_side = 2

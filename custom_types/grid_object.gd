@@ -9,16 +9,17 @@ func _exit_tree() -> void:
 	var parent = get_parent()
 	if parent == GridReferenceSystem:
 		var grid_ref_system: GridReferenceSystem = parent
-		grid_ref_system.GO_destroyed(self)
-
+		for cell in ocuppied_cells:
+			grid_ref_system.erase(cell)
+		grid_ref_system.print_dict()
 
 func request_connection(calling_comp: IOComponent):
 	# Look through all components and find IO component with valid parameters
 	if has_node("Components:"):
 		for comp in $Components.get_children():
-			if GlobalMethods.are_IO_COMPs_diff(comp, calling_comp):
+			if IOComponent.are_diff(comp, calling_comp):
 				print("Components are diff")
-				if (GlobalMethods.are_IO_COMPs_facing_opposite_dir(comp, calling_comp)):
+				if (IOComponent.facing_opposite_dir(comp, calling_comp)):
 					print("Components are facing opposite direction")
 					print("WE GOT CONNECTION!")
 					(comp as IOComponent).IO_connection = calling_comp

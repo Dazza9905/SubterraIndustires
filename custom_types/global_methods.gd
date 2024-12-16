@@ -10,11 +10,7 @@ func rotate(vector: Vector2i,  degrees: int) -> Vector2i:
 		
 
 	
-func are_IO_COMPs_facing_opposite_dir(this_comp: IOComponent, calling_comp: IOComponent) -> bool:
-	var this_comp_g_deg: float = this_comp.rotation_degrees + this_comp.parent_GO.rotation_degrees
-	var calling_comp_g_deg: float = calling_comp.rotation_degrees + calling_comp.parent_GO.rotation_degrees
-	print(this_comp_g_deg, "--", calling_comp_g_deg)
-	return is_equal_approx((this_comp_g_deg + 180.0) % 360.0, calling_comp_g_deg)
+
 	
 
 func are_IO_COMPs_diff(comp1: Node, comp2: Node) -> bool:
