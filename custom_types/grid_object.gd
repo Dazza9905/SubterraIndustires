@@ -6,11 +6,13 @@ var main_cell: Vector2i
 var ocuppied_cells: Array[Vector2i]
 
 func _exit_tree() -> void:
+	print("object deleted")
 	var parent = get_parent()
-	if parent == GridReferenceSystem:
+	if parent is GridReferenceSystem:
 		var grid_ref_system: GridReferenceSystem = parent
 		for cell in ocuppied_cells:
-			grid_ref_system.erase(cell)
+			if grid_ref_system.reference_hashmap.erase(cell):
+				print("Cell ", cell, " was deleted")
 		grid_ref_system.print_dict()
 
 func request_connection(calling_comp: IOComponent):
@@ -26,6 +28,14 @@ func request_connection(calling_comp: IOComponent):
 					return comp
 				else:
 					print("aaaaaablelble")
+
+func get_components():
+	if has_node("Components:"):
+		return $Components.get_children()
+	else:
+		print(self.name, "has no comps")
+		return {}
+	
 
 func connect_components():
 	if has_node("Components:"):

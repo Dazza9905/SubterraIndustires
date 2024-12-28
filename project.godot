@@ -20,7 +20,7 @@ config/icon="res://icon.svg"
 
 Enums="*res://custom_types/enums.gd"
 Globals="*res://custom_types/globals.gd"
-GlobalMethods="*res://custom_types/global_methods.gd"
+GF="*res://custom_types/global_methods.gd"
 
 [display]
 

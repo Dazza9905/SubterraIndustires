@@ -9,8 +9,7 @@ extends Component
 		cell_offset = new_offset
 		#if Engine.is_editor_hint():
 		self.position = ((cell_offset * Globals.TILE_SIZE) as Vector2)
-		
-#just for seeting in editor, read the angle if needed
+		#just for seeting in editor, read the angle if needed
 @export var base_side: Side:
 	set(new_base_side):
 		base_side = new_base_side
@@ -26,16 +25,45 @@ extends Component
 	get():
 		assert("Read the specific side")
 		return base_side
-
+		
+var global_pos: Vector2i:
+	get:
+		return parent_GO.main_cell + cell_offset
+		
+var global_rot_rad: float:
+	get:
+		return get_parent_GO().rotation + self.rotation
+		
+var side_vector: Vector2i:
+	get:
+		return Vector2.from_angle(global_rot_rad)
+		
+		
 #Holds reference to connedted object
 var IO_connection: IOComponent
 
 func get_io_con():
-	var target_XY: Vector2i = GlobalMethods.rotate(self.cell_offset + self.get_parent_GO().main_cell + GlobalMethods.rotate(Vector2(1,0), roundi(self.rotation_degrees)), roundi(self.get_parent_GO().rotation_degrees))
+	var target_XY: Vector2i
+	target_XY = global_pos
 	print("TARGET:", target_XY)
 	var target_GO: GridObject = get_GRS().get_GO_from_XY(target_XY)
 	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
+
+func _notification(what: int) -> void:
+	if (what == NOTIFICATION_EXIT_TREE):
+		if (IO_connection == null):
+			print(self.name , " io-conn is null even in notif")
+		else:
+			IO_connection.IO_connection = null
+			print(IO_connection.IO_connection)
+
+
+func _exit_tree() -> void:
+	if (IO_connection == null):
+		pass
+		print(self.name , " io-conn is null even in notif")
+	#IO_connection.IO_connection == null
 
 func connect_to_tick():
 	get_io_con()
@@ -47,7 +75,7 @@ var in_sprite: Sprite2D
 var out_sprite: Sprite2D
 
 func _process(delta: float) -> void:
-	if (IO_connection): #is valid conn
+	if (IO_connection != null): #is valid conn
 		if (Globals.show_debug_io_conn):
 			(out_sprite.get_child(0) as Sprite2D).visible = true
 			(in_sprite.get_child(0) as Sprite2D).visible = true

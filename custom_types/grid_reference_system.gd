@@ -16,7 +16,7 @@ var reference_hashmap: Dictionary
 func GO_built(grid_object: GridObject):
 	asign_GP_cells_to_GO(grid_object) #assign GridPostionerIndicator cells to GridObject
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
-	connect_GO_to_GRS(grid_object)
+	#connect_GO_to_GRS(grid_object)
 	
 	var GP_main_cell: Vector2i = Vector2(($"../GridPositioner".position.x - 16)/32, ($"../GridPositioner".position.y - 16)/32) as Vector2i
 	grid_object.main_cell = GP_main_cell
@@ -26,15 +26,13 @@ func GO_built(grid_object: GridObject):
 	
 	print_dict()
 
-func GO_destroyed(grid_object: GridObject):
-	var ocuppied_cells: Array[Vector2i] = grid_object.ocuppied_cells
-	for cell in ocuppied_cells:
-		reference_hashmap.erase(cell)
-	print_dict()
+#func GO_destroyed(grid_object: GridObject):
+	#for cell in grid_object.ocuppied_cells:
+		#reference_hashmap.erase(cell)
+	#print_dict()
 
 func get_GO_from_XY(coordinates: Vector2i):
 	if reference_hashmap.has(coordinates):
-		
 		return reference_hashmap[coordinates]
 	else:
 		return
@@ -61,8 +59,8 @@ func asign_GO_cells_to_GRS(grid_object: GridObject):
 	for cell in grid_object.ocuppied_cells:
 		reference_hashmap[cell] = grid_object
 
-func connect_GO_to_GRS(grid_object: GridObject):
-	grid_object.tree_exited.connect(GO_destroyed.bind(grid_object.ocuppied_cells))
+#func connect_GO_to_GRS(grid_object: GridObject):
+	#grid_object.tree_exited.connect(GO_destroyed.bind(grid_object.ocuppied_cells))
 
 
 func print_dict():

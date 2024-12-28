@@ -6,6 +6,7 @@ var tick_max_delta: float = 1.0 / ticks_per_second
 var tick_delta: float = 0
 var tick_num: int = 0
 signal machine_tick
+signal belt_tick
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
