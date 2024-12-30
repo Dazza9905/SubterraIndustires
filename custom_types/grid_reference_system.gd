@@ -25,12 +25,7 @@ func GO_built(grid_object: GridObject):
 	grid_object.connect_components()
 	
 	print_dict()
-
-#func GO_destroyed(grid_object: GridObject):
-	#for cell in grid_object.ocuppied_cells:
-		#reference_hashmap.erase(cell)
-	#print_dict()
-
+	
 func get_GO_from_XY(coordinates: Vector2i):
 	if reference_hashmap.has(coordinates):
 		return reference_hashmap[coordinates]
@@ -45,13 +40,13 @@ func asign_GP_cells_to_GO(grid_object: GridObject):
 	#get indicators (for teir position)
 	var collision_indicators = $"../GridPositioner/ManipulationParent/RuleCheckIndicatorManager".get_children()
 	
-	#for each indicator create a entry in dictionary
 	for indicator in collision_indicators:
 		#calcualte the coordinate for occupied cell
 		var p_offset: Vector2i
 		p_offset.x = indicator.position.x / 32
 		p_offset.y = indicator.position.y / 32
-		var coordinate: Vector2i = GO_position + p_offset
+		print("p_offset: ", p_offset)
+		var coordinate: Vector2i = GO_position + GF.rotate(p_offset, $"../GridPositioner/ManipulationParent".rotation)
 		#add it to the object
 		grid_object.ocuppied_cells.append(coordinate)
 

@@ -15,19 +15,20 @@ func _exit_tree() -> void:
 				print("Cell ", cell, " was deleted")
 		grid_ref_system.print_dict()
 
-func request_connection(calling_comp: IOComponent):
+func request_connection(placed_comp: IOComponent):
 	# Look through all components and find IO component with valid parameters
 	if has_node("Components:"):
-		for comp in $Components.get_children():
-			if IOComponent.are_diff(comp, calling_comp):
-				print("Components are diff")
-				if (IOComponent.facing_opposite_dir(comp, calling_comp)):
-					print("Components are facing opposite direction")
-					print("WE GOT CONNECTION!")
-					(comp as IOComponent).IO_connection = calling_comp
-					return comp
-				else:
-					print("aaaaaablelble")
+		for exist_comp in ($Components.get_children()):
+		
+			if (exist_comp is IOComponent):
+				print("\tTESTING EXISTING ", exist_comp.get_io_info(), ":")
+				if (exist_comp.accepts_conn_from(placed_comp)):
+					print("\tWE GOT CONNECTION!")
+					exist_comp.IO_connection = placed_comp
+					return exist_comp
+			else:
+				print("\tTESTING EXISTING ", exist_comp.name, ":")
+				print("\t\tIs not IOComponent")
 
 func get_components():
 	if has_node("Components:"):
@@ -39,10 +40,14 @@ func get_components():
 
 func connect_components():
 	if has_node("Components:"):
-		var components: Array[Node] = $Components.get_children()
+		var components := $Components.get_children()
 		for comp in components:
+			if comp is IOComponent:
+				print("==JUST PLACED ", comp.get_io_info())
+			else:
+				print("==JUST PLACED ", comp.name, "==")
 			(comp as Component).connect_to_tick()
 	else:
-		print(self.name, " has no components")
+		print(self.name, "has no components")
 			
 			

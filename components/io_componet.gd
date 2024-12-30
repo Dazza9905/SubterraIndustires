@@ -25,30 +25,35 @@ extends Component
 	get():
 		assert("Read the specific side")
 		return base_side
-		
-var global_pos: Vector2i:
+
+var self_XY: Vector2i:
 	get:
-		return parent_GO.main_cell + cell_offset
-		
-var global_rot_rad: float:
+		return parent_GO.main_cell + GF.rotate(cell_offset, parent_GO.rotation)
+var target_XY: Vector2i:
 	get:
-		return get_parent_GO().rotation + self.rotation
-		
-var side_vector: Vector2i:
-	get:
-		return Vector2.from_angle(global_rot_rad)
-		
-		
+		return parent_GO.main_cell + GF.rotate(cell_offset, parent_GO.rotation) + GF.rotate(GF.rotate(Vector2i.RIGHT, rotation), parent_GO.rotation)
+
+
+
 #Holds reference to connedted object
 var IO_connection: IOComponent
 
 func get_io_con():
-	var target_XY: Vector2i
-	target_XY = global_pos
-	print("TARGET:", target_XY)
+
 	var target_GO: GridObject = get_GRS().get_GO_from_XY(target_XY)
 	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
+	else:
+		print("no GO on target_XY")
+		
+func accepts_conn_from(comp_to_test: IOComponent):
+	if(IOComponent.are_diff(self, comp_to_test)): #are diff
+		#if(IOComponent.are_facing_eachother(self, comp_to_test)): #are facing eachother (THIS REDUNDAND BECAUSE OF NEXT STEP, BUT JUST TO BE SURE)
+		if(self_XY == comp_to_test.target_XY and comp_to_test.self_XY == target_XY): #are actually tageting each other
+			return true
+		else:
+			print("\t\tno same position:")
+	return false
 
 func _notification(what: int) -> void:
 	if (what == NOTIFICATION_EXIT_TREE):
@@ -92,13 +97,22 @@ func _init() -> void:
 		out_sprite = debug_out.instantiate()
 		#in_sprite.rotation_degrees = io_deg
 		#out_sprite.rotation_degrees = io_deg
+		
+func get_io_info() -> String:
+	return name + " @" + str(self_XY) + " >" + str(target_XY)
 
-static func facing_opposite_dir(comp1: IOComponent, comp2: IOComponent) -> bool:
+static func are_facing_eachother(comp1: IOComponent, comp2: IOComponent) -> bool:
 	var comp1_deg: float = comp1.rotation_degrees + comp1.parent_GO.rotation_degrees
 	var comp2_deg: float = comp2.rotation_degrees + comp2.parent_GO.rotation_degrees
-	print("Degs: ", comp1_deg, " -- ", comp2_deg)
-	return is_equal_approx(roundi(comp1_deg + 180.0) % 360, comp2_deg)
+	var result = is_equal_approx(roundi(comp1_deg + 180.0) % 360, comp2_deg)
+	if !result:
+		print("\t\tare not facing eachother")
+		print("\t\t\tDegs: ", comp1_deg, " -- ", comp2_deg)
+	return result
 
 
 static func are_diff(comp1: Node, comp2: Node) -> bool:
-	return (comp1 is InputComponent and comp2 is OutputComponent) or (comp1 is OutputComponent and comp2 is InputComponent)
+	var result = (comp1 is InputComponent and comp2 is OutputComponent) or (comp1 is OutputComponent and comp2 is InputComponent)
+	if !result:
+		print("\t\tare not diff:")
+	return result
