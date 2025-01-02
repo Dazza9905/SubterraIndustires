@@ -36,7 +36,6 @@ func get_components():
 	else:
 		print(self.name, "has no comps")
 		return {}
-	
 
 func connect_components():
 	if has_node("Components:"):

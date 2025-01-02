@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=45 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -36,9 +36,12 @@
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
 [ext_resource type="PackedScene" uid="uid://bui0pc2uo57iu" path="res://addons/grid_building/ui/game_log/build_log.tscn" id="29_gkur3"]
-[ext_resource type="Resource" uid="uid://2yxddhu2280k" path="res://placables/belt_slow_straight/belt_0s_placable.tres" id="32_pj7vl"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
+[ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
 [ext_resource type="Script" path="res://fps.gd" id="38_d6oh1"]
+[ext_resource type="Resource" uid="uid://djrxg7bxkd167" path="res://placables/belt_0s/belt_0s_placable.tres" id="38_w1uh7"]
+[ext_resource type="Resource" uid="uid://brd1gu1pa3ves" path="res://placables/belt_0c/belt_0l/belt_0l_placable.tres" id="39_3eb2x"]
+[ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belt_0c/belt_0r/belt_0r_placable.tres" id="40_xewns"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]
 script = ExtResource("17_2vu25")
@@ -153,7 +156,7 @@ collision_mask = 512
 [node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
 building_system = NodePath("../../Systems/GridSystems/BuildingSystem")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("26_w3lc3"), ExtResource("29_3lrbf")])
-placeables = Array[ExtResource("27_pk7sx")]([ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("32_pj7vl")])
+placeables = Array[ExtResource("27_pk7sx")]([ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("37_cfgxv"), ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns")])
 
 [node name="BuildLog" parent="UserInterface" instance=ExtResource("29_gkur3")]
 

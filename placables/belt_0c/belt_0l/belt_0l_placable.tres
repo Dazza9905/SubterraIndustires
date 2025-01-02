@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://brd1gu1pa3ves"]
+
+[ext_resource type="Texture2D" uid="uid://v52kyfk5b1ls" path="res://placables/belt_0c/belt_0l/belt_0l_seq.png" id="1_84gy7"]
+[ext_resource type="PackedScene" uid="uid://hjtirkn3xwes" path="res://placables/belt_0c/belt_0l/belt_0l.tscn" id="2_3exd8"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_k7lbb"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_k186x"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_pp3ia"]
+[ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="6_ax34w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dw21"]
+atlas = ExtResource("1_84gy7")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("4_k186x")
+display_name = &""
+icon = SubResource("AtlasTexture_1dw21")
+packed_scene = ExtResource("2_3exd8")
+tags = Array[ExtResource("5_pp3ia")]([ExtResource("6_ax34w")])
+placement_rules = Array[ExtResource("3_k7lbb")]([])
+ignore_base_rules = false

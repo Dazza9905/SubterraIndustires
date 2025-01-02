@@ -10,7 +10,7 @@ extends Node2D
 # passive - updated and managed from other compoenents
 # example: I/O, Slot/Buffer, Storage
 @export var active_component: bool = false # default: false
-
+var ads := RefCounted.new()
 @onready var parent_GO: GridObject = self.get_parent().get_parent()
 
 

@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://kbhoioejyouu"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_mbni2"]
+[ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belt_0s/belt_0s_frames.tres" id="1_tm2ff"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_yskhy"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_rk0eq"]
+[ext_resource type="Script" path="res://components/input_component.gd" id="6_fhmup"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="7_p0th6"]
+[ext_resource type="Script" path="res://components/belt_component.gd" id="8_3p8j0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
+size = Vector2(31.9, 31.9)
+
+[sub_resource type="Resource" id="Resource_xewl6"]
+script = ExtResource("4_rk0eq")
+move_rules = Array[ExtResource("3_yskhy")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = true
+flip_vertical = true
+movable = true
+demolishable = true
+
+[node name="BeltSlowStraight" type="StaticBody2D"]
+collision_layer = 527360
+collision_mask = 0
+script = ExtResource("1_mbni2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_tm2ff")
+animation = &"straight"
+autoplay = "straight"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3q5cp")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("2_s3413")
+settings = SubResource("Resource_xewl6")
+root = NodePath("..")
+
+[node name="BeltPathID" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
+script = ExtResource("8_3p8j0")
+input = NodePath("../InputComponent")
+output = NodePath("../OutputComponent")
+active_component = true
+
+[node name="InputComponent" type="Node2D" parent="Components"]
+rotation = 3.14159
+script = ExtResource("6_fhmup")
+
+[node name="OutputComponent" type="Node2D" parent="Components"]
+script = ExtResource("7_p0th6")
+base_side = 2
