@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://hjtirkn3xwes"]
+[gd_scene load_steps=13 format=3 uid="uid://hjtirkn3xwes"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_ubp1r"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_mtjan"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xaln4"]
+[ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="6_5bee7"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_gx7wa"]
+[ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="7_ptp4q"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="8_h6ivy"]
 
@@ -42,7 +44,7 @@ script = ExtResource("3_ubp1r")
 settings = SubResource("Resource_xewl6")
 root = NodePath("..")
 
-[node name="BeltPathID" type="Label" parent="."]
+[node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -55,16 +57,14 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 1
+label_settings = ExtResource("6_xdbhn")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("6_5bee7")
+belt_comp = NodePath("../Components/BeltComponent")
+metadata/_edit_use_anchors_ = true
 
 [node name="Components" type="Node2D" parent="."]
-
-[node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
-script = ExtResource("6_gx7wa")
-input = NodePath("../InputComponent")
-output = NodePath("../OutputComponent")
-active_component = true
 
 [node name="InputComponent" type="Node2D" parent="Components"]
 rotation = 3.14159
@@ -74,3 +74,9 @@ script = ExtResource("7_ptp4q")
 rotation = 4.71239
 script = ExtResource("8_h6ivy")
 base_side = 1
+
+[node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
+script = ExtResource("6_gx7wa")
+input = NodePath("../InputComponent")
+output = NodePath("../OutputComponent")
+active_component = true

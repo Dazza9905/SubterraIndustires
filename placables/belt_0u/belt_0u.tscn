@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dut5g8r8vttdj"]
+[gd_scene load_steps=13 format=3 uid="uid://dut5g8r8vttdj"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6erbl"]
 [ext_resource type="SpriteFrames" uid="uid://bs3hwgrv44j0r" path="res://placables/belt_0u/belt_0u_frames.tres" id="3_bhhbc"]
+[ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="3_hkbm5"]
+[ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="3_vfkmr"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_ws432"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_aev0m"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_6v8v7"]
@@ -47,14 +49,17 @@ shape = SubResource("RectangleShape2D_3q5cp")
 position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_3q5cp")
 
-[node name="BeltPathID" type="Label" parent="."]
+[node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
 size_flags_vertical = 1
+label_settings = ExtResource("3_hkbm5")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("3_vfkmr")
+belt_comp = NodePath("../Components/BeltComponent")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_ws432")

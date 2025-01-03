@@ -44,7 +44,7 @@ func get_io_con():
 	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
 	else:
-		print("no GO on target_XY")
+		print("\tno GO on target_XY")
 		
 func accepts_conn_from(comp_to_test: IOComponent):
 	if(IOComponent.are_diff(self, comp_to_test)): #are diff
