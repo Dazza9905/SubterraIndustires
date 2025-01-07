@@ -22,7 +22,7 @@ func connect_to_tick():
 	
 	
 
-#TODO: KOKOT DOPROGRAMUJ DEINICIALIZACIUS BeltCOmponentu
+#TODO: KOKOT DOPROGRAMUJ DEI$"."NICIALIZACIUS BeltCOmponentu
 #split baths functions, tu v tomto script, nieco s notif eventom
 #bum tu je error lebo si to itak nevsimnes
 func _notification(what: int) -> void:

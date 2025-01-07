@@ -57,6 +57,10 @@ func asign_GO_cells_to_GRS(grid_object: GridObject):
 #func connect_GO_to_GRS(grid_object: GridObject):
 	#grid_object.tree_exited.connect(GO_destroyed.bind(grid_object.ocuppied_cells))
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if Input.is_action_pressed("print_hashmap"):
+			print_dict()
 
 func print_dict():
 	for key in reference_hashmap.keys():

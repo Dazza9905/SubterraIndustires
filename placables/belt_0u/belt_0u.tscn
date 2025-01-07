@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dut5g8r8vttdj"]
+[gd_scene load_steps=11 format=3 uid="uid://dut5g8r8vttdj"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6erbl"]
 [ext_resource type="SpriteFrames" uid="uid://bs3hwgrv44j0r" path="res://placables/belt_0u/belt_0u_frames.tres" id="3_bhhbc"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_aev0m"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_6v8v7"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_82to5"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="7_ntn6b"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="8_3574h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
 size = Vector2(31.9, 31.9)
@@ -68,20 +66,6 @@ root = NodePath("..")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="InputComponent" type="Node2D" parent="Components"]
-position = Vector2(-32, 0)
-rotation = 3.14159
-script = ExtResource("7_ntn6b")
-cell_offset = Vector2i(-1, 0)
-
-[node name="OutputComponent" type="Node2D" parent="Components"]
-position = Vector2(32, 0)
-script = ExtResource("8_3574h")
-cell_offset = Vector2i(1, 0)
-base_side = 2
-
-[node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
+[node name="BeltComponent" type="Node2D" parent="Components"]
 script = ExtResource("6_82to5")
-input = NodePath("../InputComponent")
-output = NodePath("../OutputComponent")
 active_component = true

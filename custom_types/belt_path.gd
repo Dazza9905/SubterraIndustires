@@ -37,8 +37,6 @@ func belt_removed(belt_comp):
 	print(path)
 		
 
-
-
 func remove_last(belt_comp: BeltComponent):
 	if(path.back() == belt_comp):
 		path.remove_at(path.size() - 1)

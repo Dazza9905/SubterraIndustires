@@ -69,32 +69,36 @@ func _exit_tree() -> void:
 		pass
 		print(self.name , " io-conn is null even in notif")
 	#IO_connection.IO_connection == null
+	queue_free()
+
 
 func connect_to_tick():
 	get_io_con()
 
 #=========DEBUG============
-var debug_in: PackedScene = preload("res://debug/io_ports/in_debug.tscn")
-var debug_out: PackedScene = preload("res://debug/io_ports/out_debug.tscn")
-var in_sprite: Sprite2D
-var out_sprite: Sprite2D
+#var debug_in: PackedScene = preload("res://debug/io_ports/in_debug.tscn")
+#var debug_out: PackedScene = preload("res://debug/io_ports/out_debug.tscn")
+#var in_sprite: Sprite2D
+#var out_sprite: Sprite2D
 
 func _process(delta: float) -> void:
-	if (IO_connection != null): #is valid conn
-		if (Globals.show_debug_io_conn):
-			(out_sprite.get_child(0) as Sprite2D).visible = true
-			(in_sprite.get_child(0) as Sprite2D).visible = true
-		else:
-			(out_sprite.get_child(0) as Sprite2D).visible = false
-			(in_sprite.get_child(0) as Sprite2D).visible = false
-	else: 
-		(out_sprite.get_child(0) as Sprite2D).visible = false
-		(in_sprite.get_child(0) as Sprite2D).visible = false
+	pass
+	#if (IO_connection != null): #is valid conn
+		#if (Globals.show_debug_io_conn):
+			#(out_sprite.get_child(0) as Sprite2D).visible = true
+			#(in_sprite.get_child(0) as Sprite2D).visible = true
+		#else:
+			#(out_sprite.get_child(0) as Sprite2D).visible = false
+			#(in_sprite.get_child(0) as Sprite2D).visible = false
+	#else: 
+		#(out_sprite.get_child(0) as Sprite2D).visible = false
+		#(in_sprite.get_child(0) as Sprite2D).visible = false
 
 func _init() -> void:
-	if (OS.has_feature("debug")):
-		in_sprite = debug_in.instantiate()
-		out_sprite = debug_out.instantiate()
+	pass
+	#if (OS.has_feature("debug")):
+		#in_sprite = debug_in.instantiate()
+		#out_sprite = debug_out.instantiate()
 		#in_sprite.rotation_degrees = io_deg
 		#out_sprite.rotation_degrees = io_deg
 		
@@ -109,7 +113,6 @@ static func are_facing_eachother(comp1: IOComponent, comp2: IOComponent) -> bool
 		print("\t\tare not facing eachother")
 		print("\t\t\tDegs: ", comp1_deg, " -- ", comp2_deg)
 	return result
-
 
 static func are_diff(comp1: Node, comp2: Node) -> bool:
 	var result = (comp1 is InputComponent and comp2 is OutputComponent) or (comp1 is OutputComponent and comp2 is InputComponent)

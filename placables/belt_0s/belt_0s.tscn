@@ -5,11 +5,11 @@
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_yskhy"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_rk0eq"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="6_fhmup"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="7_p0th6"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="7_st278"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="8_3p8j0"]
+[ext_resource type="Script" path="res://components/input_component.gd" id="8_gtscd"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="9_hx3sj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
 size = Vector2(31.9, 31.9)
@@ -66,10 +66,10 @@ belt_comp = NodePath("../Components/BeltComponent")
 
 [node name="InputComponent" type="Node2D" parent="Components"]
 rotation = 3.14159
-script = ExtResource("6_fhmup")
+script = ExtResource("8_gtscd")
 
 [node name="OutputComponent" type="Node2D" parent="Components"]
-script = ExtResource("7_p0th6")
+script = ExtResource("9_hx3sj")
 base_side = 2
 
 [node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]

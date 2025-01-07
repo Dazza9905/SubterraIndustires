@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hjtirkn3xwes"]
+[gd_scene load_steps=11 format=3 uid="uid://hjtirkn3xwes"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="6_5bee7"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_gx7wa"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="7_ptp4q"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="8_h6ivy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
 size = Vector2(31.9, 31.9)
@@ -66,17 +64,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="InputComponent" type="Node2D" parent="Components"]
-rotation = 3.14159
-script = ExtResource("7_ptp4q")
-
-[node name="OutputComponent" type="Node2D" parent="Components"]
-rotation = 4.71239
-script = ExtResource("8_h6ivy")
-base_side = 1
-
-[node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
+[node name="BeltComponent" type="Node2D" parent="Components"]
 script = ExtResource("6_gx7wa")
-input = NodePath("../InputComponent")
-output = NodePath("../OutputComponent")
 active_component = true
