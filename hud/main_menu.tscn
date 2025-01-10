@@ -35,19 +35,14 @@ anchor_right = 0.6
 anchor_bottom = 0.6
 scale = Vector2(1.00175, 0.994028)
 
-[node name="Load Game" type="Button" parent="VBoxContainer" groups=["scene_manager_entity_nodes"]]
+[node name="Begin" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Load Game"
-
-[node name="New Game" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "New Game"
+text = "Begin"
 
 [node name="Option" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
 
-[connection signal="button_up" from="VBoxContainer/Load Game" to="." method="_on_load_game_button_up"]
+[connection signal="pressed" from="VBoxContainer/Begin" to="." method="_on_begin_pressed"]

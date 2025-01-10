@@ -47,14 +47,28 @@ func remove_first(belt_comp: BeltComponent):
 
 func split_at(index_of_removed: int):
 	#FIXME insted of calculating it, store the index in BeltComponent. Can be also user elsewere in debug
+	print("Original:")
+	for i in range(0, path.size()):
+		print(i)
 	var temp_bp = BeltPath.new(path[index_of_removed+1])
-	for i in range(index_of_removed+1, path.size()):
-		print(temp_bp)
+	path[index_of_removed+1].belt_path = temp_bp
+	print("New (1st):")
+	for i in range(0, temp_bp.path.size()):
+		print(i)
+		
+	for i in range(index_of_removed+2, path.size()):
 		path[i].belt_path = temp_bp
 		temp_bp.append_belt(path[i])
-	for i in range(index_of_removed, path.size()):
+		
+	print("New (all):")
+	for i in range(0, temp_bp.path.size()):
 		print(i)
-		path.remove_at(i)
+	
+	path.resize(index_of_removed)
+		
+	print("Original (updated):")
+	for i in range(0, path.size()):
+		print(i)
 
 func update():
 	pass
