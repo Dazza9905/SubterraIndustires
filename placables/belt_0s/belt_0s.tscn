@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kbhoioejyouu"]
+[gd_scene load_steps=15 format=3 uid="uid://kbhoioejyouu"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_mbni2"]
 [ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belt_0s/belt_0s_frames.tres" id="1_tm2ff"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_rk0eq"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="7_st278"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="8_1n57p"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="8_3p8j0"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="8_gtscd"]
+[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron.png" id="8_v3mju"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="9_hx3sj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
@@ -29,12 +31,12 @@ collision_layer = 527360
 collision_mask = 0
 script = ExtResource("1_mbni2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BeltSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_tm2ff")
 animation = &"straight"
 autoplay = "straight"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3q5cp")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
@@ -62,15 +64,25 @@ vertical_alignment = 1
 script = ExtResource("7_st278")
 belt_comp = NodePath("../Components/BeltComponent")
 
+[node name="ItemSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_v3mju")
+
 [node name="Components" type="Node2D" parent="."]
 
-[node name="InputComponent" type="Node2D" parent="Components"]
+[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+script = ExtResource("8_1n57p")
+item_sprite = NodePath("../../ItemSprite")
+
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
 script = ExtResource("8_gtscd")
+slot = NodePath("../SlotComponent")
 
-[node name="OutputComponent" type="Node2D" parent="Components"]
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("9_hx3sj")
 base_side = 2
+slot = NodePath("../SlotComponent")
 
 [node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
 script = ExtResource("8_3p8j0")

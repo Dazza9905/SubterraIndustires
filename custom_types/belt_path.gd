@@ -5,9 +5,21 @@ var id: int
 var path: Array[BeltComponent]
 
 func _init(belt: BeltComponent) -> void:
+	Globals.get_tts().belt_tick.connect(_on_belt_tick)
 	path.append(belt)
 	id = randi_range(1000, 9999)
-	
+
+func _on_belt_tick():
+	var last_in_path: bool = true
+	for i in range(path.size()-1, -1, -1):
+		path[i].update_belt(last_in_path)
+		last_in_path = false
+	print(id, ": ticked")
+
+
+
+
+
 func append_belt(belt: BeltComponent):
 	path.push_back(belt)
 
@@ -35,12 +47,11 @@ func belt_removed(belt_comp):
 		split_at(belt_comp_index)
 		
 	print(path)
-		
 
 func remove_last(belt_comp: BeltComponent):
 	if(path.back() == belt_comp):
 		path.remove_at(path.size() - 1)
-		
+
 func remove_first(belt_comp: BeltComponent):
 	if(path[0] == belt_comp):
 		path.remove_at(0)
@@ -69,6 +80,3 @@ func split_at(index_of_removed: int):
 	print("Original (updated):")
 	for i in range(0, path.size()):
 		print(i)
-
-func update():
-	pass

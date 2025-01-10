@@ -2,8 +2,6 @@
 class_name IOComponent
 extends Component
 
-#JUST FOR STTING IN EDOTOR
-#for setting and reading
 @export var cell_offset: Vector2i :
 	set(new_offset):
 		cell_offset = new_offset
@@ -25,18 +23,18 @@ extends Component
 	get():
 		assert("Read the specific side")
 		return base_side
-
+@export var slot: SlotComponent
+	
 var self_XY: Vector2i:
 	get:
 		return parent_GO.main_cell + GF.rotate(cell_offset, parent_GO.rotation)
 var target_XY: Vector2i:
 	get:
 		return parent_GO.main_cell + GF.rotate(cell_offset, parent_GO.rotation) + GF.rotate(GF.rotate(Vector2i.RIGHT, rotation), parent_GO.rotation)
-
-
-
-#Holds reference to connedted object
 var IO_connection: IOComponent
+
+
+
 
 func get_io_con():
 
@@ -63,7 +61,6 @@ func _notification(what: int) -> void:
 			IO_connection.IO_connection = null
 			print(IO_connection.IO_connection)
 
-
 func _exit_tree() -> void:
 	if (IO_connection == null):
 		pass
@@ -71,36 +68,8 @@ func _exit_tree() -> void:
 	#IO_connection.IO_connection == null
 	queue_free()
 
-
 func connect_to_tick():
 	get_io_con()
-
-#=========DEBUG============
-#var debug_in: PackedScene = preload("res://debug/io_ports/in_debug.tscn")
-#var debug_out: PackedScene = preload("res://debug/io_ports/out_debug.tscn")
-#var in_sprite: Sprite2D
-#var out_sprite: Sprite2D
-
-func _process(delta: float) -> void:
-	pass
-	#if (IO_connection != null): #is valid conn
-		#if (Globals.show_debug_io_conn):
-			#(out_sprite.get_child(0) as Sprite2D).visible = true
-			#(in_sprite.get_child(0) as Sprite2D).visible = true
-		#else:
-			#(out_sprite.get_child(0) as Sprite2D).visible = false
-			#(in_sprite.get_child(0) as Sprite2D).visible = false
-	#else: 
-		#(out_sprite.get_child(0) as Sprite2D).visible = false
-		#(in_sprite.get_child(0) as Sprite2D).visible = false
-
-func _init() -> void:
-	pass
-	#if (OS.has_feature("debug")):
-		#in_sprite = debug_in.instantiate()
-		#out_sprite = debug_out.instantiate()
-		#in_sprite.rotation_degrees = io_deg
-		#out_sprite.rotation_degrees = io_deg
 		
 func get_io_info() -> String:
 	return name + " @" + str(self_XY) + " >" + str(target_XY)

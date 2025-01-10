@@ -24,8 +24,8 @@ func _input(event):
 			
 			
 
-
-#METHODS
+func get_tts() -> TimeTickSystem:
+	return get_node("/root/Game/Systems/TimeTickSystem")
 
 
 

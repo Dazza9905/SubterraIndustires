@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dut5g8r8vttdj"]
+[gd_scene load_steps=14 format=3 uid="uid://dut5g8r8vttdj"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6erbl"]
 [ext_resource type="SpriteFrames" uid="uid://bs3hwgrv44j0r" path="res://placables/belt_0u/belt_0u_frames.tres" id="3_bhhbc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_aev0m"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_6v8v7"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_82to5"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="8_exmld"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="8_uveuj"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="9_g7b6o"]
 
@@ -66,19 +67,28 @@ script = ExtResource("3_ws432")
 settings = SubResource("Resource_xewl6")
 root = NodePath("..")
 
+[node name="ItemSprite" type="Sprite2D" parent="."]
+visible = false
+
 [node name="Components" type="Node2D" parent="."]
 
-[node name="OutputComponent" type="Node2D" parent="Components"]
+[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+script = ExtResource("8_exmld")
+item_sprite = NodePath("../../ItemSprite")
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(32, 0)
 script = ExtResource("8_uveuj")
 cell_offset = Vector2i(1, 0)
 base_side = 2
+slot = NodePath("../SlotComponent")
 
-[node name="InputComponent" type="Node2D" parent="Components"]
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(-32, 0)
 rotation = 3.14159
 script = ExtResource("9_g7b6o")
 cell_offset = Vector2i(-1, 0)
+slot = NodePath("../SlotComponent")
 
 [node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
 script = ExtResource("6_82to5")

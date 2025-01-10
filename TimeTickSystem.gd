@@ -1,7 +1,7 @@
 extends Node
 class_name TimeTickSystem
 
-var ticks_per_second: int = 4
+var ticks_per_second: int = 1
 var tick_max_delta: float = 1.0 / ticks_per_second
 var tick_delta: float = 0
 var tick_num: int = 0
@@ -22,10 +22,11 @@ func _process(delta: float) -> void:
 		tick_num = tick_num + 1
 		#print("Tick num: ", tick_num, "\t Tick delta: ", tick_delta)
 		if tick_num % 2 == 0:
+			print("BELT TICK:")
 			emit_signal("belt_tick")
-			#print("Belt tick!")
-		else:
-			emit_signal("machine_tick")
-			#print("Machine tick!")
 			
-	pass
+		else:
+			print("MACHINE TICK:")
+			emit_signal("machine_tick")
+		print()
+	
