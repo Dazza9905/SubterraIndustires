@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfijcbkjp3mo6"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_s030c"]
+[ext_resource type="Texture2D" uid="uid://drl338ci5l4tj" path="res://placables/splitter/splitter_sprite.png" id="2_h6gh0"]
+[ext_resource type="Script" path="res://components/input_component.gd" id="3_6ol5y"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_noymc"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="4_d5gum"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_d82xm"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_5gyes"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="5_bnxp2"]
+[ext_resource type="Script" path="res://components/splitter_component.gd" id="6_urk3r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kei4o"]
+size = Vector2(31.9, 31.9)
+
+[sub_resource type="Resource" id="Resource_m5pbt"]
+script = ExtResource("5_5gyes")
+move_rules = Array[ExtResource("4_d82xm")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = false
+flip_vertical = false
+movable = false
+demolishable = true
+
+[node name="Splitter" type="StaticBody2D"]
+collision_layer = 3073
+collision_mask = 0
+script = ExtResource("1_s030c")
+
+[node name="SplitterSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_h6gh0")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kei4o")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_noymc")
+settings = SubResource("Resource_m5pbt")
+root = NodePath("..")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Slot_In_Left" type="Node2D" parent="Components"]
+script = ExtResource("5_bnxp2")
+
+[node name="Slot_Out_Top" type="Node2D" parent="Components"]
+script = ExtResource("5_bnxp2")
+
+[node name="Slot_Out_Right" type="Node2D" parent="Components"]
+script = ExtResource("5_bnxp2")
+
+[node name="Slot_Out_Bot" type="Node2D" parent="Components"]
+script = ExtResource("5_bnxp2")
+
+[node name="InLeft" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 3.14159
+script = ExtResource("3_6ol5y")
+slot = NodePath("../Slot_In_Left")
+
+[node name="OutTop" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 4.71239
+script = ExtResource("4_d5gum")
+base_side = 1
+slot = NodePath("../Slot_Out_Top")
+
+[node name="OutRight" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("4_d5gum")
+base_side = 2
+slot = NodePath("../Slot_Out_Right")
+
+[node name="OutBot" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 1.5708
+script = ExtResource("4_d5gum")
+base_side = 3
+slot = NodePath("../Slot_Out_Bot")
+
+[node name="SplitterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
+script = ExtResource("6_urk3r")
+inputs = [NodePath("../InLeft")]
+outputs = [NodePath("../OutTop"), NodePath("../OutRight"), NodePath("../OutBot")]

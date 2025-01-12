@@ -21,6 +21,11 @@ func _input(event):
 		if Input.is_action_pressed("debug_toggle_io_ports"):
 			show_debug_io_port = not show_debug_io_port
 			print("DEBUG - Show IO Ports: ", show_debug_io_port)
+		if Input.is_action_pressed("debug_toggle_belt_paths"):
+			show_debug_belt_paths = not show_debug_belt_paths
+			print("DEBUG - Show BeltPaths: ", show_debug_belt_paths)
+		
+		
 			
 			
 
@@ -32,6 +37,7 @@ func get_tts() -> TimeTickSystem:
 #DEBUG FLAGS
 var show_debug_io_conn: bool = false
 var show_debug_io_port: bool = false
+var show_debug_belt_paths: bool = false
 
 # explanations for short names in functions
 # GO - GridObject

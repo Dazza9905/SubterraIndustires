@@ -1,3 +1,4 @@
+@icon("res://art/downloaded/icon_godot_node/node/icon_time.png")
 extends Node
 class_name TimeTickSystem
 
@@ -22,11 +23,11 @@ func _process(delta: float) -> void:
 		tick_num = tick_num + 1
 		#print("Tick num: ", tick_num, "\t Tick delta: ", tick_delta)
 		if tick_num % 2 == 0:
-			print("BELT TICK:")
+			#print("BELT TICK:")
 			emit_signal("belt_tick")
 			
 		else:
-			print("MACHINE TICK:")
+			#print("MACHINE TICK:")
 			emit_signal("machine_tick")
-		print()
+		#print()
 	

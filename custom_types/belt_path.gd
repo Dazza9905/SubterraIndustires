@@ -14,11 +14,7 @@ func _on_belt_tick():
 	for i in range(path.size()-1, -1, -1):
 		path[i].update_belt(last_in_path)
 		last_in_path = false
-	print(id, ": ticked")
-
-
-
-
+	#print(id, ": ticked")
 
 func append_belt(belt: BeltComponent):
 	path.push_back(belt)
