@@ -11,11 +11,11 @@ var output_index: int = 0:
 	set(new_index):
 		output_index = new_index % outputs.size()
 
-func connect_to_tick():
+func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
 	
 	
-func _on_machanine_tick():
+func _on_machanine_tick() -> void:
 	#print("splitter ticked")
 	var target_in_slot: SlotComponent
 	var target_out_slot: SlotComponent

@@ -1,6 +1,7 @@
 extends Node
 
 const LEVEL_PATH = "res://levels/"
+const ITEM_TEX_PATH = "res://items/"
 
 const TILE_SIZE = 32
 
@@ -13,7 +14,7 @@ enum SlotFlag {
 }
 
 #INPUTS HANDELING
-func _input(event):
+func _input(event) -> void:
 	if event is InputEventKey and event.pressed:
 		if Input.is_action_pressed("debug_toggle_connections"):
 			show_debug_io_conn = not show_debug_io_conn
@@ -26,7 +27,8 @@ func _input(event):
 			print("DEBUG - Show BeltPaths: ", show_debug_belt_paths)
 		
 		
-			
+func get_mode_building_system() -> BuildingSystem:
+	return get_node("/root/Game/Systems/GridSystems/BuildingSystem") as BuildingSystem
 			
 
 func get_tts() -> TimeTickSystem:

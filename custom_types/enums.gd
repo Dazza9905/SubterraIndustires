@@ -4,5 +4,7 @@ extends Node
 enum MATERIAL_ITEM {
 	NONE, #used also as ANY (when filtering)
 	IRON,
-	COPPER
+	COPPER,
+	COAL,
+	GOLD
 }

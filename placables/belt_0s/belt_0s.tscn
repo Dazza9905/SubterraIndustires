@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="8_1n57p"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="8_3p8j0"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="8_gtscd"]
-[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron.png" id="8_v3mju"]
+[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron_sprite.png" id="8_v3mju"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="9_hx3sj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]

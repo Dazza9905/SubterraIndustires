@@ -22,6 +22,9 @@ class_name SlotComponent
 		else:
 			if(item_sprite is Sprite2D):
 				item_sprite.visible = true
+				var item_name: String =  str(Enums.MATERIAL_ITEM.keys()[item]).to_lower()
+				item_sprite.texture = load(Globals.ITEM_TEX_PATH + item_name + "/" + item_name + "_sprite.png")
+				print(Globals.ITEM_TEX_PATH + item_name + "/" + item_name + "_sprite.png")
 
 func give_item(passed_item: Enums.MATERIAL_ITEM) -> Error:
 	if(passed_item == Enums.MATERIAL_ITEM.NONE):
@@ -29,12 +32,15 @@ func give_item(passed_item: Enums.MATERIAL_ITEM) -> Error:
 	elif(item != passed_item and item != Enums.MATERIAL_ITEM.NONE):
 		return FAILED
 	else:
-		_amount = _amount + 1
-		item = passed_item
-		return OK
+		if(_amount + 1 > capacity):
+			return FAILED
+		else:
+			_amount = _amount + 1
+			item = passed_item
+			return OK
 
 func take() -> Enums.MATERIAL_ITEM:
-	var temp_item = item
+	var temp_item: Enums.MATERIAL_ITEM = item
 	_amount = _amount - 1
 	return temp_item
 
@@ -50,7 +56,7 @@ func take_any_type() -> Enums.MATERIAL_ITEM:
 func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM) -> Enums.MATERIAL_ITEM:
 	if (is_empty()):
 		return Enums.MATERIAL_ITEM.NONE
-	elif (item == passed_item_type):
+	elif (item == passed_item_type and _amount > 0):
 		return take()
 	return Enums.MATERIAL_ITEM.NONE
 	

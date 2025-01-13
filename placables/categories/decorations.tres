@@ -8,7 +8,6 @@ atlas = ExtResource("1_qnbr2")
 region = Rect2(32, 192, 32, 32)
 
 [resource]
-resource_name = "Plants Category"
 script = ExtResource("2_2wsqa")
-display_name = &"Plants"
+display_name = &"Decorations"
 icon = SubResource("AtlasTexture_ll5l6")

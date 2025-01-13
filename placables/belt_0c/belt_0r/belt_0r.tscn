@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_hp0iw"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="6_jss24"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="8_3rogh"]
-[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron.png" id="8_wqanb"]
+[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron_sprite.png" id="8_wqanb"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="8_ys2m1"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="9_fge0t"]
 

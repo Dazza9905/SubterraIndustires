@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6jw116crhmcx"
-path="res://.godot/imported/copper.png-5db9bec5b956d485c1bdfbb4b2fe0942.ctex"
+path="res://.godot/imported/copper_sprite.png-caa762834e89ff969762e5cd1a22c795.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/copper/copper.png"
-dest_files=["res://.godot/imported/copper.png-5db9bec5b956d485c1bdfbb4b2fe0942.ctex"]
+source_file="res://items/copper/copper_sprite.png"
+dest_files=["res://.godot/imported/copper_sprite.png-caa762834e89ff969762e5cd1a22c795.ctex"]
 
 [params]
 

@@ -13,7 +13,7 @@ class_name GridReferenceSystem
 
 var reference_hashmap: Dictionary
 
-func GO_built(grid_object: GridObject):
+func GO_built(grid_object: GridObject) -> void:
 	asign_GP_cells_to_GO(grid_object) #assign GridPostionerIndicator cells to GridObject
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
 	#connect_GO_to_GRS(grid_object)
@@ -26,7 +26,7 @@ func GO_built(grid_object: GridObject):
 	
 	print_dict()
 	
-func get_GO_from_XY(coordinates: Vector2i):
+func get_GO_from_XY(coordinates: Vector2i) -> GridObject:
 	if reference_hashmap.has(coordinates):
 		return reference_hashmap[coordinates]
 	else:

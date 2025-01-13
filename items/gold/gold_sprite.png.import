@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dysi33d2hj8sp"
-path="res://.godot/imported/coal.png-75324e5e0df119290083c6013c7e2367.ctex"
+uid="uid://c2cv5sa358evh"
+path="res://.godot/imported/gold_sprite.png-636299b6f5b240eb60ffdd20b1fcff0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://items/coal/coal.png"
-dest_files=["res://.godot/imported/coal.png-75324e5e0df119290083c6013c7e2367.ctex"]
+source_file="res://items/gold/gold_sprite.png"
+dest_files=["res://.godot/imported/gold_sprite.png-636299b6f5b240eb60ffdd20b1fcff0b.ctex"]
 
 [params]
 

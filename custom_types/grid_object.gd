@@ -49,4 +49,9 @@ func connect_components():
 	else:
 		print(self.name, "has no components")
 			
-			
+
+func _on_open_ui_pressed() -> void:
+	var packed_ui = preload("res://placables/creative_placables/item_gen/item_gen_ui.tscn")
+	var ui = packed_ui.instantiate()
+	print("asss")
+	add_child(ui)
