@@ -26,20 +26,20 @@ class_name SlotComponent
 				item_sprite.texture = load(Globals.ITEM_TEX_PATH + item_name + "/" + item_name + "_sprite.png")
 				print(Globals.ITEM_TEX_PATH + item_name + "/" + item_name + "_sprite.png")
 
-func give_item(passed_item: Enums.MATERIAL_ITEM) -> Error:
+func give_item(passed_item: Enums.MATERIAL_ITEM, passed_ammount: int = 1) -> Error:
 	if(passed_item == Enums.MATERIAL_ITEM.NONE):
 		return FAILED
 	elif(item != passed_item and item != Enums.MATERIAL_ITEM.NONE):
 		return FAILED
 	else:
-		if(_amount + 1 > capacity):
+		if(_amount + passed_ammount > capacity):
 			return FAILED
 		else:
-			_amount = _amount + 1
+			_amount = _amount + passed_ammount
 			item = passed_item
 			return OK
 			
-func can_give_item(passed_item: Enums.MATERIAL_ITEM, passed_amount: int) -> bool:
+func can_give_item(passed_item: Enums.MATERIAL_ITEM, passed_amount: int = 1) -> bool:
 	if(passed_item == Enums.MATERIAL_ITEM.NONE):
 		return false
 	elif(item != passed_item and item != Enums.MATERIAL_ITEM.NONE):
@@ -50,9 +50,9 @@ func can_give_item(passed_item: Enums.MATERIAL_ITEM, passed_amount: int) -> bool
 		else:
 			return true
 
-func take() -> Enums.MATERIAL_ITEM:
+func take(passed_amount: int = 1) -> Enums.MATERIAL_ITEM:
 	var temp_item: Enums.MATERIAL_ITEM = item
-	_amount = _amount - 1
+	_amount = _amount - passed_amount
 	return temp_item
 
 
@@ -64,20 +64,22 @@ func take_any_type() -> Enums.MATERIAL_ITEM:
 		return take()
 
 #SINGLE
-func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM) -> Enums.MATERIAL_ITEM:
+func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount: int = 1) -> Enums.MATERIAL_ITEM:
 	if (is_empty()):
 		return Enums.MATERIAL_ITEM.NONE
-	elif (item == passed_item_type and _amount > 0):
-		return take()
+	else:
+		if (item == passed_item_type and _amount >= passed_amount):
+			return take(passed_amount)
 	return Enums.MATERIAL_ITEM.NONE
 	
 #MULTI
-func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM]) -> Enums.MATERIAL_ITEM:
+func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM], passed_amount: int = 1) -> Enums.MATERIAL_ITEM:
 	if (is_empty()):
 		return Enums.MATERIAL_ITEM.NONE
-	else: for item_type in passed_item_types:
-		if (item == item_type):
-			return take()
+	else: 
+		for item_type in passed_item_types:
+			if (item == item_type and _amount >= passed_amount):
+				return take(passed_amount)
 	return Enums.MATERIAL_ITEM.NONE
 
 

@@ -34,7 +34,7 @@
 [ext_resource type="Resource" uid="uid://de8o88bvo72qh" path="res://placables/bush_small_1/bush_small_1_placable.tres" id="28_nyp5n"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
-[ext_resource type="Resource" path="res://placables/categories/creative.tres" id="32_yh7yd"]
+[ext_resource type="Resource" uid="uid://54anwcasxav7" path="res://placables/categories/creative.tres" id="32_yh7yd"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]

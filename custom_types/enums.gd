@@ -6,5 +6,6 @@ enum MATERIAL_ITEM {
 	IRON,
 	COPPER,
 	COAL,
-	GOLD
+	GOLD,
+	IRON_INGOT
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wx0imx3ix2ic"]
+[gd_scene load_steps=18 format=3 uid="uid://wx0imx3ix2ic"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_u54kl"]
 [ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="2_1pau7"]
@@ -25,10 +25,25 @@ flip_vertical = false
 movable = false
 demolishable = true
 
-[sub_resource type="Resource" id="Resource_j4glj"]
+[sub_resource type="Resource" id="Resource_5qswy"]
+script = ExtResource("10_g2if3")
+item = 1
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o5nw5"]
+script = ExtResource("10_g2if3")
+item = 3
+amount = 2
+
+[sub_resource type="Resource" id="Resource_ityc7"]
+script = ExtResource("10_g2if3")
+item = 5
+amount = 1
+
+[sub_resource type="Resource" id="Resource_xo4wt"]
 script = ExtResource("11_3d15t")
-input_ingredients = Array[ExtResource("10_g2if3")]([])
-output_products = Array[ExtResource("10_g2if3")]([])
+input_ingredients = Array[ExtResource("10_g2if3")]([SubResource("Resource_5qswy"), SubResource("Resource_o5nw5")])
+output_products = Array[ExtResource("10_g2if3")]([SubResource("Resource_ityc7")])
 ticks_to_craft = 0
 
 [node name="Smelter" type="StaticBody2D"]
@@ -85,6 +100,6 @@ slot = NodePath("../SlotRafined")
 
 [node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
 script = ExtResource("9_5ob0n")
-recipe = SubResource("Resource_j4glj")
+recipe = SubResource("Resource_xo4wt")
 inputs = [NodePath("../SlotRaw"), NodePath("../SlotFuel")]
 outputs = [NodePath("../SlotRafined")]
