@@ -38,6 +38,17 @@ func give_item(passed_item: Enums.MATERIAL_ITEM) -> Error:
 			_amount = _amount + 1
 			item = passed_item
 			return OK
+			
+func can_give_item(passed_item: Enums.MATERIAL_ITEM, passed_amount: int) -> bool:
+	if(passed_item == Enums.MATERIAL_ITEM.NONE):
+		return false
+	elif(item != passed_item and item != Enums.MATERIAL_ITEM.NONE):
+		return false
+	else:
+		if(_amount + passed_amount > capacity):
+			return false
+		else:
+			return true
 
 func take() -> Enums.MATERIAL_ITEM:
 	var temp_item: Enums.MATERIAL_ITEM = item
@@ -69,8 +80,12 @@ func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM]) -> Enums.MAT
 			return take()
 	return Enums.MATERIAL_ITEM.NONE
 
+
+
 func is_empty() -> bool:
 	return item == Enums.MATERIAL_ITEM.NONE or _amount == 0
+	
+	
 	
 func connect_to_tick() -> void:
 	pass

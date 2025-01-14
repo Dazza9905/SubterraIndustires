@@ -24,7 +24,7 @@ movable = false
 demolishable = true
 
 [node name="Splitter" type="StaticBody2D"]
-collision_layer = 3073
+collision_layer = 3584
 collision_mask = 0
 script = ExtResource("1_s030c")
 
@@ -77,5 +77,5 @@ slot = NodePath("../Slot_Out_Bot")
 
 [node name="SplitterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
 script = ExtResource("6_urk3r")
-inputs = [NodePath("../InLeft")]
-outputs = [NodePath("../OutTop"), NodePath("../OutRight"), NodePath("../OutBot")]
+inputs = [NodePath("../Slot_In_Left")]
+outputs = [NodePath("../Slot_Out_Top"), NodePath("../Slot_Out_Right"), NodePath("../Slot_Out_Bot")]

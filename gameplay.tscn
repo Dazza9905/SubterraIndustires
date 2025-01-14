@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=50 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -29,12 +29,13 @@
 [ext_resource type="TileSet" uid="uid://dxy2djh5scssk" path="res://art/downloaded/pixel_art_pack/pixel_art_pack.tres" id="25_i0l3u"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="25_njtw1"]
 [ext_resource type="Script" path="res://custom_types/grid_reference_system.gd" id="26_ir2r4"]
-[ext_resource type="Resource" uid="uid://bxlqnss2birpq" path="res://placables/categories/decorations.tres" id="26_w3lc3"]
+[ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="26_w3lc3"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="27_pk7sx"]
 [ext_resource type="Resource" uid="uid://de8o88bvo72qh" path="res://placables/bush_small_1/bush_small_1_placable.tres" id="28_nyp5n"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
-[ext_resource type="Resource" uid="uid://54anwcasxav7" path="res://placables/categories/creative.tres" id="32_yh7yd"]
+[ext_resource type="Resource" path="res://placables/categories/creative.tres" id="32_yh7yd"]
+[ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
 [ext_resource type="Script" path="res://fps.gd" id="38_d6oh1"]
@@ -44,6 +45,8 @@
 [ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belt_0c/belt_0r/belt_0r_placable.tres" id="40_xewns"]
 [ext_resource type="Resource" uid="uid://g0c4gpa5md5p" path="res://placables/merger/merger_placable.tres" id="41_0bint"]
 [ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/creative_placables/item_gen/item_gen_placable.tres" id="43_plyex"]
+[ext_resource type="Resource" uid="uid://bpytjbs0gasyx" path="res://placables/smelter/smelter_placable.tres" id="45_hm8ja"]
+[ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/creative_placables/item_trash/item_trash_placable.tres" id="46_8k7xm"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]
 script = ExtResource("17_2vu25")
@@ -147,15 +150,15 @@ script = ExtResource("26_ir2r4")
 
 [node name="Player" parent="World" instance=ExtResource("23_pxl76")]
 position = Vector2(528, 269)
-collision_layer = 512
+collision_layer = 2560
 collision_mask = 512
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
 [node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
 building_system = NodePath("../../Systems/GridSystems/BuildingSystem")
-category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd")])
-placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("43_plyex")])
+category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
+placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm")])
 
 [node name="Label" type="Label" parent="UserInterface"]
 offset_left = 1028.0

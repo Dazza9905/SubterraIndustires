@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_nhs0w"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_cflt4"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_fh6eb"]
-[ext_resource type="Resource" uid="uid://bxlqnss2birpq" path="res://placables/categories/decorations.tres" id="6_wyems"]
+[ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="6_wyems"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0id4p"]
 atlas = ExtResource("1_u13xb")

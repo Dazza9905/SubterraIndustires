@@ -28,6 +28,7 @@ collision_layer = 3073
 script = ExtResource("1_4a7kb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_ruwme")
 

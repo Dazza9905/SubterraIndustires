@@ -1,8 +1,8 @@
 extends Component
 class_name SplitterComponent
 
-@export var inputs: Array[InputComponent]
-@export var outputs: Array[OutputComponent]
+@export var inputs: Array[SlotComponent]
+@export var outputs: Array[SlotComponent]
 
 var input_index: int = 0:
 	set(new_index):
@@ -21,15 +21,15 @@ func _on_machanine_tick() -> void:
 	var target_out_slot: SlotComponent
 	
 	for i in range(0, inputs.size()):
-		if inputs[input_index].slot.is_empty():
+		if inputs[input_index].is_empty():
 			input_index += 1
 		else:
-			target_in_slot = inputs[input_index].slot
+			target_in_slot = inputs[input_index]
 			output_index += 1
 
 	for i in range(0, outputs.size()):
-		if outputs[output_index].slot.is_empty():
-			target_out_slot = outputs[output_index].slot
+		if outputs[output_index].is_empty():
+			target_out_slot = outputs[output_index]
 			output_index += 1
 		else:
 			output_index += 1

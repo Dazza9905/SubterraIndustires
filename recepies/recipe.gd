@@ -1,14 +1,6 @@
 extends Resource
-
 class_name Recipe
 
-@export var input_materials: Array[Enums.MATERIAL_ITEM]
-
-func _ready() -> void:
-	for material in input_materials:
-		print(material)
-
-
-
-func _process(delta: float) -> void:
-	pass
+@export var input_ingredients: Array[Ingredient]
+@export var output_products: Array[Ingredient]
+@export var ticks_to_craft: int

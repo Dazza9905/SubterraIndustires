@@ -1,0 +1,90 @@
+[gd_scene load_steps=15 format=3 uid="uid://wx0imx3ix2ic"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_u54kl"]
+[ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="2_1pau7"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="3_7rfgt"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_b0fne"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_i43wo"]
+[ext_resource type="Script" path="res://components/input_component.gd" id="4_nl4kk"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="5_o83rf"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
+[ext_resource type="Script" path="res://components/crafter_componet.gd" id="9_5ob0n"]
+[ext_resource type="Script" path="res://custom_types/ingredient.gd" id="10_g2if3"]
+[ext_resource type="Script" path="res://recepies/recipe.gd" id="11_3d15t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjamy"]
+size = Vector2(63.9, 63.9)
+
+[sub_resource type="Resource" id="Resource_iacxl"]
+script = ExtResource("5_sfdrg")
+move_rules = Array[ExtResource("4_i43wo")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = false
+flip_vertical = false
+movable = false
+demolishable = true
+
+[sub_resource type="Resource" id="Resource_j4glj"]
+script = ExtResource("11_3d15t")
+input_ingredients = Array[ExtResource("10_g2if3")]([])
+output_products = Array[ExtResource("10_g2if3")]([])
+ticks_to_craft = 0
+
+[node name="Smelter" type="StaticBody2D"]
+collision_layer = 3584
+collision_mask = 0
+script = ExtResource("1_u54kl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("2_1pau7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_xjamy")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_b0fne")
+settings = SubResource("Resource_iacxl")
+root = NodePath("..")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotRaw" type="Node2D" parent="Components"]
+script = ExtResource("3_7rfgt")
+capacity = 25
+
+[node name="SlotFuel" type="Node2D" parent="Components"]
+script = ExtResource("3_7rfgt")
+capacity = 25
+
+[node name="SlotRafined" type="Node2D" parent="Components"]
+script = ExtResource("3_7rfgt")
+capacity = 25
+
+[node name="InputRaw" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 3.14159
+script = ExtResource("4_nl4kk")
+slot = NodePath("../SlotRaw")
+
+[node name="InputFuel" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(0, 32)
+rotation = 3.14159
+script = ExtResource("4_nl4kk")
+cell_offset = Vector2i(0, 1)
+slot = NodePath("../SlotFuel")
+
+[node name="OutputRafined" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(32, 0)
+script = ExtResource("5_o83rf")
+cell_offset = Vector2i(1, 0)
+base_side = 2
+slot = NodePath("../SlotRafined")
+
+[node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
+script = ExtResource("9_5ob0n")
+recipe = SubResource("Resource_j4glj")
+inputs = [NodePath("../SlotRaw"), NodePath("../SlotFuel")]
+outputs = [NodePath("../SlotRafined")]
