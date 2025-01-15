@@ -3,7 +3,14 @@ extends CharacterBody2D
 # Variable for movement speed
 var speed = 10000
 
-
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if Input.is_action_pressed("camera_zoom_out"):
+			$Camera2D.zoom *= Vector2(0.952, 0.952)
+		if Input.is_action_pressed("camera_zoom_in"):
+			$Camera2D.zoom *= Vector2(1.05, 1.05)
+		
+		
 
 func _physics_process(delta):
 	var conveyor_velocity = Vector2.ZERO
