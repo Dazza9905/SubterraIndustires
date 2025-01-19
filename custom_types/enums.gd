@@ -9,3 +9,7 @@ enum MATERIAL_ITEM {
 	GOLD,
 	IRON_INGOT
 }
+
+func _ready() -> void:
+	
+	

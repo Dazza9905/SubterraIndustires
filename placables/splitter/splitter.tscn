@@ -23,10 +23,11 @@ flip_vertical = false
 movable = false
 demolishable = true
 
-[node name="Splitter" type="StaticBody2D"]
+[node name="splitter" type="StaticBody2D"]
 collision_layer = 3584
 collision_mask = 0
 script = ExtResource("1_s030c")
+code_name = "splitter"
 
 [node name="SplitterSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_h6gh0")

@@ -23,9 +23,10 @@ flip_vertical = false
 movable = true
 demolishable = true
 
-[node name="BushSmall-1" type="StaticBody2D"]
+[node name="bush_small_1" type="StaticBody2D"]
 collision_layer = 3073
 script = ExtResource("1_4a7kb")
+code_name = "bush_small_1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10

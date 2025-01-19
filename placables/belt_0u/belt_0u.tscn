@@ -25,10 +25,11 @@ flip_vertical = true
 movable = true
 demolishable = true
 
-[node name="BeltSlowStraight" type="StaticBody2D"]
+[node name="belt_0u" type="StaticBody2D"]
 collision_layer = 527360
 collision_mask = 0
 script = ExtResource("1_6erbl")
+code_name = "belt_0u"
 
 [node name="Input" type="AnimatedSprite2D" parent="."]
 position = Vector2(-32, 0)

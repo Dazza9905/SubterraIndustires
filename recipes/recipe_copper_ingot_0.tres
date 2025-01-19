@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://gidybsb50xgu"]
+
+[ext_resource type="Script" path="res://custom_types/ingredient.gd" id="1_dwrph"]
+[ext_resource type="Script" path="res://recipes/recipe.gd" id="2_dmeoo"]
+
+[sub_resource type="Resource" id="Resource_5qswy"]
+script = ExtResource("1_dwrph")
+item = 2
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o5nw5"]
+script = ExtResource("1_dwrph")
+item = 3
+amount = 2
+
+[sub_resource type="Resource" id="Resource_ityc7"]
+script = ExtResource("1_dwrph")
+item = 5
+amount = 1
+
+[resource]
+script = ExtResource("2_dmeoo")
+recipe_name = "Copper Ingot (1x)"
+item_icon = 5
+valid_machines = Array[String](["smelter"])
+input_ingredients = Array[ExtResource("1_dwrph")]([SubResource("Resource_5qswy"), SubResource("Resource_o5nw5")])
+output_products = Array[ExtResource("1_dwrph")]([SubResource("Resource_ityc7")])
+ticks_to_craft = 0

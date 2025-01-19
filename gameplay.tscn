@@ -34,7 +34,7 @@
 [ext_resource type="Resource" uid="uid://de8o88bvo72qh" path="res://placables/bush_small_1/bush_small_1_placable.tres" id="28_nyp5n"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
-[ext_resource type="Resource" path="res://placables/categories/creative.tres" id="32_yh7yd"]
+[ext_resource type="Resource" uid="uid://54anwcasxav7" path="res://placables/categories/creative.tres" id="32_yh7yd"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
@@ -44,9 +44,9 @@
 [ext_resource type="Resource" uid="uid://dcpiagq8b217s" path="res://placables/splitter/splitter_placable.tres" id="40_5bajv"]
 [ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belt_0c/belt_0r/belt_0r_placable.tres" id="40_xewns"]
 [ext_resource type="Resource" uid="uid://g0c4gpa5md5p" path="res://placables/merger/merger_placable.tres" id="41_0bint"]
-[ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/creative_placables/item_gen/item_gen_placable.tres" id="43_plyex"]
+[ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/item_gen/item_gen_placable.tres" id="43_plyex"]
 [ext_resource type="Resource" uid="uid://bpytjbs0gasyx" path="res://placables/smelter/smelter_placable.tres" id="45_hm8ja"]
-[ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/creative_placables/item_trash/item_trash_placable.tres" id="46_8k7xm"]
+[ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/item_trash/item_trash_placable.tres" id="46_8k7xm"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]
 script = ExtResource("17_2vu25")

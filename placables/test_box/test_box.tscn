@@ -23,9 +23,10 @@ flip_vertical = false
 movable = true
 demolishable = true
 
-[node name="TestBox" type="StaticBody2D"]
+[node name="test_box" type="StaticBody2D"]
 collision_layer = 3073
 script = ExtResource("1_6n65p")
+code_name = "test_box"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, -1.50008)

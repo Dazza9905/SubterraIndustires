@@ -1,5 +1,5 @@
 extends Component
-class_name SplitterComponent
+class_name SplitMargeComponent
 
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]

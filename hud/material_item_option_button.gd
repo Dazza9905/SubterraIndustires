@@ -7,6 +7,7 @@ func _init() -> void:
 	for each: String in Enums.MATERIAL_ITEM:
 		add_item(each, i)
 		i += 1
+	selected = 
 	
 #func _ready() -> void:
 	#selected = get_parent().get_parent().creative_gen_comp.item

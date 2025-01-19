@@ -1,9 +1,9 @@
-extends CanvasLayer
+extends GridObjectUI
 
 var creative_gen_comp: CreativeGenComp
 
 func _ready() -> void:
-	var comps: Array[Node] = (get_parent() as GridObject).get_components()
+	var comps = get_GO_componets()
 	for node: Node in comps:
 		if(node is CreativeGenComp):
 			creative_gen_comp = node
@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _on_option_button_item_selected(index: int) -> void:
 	creative_gen_comp.item = Enums.MATERIAL_ITEM.values()[index]
-
 
 func _on_close_ui_pressed() -> void:
 	queue_free()

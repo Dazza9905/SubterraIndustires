@@ -27,8 +27,8 @@ static func join_belt_paths(bp1: BeltPath, bp2: BeltPath):
 	for belt_comp in bp2.path:
 		belt_comp.belt_path = bp1
 
-func belt_removed(belt_comp):
-	var belt_comp_index = path.rfind(belt_comp)
+func belt_removed(belt_comp) -> void:
+	var belt_comp_index : int = path.rfind(belt_comp)
 	print("\tFOR BeltPath:")
 	if(path.size() == 1):
 		path.erase(belt_comp)
@@ -44,11 +44,11 @@ func belt_removed(belt_comp):
 		
 	print(path)
 
-func remove_last(belt_comp: BeltComponent):
+func remove_last(belt_comp: BeltComponent) -> void:
 	if(path.back() == belt_comp):
 		path.remove_at(path.size() - 1)
 
-func remove_first(belt_comp: BeltComponent):
+func remove_first(belt_comp: BeltComponent) -> void:
 	if(path[0] == belt_comp):
 		path.remove_at(0)
 

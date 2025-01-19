@@ -4,6 +4,7 @@ extends StaticBody2D
 
 var main_cell: Vector2i
 var ocuppied_cells: Array[Vector2i]
+@export var code_name: String
 
 func _exit_tree() -> void:
 	print("object deleted")
@@ -37,6 +38,9 @@ func get_components():
 		print(self.name, "has no comps")
 		return {}
 
+func get_file_path() -> String:
+	return Globals.PLACABLES_PATH + code_name + "/" + code_name
+	
 func connect_components():
 	if has_node("Components:"):
 		var components := $Components.get_children()
@@ -48,10 +52,3 @@ func connect_components():
 			(comp as Component).connect_to_tick()
 	else:
 		print(self.name, "has no components")
-			
-
-func _on_open_ui_pressed() -> void:
-	var packed_ui = preload("res://placables/creative_placables/item_gen/item_gen_ui.tscn")
-	var ui = packed_ui.instantiate()
-	print("asss")
-	add_child(ui)

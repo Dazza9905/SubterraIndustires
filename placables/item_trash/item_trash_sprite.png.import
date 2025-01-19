@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6ejlqs5454rd"
-path="res://.godot/imported/item_gen_sprite.png-428b24060d11ecf10f55ce2a293386f9.ctex"
+uid="uid://dwrutix7l4f0f"
+path="res://.godot/imported/item_trash_sprite.png-8e9f8fbff278b485b7bfa2c435d870c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placables/creative_placables/item_gen/item_gen_sprite.png"
-dest_files=["res://.godot/imported/item_gen_sprite.png-428b24060d11ecf10f55ce2a293386f9.ctex"]
+source_file="res://placables/item_trash/item_trash_sprite.png"
+dest_files=["res://.godot/imported/item_trash_sprite.png-8e9f8fbff278b485b7bfa2c435d870c7.ctex"]
 
 [params]
 

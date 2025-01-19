@@ -2,6 +2,9 @@ extends Node
 
 const LEVEL_PATH = "res://levels/"
 const ITEM_TEX_PATH = "res://items/"
+const ITEM_PATH = "res://items/"
+const PLACABLES_PATH = "res://placables/"
+const RECIPE_PATH = "res://recipes/"
 
 const TILE_SIZE = 32
 
@@ -12,6 +15,7 @@ enum SlotFlag {
 	DIFF_TYPE,
 	INVALID
 }
+
 
 #INPUTS HANDELING
 func _input(event) -> void:
@@ -25,16 +29,14 @@ func _input(event) -> void:
 		if Input.is_action_pressed("debug_toggle_belt_paths"):
 			show_debug_belt_paths = not show_debug_belt_paths
 			print("DEBUG - Show BeltPaths: ", show_debug_belt_paths)
-		
-		
+
+
 func get_mode_building_system() -> BuildingSystem:
 	return get_node("/root/Game/Systems/GridSystems/BuildingSystem") as BuildingSystem
 			
 
 func get_tts() -> TimeTickSystem:
 	return get_node("/root/Game/Systems/TimeTickSystem")
-
-
 
 #DEBUG FLAGS
 var show_debug_io_conn: bool = false

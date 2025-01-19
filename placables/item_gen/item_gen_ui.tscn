@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cc4hlnx3k8lys"]
 
-[ext_resource type="Script" path="res://placables/creative_placables/item_gen/item_gen_ui.gd" id="1_8rdy6"]
-[ext_resource type="Script" path="res://placables/creative_placables/item_gen/material_item_option_button.gd" id="2_7rky2"]
+[ext_resource type="Script" path="res://placables/item_gen/item_gen_ui.gd" id="1_8rdy6"]
+[ext_resource type="Script" path="res://hud/material_item_option_button.gd" id="2_7rky2"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_8rdy6")

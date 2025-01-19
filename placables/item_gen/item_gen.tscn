@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://1tsok1vm60ly"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_4mkui"]
-[ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/creative_placables/item_gen/item_gen_sprite.png" id="2_6pfpx"]
+[ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_6pfpx"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_uvgt1"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_y86mn"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xogw8"]
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="6_pdaj7"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="7_8x721"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="8_1ig3l"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="8_dqnrl"]
 [ext_resource type="Script" path="res://components/creative_genenerator_component.gd" id="9_niei1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bp4a"]
@@ -23,10 +23,11 @@ flip_vertical = false
 movable = false
 demolishable = true
 
-[node name="ItemGen" type="StaticBody2D"]
+[node name="item_gen" type="StaticBody2D"]
 collision_layer = 3073
 collision_mask = 0
 script = ExtResource("1_4mkui")
+code_name = "item_gen"
 
 [node name="ItemGenSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_6pfpx")
@@ -63,12 +64,10 @@ script = ExtResource("7_8x721")
 item_sprite = NodePath("../../ItemSprite")
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-script = ExtResource("8_1ig3l")
+script = ExtResource("8_dqnrl")
 base_side = 2
 slot = NodePath("../SlotComponent")
 
 [node name="CreativeGenComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("9_niei1")
 slot = NodePath("../SlotComponent")
-
-[connection signal="pressed" from="OpenUI" to="." method="_on_open_ui_pressed"]

@@ -1,11 +1,17 @@
 extends Component
 class_name CrafterComponent
 
-@export var recipe: Recipe
+@export var recipe_icon: Sprite2D
+@export var recipe: Recipe:
+	set(new_recipe):
+		recipe = new_recipe
+		if(recipe != null):
+			if(recipe.item_icon != Enums.MATERIAL_ITEM.NONE):
+				var item_icon_name: String = str(Enums.MATERIAL_ITEM.keys()[recipe.item_icon]).to_lower()
+				recipe_icon.texture = load(Globals.ITEM_PATH + "iron_ingot" + "/" + "iron_ingot" + "_sprite.png")
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]
 @export var speed_multiplier: float
-
 @export var craft_progress: int
 
 func connect_to_tick() -> void:
