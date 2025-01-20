@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kwphu548t7j4"]
 
 [ext_resource type="Script" path="res://placables/smelter/smelter_ui.gd" id="1_1ost4"]
-[ext_resource type="Script" path="res://placables/smelter/recipe_option_button.gd" id="2_j2qq5"]
+[ext_resource type="Script" path="res://hud/recipe_option_button.gd" id="2_j2qq5"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1ost4")
@@ -25,6 +25,7 @@ text = "Recipe: "
 
 [node name="OptionButton" type="OptionButton" parent="GridContainer"]
 layout_mode = 2
+allow_reselect = true
 item_count = 1
 script = ExtResource("2_j2qq5")
 

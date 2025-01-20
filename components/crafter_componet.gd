@@ -6,9 +6,13 @@ class_name CrafterComponent
 	set(new_recipe):
 		recipe = new_recipe
 		if(recipe != null):
-			if(recipe.item_icon != Enums.MATERIAL_ITEM.NONE):
-				var item_icon_name: String = str(Enums.MATERIAL_ITEM.keys()[recipe.item_icon]).to_lower()
-				recipe_icon.texture = load(Globals.ITEM_PATH + "iron_ingot" + "/" + "iron_ingot" + "_sprite.png")
+			if(recipe.icon != null):
+				recipe_icon.texture = recipe.icon
+				recipe_icon.visible = true
+			else:
+				recipe_icon.visible = false
+		else:
+			recipe_icon.visible = false
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]
 @export var speed_multiplier: float
@@ -18,7 +22,8 @@ func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
 
 func _on_machanine_tick() -> void:
-	
+	if recipe == null:
+		return
 	for in_ingradient in recipe.input_ingredients:
 		var ingredient_present: bool = false
 		for in_slot in inputs:
