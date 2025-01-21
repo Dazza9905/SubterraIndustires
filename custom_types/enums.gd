@@ -7,7 +7,8 @@ enum MATERIAL_ITEM {
 	COPPER,
 	COAL,
 	GOLD,
-	IRON_INGOT
+	IRON_INGOT,
+	CARBON
 }
 
 var recipes: Array[Recipe]
@@ -31,6 +32,7 @@ func _init() -> void:
 	else:
 		print("An error occurred when trying to access the path.")
 
+	print("Recipe array:")
 	for recipe in recipes:
 		print(recipe.name)
 	print("Thats all")

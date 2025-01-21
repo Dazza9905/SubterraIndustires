@@ -26,7 +26,6 @@ text = "Recipe: "
 [node name="OptionButton" type="OptionButton" parent="GridContainer"]
 layout_mode = 2
 allow_reselect = true
-item_count = 1
 script = ExtResource("2_j2qq5")
 
 [node name="CloseUI" type="Button" parent="GridContainer"]

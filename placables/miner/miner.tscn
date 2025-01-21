@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://uuqxqgnd58ve"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6tmad"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="2_kbsum"]
+[ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_kvqs3"]
+[ext_resource type="Script" path="res://components/miner_component.gd" id="3_hc5k7"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="4_iyv71"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmua2"]
+size = Vector2(31.9, 31.9)
+
+[node name="Miner" type="StaticBody2D"]
+collision_layer = 262144
+collision_mask = 0
+script = ExtResource("1_6tmad")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kvqs3")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pmua2")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_kbsum")
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("4_iyv71")
+base_side = 2
+slot = NodePath("../SlotComponent")
+
+[node name="MinerComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot", "area")]
+script = ExtResource("3_hc5k7")
+slot = NodePath("../SlotComponent")
+area = NodePath("../../Area2D")

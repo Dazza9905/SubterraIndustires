@@ -144,6 +144,7 @@ camera_zoom_in={
 2d_physics/layer_10="PlayerCollision"
 2d_physics/layer_11="Targetable"
 2d_physics/layer_12="Grid_UsedSpace"
+2d_physics/layer_19="Minable Node"
 2d_physics/layer_20="Belt"
 
 [rendering]
