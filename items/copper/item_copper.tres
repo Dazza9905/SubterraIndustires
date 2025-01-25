@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cgq1h6vvjbpo7"]
+
+[ext_resource type="Script" path="res://custom_types/item.gd" id="1_bvavl"]
+[ext_resource type="Texture2D" uid="uid://b6jw116crhmcx" path="res://items/copper/copper_sprite.png" id="2_hcrq8"]
+
+[resource]
+script = ExtResource("1_bvavl")
+id = 2
+name = "Copper"
+texture = ExtResource("2_hcrq8")

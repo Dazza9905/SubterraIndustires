@@ -4,8 +4,8 @@ extends OptionButton
 	
 func _init() -> void:
 	var i: int = 0
-	for each: String in Enums.MATERIAL_ITEM:
-		add_item(each, i)
+	for item in Enums.items: #TODO TU ZACNi
+		add_item(item.name, i)
 		i += 1 
 	
 #func _ready() -> void:

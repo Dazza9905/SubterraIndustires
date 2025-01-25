@@ -1,28 +1,31 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://clueo7m2kwqom"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=10 format=3 uid="uid://clueo7m2kwqom"]
 
+[ext_resource type="Texture2D" uid="uid://bcesuwusjvbwd" path="res://items/iron_ingot/iron_ingot_sprite.png" id="1_aepf8"]
 [ext_resource type="Script" path="res://custom_types/ingredient.gd" id="1_b7qvf"]
-[ext_resource type="Texture2D" uid="uid://b6jw116crhmcx" path="res://items/copper/copper_sprite.png" id="1_scx64"]
 [ext_resource type="Script" path="res://recipes/recipe.gd" id="2_alm53"]
+[ext_resource type="Resource" uid="uid://d3l6ld2fqu13v" path="res://items/iron/item_iron.tres" id="3_jrqc4"]
+[ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/coal/item_coal.tres" id="4_mttam"]
+[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="5_sa6bl"]
 
 [sub_resource type="Resource" id="Resource_5qswy"]
 script = ExtResource("1_b7qvf")
-item = 1
+item = ExtResource("3_jrqc4")
 amount = 1
 
 [sub_resource type="Resource" id="Resource_o5nw5"]
 script = ExtResource("1_b7qvf")
-item = 3
+item = ExtResource("4_mttam")
 amount = 2
 
 [sub_resource type="Resource" id="Resource_ityc7"]
 script = ExtResource("1_b7qvf")
-item = 5
+item = ExtResource("5_sa6bl")
 amount = 1
 
 [resource]
 script = ExtResource("2_alm53")
 name = "Iron Ingot (1x)"
-icon = ExtResource("1_scx64")
+icon = ExtResource("1_aepf8")
 valid_machines = Array[String](["smelter"])
 input_ingredients = Array[ExtResource("1_b7qvf")]([SubResource("Resource_5qswy"), SubResource("Resource_o5nw5")])
 output_products = Array[ExtResource("1_b7qvf")]([SubResource("Resource_ityc7")])

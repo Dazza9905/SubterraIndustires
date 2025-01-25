@@ -47,8 +47,8 @@ func _on_machanine_tick() -> void:
 	#IF WE GOT HERE, EVERITHING SHOULD BE GOOD TO GO
 	for in_ingredient in recipe.input_ingredients:
 		for input in inputs:
-			var result: Enums.MATERIAL_ITEM = input.take_sigle_type(in_ingredient.item, in_ingredient.amount)
-			if(result != Enums.MATERIAL_ITEM.NONE):
+			var result: Item = input.take_sigle_type(in_ingredient.item.type)
+			if !result:
 				break
 				
 	for i in range(0, target_outputs.size()):

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ba35edtbqwnv1"]
+
+[ext_resource type="Script" path="res://custom_types/item.gd" id="1_ch2gt"]
+[ext_resource type="Texture2D" uid="uid://bcesuwusjvbwd" path="res://items/iron_ingot/iron_ingot_sprite.png" id="2_oh5k6"]
+
+[resource]
+script = ExtResource("1_ch2gt")
+type = 5
+name = "Iron Ingot"
+texture = ExtResource("2_oh5k6")

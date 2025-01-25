@@ -27,8 +27,9 @@ func update_belt(output_too: bool) -> void:
 					output.slot.take()
 	if input.slot.is_empty():
 		if (input.IO_connection is IOComponent):
-			var returned_item: Enums.MATERIAL_ITEM = input.IO_connection.slot.take_any_type()
-			input.slot.give_item(returned_item)
+			var returned_item: Item = input.IO_connection.slot.take_any_type()
+			if returned_item:
+				input.slot.give_item(returned_item)
 
 
 

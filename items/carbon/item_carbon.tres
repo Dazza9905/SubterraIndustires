@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://3pc7812iixf7"]
+
+[ext_resource type="Script" path="res://custom_types/item.gd" id="1_dqc7y"]
+[ext_resource type="Texture2D" uid="uid://dlt4esflqmeh" path="res://items/carbon/carbon_sprite.png" id="2_vkdns"]
+
+[resource]
+script = ExtResource("1_dqc7y")
+id = 6
+name = "Carbon"
+texture = ExtResource("2_vkdns")
