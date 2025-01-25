@@ -15,62 +15,48 @@ var recipes: Array[Recipe]
 var items: Array[Item]
 
 func load_items():
-	var dir = DirAccess.open(Globals.ITEM_PATH)
-
-	if dir:
-		dir.list_dir_begin()
-		var folder_name = dir.get_next()
-		while folder_name != "":
-			if dir.current_is_dir():
-				print("Found directory: " + folder_name)
-				print(dir.change_dir(folder_name))
-				var inner_file = dir.get_next()
-				print(inner_file)
-				while inner_file != "":
-					print(inner_file)
-					if(inner_file.begins_with("item_") and inner_file.ends_with(".tres")):
-						print("loading resource: ", Globals.ITEM_PATH + folder_name + inner_file)
-						var resource = load(Globals.ITEM_PATH + folder_name + inner_file)
-						if(resource is Recipe):
-							items.append(resource)
-							print("loaded as Recepie")
-					inner_file = dir.get_next()
-				dir.change_dir("../")
-			else:
-				print("Found file: " + folder_name + " -ignored")
-			folder_name = dir.get_next()
-
-	else:
-		print("An error occurred when trying to access the path.")
-
-	print("Item array:")
+	load_resources_recursively(Globals.ITEM_PATH, r"^item_.*\.tres$", items)
+	var items_names: String
 	for item in items:
-		print(item.name)
-	print("Thats all")
+		items_names += item.name + "   "
+	print("Loaded items:\t\t", items_names)
 	
 func load_recipes():
-	var dir = DirAccess.open(Globals.RECIPE_PATH)
-
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if dir.current_is_dir():
-				print("Found directory: " + file_name)
-			else:
-				print("Found file: " + file_name)
-				if(file_name.begins_with("recipe_") and file_name.ends_with(".tres")):
-					var resource = load(Globals.RECIPE_PATH + file_name)
-					if(resource is Recipe):
-						recipes.append(resource)
-			file_name = dir.get_next()
-	else:
-		print("An error occurred when trying to access the path.")
-
-	print("Recipe array:")
+	load_resources_recursively(Globals.RECIPE_PATH, r"^recipe_.*\.tres$", recipes)
+	var recipes_names: String
 	for recipe in recipes:
-		print(recipe.name)
-	print("Thats all")
+		recipes_names += recipe.name + "   "
+	print("Loaded recipes:\t\t", recipes_names)
+
+func load_resources_recursively(base_path: String, file_regex: String, storage: Array, recursive := true) -> void:
+	var dir = DirAccess.open(base_path)
+	if not dir:
+		push_error("Failed to open directory: " + base_path)
+		return
+	
+	dir.list_dir_begin() # skip hidden
+	var entry = dir.get_next()
+	var pattern = RegEx.new()
+	pattern.compile(file_regex)
+
+	while entry != "":
+		if entry.begins_with("."):
+			pass
+			# skip system/hidden
+		elif dir.current_is_dir():
+			# Recurse if folders found (and recursion allowed)
+			if recursive:
+				var sub_path = base_path + entry + "/"
+				load_resources_recursively(sub_path, file_regex, storage, recursive)
+		else:
+			# Check filename against regex
+			if pattern.search(entry):
+				var resource_path = base_path + entry
+				var res = load(resource_path)
+				if res:
+					storage.append(res)
+		entry = dir.get_next()
+	dir.list_dir_end()
 
 
 func _init() -> void:

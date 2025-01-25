@@ -6,49 +6,77 @@ class_name SlotComponent
 @export var _amount: int = 0:
 	set(new_amount):
 		_amount = new_amount
-		if(_amount <= 0):
-			if(item_sprite is Sprite2D):
-				item_sprite.visible = false
-			item = null
-		else:
-			if(item_sprite is Sprite2D):
+		if(_amount > 0):
+			if item_sprite:
 				item_sprite.visible = true
+		else:
+			item = null
+			if item_sprite:
+				item_sprite.visible = false
 @export var item: Item:
 	set(new_item):
 		item = new_item
-		if !item:
-			if(item_sprite is Sprite2D):
-				item_sprite.visible = false
-		else:
-			if(item_sprite is Sprite2D):
+		
+		if item_sprite:
+			if item:
 				item_sprite.visible = true
-				var item_name: String =  str(Enums.MATERIAL_ITEM.keys()[item]).to_lower()
-				item_sprite.texture = load(Globals.ITEM_TEX_PATH + item_name + "/" + item_name + "_sprite.png")
-				print(Globals.ITEM_TEX_PATH + item_name + "/" + item_name + "_sprite.png")
+				item_sprite.texture = item.texture
+			else:
+				item_sprite.visible = false
+			
 
-func give_item(passed_item: Item, passed_ammount: int = 1) -> Error:
-	if(passed_item == null):
-		return FAILED
-	elif(item.type != passed_item.type and item != null):
-		return FAILED
-	else:
-		if(_amount + passed_ammount > capacity):
+func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
+	match [passed_item, item]:
+		[null, _]:
+			# Case 1: passed_item is null
 			return FAILED
-		else:
-			_amount = _amount + passed_ammount
+
+		[_, null]:
+			# Case 2: slot is empty (item == null)
+			if passed_amount > capacity:
+				return FAILED
 			item = passed_item
+			_amount = passed_amount
 			return OK
+
+		[_, _]:
+			# Case 3: slot already has an item
+			if item.type != passed_item.type:
+				return FAILED
+			if _amount + passed_amount > capacity:
+				return FAILED
+			_amount += passed_amount
+			return OK
+
+		_:
+			return FAILED
+
 			
 func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
-	if(passed_item.type == Enums.MATERIAL_ITEM.NONE):
-		return false
-	elif(item.type != passed_item.type and item.type != Enums.MATERIAL_ITEM.NONE):
-		return false
-	else:
-		if(_amount + passed_amount > capacity):
-			return false
-		else:
-			return true
+	match [passed_item, item]:
+		[null, _]:
+			# Case 1: passed_item is null
+			return FAILED
+
+		[_, null]:
+			# Case 2: slot is empty (item == null)
+			if passed_amount > capacity:
+				return FAILED
+			item = passed_item
+			_amount = passed_amount
+			return OK
+
+		[_, _]:
+			# Case 3: slot already has an item
+			if item.type != passed_item.type:
+				return FAILED
+			if _amount + passed_amount > capacity:
+				return FAILED
+			_amount += passed_amount
+			return OK
+
+		_:
+			return FAILED
 
 func take(passed_amount: int = 1) -> Item:
 	var temp_item: Item = item
