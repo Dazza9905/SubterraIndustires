@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_bvavl")
-id = 2
+type = 2
 name = "Copper"
 texture = ExtResource("2_hcrq8")

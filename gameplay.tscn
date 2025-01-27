@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=53 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -34,7 +34,7 @@
 [ext_resource type="Resource" uid="uid://de8o88bvo72qh" path="res://placables/bush_small_1/bush_small_1_placable.tres" id="28_nyp5n"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
-[ext_resource type="Resource" path="res://placables/categories/creative.tres" id="32_yh7yd"]
+[ext_resource type="Resource" uid="uid://54anwcasxav7" path="res://placables/categories/creative.tres" id="32_yh7yd"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
@@ -62,6 +62,9 @@ reset_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6fte"]
 size = Vector2(31.9, 31.9)
+
+[sub_resource type="Theme" id="Theme_xmb0i"]
+default_font_size = 0
 
 [node name="Game" type="Node"]
 
@@ -171,3 +174,18 @@ offset_top = 5.0
 offset_right = 1143.0
 offset_bottom = 54.0
 script = ExtResource("38_d6oh1")
+
+[node name="MissionUI" type="MenuButton" parent="UserInterface"]
+offset_right = 147.0
+offset_bottom = 8.0
+text = "asdadadad"
+flat = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UserInterface/MissionUI"]
+layout_mode = 2
+offset_right = 334.0
+offset_bottom = 543.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/MissionUI/ScrollContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xmb0i")

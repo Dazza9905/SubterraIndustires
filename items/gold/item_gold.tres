@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_d3d8i")
-id = 3
+type = 4
 name = "Gold"
 texture = ExtResource("2_ibpfb")

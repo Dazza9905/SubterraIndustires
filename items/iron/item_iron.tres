@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_v76i6")
-type = 0
+type = 1
 name = "Iron"
 texture = ExtResource("2_jxrsd")
