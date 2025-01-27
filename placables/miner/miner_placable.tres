@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=4 format=3 uid="uid://jnglei50vwd"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=7 format=3 uid="uid://twhge4smthhp"]
 
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_m21is"]
+[ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="1_v1gfg"]
+[ext_resource type="PackedScene" uid="uid://dl4l2mrxxfm0n" path="res://placables/miner/miner2.tscn" id="2_6txie"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_6ut6y"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_n4mbe"]
+[ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="6_s10t7"]
 
 [resource]
 script = ExtResource("2_6ut6y")
-display_name = &""
-tags = Array[ExtResource("3_n4mbe")]([])
+display_name = &"Miner"
+icon = ExtResource("1_v1gfg")
+packed_scene = ExtResource("2_6txie")
+tags = Array[ExtResource("3_n4mbe")]([ExtResource("6_s10t7")])
 placement_rules = Array[ExtResource("1_m21is")]([])
 ignore_base_rules = false

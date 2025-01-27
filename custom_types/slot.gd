@@ -43,7 +43,7 @@ func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
 			# Case 3: slot already has an item
 			if item.type != passed_item.type:
 				return FAILED
-			if _amount + passed_amount > capacity:
+			if _amount + passed_amount >= capacity:
 				return FAILED
 			_amount += passed_amount
 			return OK
@@ -56,27 +56,24 @@ func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 	match [passed_item, item]:
 		[null, _]:
 			# Case 1: passed_item is null
-			return FAILED
+			return false
 
 		[_, null]:
 			# Case 2: slot is empty (item == null)
 			if passed_amount > capacity:
-				return FAILED
-			item = passed_item
-			_amount = passed_amount
-			return OK
+				return false
+			return true
 
 		[_, _]:
 			# Case 3: slot already has an item
 			if item.type != passed_item.type:
-				return FAILED
+				return false
 			if _amount + passed_amount > capacity:
-				return FAILED
-			_amount += passed_amount
-			return OK
+				return false
+			return true
 
 		_:
-			return FAILED
+			return false
 
 func take(passed_amount: int = 1) -> Item:
 	var temp_item: Item = item

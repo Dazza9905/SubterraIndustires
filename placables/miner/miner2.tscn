@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://dl4l2mrxxfm0n"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_sipws"]
+[ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_u82vp"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_c2cjc"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="3_uvyhf"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_qndn6"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="4_w8n6k"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_jievt"]
+[ext_resource type="Script" path="res://components/miner_component.gd" id="5_okaoa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65c1i"]
+size = Vector2(31.9, 31.9)
+
+[sub_resource type="Resource" id="Resource_aiahj"]
+script = ExtResource("5_jievt")
+move_rules = Array[ExtResource("4_qndn6")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = false
+flip_vertical = false
+movable = false
+demolishable = true
+
+[node name="Miner2" type="StaticBody2D"]
+collision_layer = 3584
+collision_mask = 0
+script = ExtResource("1_sipws")
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_u82vp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_u82vp")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_65c1i")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 262144
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_65c1i")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_c2cjc")
+settings = SubResource("Resource_aiahj")
+root = NodePath("..")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+script = ExtResource("3_uvyhf")
+item_sprite = NodePath("../../ItemSprite")
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("4_w8n6k")
+base_side = 2
+slot = NodePath("../SlotComponent")
+
+[node name="MinerComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot", "area")]
+script = ExtResource("5_okaoa")
+slot = NodePath("../SlotComponent")
+area = NodePath("../../Area2D")
