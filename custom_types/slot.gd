@@ -75,42 +75,39 @@ func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 		_:
 			return false
 
-func take(passed_amount: int = 1) -> Item:
-	var temp_item: Item = item
-	_amount = _amount - passed_amount
-	return temp_item
-
 
 #ANY
-func take_any_type():
+func take(passed_amount = 1):
 	if (is_empty()):
 		return null
 	else:
-		return take()
+		var temp_item: Item = item
+		_amount = _amount - passed_amount
+		return temp_item
 
 #SINGLE
-func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM):
+func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount = 1):
 	if (is_empty()):
 		return null
 	else:
 		if (item.type == passed_item_type):
-			return take()
+			return take(passed_amount)
 	return null
 	
 #MULTI
-func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM]):
+func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM], passed_amount = 1):
 	if (is_empty()):
 		return null
 	else: 
 		for item_type in passed_item_types:
 			if (item.type == item_type):
-				return take()
+				return take(passed_amount)
 	return null
 
 
 
 func is_empty() -> bool:
-	return item == null or _amount == 0
+	return _amount == 0 or item == null
 	
 	
 	

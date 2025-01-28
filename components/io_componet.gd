@@ -38,7 +38,7 @@ var IO_connection: IOComponent
 
 func get_io_con():
 
-	var target_GO: GridObject = get_GRS().get_GO_from_XY(target_XY)
+	var target_GO: GridObject = Globals.get_GRS().get_GO_from_XY(target_XY)
 	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
 	else:

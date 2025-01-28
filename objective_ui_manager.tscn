@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dphsq0ifx5awj"]
+
+[ext_resource type="Script" path="res://custom_types/objective_manager.gd" id="1_8j75w"]
+[ext_resource type="Script" path="res://hud/objective/objective_ui.gd" id="2_ilbvl"]
+[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/test_objective.tres" id="3_8nkoi"]
+
+[sub_resource type="Theme" id="Theme_xmb0i"]
+default_font_size = 0
+
+[node name="ObjectiveUI" type="MenuButton" node_paths=PackedStringArray("objectives_ui_parent")]
+offset_right = 147.0
+offset_bottom = 8.0
+text = "asdadadad"
+flat = false
+script = ExtResource("1_8j75w")
+objectives_ui_parent = NodePath("ScrollContainer/VBoxContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_right = 334.0
+offset_bottom = 543.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme = SubResource("Theme_xmb0i")
+
+[node name="ObjectiveUI" type="MenuButton" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_ilbvl")
+objective = ExtResource("3_8nkoi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/ObjectiveUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

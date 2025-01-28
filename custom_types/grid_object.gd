@@ -7,14 +7,15 @@ var ocuppied_cells: Array[Vector2i]
 @export var code_name: String
 
 func _exit_tree() -> void:
-	print("object deleted")
-	var parent = get_parent()
-	if parent is GridReferenceSystem:
-		var grid_ref_system: GridReferenceSystem = parent
+	var grid_ref_system: GridReferenceSystem = Globals.get_GRS()
+	if grid_ref_system:
 		for cell in ocuppied_cells:
 			if grid_ref_system.reference_hashmap.erase(cell):
 				print("Cell ", cell, " was deleted")
 		grid_ref_system.print_dict()
+	else:
+		assert("Grid Reference system not found")
+	
 
 func request_connection(placed_comp: IOComponent):
 	# Look through all components and find IO component with valid parameters

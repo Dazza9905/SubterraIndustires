@@ -32,11 +32,18 @@ func _input(event) -> void:
 
 
 func get_mode_building_system() -> BuildingSystem:
-	return get_node("/root/Game/Systems/GridSystems/BuildingSystem") as BuildingSystem
+	return get_node("/root/Game/Systems/GBPluginSystems/BuildingSystem") as BuildingSystem
 			
 
 func get_tts() -> TimeTickSystem:
 	return get_node("/root/Game/Systems/TimeTickSystem")
+	
+func get_GRS() -> GridReferenceSystem:
+	return get_node("/root/Game/Systems/GridReferenceSystem")
+	
+func get_ObjectiveSystem() -> ObjectiveSystem:
+	return get_node("/root/Game/Systems/ObjectiveSystem")
+
 
 #DEBUG FLAGS
 var show_debug_io_conn: bool = false

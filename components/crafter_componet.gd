@@ -18,8 +18,14 @@ class_name CrafterComponent
 @export var speed_multiplier: float
 @export var craft_progress: int
 
+var objective_system: ObjectiveSystem
+
+
+signal produced_items(item: Item, amount: int)
+
 func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
+	objective_system = Globals.get_ObjectiveSystem()
 
 func _on_machanine_tick() -> void:
 	if recipe == null:
@@ -47,9 +53,10 @@ func _on_machanine_tick() -> void:
 	#IF WE GOT HERE, EVERITHING SHOULD BE GOOD TO GO
 	for in_ingredient in recipe.input_ingredients:
 		for input in inputs:
-			var result: Item = input.take_sigle_type(in_ingredient.item.type)
-			if !result:
+			var result: Item = input.take_sigle_type(in_ingredient.item.type, in_ingredient.amount)
+			if result:
 				break
 				
 	for i in range(0, target_outputs.size()):
 		outputs[i].give_item(recipe.output_products[i].item, recipe.output_products[i].amount)
+		objective_system.complete_produce(recipe.output_products[i].item, recipe.output_products[i].amount)

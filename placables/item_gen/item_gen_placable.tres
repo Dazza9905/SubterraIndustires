@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_cqruo"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_6edr4"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_6xb23"]
-[ext_resource type="Resource" path="res://placables/categories/creative.tres" id="6_4pfqv"]
+[ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="6_4pfqv"]
 
 [resource]
 script = ExtResource("4_6edr4")

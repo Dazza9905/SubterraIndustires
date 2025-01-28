@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CategoricalTag" load_steps=2 format=3 uid="uid://54anwcasxav7"]
+[gd_resource type="Resource" script_class="CategoricalTag" load_steps=2 format=3 uid="uid://chst24agtwd3s"]
 
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="1_oxi5m"]
 

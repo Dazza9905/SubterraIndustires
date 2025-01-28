@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=55 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -22,9 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b85csecsg3tsa" path="res://addons/grid_building/template/components/grid_targeter.tscn" id="17_s2f07"]
 [ext_resource type="Script" path="res://addons/grid_building/manipulation_system/manipulation_parent.gd" id="18_5n0aq"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="19_tn0h0"]
-[ext_resource type="Script" path="res://custom_types/objective_system.gd" id="20_gwnkt"]
 [ext_resource type="PackedScene" uid="uid://ctr73a3smgupf" path="res://addons/grid_building/template/indicator/rule_check_indicator_16x16_minimal.tscn" id="20_skc42"]
-[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/test_objective.tres" id="21_txp82"]
 [ext_resource type="Script" path="res://addons/grid_building/components/grid_state_assigner.gd" id="23_1geoc"]
 [ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player/player.tscn" id="23_pxl76"]
 [ext_resource type="PackedScene" uid="uid://erm78oe3trac" path="res://addons/grid_building/ui/placement_selection/placeable_selection_ui.tscn" id="24_12s6v"]
@@ -37,7 +35,6 @@
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
 [ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
 [ext_resource type="PackedScene" uid="uid://ds0fsd8byy8cn" path="res://placables/bush_large_1/bush_large_1.tscn" id="29_q5s2f"]
-[ext_resource type="PackedScene" uid="uid://bodjh1gtscs2r" path="res://hud/objective/objective_ui.tscn" id="30_xhqwm"]
 [ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="32_yh7yd"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
@@ -48,12 +45,13 @@
 [ext_resource type="Resource" uid="uid://dcpiagq8b217s" path="res://placables/splitter/splitter_placable.tres" id="40_5bajv"]
 [ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belt_0c/belt_0r/belt_0r_placable.tres" id="40_xewns"]
 [ext_resource type="Resource" uid="uid://g0c4gpa5md5p" path="res://placables/merger/merger_placable.tres" id="41_0bint"]
-[ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/item_gen/item_gen_placable.tres" id="43_plyex"]
+[ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/debug_item_gen/item_gen_placable.tres" id="43_plyex"]
 [ext_resource type="Resource" uid="uid://bpytjbs0gasyx" path="res://placables/smelter/smelter_placable.tres" id="45_hm8ja"]
-[ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/item_trash/item_trash_placable.tres" id="46_8k7xm"]
+[ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/debug_item_trash/item_trash_placable.tres" id="46_8k7xm"]
 [ext_resource type="Resource" uid="uid://twhge4smthhp" path="res://placables/miner/miner_placable.tres" id="47_hmus8"]
 [ext_resource type="PackedScene" uid="uid://c8ecktoq72n8f" path="res://placables/node_iron/grid.tscn" id="49_0tvh6"]
-[ext_resource type="Resource" uid="uid://43u6sr7kgw1r" path="res://placables/objective_tester/objective_tester_placable.tres" id="50_q7ys0"]
+[ext_resource type="Resource" uid="uid://43u6sr7kgw1r" path="res://placables/debug_objective_tester/objective_tester_placable.tres" id="50_q7ys0"]
+[ext_resource type="Script" path="res://custom_types/objective_manager.gd" id="51_2uie5"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]
 script = ExtResource("17_2vu25")
@@ -115,10 +113,6 @@ script = ExtResource("26_ir2r4")
 [node name="TimeTickSystem" type="Node" parent="Systems"]
 script = ExtResource("1_4s1je")
 
-[node name="ObjectiveSystem" type="Node" parent="Systems"]
-script = ExtResource("20_gwnkt")
-current_objective = ExtResource("21_txp82")
-
 [node name="World" type="Node2D" parent="."]
 
 [node name="GridPositioner" type="ShapeCast2D" parent="World"]
@@ -173,8 +167,6 @@ position = Vector2(240, 176)
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 
-[node name="Objective" parent="UserInterface" instance=ExtResource("30_xhqwm")]
-
 [node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
 building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
@@ -186,3 +178,15 @@ offset_top = 5.0
 offset_right = 1143.0
 offset_bottom = 54.0
 script = ExtResource("38_d6oh1")
+
+[node name="ObjectiveUI" type="ScrollContainer" parent="UserInterface"]
+custom_minimum_size = Vector2(150, 50)
+anchors_preset = -1
+offset_right = 150.0
+offset_bottom = 50.0
+size_flags_vertical = 0
+vertical_scroll_mode = 0
+script = ExtResource("51_2uie5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/ObjectiveUI"]
+layout_mode = 2

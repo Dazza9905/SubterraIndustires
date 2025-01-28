@@ -19,6 +19,7 @@ size = Vector2(18, 17)
 script = ExtResource("1_cwch7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-0.5, -16)
 texture = SubResource("AtlasTexture_w5uw5")
 

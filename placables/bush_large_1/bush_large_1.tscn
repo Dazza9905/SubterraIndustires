@@ -10,8 +10,8 @@
 atlas = ExtResource("1_md5ey")
 region = Rect2(208, 176, 64, 64)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hqvl1"]
-radius = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4i0x"]
+size = Vector2(63.9, 63.9)
 
 [sub_resource type="Resource" id="Resource_24p1h"]
 script = ExtResource("4_ch4ax")
@@ -24,18 +24,19 @@ movable = true
 demolishable = true
 
 [node name="bush_large_1" type="StaticBody2D"]
-z_index = 10
-collision_layer = 527361
+collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_7uqbr")
-code_name = "bush_large_1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 0)
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_ruwme")
+offset = Vector2(0, -10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_hqvl1")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_p4i0x")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("2_i115s")

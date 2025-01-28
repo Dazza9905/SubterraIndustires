@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://bt328flac0wd1"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_rs67v"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="2_hgawv"]
+[ext_resource type="Texture2D" uid="uid://dwrutix7l4f0f" path="res://placables/item_trash/item_trash_sprite.png" id="2_sonvd"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_hkgou"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="3_s3dhv"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_hvv06"]
+[ext_resource type="Script" path="res://components/objective_component.gd" id="4_mni1u"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_3rp4v"]
+[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/test_objective.tres" id="5_ae6ws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37qvp"]
+size = Vector2(31.9, 31.9)
+
+[sub_resource type="Resource" id="Resource_00pcp"]
+script = ExtResource("5_3rp4v")
+move_rules = Array[ExtResource("4_hvv06")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = false
+flip_vertical = false
+movable = false
+demolishable = true
+
+[node name="ObjectiveTester" type="StaticBody2D"]
+collision_layer = 3584
+collision_mask = 0
+script = ExtResource("1_rs67v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sonvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_37qvp")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_hkgou")
+settings = SubResource("Resource_00pcp")
+root = NodePath("..")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotComponent" type="Node2D" parent="Components"]
+script = ExtResource("2_hgawv")
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("3_s3dhv")
+base_side = 2
+slot = NodePath("../SlotComponent")
+
+[node name="ObjectiveComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slots")]
+script = ExtResource("4_mni1u")
+slots = [NodePath("../SlotComponent")]
+objective = ExtResource("5_ae6ws")
+active_component = null

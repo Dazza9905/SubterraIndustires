@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 class_name GridReferenceSystem
 # - hold refernces to the objects
 # - handles the operations when adding and removing objects from grid
@@ -18,7 +18,7 @@ func GO_built(grid_object: GridObject) -> void:
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
 	#connect_GO_to_GRS(grid_object)
 	
-	var GP_main_cell: Vector2i = Vector2(($"../GridPositioner".position.x - 16)/32, ($"../GridPositioner".position.y - 16)/32) as Vector2i
+	var GP_main_cell: Vector2i = Vector2(($"../../World/GridPositioner".position.x - 16)/32, ($"../../World/GridPositioner".position.y - 16)/32) as Vector2i
 	grid_object.main_cell = GP_main_cell
 	
 	
@@ -38,7 +38,7 @@ func asign_GP_cells_to_GO(grid_object: GridObject):
 	GO_position.y = (grid_object.position.y - 16) / 32
 	
 	#get indicators (for teir position)
-	var collision_indicators = $"../GridPositioner/ManipulationParent/RuleCheckIndicatorManager".get_children()
+	var collision_indicators = $"../../World/GridPositioner/ManipulationParent/RuleCheckIndicatorManager".get_children()
 	
 	for indicator in collision_indicators:
 		#calcualte the coordinate for occupied cell
@@ -46,7 +46,7 @@ func asign_GP_cells_to_GO(grid_object: GridObject):
 		p_offset.x = indicator.position.x / 32
 		p_offset.y = indicator.position.y / 32
 		print("p_offset: ", p_offset)
-		var coordinate: Vector2i = GO_position + GF.rotate(p_offset, $"../GridPositioner/ManipulationParent".rotation)
+		var coordinate: Vector2i = GO_position + GF.rotate(p_offset, $"../../World/GridPositioner/ManipulationParent".rotation)
 		#add it to the object
 		grid_object.ocuppied_cells.append(coordinate)
 

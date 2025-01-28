@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bq20mw0jsa4l8"]
+
+[node name="ObjUiTest" type="Tree"]
+offset_right = 63.0
+offset_bottom = 31.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuBar" type="MenuBar" parent="VBoxContainer"]
+layout_mode = 2
+flat = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/MenuBar"]
+layout_mode = 0
+offset_right = 45.0
+offset_bottom = 23.0
+text = "asdas"
+
+[node name="Label" type="Label" parent="VBoxContainer/MenuBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "asda"
