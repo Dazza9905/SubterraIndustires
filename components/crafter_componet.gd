@@ -18,7 +18,7 @@ class_name CrafterComponent
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]
 @export var speed_multiplier: float
-@export var craft_progress: int = -1: # -1 = finished, can craft again
+@export var craft_progress: int = 0:
 	set(new_progress):
 		craft_progress = new_progress
 		if progress_label:
@@ -35,17 +35,20 @@ func connect_to_tick() -> void:
 
 func _on_machanine_tick() -> void:
 	var target_outputs: Array[int]
+	var can_craft: bool = can_craft(target_outputs)
 	
-	match craft_progress:
-		-1:
-			if can_craft(target_outputs):
-				craft_progress = recipe.ticks_to_craft
-				return
-		0:
-			if can_craft(target_outputs):
-				actually_craft(target_outputs)
-		_:
+	if craft_progress > 0:
+		if can_craft:
 			craft_progress = craft_progress - 1
+
+	
+	if craft_progress == 0:
+		if can_craft:
+			actually_craft(target_outputs)
+			craft_progress = recipe.ticks_to_craft
+			
+
+
 		
 func can_craft(target_outputs: Array[int]) -> bool:
 	if recipe == null:
@@ -83,4 +86,3 @@ func actually_craft(target_outputs: Array[int]) -> void:
 	for i in range(0, target_outputs.size()):
 		outputs[i].give_item(recipe.output_products[i].item, recipe.output_products[i].amount)
 		objective_system.complete_produce(recipe.output_products[i].item, recipe.output_products[i].amount)
-		craft_progress = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1tsok1vm60ly"]
+[gd_scene load_steps=13 format=3 uid="uid://1tsok1vm60ly"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_4mkui"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_6pfpx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xogw8"]
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="6_pdaj7"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="7_8x721"]
+[ext_resource type="PackedScene" uid="uid://cc4hlnx3k8lys" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="8_dqnrl"]
 [ext_resource type="Script" path="res://components/creative_genenerator_component.gd" id="9_niei1"]
 
@@ -56,6 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 script = ExtResource("6_pdaj7")
+packed_ui = ExtResource("7_eatvi")
 
 [node name="Components" type="Node2D" parent="."]
 

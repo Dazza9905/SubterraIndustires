@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wx0imx3ix2ic"]
+[gd_scene load_steps=15 format=3 uid="uid://wx0imx3ix2ic"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_u54kl"]
 [ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="2_1pau7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://components/output_component.gd" id="5_o83rf"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="6_lv7jb"]
+[ext_resource type="PackedScene" uid="uid://kwphu548t7j4" path="res://placables/smelter/smelter_ui.tscn" id="7_504ry"]
 [ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron_sprite.png" id="7_vgyno"]
 [ext_resource type="Script" path="res://components/crafter_componet.gd" id="9_5ob0n"]
 
@@ -60,14 +61,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -15.5
-offset_top = -15.5
-offset_right = 15.5
-offset_bottom = 15.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 47.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
 script = ExtResource("6_lv7jb")
+packed_ui = ExtResource("7_504ry")
 
 [node name="RecipeSprite" type="Sprite2D" parent="."]
 visible = false
