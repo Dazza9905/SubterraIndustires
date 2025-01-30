@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://custom_types/objective_manager.gd" id="1_8j75w"]
 [ext_resource type="Script" path="res://hud/objective/objective_ui.gd" id="2_ilbvl"]
-[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/test_objective.tres" id="3_8nkoi"]
+[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/level1_objectives/test_objective.tres" id="3_8nkoi"]
 
 [sub_resource type="Theme" id="Theme_xmb0i"]
 default_font_size = 0

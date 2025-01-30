@@ -24,12 +24,13 @@ movable = true
 demolishable = true
 
 [node name="bush_small_1" type="StaticBody2D"]
-collision_layer = 3073
+z_index = 2
+collision_layer = 3072
+collision_mask = 0
 script = ExtResource("1_4a7kb")
 code_name = "bush_small_1"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 10
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_ruwme")
 

@@ -2,6 +2,8 @@ extends Component
 class_name CrafterComponent
 
 @export var recipe_icon: Sprite2D
+@export var progress_label: Label
+
 @export var recipe: Recipe:
 	set(new_recipe):
 		recipe = new_recipe
@@ -16,7 +18,11 @@ class_name CrafterComponent
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]
 @export var speed_multiplier: float
-@export var craft_progress: int
+@export var craft_progress: int = -1: # -1 = finished, can craft again
+	set(new_progress):
+		craft_progress = new_progress
+		if progress_label:
+			progress_label.text = str(craft_progress)
 
 var objective_system: ObjectiveSystem
 
@@ -28,8 +34,22 @@ func connect_to_tick() -> void:
 	objective_system = Globals.get_ObjectiveSystem()
 
 func _on_machanine_tick() -> void:
+	var target_outputs: Array[int]
+	
+	match craft_progress:
+		-1:
+			if can_craft(target_outputs):
+				craft_progress = recipe.ticks_to_craft
+				return
+		0:
+			if can_craft(target_outputs):
+				actually_craft(target_outputs)
+		_:
+			craft_progress = craft_progress - 1
+		
+func can_craft(target_outputs: Array[int]) -> bool:
 	if recipe == null:
-		return
+		return false
 	for in_ingradient in recipe.input_ingredients:
 		var ingredient_present: bool = false
 		for in_slot in inputs:
@@ -37,9 +57,8 @@ func _on_machanine_tick() -> void:
 				ingredient_present = true
 				break
 		if(ingredient_present != true):
-			return
+			return false
 	
-	var target_outputs: Array[int]
 	for out_product in recipe.output_products:
 		var avalible_output: bool = false
 		for i in range(0, outputs.size()):
@@ -48,8 +67,12 @@ func _on_machanine_tick() -> void:
 				target_outputs.append(i)
 				break
 		if(avalible_output != true):
-			return
-		
+			return false
+	return true
+	
+func actually_craft(target_outputs: Array[int]) -> void:
+	if target_outputs.size() == 0:
+		assert("Crafting failed. Tried to craft and certainoli did not validate if crafting is possible")
 	#IF WE GOT HERE, EVERITHING SHOULD BE GOOD TO GO
 	for in_ingredient in recipe.input_ingredients:
 		for input in inputs:
@@ -60,3 +83,4 @@ func _on_machanine_tick() -> void:
 	for i in range(0, target_outputs.size()):
 		outputs[i].give_item(recipe.output_products[i].item, recipe.output_products[i].amount)
 		objective_system.complete_produce(recipe.output_products[i].item, recipe.output_products[i].amount)
+		craft_progress = -1

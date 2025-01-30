@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # Variable for movement speed
 var speed = 10000
+@export var belt_detector: Area2D
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -15,7 +16,7 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta):
 	var conveyor_velocity = Vector2.ZERO
 	var conveyor_speed = 32
-	var colliders = $Area2D.get_overlapping_bodies()
+	var colliders = belt_detector.get_overlapping_bodies()
 	
 	for collider in colliders:
 		if collider != null and collider.name.begins_with("Belt"):

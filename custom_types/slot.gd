@@ -77,13 +77,16 @@ func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 
 
 #ANY
-func take(passed_amount = 1):
+func take(passed_amount: int = 1): # -1 <- max amount
 	if (is_empty()):
 		return null
 	else:
-		var temp_item: Item = item
-		_amount = _amount - passed_amount
-		return temp_item
+		if _amount >= passed_amount:
+			var temp_item: Item = item
+			_amount = _amount - passed_amount
+			return temp_item
+		else:
+			return null
 
 #SINGLE
 func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount = 1):

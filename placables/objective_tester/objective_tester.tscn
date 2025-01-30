@@ -6,9 +6,9 @@
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_hkgou"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="3_s3dhv"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_hvv06"]
-[ext_resource type="Script" path="res://components/objective_component.gd" id="4_mni1u"]
+[ext_resource type="Script" path="res://components/objective_collect.gd" id="4_mni1u"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_3rp4v"]
-[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/test_objective.tres" id="5_ae6ws"]
+[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/level1_objectives/test_objective.tres" id="5_ae6ws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37qvp"]
 size = Vector2(31.9, 31.9)

@@ -27,6 +27,7 @@ movable = true
 demolishable = true
 
 [node name="belt_0r" type="StaticBody2D"]
+z_index = 1
 collision_layer = 527360
 collision_mask = 0
 script = ExtResource("1_4bvu2")

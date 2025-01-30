@@ -29,4 +29,4 @@ icon = ExtResource("1_aepf8")
 valid_machines = Array[String](["smelter"])
 input_ingredients = Array[ExtResource("1_b7qvf")]([SubResource("Resource_5qswy"), SubResource("Resource_o5nw5")])
 output_products = Array[ExtResource("1_b7qvf")]([SubResource("Resource_ityc7")])
-ticks_to_craft = 0
+ticks_to_craft = 5

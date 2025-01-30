@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=59 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" path="res://TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="19_tn0h0"]
 [ext_resource type="Script" path="res://custom_types/objective_system.gd" id="20_gwnkt"]
 [ext_resource type="PackedScene" uid="uid://ctr73a3smgupf" path="res://addons/grid_building/template/indicator/rule_check_indicator_16x16_minimal.tscn" id="20_skc42"]
-[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/test_objective.tres" id="21_txp82"]
+[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/level1_objectives/test_objective.tres" id="21_txp82"]
 [ext_resource type="Script" path="res://addons/grid_building/components/grid_state_assigner.gd" id="23_1geoc"]
 [ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player/player.tscn" id="23_pxl76"]
 [ext_resource type="PackedScene" uid="uid://erm78oe3trac" path="res://addons/grid_building/ui/placement_selection/placeable_selection_ui.tscn" id="24_12s6v"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://bodjh1gtscs2r" path="res://hud/objective/objective_ui.tscn" id="30_xhqwm"]
 [ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="32_yh7yd"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
+[ext_resource type="Script" path="res://hud/button_load_level.gd" id="33_csten"]
 [ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
 [ext_resource type="Script" path="res://fps.gd" id="38_d6oh1"]
@@ -54,6 +55,7 @@
 [ext_resource type="Resource" uid="uid://twhge4smthhp" path="res://placables/miner/miner_placable.tres" id="47_hmus8"]
 [ext_resource type="PackedScene" uid="uid://c8ecktoq72n8f" path="res://placables/node_iron/grid.tscn" id="49_0tvh6"]
 [ext_resource type="Resource" uid="uid://43u6sr7kgw1r" path="res://placables/objective_tester/objective_tester_placable.tres" id="50_q7ys0"]
+[ext_resource type="Resource" uid="uid://coick28xvywj2" path="res://placables/elevator/elevator_placable.tres" id="54_6of3j"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]
 script = ExtResource("17_2vu25")
@@ -164,9 +166,8 @@ tile_set = ExtResource("25_i0l3u")
 position = Vector2(522, 278)
 
 [node name="Player" parent="World/Game Level" instance=ExtResource("23_pxl76")]
+z_index = 2
 position = Vector2(521, 291)
-collision_layer = 2560
-collision_mask = 512
 
 [node name="Iron Node 1" parent="World/Game Level" instance=ExtResource("49_0tvh6")]
 position = Vector2(240, 176)
@@ -175,10 +176,23 @@ position = Vector2(240, 176)
 
 [node name="Objective" parent="UserInterface" instance=ExtResource("30_xhqwm")]
 
+[node name="Button" type="Button" parent="UserInterface"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+offset_right = 311.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Next Level"
+script = ExtResource("33_csten")
+next_level_path = "res://level2.tscn"
+
 [node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
 building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
-placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("50_q7ys0")])
+placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("50_q7ys0"), ExtResource("54_6of3j")])
 
 [node name="Label" type="Label" parent="UserInterface"]
 offset_left = 1028.0
@@ -186,3 +200,5 @@ offset_top = 5.0
 offset_right = 1143.0
 offset_bottom = 54.0
 script = ExtResource("38_d6oh1")
+
+[connection signal="pressed" from="UserInterface/Button" to="UserInterface/Button" method="_on_pressed"]

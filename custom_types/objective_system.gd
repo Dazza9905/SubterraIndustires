@@ -5,15 +5,16 @@ class_name ObjectiveSystem
 @export var current_objective: Objective
 
 signal objective_changed
+signal level_completed
 
-func complete_produce(item: Item, amount: int):
+func complete_produce(item: Item,  amount: int = 1):
 	for sub_objective in current_objective.sub_objectives:
 		if sub_objective is SubObjectiveProduce:
 			if (sub_objective as SubObjectiveProduce).item_to_produce.type == item.type:
 				(sub_objective as SubObjectiveProduce).current_completion += amount
 	switch_if_completed()
 
-func complete_collect(item: Item, amount: int):
+func complete_collect(item: Item, amount: int = 1):
 	for sub_objective in current_objective.sub_objectives:
 		if sub_objective is SubObjectiveCollect:
 			if (sub_objective as SubObjectiveProduce).item_to_collect.type == item.type:
@@ -38,3 +39,4 @@ func switch_if_completed() -> void:
 				objective_changed.emit()
 			else:
 				print("level complete")
+				level_completed.emit()

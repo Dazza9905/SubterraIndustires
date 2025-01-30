@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2dk46qx62l7p"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6kyar"]
+[ext_resource type="Texture2D" uid="uid://cghl6d373bvnl" path="res://placables/elevator/elevator_sprite.png" id="2_5go2o"]
+[ext_resource type="Script" path="res://components/input_component.gd" id="2_50idv"]
+[ext_resource type="Script" path="res://custom_types/slot.gd" id="3_cugsj"]
+[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_pkhk7"]
+[ext_resource type="Script" path="res://components/objective_collect.gd" id="4_igu7x"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_v637m"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_cabuf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8dfm"]
+radius = 79.9
+
+[sub_resource type="Resource" id="Resource_8cytb"]
+script = ExtResource("5_cabuf")
+move_rules = Array[ExtResource("4_v637m")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = false
+flip_vertical = false
+movable = false
+demolishable = true
+
+[node name="Elevator" type="StaticBody2D"]
+z_index = 2
+collision_layer = 3584
+collision_mask = 0
+script = ExtResource("1_6kyar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_5go2o")
+
+[node name="SlotItem1" type="Sprite2D" parent="."]
+
+[node name="SlotItem2" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a8dfm")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_pkhk7")
+settings = SubResource("Resource_8cytb")
+root = NodePath("..")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="Slot1" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+script = ExtResource("3_cugsj")
+item_sprite = NodePath("../../SlotItem1")
+
+[node name="Slot2" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+script = ExtResource("3_cugsj")
+item_sprite = NodePath("../../Sprite2D")
+
+[node name="ObjectiveCollect" type="Node2D" parent="Components" node_paths=PackedStringArray("slots")]
+script = ExtResource("4_igu7x")
+slots = [NodePath("../Slot1"), NodePath("../Slot2")]
+
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(-64, -32)
+rotation = 3.14159
+script = ExtResource("2_50idv")
+cell_offset = Vector2i(-2, -1)
+slot = NodePath("../Slot1")
+
+[node name="InputComponent2" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(-64, 0)
+rotation = 3.14159
+script = ExtResource("2_50idv")
+cell_offset = Vector2i(-2, 0)
+slot = NodePath("../Slot2")

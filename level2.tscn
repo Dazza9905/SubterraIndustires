@@ -1,0 +1,203 @@
+[gd_scene load_steps=59 format=4 uid="uid://r1la8uwwm03i"]
+
+[ext_resource type="Script" path="res://addons/grid_building/building_system/building_system.gd" id="1_2c1ti"]
+[ext_resource type="Resource" uid="uid://ucdwu3ex850" path="res://addons/grid_building/template/resources/building_state.tres" id="2_yroup"]
+[ext_resource type="Resource" uid="uid://diroyvqk6awol" path="res://addons/grid_building/template/resources/building_settings.tres" id="3_1cgbe"]
+[ext_resource type="Resource" uid="uid://yvq8d5kf20xy" path="res://addons/grid_building/template/resources/building_actions.tres" id="4_r0447"]
+[ext_resource type="Resource" uid="uid://bhk3251n317e" path="res://addons/grid_building/template/resources/placement_validator.tres" id="5_087fj"]
+[ext_resource type="Resource" uid="uid://046oq4e4qwsd" path="res://addons/grid_building/template/resources/mode_state.tres" id="6_kv7hb"]
+[ext_resource type="Resource" uid="uid://d0hx3bpam0rdq" path="res://addons/grid_building/template/resources/targeting_state.tres" id="7_e063d"]
+[ext_resource type="Resource" uid="uid://cj5672bxn3l3g" path="res://addons/grid_building/template/resources/mode_actions.tres" id="8_n0qko"]
+[ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="9_fl30h"]
+[ext_resource type="Resource" uid="uid://cob2kk7haei2t" path="res://addons/grid_building/template/resources/grid_targeting_settings.tres" id="10_6jxvu"]
+[ext_resource type="Script" path="res://addons/grid_building/manipulation_system/manipulation_system.gd" id="11_fvwm5"]
+[ext_resource type="Resource" uid="uid://blhldcte2skql" path="res://addons/grid_building/template/resources/manipulation_state.tres" id="12_v2av7"]
+[ext_resource type="Resource" uid="uid://c1cskokmxod5m" path="res://addons/grid_building/template/resources/manipulation_settings.tres" id="13_lqlnm"]
+[ext_resource type="Resource" uid="uid://b2v2lrmt10tbc" path="res://addons/grid_building/template/resources/manipulation_messages.tres" id="14_16jsn"]
+[ext_resource type="Resource" uid="uid://dbkoum2vbx2ha" path="res://addons/grid_building/template/resources/manipulation_actions.tres" id="15_7qhgm"]
+[ext_resource type="Script" path="res://addons/grid_building/components/target_highlighter.gd" id="16_p7fex"]
+[ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/highlight_settings.gd" id="17_hy4ri"]
+[ext_resource type="Script" path="res://custom_types/grid_reference_system.gd" id="18_kak5f"]
+[ext_resource type="Script" path="res://TimeTickSystem.gd" id="19_jtlr7"]
+[ext_resource type="Script" path="res://custom_types/objective_system.gd" id="20_hf6kg"]
+[ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/level1_objectives/test_objective.tres" id="21_l0lft"]
+[ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/grid_positioner/grid_positioner_2d.gd" id="22_b7h67"]
+[ext_resource type="PackedScene" uid="uid://b85csecsg3tsa" path="res://addons/grid_building/template/components/grid_targeter.tscn" id="23_p5cak"]
+[ext_resource type="Script" path="res://addons/grid_building/manipulation_system/manipulation_parent.gd" id="24_f1420"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="25_mi60p"]
+[ext_resource type="PackedScene" uid="uid://ctr73a3smgupf" path="res://addons/grid_building/template/indicator/rule_check_indicator_16x16_minimal.tscn" id="26_v4ihw"]
+[ext_resource type="Script" path="res://addons/grid_building/components/grid_state_assigner.gd" id="27_3svbf"]
+[ext_resource type="TileSet" uid="uid://dxy2djh5scssk" path="res://art/downloaded/pixel_art_pack/pixel_art_pack.tres" id="28_gtd1n"]
+[ext_resource type="PackedScene" uid="uid://ds0fsd8byy8cn" path="res://placables/bush_large_1/bush_large_1.tscn" id="29_34a4a"]
+[ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player/player.tscn" id="30_up2l1"]
+[ext_resource type="PackedScene" uid="uid://c8ecktoq72n8f" path="res://placables/node_iron/grid.tscn" id="31_chn5w"]
+[ext_resource type="PackedScene" uid="uid://bodjh1gtscs2r" path="res://hud/objective/objective_ui.tscn" id="32_pflit"]
+[ext_resource type="PackedScene" uid="uid://erm78oe3trac" path="res://addons/grid_building/ui/placement_selection/placeable_selection_ui.tscn" id="33_ecl0e"]
+[ext_resource type="Script" path="res://hud/button_load_level.gd" id="33_psw3i"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="34_hesjj"]
+[ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="35_34mny"]
+[ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="36_gfy5j"]
+[ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="37_lqtis"]
+[ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="38_eghkf"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="39_jkh8c"]
+[ext_resource type="Resource" uid="uid://djrxg7bxkd167" path="res://placables/belt_0s/belt_0s_placable.tres" id="40_lu845"]
+[ext_resource type="Resource" uid="uid://brd1gu1pa3ves" path="res://placables/belt_0c/belt_0l/belt_0l_placable.tres" id="41_8xuv8"]
+[ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belt_0c/belt_0r/belt_0r_placable.tres" id="42_nfxja"]
+[ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="43_dglhi"]
+[ext_resource type="Resource" uid="uid://dcpiagq8b217s" path="res://placables/splitter/splitter_placable.tres" id="44_kt2d1"]
+[ext_resource type="Resource" uid="uid://g0c4gpa5md5p" path="res://placables/merger/merger_placable.tres" id="45_mmlar"]
+[ext_resource type="Resource" uid="uid://de8o88bvo72qh" path="res://placables/bush_small_1/bush_small_1_placable.tres" id="46_2impv"]
+[ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="47_irvvy"]
+[ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="48_jsf7x"]
+[ext_resource type="Resource" uid="uid://bpytjbs0gasyx" path="res://placables/smelter/smelter_placable.tres" id="49_fngqt"]
+[ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/item_gen/item_gen_placable.tres" id="50_avasd"]
+[ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/item_trash/item_trash_placable.tres" id="51_i2lsr"]
+[ext_resource type="Resource" uid="uid://twhge4smthhp" path="res://placables/miner/miner_placable.tres" id="52_he71r"]
+[ext_resource type="Resource" uid="uid://43u6sr7kgw1r" path="res://placables/objective_tester/objective_tester_placable.tres" id="53_5ei4d"]
+[ext_resource type="Resource" uid="uid://coick28xvywj2" path="res://placables/elevator/elevator_placable.tres" id="54_grnpl"]
+[ext_resource type="Script" path="res://fps.gd" id="55_11gfx"]
+
+[sub_resource type="Resource" id="Resource_ogy2c"]
+script = ExtResource("17_hy4ri")
+build_preview_color = Color(0.6, 0.6, 1, 0.8)
+move_valid_color = Color(0.2, 1, 0.2, 1)
+move_invalid_color = Color(1, 0.2, 0.2, 1)
+active_manipulation_color = Color(0.2, 0.2, 1, 0.7)
+demolish_valid_color = Color(0.2, 1, 0.2, 1)
+demolish_invalid_color = Color(1, 0.2, 0.2, 1)
+reset_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6fte"]
+size = Vector2(31.9, 31.9)
+
+[node name="Game" type="Node"]
+
+[node name="Systems" type="Node" parent="."]
+
+[node name="GBPluginSystems" type="Node" parent="Systems"]
+
+[node name="BuildingSystem" type="Node" parent="Systems/GBPluginSystems"]
+script = ExtResource("1_2c1ti")
+state = ExtResource("2_yroup")
+settings = ExtResource("3_1cgbe")
+actions = ExtResource("4_r0447")
+placement_validator = ExtResource("5_087fj")
+mode_state = ExtResource("6_kv7hb")
+targeting_state = ExtResource("7_e063d")
+mode_actions = ExtResource("8_n0qko")
+
+[node name="GridTargetingSystem" type="Node" parent="Systems/GBPluginSystems"]
+script = ExtResource("9_fl30h")
+state = ExtResource("7_e063d")
+settings = ExtResource("10_6jxvu")
+mode_state = ExtResource("6_kv7hb")
+
+[node name="ManipulationSystem" type="Node" parent="Systems/GBPluginSystems"]
+script = ExtResource("11_fvwm5")
+state = ExtResource("12_v2av7")
+settings = ExtResource("13_lqlnm")
+messages = ExtResource("14_16jsn")
+actions = ExtResource("15_7qhgm")
+placement_validator = ExtResource("5_087fj")
+targeting_state = ExtResource("7_e063d")
+mode_state = ExtResource("6_kv7hb")
+building_state = ExtResource("2_yroup")
+mode_actions = ExtResource("8_n0qko")
+
+[node name="TargetHighlighter" type="Node" parent="Systems/GBPluginSystems/ManipulationSystem"]
+script = ExtResource("16_p7fex")
+mode_state = ExtResource("6_kv7hb")
+targeting_state = ExtResource("7_e063d")
+manipulation_state = ExtResource("12_v2av7")
+highlight_settings = SubResource("Resource_ogy2c")
+
+[node name="GridReferenceSystem" type="Node" parent="Systems"]
+script = ExtResource("18_kak5f")
+
+[node name="TimeTickSystem" type="Node" parent="Systems"]
+script = ExtResource("19_jtlr7")
+
+[node name="ObjectiveSystem" type="Node" parent="Systems"]
+script = ExtResource("20_hf6kg")
+current_objective = ExtResource("21_l0lft")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="GridPositioner" type="ShapeCast2D" parent="World"]
+z_index = 1000
+shape = SubResource("RectangleShape2D_x6fte")
+target_position = Vector2(0, 0)
+collision_mask = 3072
+collide_with_areas = true
+script = ExtResource("22_b7h67")
+mode_state = ExtResource("6_kv7hb")
+targeting_state = ExtResource("7_e063d")
+targeting_settings = ExtResource("10_6jxvu")
+
+[node name="GridTargeter" parent="World/GridPositioner" instance=ExtResource("23_p5cak")]
+scale = Vector2(2, 2)
+
+[node name="ManipulationParent" type="Node2D" parent="World/GridPositioner"]
+script = ExtResource("24_f1420")
+manipulation_state = ExtResource("12_v2av7")
+
+[node name="RuleCheckIndicatorManager" type="Node2D" parent="World/GridPositioner/ManipulationParent"]
+script = ExtResource("25_mi60p")
+placement_validator = ExtResource("5_087fj")
+indicator_template = ExtResource("26_v4ihw")
+targeting_state = ExtResource("7_e063d")
+
+[node name="GridStateAssigner" type="Node" parent="World" node_paths=PackedStringArray("target_map", "maps", "objects_parent")]
+script = ExtResource("27_3svbf")
+targeting_state = ExtResource("7_e063d")
+building_state = ExtResource("2_yroup")
+target_map = NodePath("../Game Level/TileMapLayer3")
+maps = [null]
+objects_parent = NodePath("../Game Level")
+
+[node name="Game Level" type="Node2D" parent="World"]
+y_sort_enabled = true
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="World/Game Level"]
+tile_map_data = PackedByteArray("AAALAAcABAABAAEAAAALAAgABAABAAEAAAALAAkABAABAAEAAAALAAoABAABAAEAAAALAAsABAABAAEAAAAMAAcABAABAAEAAAAMAAgABAABAAEAAAAMAAkABAABAAEAAAAMAAoABAABAAEAAAAMAAsABAABAAEAAAANAAcABAABAAEAAAANAAgABAABAAEAAAANAAkABAABAAEAAAANAAoABAABAAEAAAANAAsABAABAAEAAAAOAAcABAABAAEAAAAOAAgABAABAAEAAAAOAAkABAABAAEAAAAOAAoABAABAAEAAAAOAAsABAABAAEAAAAPAAcABAABAAEAAAAPAAgABAABAAEAAAAPAAkABAABAAEAAAAPAAoABAABAAEAAAAPAAsABAABAAEAAAAQAAcABAABAAEAAAAQAAgABAABAAEAAAAQAAkABAABAAEAAAAQAAoABAABAAEAAAAQAAsABAABAAEAAAARAAcABAABAAEAAAARAAgABAABAAEAAAARAAkABAABAAEAAAARAAoABAABAAEAAAARAAsABAABAAEAAAASAAcABAABAAEAAAASAAgABAABAAEAAAASAAkABAABAAEAAAASAAoABAABAAEAAAASAAsABAABAAEAAAATAAcABAABAAEAAAATAAgABAABAAEAAAATAAkABAABAAEAAAATAAoABAABAAEAAAATAAsABAABAAEAAAAUAAcABAABAAEAAAAUAAgABAABAAEAAAAUAAkABAABAAEAAAAUAAoABAABAAEAAAAUAAsABAABAAEAAAAVAAcABAABAAEAAAAVAAgABAABAAEAAAAVAAkABAABAAEAAAAVAAoABAABAAEAAAAVAAsABAABAAEAAAAWAAcABAABAAEAAAAWAAgABAABAAEAAAAWAAkABAABAAEAAAAWAAoABAABAAEAAAAWAAsABAABAAEAAAAXAAcABAABAAEAAAAXAAgABAABAAEAAAAXAAkABAABAAEAAAAXAAoABAABAAEAAAAXAAsABAABAAEAAAAYAAcABAABAAEAAAAYAAgABAABAAEAAAAYAAkABAABAAEAAAAYAAoABAABAAEAAAAYAAsABAABAAEAAAAAAAAABAABAAEAAAAAAAEABAABAAEAAAAAAAIABAABAAEAAAAAAAMABAABAAEAAAABAAAABAABAAEAAAABAAEABAABAAEAAAABAAIABAABAAEAAAABAAMABAABAAEAAAACAAAABAABAAEAAAACAAEABAABAAEAAAACAAIABAABAAEAAAACAAMABAABAAEAAAADAAAABAABAAEAAAADAAEABAABAAEAAAADAAIABAABAAEAAAADAAMABAABAAEAAAAAAAQABAABAAEAAAAAAAUABAABAAEAAAAAAAYABAABAAEAAAAAAAcABAABAAEAAAABAAQABAABAAEAAAABAAUABAABAAEAAAABAAYABAABAAEAAAABAAcABAABAAEAAAACAAQABAABAAEAAAACAAUABAABAAEAAAACAAYABAABAAEAAAACAAcABAABAAEAAAADAAQABAABAAEAAAADAAUABAABAAEAAAADAAYABAABAAEAAAADAAcABAABAAEAAAAAAAgABAABAAEAAAAAAAkABAABAAEAAAAAAAoABAABAAEAAAAAAAsABAABAAEAAAABAAgABAABAAEAAAABAAkABAABAAEAAAABAAoABAABAAEAAAABAAsABAABAAEAAAACAAgABAABAAEAAAACAAkABAABAAEAAAACAAoABAABAAEAAAACAAsABAABAAEAAAADAAgABAABAAEAAAADAAkABAABAAEAAAADAAoABAABAAEAAAADAAsABAABAAEAAAAAAAwABAABAAEAAAAAAA0ABAABAAEAAAAAAA4ABAABAAEAAAAAAA8ABAABAAEAAAABAAwABAABAAEAAAABAA0ABAABAAEAAAABAA4ABAABAAEAAAABAA8ABAABAAEAAAACAAwABAABAAEAAAACAA0ABAABAAEAAAACAA4ABAABAAEAAAACAA8ABAABAAEAAAADAAwABAABAAEAAAADAA0ABAABAAEAAAADAA4ABAABAAEAAAADAA8ABAABAAEAAAAAABAABAABAAEAAAAAABEABAABAAEAAAAAABIABAABAAEAAAAAABMABAABAAEAAAABABAABAABAAEAAAABABEABAABAAEAAAABABIABAABAAEAAAABABMABAABAAEAAAACABAABAABAAEAAAACABEABAABAAEAAAACABIABAABAAEAAAACABMABAABAAEAAAADABAABAABAAEAAAADABEABAABAAEAAAADABIABAABAAEAAAADABMABAABAAEAAAAEAAAABAABAAEAAAAEAAEABAABAAEAAAAEAAIABAABAAEAAAAEAAMABAABAAEAAAAFAAAABAABAAEAAAAFAAEABAABAAEAAAAFAAIABAABAAEAAAAFAAMABAABAAEAAAAGAAAABAABAAEAAAAGAAEABAABAAEAAAAGAAIABAABAAEAAAAGAAMABAABAAEAAAAHAAAABAABAAEAAAAHAAEABAABAAEAAAAHAAIABAABAAEAAAAHAAMABAABAAEAAAAEAAQABAABAAEAAAAEAAUABAABAAEAAAAEAAYABAABAAEAAAAEAAcABAABAAEAAAAFAAQABAABAAEAAAAFAAUABAABAAEAAAAFAAYABAABAAEAAAAFAAcABAABAAEAAAAGAAQABAABAAEAAAAGAAUABAABAAEAAAAGAAYABAABAAEAAAAGAAcABAABAAEAAAAHAAQABAABAAEAAAAHAAUABAABAAEAAAAHAAYABAABAAEAAAAHAAcABAABAAEAAAAEAAgABAABAAEAAAAEAAkABAABAAEAAAAEAAoABAABAAEAAAAEAAsABAABAAEAAAAFAAgABAABAAEAAAAFAAkABAABAAEAAAAFAAoABAABAAEAAAAFAAsABAABAAEAAAAGAAgABAABAAEAAAAGAAkABAABAAEAAAAGAAoABAABAAEAAAAGAAsABAABAAEAAAAHAAgABAABAAEAAAAHAAkABAABAAEAAAAHAAoABAABAAEAAAAHAAsABAABAAEAAAAEAAwABAABAAEAAAAEAA0ABAABAAEAAAAEAA4ABAABAAEAAAAEAA8ABAABAAEAAAAFAAwABAABAAEAAAAFAA0ABAABAAEAAAAFAA4ABAABAAEAAAAFAA8ABAABAAEAAAAGAAwABAABAAEAAAAGAA0ABAABAAEAAAAGAA4ABAABAAEAAAAGAA8ABAABAAEAAAAHAAwABAABAAEAAAAHAA0ABAABAAEAAAAHAA4ABAABAAEAAAAHAA8ABAABAAEAAAAEABAABAABAAEAAAAEABEABAABAAEAAAAEABIABAABAAEAAAAEABMABAABAAEAAAAFABAABAABAAEAAAAFABEABAABAAEAAAAFABIABAABAAEAAAAFABMABAABAAEAAAAGABAABAABAAEAAAAGABEABAABAAEAAAAGABIABAABAAEAAAAGABMABAABAAEAAAAHABAABAABAAEAAAAHABEABAABAAEAAAAHABIABAABAAEAAAAHABMABAABAAEAAAAIAAAABAABAAEAAAAIAAEABAABAAEAAAAIAAIABAABAAEAAAAIAAMABAABAAEAAAAJAAAABAABAAEAAAAJAAEABAABAAEAAAAJAAIABAABAAEAAAAJAAMABAABAAEAAAAKAAAABAABAAEAAAAKAAEABAABAAEAAAAKAAIABAABAAEAAAAKAAMABAABAAEAAAALAAAABAABAAEAAAALAAEABAABAAEAAAALAAIABAABAAEAAAALAAMABAABAAEAAAAIAAQABAABAAEAAAAIAAUABAABAAEAAAAIAAYABAABAAEAAAAIAAcABAABAAEAAAAJAAQABAABAAEAAAAJAAUABAABAAEAAAAJAAYABAABAAEAAAAJAAcABAABAAEAAAAKAAQABAABAAEAAAAKAAUABAABAAEAAAAKAAYABAABAAEAAAAKAAcABAABAAEAAAALAAQABAABAAEAAAALAAUABAABAAEAAAALAAYABAABAAEAAAAIAAgABAABAAEAAAAIAAkABAABAAEAAAAIAAoABAABAAEAAAAIAAsABAABAAEAAAAJAAgABAABAAEAAAAJAAkABAABAAEAAAAJAAoABAABAAEAAAAJAAsABAABAAEAAAAKAAgABAABAAEAAAAKAAkABAABAAEAAAAKAAoABAABAAEAAAAKAAsABAABAAEAAAAIAAwABAABAAEAAAAIAA0ABAABAAEAAAAIAA4ABAABAAEAAAAIAA8ABAABAAEAAAAJAAwABAABAAEAAAAJAA0ABAABAAEAAAAJAA4ABAABAAEAAAAJAA8ABAABAAEAAAAKAAwABAABAAEAAAAKAA0ABAABAAEAAAAKAA4ABAABAAEAAAAKAA8ABAABAAEAAAALAAwABAABAAEAAAALAA0ABAABAAEAAAALAA4ABAABAAEAAAALAA8ABAABAAEAAAAIABAABAABAAEAAAAIABEABAABAAEAAAAIABIABAABAAEAAAAIABMABAABAAEAAAAJABAABAABAAEAAAAJABEABAABAAEAAAAJABIABAABAAEAAAAJABMABAABAAEAAAAKABAABAABAAEAAAAKABEABAABAAEAAAAKABIABAABAAEAAAAKABMABAABAAEAAAALABAABAABAAEAAAALABEABAABAAEAAAALABIABAABAAEAAAALABMABAABAAEAAAAMAAAABAABAAEAAAAMAAEABAABAAEAAAAMAAIABAABAAEAAAAMAAMABAABAAEAAAANAAAABAABAAEAAAANAAEABAABAAEAAAANAAIABAABAAEAAAANAAMABAABAAEAAAAOAAAABAABAAEAAAAOAAEABAABAAEAAAAOAAIABAABAAEAAAAOAAMABAABAAEAAAAPAAAABAABAAEAAAAPAAEABAABAAEAAAAPAAIABAABAAEAAAAPAAMABAABAAEAAAAMAAQABAABAAEAAAAMAAUABAABAAEAAAAMAAYABAABAAEAAAANAAQABAABAAEAAAANAAUABAABAAEAAAANAAYABAABAAEAAAAOAAQABAABAAEAAAAOAAUABAABAAEAAAAOAAYABAABAAEAAAAPAAQABAABAAEAAAAPAAUABAABAAEAAAAPAAYABAABAAEAAAAMAAwABAABAAEAAAAMAA0ABAABAAEAAAAMAA4ABAABAAEAAAAMAA8ABAABAAEAAAANAAwABAABAAEAAAANAA0ABAABAAEAAAANAA4ABAABAAEAAAANAA8ABAABAAEAAAAOAAwABAABAAEAAAAOAA0ABAABAAEAAAAOAA4ABAABAAEAAAAOAA8ABAABAAEAAAAPAAwABAABAAEAAAAPAA0ABAABAAEAAAAPAA4ABAABAAEAAAAPAA8ABAABAAEAAAAMABAABAABAAEAAAAMABEABAABAAEAAAAMABIABAABAAEAAAAMABMABAABAAEAAAANABAABAABAAEAAAANABEABAABAAEAAAANABIABAABAAEAAAANABMABAABAAEAAAAOABAABAABAAEAAAAOABEABAABAAEAAAAOABIABAABAAEAAAAOABMABAABAAEAAAAPABAABAABAAEAAAAPABEABAABAAEAAAAPABIABAABAAEAAAAPABMABAABAAEAAAAQAAAABAABAAEAAAAQAAEABAABAAEAAAAQAAIABAABAAEAAAAQAAMABAABAAEAAAARAAAABAABAAEAAAARAAEABAABAAEAAAARAAIABAABAAEAAAARAAMABAABAAEAAAASAAAABAABAAEAAAASAAEABAABAAEAAAASAAIABAABAAEAAAASAAMABAABAAEAAAATAAAABAABAAEAAAATAAEABAABAAEAAAATAAIABAABAAEAAAATAAMABAABAAEAAAAQAAQABAABAAEAAAAQAAUABAABAAEAAAAQAAYABAABAAEAAAARAAQABAABAAEAAAARAAUABAABAAEAAAARAAYABAABAAEAAAASAAQABAABAAEAAAASAAUABAABAAEAAAASAAYABAABAAEAAAATAAQABAABAAEAAAATAAUABAABAAEAAAATAAYABAABAAEAAAAQAAwABAABAAEAAAAQAA0ABAABAAEAAAAQAA4ABAABAAEAAAAQAA8ABAABAAEAAAARAAwABAABAAEAAAARAA0ABAABAAEAAAARAA4ABAABAAEAAAARAA8ABAABAAEAAAASAAwABAABAAEAAAASAA0ABAABAAEAAAASAA4ABAABAAEAAAASAA8ABAABAAEAAAATAAwABAABAAEAAAATAA0ABAABAAEAAAATAA4ABAABAAEAAAATAA8ABAABAAEAAAAQABAABAABAAEAAAAQABEABAABAAEAAAAQABIABAABAAEAAAAQABMABAABAAEAAAARABAABAABAAEAAAARABEABAABAAEAAAARABIABAABAAEAAAARABMABAABAAEAAAASABAABAABAAEAAAASABEABAABAAEAAAASABIABAABAAEAAAASABMABAABAAEAAAATABAABAABAAEAAAATABEABAABAAEAAAATABIABAABAAEAAAATABMABAABAAEAAAAUAAAABAABAAEAAAAUAAEABAABAAEAAAAUAAIABAABAAEAAAAUAAMABAABAAEAAAAVAAAABAABAAEAAAAVAAEABAABAAEAAAAVAAIABAABAAEAAAAVAAMABAABAAEAAAAWAAAABAABAAEAAAAWAAEABAABAAEAAAAWAAIABAABAAEAAAAWAAMABAABAAEAAAAXAAAABAABAAEAAAAXAAEABAABAAEAAAAXAAIABAABAAEAAAAXAAMABAABAAEAAAAUAAQABAABAAEAAAAUAAUABAABAAEAAAAUAAYABAABAAEAAAAVAAQABAABAAEAAAAVAAUABAABAAEAAAAVAAYABAABAAEAAAAWAAQABAABAAEAAAAWAAUABAABAAEAAAAWAAYABAABAAEAAAAXAAQABAABAAEAAAAXAAUABAABAAEAAAAXAAYABAABAAEAAAAUAAwABAABAAEAAAAUAA0ABAABAAEAAAAUAA4ABAABAAEAAAAUAA8ABAABAAEAAAAVAAwABAABAAEAAAAVAA0ABAABAAEAAAAVAA4ABAABAAEAAAAVAA8ABAABAAEAAAAWAAwABAABAAEAAAAWAA0ABAABAAEAAAAWAA4ABAABAAEAAAAWAA8ABAABAAEAAAAXAAwABAABAAEAAAAXAA0ABAABAAEAAAAXAA4ABAABAAEAAAAXAA8ABAABAAEAAAAUABAABAABAAEAAAAUABEABAABAAEAAAAUABIABAABAAEAAAAUABMABAABAAEAAAAVABAABAABAAEAAAAVABEABAABAAEAAAAVABIABAABAAEAAAAVABMABAABAAEAAAAWABAABAABAAEAAAAWABEABAABAAEAAAAWABIABAABAAEAAAAWABMABAABAAEAAAAXABAABAABAAEAAAAXABEABAABAAEAAAAXABIABAABAAEAAAAXABMABAABAAEAAAAYAAAABAABAAEAAAAYAAEABAABAAEAAAAYAAIABAABAAEAAAAYAAMABAABAAEAAAAZAAAABAABAAEAAAAZAAEABAABAAEAAAAZAAIABAABAAEAAAAZAAMABAABAAEAAAAaAAAABAABAAEAAAAaAAEABAABAAEAAAAaAAIABAABAAEAAAAaAAMABAABAAEAAAAbAAAABAABAAEAAAAbAAEABAABAAEAAAAbAAIABAABAAEAAAAbAAMABAABAAEAAAAYAAQABAABAAEAAAAYAAUABAABAAEAAAAYAAYABAABAAEAAAAZAAQABAABAAEAAAAZAAUABAABAAEAAAAZAAYABAABAAEAAAAZAAcABAABAAEAAAAaAAQABAABAAEAAAAaAAUABAABAAEAAAAaAAYABAABAAEAAAAaAAcABAABAAEAAAAbAAQABAABAAEAAAAbAAUABAABAAEAAAAbAAYABAABAAEAAAAbAAcABAABAAEAAAAZAAgABAABAAEAAAAZAAkABAABAAEAAAAZAAoABAABAAEAAAAZAAsABAABAAEAAAAaAAgABAABAAEAAAAaAAkABAABAAEAAAAaAAoABAABAAEAAAAaAAsABAABAAEAAAAbAAgABAABAAEAAAAbAAkABAABAAEAAAAbAAoABAABAAEAAAAbAAsABAABAAEAAAAYAAwABAABAAEAAAAYAA0ABAABAAEAAAAYAA4ABAABAAEAAAAYAA8ABAABAAEAAAAZAAwABAABAAEAAAAZAA0ABAABAAEAAAAZAA4ABAABAAEAAAAZAA8ABAABAAEAAAAaAAwABAABAAEAAAAaAA0ABAABAAEAAAAaAA4ABAABAAEAAAAaAA8ABAABAAEAAAAbAAwABAABAAEAAAAbAA0ABAABAAEAAAAbAA4ABAABAAEAAAAbAA8ABAABAAEAAAAYABAABAABAAEAAAAYABEABAABAAEAAAAYABIABAABAAEAAAAYABMABAABAAEAAAAZABAABAABAAEAAAAZABEABAABAAEAAAAZABIABAABAAEAAAAZABMABAABAAEAAAAaABAABAABAAEAAAAaABEABAABAAEAAAAaABIABAABAAEAAAAaABMABAABAAEAAAAbABAABAABAAEAAAAbABEABAABAAEAAAAbABIABAABAAEAAAAbABMABAABAAEAAAAcAAAABAABAAEAAAAcAAEABAABAAEAAAAcAAIABAABAAEAAAAcAAMABAABAAEAAAAdAAAABAABAAEAAAAdAAEABAABAAEAAAAdAAIABAABAAEAAAAdAAMABAABAAEAAAAeAAAABAABAAEAAAAeAAEABAABAAEAAAAeAAIABAABAAEAAAAeAAMABAABAAEAAAAfAAAABAABAAEAAAAfAAEABAABAAEAAAAfAAIABAABAAEAAAAfAAMABAABAAEAAAAcAAQABAABAAEAAAAcAAUABAABAAEAAAAcAAYABAABAAEAAAAcAAcABAABAAEAAAAdAAQABAABAAEAAAAdAAUABAABAAEAAAAdAAYABAABAAEAAAAdAAcABAABAAEAAAAeAAQABAABAAEAAAAeAAUABAABAAEAAAAeAAYABAABAAEAAAAeAAcABAABAAEAAAAfAAQABAABAAEAAAAfAAUABAABAAEAAAAfAAYABAABAAEAAAAfAAcABAABAAEAAAAcAAgABAABAAEAAAAcAAkABAABAAEAAAAcAAoABAABAAEAAAAcAAsABAABAAEAAAAdAAgABAABAAEAAAAdAAkABAABAAEAAAAdAAoABAABAAEAAAAdAAsABAABAAEAAAAeAAgABAABAAEAAAAeAAkABAABAAEAAAAeAAoABAABAAEAAAAeAAsABAABAAEAAAAfAAgABAABAAEAAAAfAAkABAABAAEAAAAfAAoABAABAAEAAAAfAAsABAABAAEAAAAcAAwABAABAAEAAAAcAA0ABAABAAEAAAAcAA4ABAABAAEAAAAcAA8ABAABAAEAAAAdAAwABAABAAEAAAAdAA0ABAABAAEAAAAdAA4ABAABAAEAAAAdAA8ABAABAAEAAAAeAAwABAABAAEAAAAeAA0ABAABAAEAAAAeAA4ABAABAAEAAAAeAA8ABAABAAEAAAAfAAwABAABAAEAAAAfAA0ABAABAAEAAAAfAA4ABAABAAEAAAAfAA8ABAABAAEAAAAcABAABAABAAEAAAAcABEABAABAAEAAAAcABIABAABAAEAAAAcABMABAABAAEAAAAdABAABAABAAEAAAAdABEABAABAAEAAAAdABIABAABAAEAAAAdABMABAABAAEAAAAeABAABAABAAEAAAAeABEABAABAAEAAAAeABIABAABAAEAAAAeABMABAABAAEAAAAfABAABAABAAEAAAAfABEABAABAAEAAAAfABIABAABAAEAAAAfABMABAABAAEAAAAgAAAABAABAAEAAAAgAAEABAABAAEAAAAgAAIABAABAAEAAAAgAAMABAABAAEAAAAhAAAABAABAAEAAAAhAAEABAABAAEAAAAhAAIABAABAAEAAAAhAAMABAABAAEAAAAiAAAABAABAAEAAAAiAAEABAABAAEAAAAiAAIABAABAAEAAAAiAAMABAABAAEAAAAjAAAABAABAAEAAAAjAAEABAABAAEAAAAjAAIABAABAAEAAAAjAAMABAABAAEAAAAgAAQABAABAAEAAAAgAAUABAABAAEAAAAgAAYABAABAAEAAAAgAAcABAABAAEAAAAhAAQABAABAAEAAAAhAAUABAABAAEAAAAhAAYABAABAAEAAAAhAAcABAABAAEAAAAiAAQABAABAAEAAAAiAAUABAABAAEAAAAiAAYABAABAAEAAAAiAAcABAABAAEAAAAjAAQABAABAAEAAAAjAAUABAABAAEAAAAjAAYABAABAAEAAAAjAAcABAABAAEAAAAgAAgABAABAAEAAAAgAAkABAABAAEAAAAgAAoABAABAAEAAAAgAAsABAABAAEAAAAhAAgABAABAAEAAAAhAAkABAABAAEAAAAhAAoABAABAAEAAAAhAAsABAABAAEAAAAiAAgABAABAAEAAAAiAAkABAABAAEAAAAiAAoABAABAAEAAAAiAAsABAABAAEAAAAjAAgABAABAAEAAAAjAAkABAABAAEAAAAjAAoABAABAAEAAAAjAAsABAABAAEAAAAgAAwABAABAAEAAAAgAA0ABAABAAEAAAAgAA4ABAABAAEAAAAgAA8ABAABAAEAAAAhAAwABAABAAEAAAAhAA0ABAABAAEAAAAhAA4ABAABAAEAAAAhAA8ABAABAAEAAAAiAAwABAABAAEAAAAiAA0ABAABAAEAAAAiAA4ABAABAAEAAAAiAA8ABAABAAEAAAAjAAwABAABAAEAAAAjAA0ABAABAAEAAAAjAA4ABAABAAEAAAAjAA8ABAABAAEAAAAgABAABAABAAEAAAAgABEABAABAAEAAAAgABIABAABAAEAAAAgABMABAABAAEAAAAhABAABAABAAEAAAAhABEABAABAAEAAAAhABIABAABAAEAAAAhABMABAABAAEAAAAiABAABAABAAEAAAAiABEABAABAAEAAAAiABIABAABAAEAAAAiABMABAABAAEAAAAjABAABAABAAEAAAAjABEABAABAAEAAAAjABIABAABAAEAAAAjABMABAABAAEAAAA=")
+tile_set = ExtResource("28_gtd1n")
+
+[node name="bush_large_1" parent="World/Game Level" instance=ExtResource("29_34a4a")]
+position = Vector2(522, 278)
+
+[node name="Player" parent="World/Game Level" instance=ExtResource("30_up2l1")]
+z_index = 2
+position = Vector2(521, 291)
+
+[node name="Iron Node 1" parent="World/Game Level" instance=ExtResource("31_chn5w")]
+position = Vector2(240, 176)
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="Objective" parent="UserInterface" instance=ExtResource("32_pflit")]
+
+[node name="Button2" type="Button" parent="UserInterface"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -89.0
+offset_right = 311.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Next Level"
+script = ExtResource("33_psw3i")
+next_level_path = "res://hud/main_menu.tscn"
+
+[node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("33_ecl0e")]
+building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
+category_tags = Array[ExtResource("34_hesjj")]([ExtResource("35_34mny"), ExtResource("36_gfy5j"), ExtResource("37_lqtis"), ExtResource("38_eghkf")])
+placeables = Array[ExtResource("39_jkh8c")]([ExtResource("40_lu845"), ExtResource("41_8xuv8"), ExtResource("42_nfxja"), ExtResource("43_dglhi"), ExtResource("44_kt2d1"), ExtResource("45_mmlar"), ExtResource("46_2impv"), ExtResource("47_irvvy"), ExtResource("48_jsf7x"), ExtResource("49_fngqt"), ExtResource("50_avasd"), ExtResource("51_i2lsr"), ExtResource("52_he71r"), ExtResource("53_5ei4d"), ExtResource("54_grnpl")])
+
+[node name="Label" type="Label" parent="UserInterface"]
+offset_left = 1028.0
+offset_top = 5.0
+offset_right = 1143.0
+offset_bottom = 54.0
+script = ExtResource("55_11gfx")
+
+[connection signal="pressed" from="UserInterface/Button2" to="UserInterface/Button2" method="_on_pressed"]
