@@ -8,7 +8,11 @@ enum MATERIAL_ITEM {
 	COAL,
 	GOLD,
 	IRON_INGOT,
-	CARBON
+	CARBON,
+	GOLD_INGOT,
+	STEEL,
+	HP_STEEL,
+	CRYSTAL
 }
 
 var recipes: Array[Recipe]
