@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbw3nojwthlc2"]
+[gd_scene load_steps=4 format=3 uid="uid://dbw3nojwthlc2"]
 
+[ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_l1gnp"]
 [ext_resource type="Script" path="res://hud/objective/sub_objective_ui.gd" id="1_m7i8x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mccw3"]
+font = ExtResource("1_l1gnp")
 
 [node name="SubObjective" type="Label"]
 custom_minimum_size = Vector2(50, 10)
 offset_right = 50.0
 offset_bottom = 23.0
 text = "jj"
+label_settings = SubResource("LabelSettings_mccw3")
 script = ExtResource("1_m7i8x")
