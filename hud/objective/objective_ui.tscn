@@ -1,49 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bodjh1gtscs2r"]
+[gd_scene load_steps=7 format=3 uid="uid://bodjh1gtscs2r"]
 
 [ext_resource type="Script" path="res://hud/objective/objective_ui.gd" id="1_km6d7"]
 [ext_resource type="Texture2D" uid="uid://012d4a0digm4" path="res://hud/panel_sprite.png" id="2_5utoo"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_q0hn2"]
 [ext_resource type="Script" path="res://hud/objective/nine_patch_scale.gd" id="2_rfh88"]
-[ext_resource type="Texture2D" uid="uid://c6v8w66pm7fik" path="res://hud/btn_clicked.png" id="3_icbqp"]
-[ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="4_hxsmf"]
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="4_kypy7"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3o77y"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7y2co"]
-texture = ExtResource("4_hxsmf")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-region_rect = Rect2(0, 0, 28, 28)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6kht"]
-texture = ExtResource("3_icbqp")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-region_rect = Rect2(0, 0, 28, 28)
-
-[sub_resource type="Animation" id="Animation_cf0x4"]
-resource_name = "open_objectives_menu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3011"]
-_data = {
-"open_objectives_menu": SubResource("Animation_cf0x4")
-}
 
 [sub_resource type="LabelSettings" id="LabelSettings_sgjev"]
 font = ExtResource("4_kypy7")
@@ -64,27 +25,19 @@ z_index = 10
 custom_minimum_size = Vector2(190, 50)
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("2_q0hn2")
 theme_override_colors/font_hover_color = Color(0.117647, 0.160784, 0.215686, 1)
 theme_override_colors/font_pressed_color = Color(0.619608, 0.682353, 0.670588, 1)
 theme_override_colors/font_focus_color = Color(0.117647, 0.160784, 0.215686, 1)
 theme_override_colors/font_color = Color(0.117647, 0.160784, 0.215686, 1)
 theme_override_fonts/font = ExtResource("4_kypy7")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3o77y")
-theme_override_styles/hover = SubResource("StyleBoxTexture_7y2co")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_n6kht")
-theme_override_styles/normal = SubResource("StyleBoxTexture_7y2co")
 text = "Objectives"
 
 [node name="Objective" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Objective"]
-libraries = {
-"": SubResource("AnimationLibrary_b3011")
-}
 
 [node name="NinePactchScaler" type="Container" parent="Objective"]
 layout_mode = 1

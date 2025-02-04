@@ -10,8 +10,11 @@ func _input(event: InputEvent) -> void:
 			$Camera2D.zoom *= Vector2(0.952, 0.952)
 		if Input.is_action_pressed("camera_zoom_in"):
 			$Camera2D.zoom *= Vector2(1.05, 1.05)
-		
-		
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
+			$Camera2D.zoom *= Vector2(1.07, 1.07)
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
+			$Camera2D.zoom *= Vector2(0.95, 0.95)
 
 func _physics_process(delta):
 	var conveyor_velocity = Vector2.ZERO
