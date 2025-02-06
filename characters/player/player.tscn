@@ -9,8 +9,7 @@
 atlas = ExtResource("1_viuuy")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpvh0"]
-size = Vector2(20, 19)
+[sub_resource type="CircleShape2D" id="CircleShape2D_r8w8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0w6k"]
 size = Vector2(18, 17)
@@ -23,12 +22,12 @@ belt_detector = NodePath("Area2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-0.5, -16)
+position = Vector2(-0.25, -15.75)
 texture = SubResource("AtlasTexture_w5uw5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_cpvh0")
+shape = SubResource("CircleShape2D_r8w8v")
 
 [node name="UserAssigner" type="Node" parent="." node_paths=PackedStringArray("user_root")]
 script = ExtResource("2_i15o5")
@@ -36,6 +35,7 @@ user_state = ExtResource("3_g7yyi")
 user_root = NodePath("..")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 524288
 
@@ -44,4 +44,4 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_x0w6k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(4, 4)

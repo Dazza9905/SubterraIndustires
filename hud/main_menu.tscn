@@ -22,7 +22,7 @@ anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 0.354
 offset_bottom = -83.16
-text = "Subterra Industies"
+text = "Subterra Industries"
 label_settings = SubResource("LabelSettings_p003s")
 horizontal_alignment = 1
 

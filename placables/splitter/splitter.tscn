@@ -3,15 +3,13 @@
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_s030c"]
 [ext_resource type="Texture2D" uid="uid://drl338ci5l4tj" path="res://placables/splitter/splitter_sprite.png" id="2_h6gh0"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="3_6ol5y"]
+[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_migdn"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_noymc"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="4_d5gum"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_d82xm"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_5gyes"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="5_bnxp2"]
 [ext_resource type="Script" path="res://components/splitter_component.gd" id="6_urk3r"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kei4o"]
-size = Vector2(31.9, 31.9)
 
 [sub_resource type="Resource" id="Resource_m5pbt"]
 script = ExtResource("5_5gyes")
@@ -30,10 +28,11 @@ script = ExtResource("1_s030c")
 code_name = "splitter"
 
 [node name="SplitterSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_h6gh0")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_kei4o")
+shape = ExtResource("3_migdn")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_noymc")

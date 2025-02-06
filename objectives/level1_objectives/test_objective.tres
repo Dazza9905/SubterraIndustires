@@ -17,7 +17,7 @@ finish_completion = 12
 [sub_resource type="Resource" id="Resource_dg7bu"]
 script = ExtResource("3_qc883")
 item_to_produce = ExtResource("5_v8bds")
-name = "produce carbonv"
+name = "produce carbon"
 current_completion = 0
 finish_completion = 10
 

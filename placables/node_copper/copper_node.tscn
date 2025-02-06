@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4uqupo0nayg4"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_1h7cy"]
+[ext_resource type="Texture2D" uid="uid://bar4h5r6c61bw" path="res://art/tile_set.png" id="2_m0y65"]
+[ext_resource type="Script" path="res://components/supply_node.gd" id="3_2r7vb"]
+[ext_resource type="Resource" uid="uid://cgq1h6vvjbpo7" path="res://items/copper_ore/item_copper_ore.tres" id="4_ornx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7wiy"]
+atlas = ExtResource("2_m0y65")
+region = Rect2(144, 176, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b062l"]
+size = Vector2(31.9, 31.9)
+
+[node name="CopperNode" type="StaticBody2D"]
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource("1_1h7cy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_j7wiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b062l")
+
+[node name="SupplyNode" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_2r7vb")
+source_item = ExtResource("4_ornx5")
+sprite = NodePath("../Sprite2D")

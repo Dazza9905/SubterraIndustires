@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Variable for movement speed
-var speed = 10000
+var speed = 5000
 @export var belt_detector: Area2D
 
 func _input(event: InputEvent) -> void:

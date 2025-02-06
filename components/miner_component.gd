@@ -28,8 +28,8 @@ func _on_machanine_tick() -> void:
 	
 		for body in bodies:
 			print("collided: ", bodies)
-			if body.has_node("SupplyNode"):
-				item = (body.get_node("SupplyNode") as SupplyNode).source_item
+			if body.source_item != null:
+				item = body.source_item
 				area.queue_free()
 				area = null
 	

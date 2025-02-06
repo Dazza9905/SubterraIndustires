@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_dqc7y")
-id = 6
+type = 6
 name = "Carbon"
 texture = ExtResource("2_vkdns")

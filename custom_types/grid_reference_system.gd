@@ -18,7 +18,7 @@ func GO_built(grid_object: GridObject) -> void:
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
 	#connect_GO_to_GRS(grid_object)
 	
-	var GP_main_cell: Vector2i = Vector2(($"../../World/GridPositioner".position.x - 16)/32, ($"../../World/GridPositioner".position.y - 16)/32) as Vector2i
+	var GP_main_cell: Vector2i = Vector2(($"../../World/GridPositioner".position.x - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE, ($"../../World/GridPositioner".position.y - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE) as Vector2i
 	grid_object.main_cell = GP_main_cell
 	
 	
@@ -34,8 +34,8 @@ func get_GO_from_XY(coordinates: Vector2i) -> GridObject:
 
 func asign_GP_cells_to_GO(grid_object: GridObject):
 	var GO_position: Vector2i
-	GO_position.x = (grid_object.position.x - 16) / 32
-	GO_position.y = (grid_object.position.y - 16) / 32
+	GO_position.x = (grid_object.position.x - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE
+	GO_position.y = (grid_object.position.y - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE
 	
 	#get indicators (for teir position)
 	var collision_indicators = $"../../World/GridPositioner/ManipulationParent/RuleCheckIndicatorManager".get_children()
@@ -43,8 +43,8 @@ func asign_GP_cells_to_GO(grid_object: GridObject):
 	for indicator in collision_indicators:
 		#calcualte the coordinate for occupied cell
 		var p_offset: Vector2i
-		p_offset.x = indicator.position.x / 32
-		p_offset.y = indicator.position.y / 32
+		p_offset.x = indicator.position.x / Globals.TILE_SIZE
+		p_offset.y = indicator.position.y / Globals.TILE_SIZE
 		print("p_offset: ", p_offset)
 		var coordinate: Vector2i = GO_position + GF.rotate(p_offset, $"../../World/GridPositioner/ManipulationParent".rotation)
 		#add it to the object

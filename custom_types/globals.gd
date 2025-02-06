@@ -6,7 +6,7 @@ const ITEM_PATH = "res://items/"
 const PLACABLES_PATH = "res://placables/"
 const RECIPE_PATH = "res://recipes/"
 
-const TILE_SIZE = 32
+const TILE_SIZE = 16
 
 enum SlotFlag {
 	APPROVED,
@@ -42,7 +42,11 @@ func get_GRS() -> GridReferenceSystem:
 	return get_node("/root/Game/Systems/GridReferenceSystem")
 	
 func get_ObjectiveSystem() -> ObjectiveSystem:
+	printerr(get_node("/root/Game/Systems/ObjectiveSystem").current_objective)
 	return get_node("/root/Game/Systems/ObjectiveSystem")
+
+func get_level_num() -> int:
+	return get_node("/root/Game/Systems/LevelInfo").level_num
 
 
 #DEBUG FLAGS

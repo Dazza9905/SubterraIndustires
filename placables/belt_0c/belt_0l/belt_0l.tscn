@@ -1,20 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://hjtirkn3xwes"]
+[gd_scene load_steps=14 format=3 uid="uid://hjtirkn3xwes"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
+[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_sralu"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_ubp1r"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_mtjan"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xaln4"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="6_5bee7"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_gx7wa"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
-[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron_sprite.png" id="8_fo4pv"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="8_ghf4s"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="8_nw4v4"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="9_lybbn"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
-size = Vector2(31.9, 31.9)
 
 [sub_resource type="Resource" id="Resource_xewl6"]
 script = ExtResource("5_xaln4")
@@ -34,6 +31,7 @@ script = ExtResource("1_1x4qi")
 code_name = "belt_0l"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_d3iye")
 animation = &"left"
 autoplay = "left"
@@ -41,7 +39,7 @@ frame = 26
 frame_progress = 0.523812
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_3q5cp")
+shape = ExtResource("3_sralu")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_ubp1r")
@@ -70,7 +68,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("8_fo4pv")
+scale = Vector2(0.5, 0.5)
 
 [node name="Components" type="Node2D" parent="."]
 

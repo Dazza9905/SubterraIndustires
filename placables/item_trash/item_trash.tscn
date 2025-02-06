@@ -3,14 +3,12 @@
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_mmw4v"]
 [ext_resource type="Texture2D" uid="uid://dwrutix7l4f0f" path="res://placables/item_trash/item_trash_sprite.png" id="2_k1qcl"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_7isns"]
+[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_p0muk"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_07xw6"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_gtugd"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="7_lvr2n"]
 [ext_resource type="Script" path="res://components/creative_trash_component.gd" id="8_hmy6u"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="8_sib11"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bp4a"]
-size = Vector2(31.9, 31.9)
 
 [sub_resource type="Resource" id="Resource_j87vo"]
 script = ExtResource("5_gtugd")
@@ -29,10 +27,11 @@ script = ExtResource("1_mmw4v")
 code_name = "item_trash"
 
 [node name="ItemTrashSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_k1qcl")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_8bp4a")
+shape = ExtResource("3_p0muk")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_7isns")
@@ -40,6 +39,7 @@ settings = SubResource("Resource_j87vo")
 root = NodePath("..")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 
 [node name="Components" type="Node2D" parent="."]
 

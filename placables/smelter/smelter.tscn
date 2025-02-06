@@ -1,20 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://wx0imx3ix2ic"]
+[gd_scene load_steps=14 format=3 uid="uid://wx0imx3ix2ic"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_u54kl"]
 [ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="2_1pau7"]
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="3_7rfgt"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_b0fne"]
+[ext_resource type="Shape2D" uid="uid://c022plhiax132" path="res://custom_types/32x32_collision.tres" id="3_uscam"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_i43wo"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="4_nl4kk"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="5_o83rf"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="6_lv7jb"]
 [ext_resource type="PackedScene" uid="uid://kwphu548t7j4" path="res://placables/smelter/smelter_ui.tscn" id="7_504ry"]
-[ext_resource type="Texture2D" uid="uid://c3hxealxxte4q" path="res://items/iron/iron_sprite.png" id="7_vgyno"]
 [ext_resource type="Script" path="res://components/crafter_componet.gd" id="9_5ob0n"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjamy"]
-size = Vector2(63.9, 63.9)
 
 [sub_resource type="Resource" id="Resource_iacxl"]
 script = ExtResource("5_sfdrg")
@@ -33,13 +30,12 @@ script = ExtResource("1_u54kl")
 code_name = "smelter"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 16)
-scale = Vector2(2, 2)
+position = Vector2(8, 8)
 texture = ExtResource("2_1pau7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_xjamy")
+position = Vector2(8, 8)
+shape = ExtResource("3_uscam")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_b0fne")
@@ -74,7 +70,6 @@ packed_ui = ExtResource("7_504ry")
 [node name="RecipeSprite" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(16, 16)
-texture = ExtResource("7_vgyno")
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -96,14 +91,14 @@ script = ExtResource("4_nl4kk")
 slot = NodePath("../SlotRaw")
 
 [node name="InputFuel" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(0, 32)
+position = Vector2(0, 16)
 rotation = 3.14159
 script = ExtResource("4_nl4kk")
 cell_offset = Vector2i(0, 1)
 slot = NodePath("../SlotFuel")
 
 [node name="OutputRafined" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(32, 0)
+position = Vector2(16, 0)
 script = ExtResource("5_o83rf")
 cell_offset = Vector2i(1, 0)
 base_side = 2

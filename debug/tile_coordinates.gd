@@ -2,7 +2,7 @@ extends Node2D
 class_name TileMapCoordinates
 
 @export var tile_map_layer: TileMapLayer
-@export var font_size: int = 7  # Set your desired font size here
+@export var font_size: int = 6  # Set your desired font size here
 
 func _ready():
 	if tile_map_layer:
@@ -11,6 +11,7 @@ func _ready():
 		for cell in used_cells:
 			var label = Label.new()
 			label.text = str(cell)
-			label.position = tile_map_layer.map_to_local(cell) - Vector2(10, 5)
+			label.position = tile_map_layer.map_to_local(cell) - Vector2(8, 4)
 			label.add_theme_font_size_override("font_size", font_size)
 			add_child(label)
+			

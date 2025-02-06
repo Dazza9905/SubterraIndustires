@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw0cei3sj4hif"]
+
+[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_jnq8i"]
+[ext_resource type="Texture2D" uid="uid://bar4h5r6c61bw" path="res://art/tile_set.png" id="2_rxngw"]
+[ext_resource type="Script" path="res://components/supply_node.gd" id="3_5nfnx"]
+[ext_resource type="Resource" uid="uid://cjpgqm8eu2ccw" path="res://items/gold/item_gold.tres" id="4_v35fj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iixy8"]
+atlas = ExtResource("2_rxngw")
+region = Rect2(160, 176, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b062l"]
+size = Vector2(31.9, 31.9)
+
+[node name="GoldNode" type="StaticBody2D"]
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource("1_jnq8i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_iixy8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b062l")
+
+[node name="SupplyNode" type="Node" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_5nfnx")
+source_item = ExtResource("4_v35fj")
+sprite = NodePath("../Sprite2D")

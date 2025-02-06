@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6erbl"]
 [ext_resource type="SpriteFrames" uid="uid://bs3hwgrv44j0r" path="res://placables/belt_0u/belt_0u_frames.tres" id="3_bhhbc"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="3_hkbm5"]
+[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_k7oqj"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="3_vfkmr"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_ws432"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_aev0m"]
@@ -11,9 +12,6 @@
 [ext_resource type="Script" path="res://custom_types/slot.gd" id="8_exmld"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="8_uveuj"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="9_g7b6o"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q5cp"]
-size = Vector2(31.9, 31.9)
 
 [sub_resource type="Resource" id="Resource_xewl6"]
 script = ExtResource("5_6v8v7")
@@ -33,24 +31,26 @@ script = ExtResource("1_6erbl")
 code_name = "belt_0u"
 
 [node name="Input" type="AnimatedSprite2D" parent="."]
-position = Vector2(-32, 0)
+position = Vector2(-16, 0)
+scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("3_bhhbc")
 animation = &"input"
 autoplay = "input"
 
 [node name="Output" type="AnimatedSprite2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(16, 0)
+scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("3_bhhbc")
 animation = &"output"
 autoplay = "output"
 
 [node name="InputCollider" type="CollisionShape2D" parent="."]
-position = Vector2(-32, 0)
-shape = SubResource("RectangleShape2D_3q5cp")
+position = Vector2(-16, 0)
+shape = ExtResource("3_k7oqj")
 
 [node name="OutputCollider" type="CollisionShape2D" parent="."]
-position = Vector2(32, 0)
-shape = SubResource("RectangleShape2D_3q5cp")
+position = Vector2(16, 0)
+shape = ExtResource("3_k7oqj")
 
 [node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]
 offset_left = -16.0
@@ -71,6 +71,7 @@ root = NodePath("..")
 
 [node name="ItemSprite" type="Sprite2D" parent="."]
 visible = false
+scale = Vector2(0.5, 0.5)
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -79,14 +80,14 @@ script = ExtResource("8_exmld")
 item_sprite = NodePath("../../ItemSprite")
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(32, 0)
+position = Vector2(16, 0)
 script = ExtResource("8_uveuj")
 cell_offset = Vector2i(1, 0)
 base_side = 2
 slot = NodePath("../SlotComponent")
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(-32, 0)
+position = Vector2(-16, 0)
 rotation = 3.14159
 script = ExtResource("9_g7b6o")
 cell_offset = Vector2i(-1, 0)
