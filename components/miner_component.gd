@@ -3,11 +3,23 @@ class_name MinerComp
 
 @export var slot: SlotComponent
 @export var area: Area2D
+var times_to_check: int = 2
 var item: Item
+
+
+func _process_tilemap_collision(body_rid: RID, current_tilemap: TileMapLayer):
+	var collision_coords: Vector2 = current_tilemap.get_coords_for_body_rid(body_rid)
+	var tile_data: TileData =  current_tilemap.get_cell_tile_data(collision_coords)
+	var source_item: Item = tile_data.get_custom_data_by_layer_id(0)
+	item = source_item
+	print(source_item.name)
+	area.body_shape_entered.disconnect(_process_tilemap_collision)
+	area.queue_free()
+	
 
 func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
-	#var bodies = area.get_overlapping_bodies()
+	area.body_shape_entered.connect(_on_body_shape_entered)
 	#if bodies.size() == 0:
 		#print("did not detet collision")
 	#for body in bodies:
@@ -16,21 +28,9 @@ func connect_to_tick() -> void:
 			#item = (body.get_node("SupplyNode") as SupplyNode).source_item
 			#area.queue_free()
 		
+func _on_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int, _local_shappe_index: int):
+	if body is  TileMapLayer:
+		_process_tilemap_collision(body_rid, body)
 	
 func _on_machanine_tick() -> void:
-	if area:
-		var bodies = area.get_overlapping_bodies()
-		if bodies.size() == 0:
-			print("did not detet collision")
-			Globals.get_tts().machine_tick.disconnect(_on_machanine_tick)
-			area.queue_free()
-			area = null
-	
-		for body in bodies:
-			print("collided: ", bodies)
-			if body.source_item != null:
-				item = body.source_item
-				area.queue_free()
-				area = null
-	
 	slot.give_item(item)

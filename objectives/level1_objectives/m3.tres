@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=5 format=3 uid="uid://c118x1u1aj7mb"]
+
+[ext_resource type="Script" path="res://custom_types/objective.gd" id="1_qd72q"]
+[ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_14p5k"]
+[ext_resource type="Script" path="res://custom_types/sub_objective_task.gd" id="3_c8hcd"]
+
+[sub_resource type="Resource" id="Resource_g2c8u"]
+script = ExtResource("3_c8hcd")
+id_name = "investigate_crystal"
+name = "Investigate Crystal"
+current_completion = 0
+finish_completion = 1
+
+[resource]
+script = ExtResource("1_qd72q")
+name = "There's somthing shiny :0"
+sub_objectives = Array[ExtResource("2_14p5k")]([SubResource("Resource_g2c8u")])
+level_complete = false

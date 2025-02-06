@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=6 format=3 uid="uid://dfx1nutfbpdh7"]
+
+[ext_resource type="Script" path="res://custom_types/objective.gd" id="1_kvq86"]
+[ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_hj3ha"]
+[ext_resource type="Script" path="res://custom_types/sub_objective_task.gd" id="3_alo0v"]
+
+[sub_resource type="Resource" id="Resource_giu43"]
+script = ExtResource("3_alo0v")
+id_name = ""
+name = "Take screenshots"
+current_completion = 0
+finish_completion = 0
+
+[sub_resource type="Resource" id="Resource_ca0wv"]
+script = ExtResource("3_alo0v")
+id_name = "finish_near_drillevator"
+name = "go to the drillevator"
+current_completion = 0
+finish_completion = 0
+
+[resource]
+script = ExtResource("1_kvq86")
+name = "LET'S DIG DOWN"
+sub_objectives = Array[ExtResource("2_hj3ha")]([SubResource("Resource_giu43"), SubResource("Resource_ca0wv")])
+level_complete = false

@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Objective" load_steps=10 format=3 uid="uid://dpqrcj1p54fbh"]
+
+[ext_resource type="Script" path="res://custom_types/objective.gd" id="1_g253c"]
+[ext_resource type="Resource" uid="uid://dfx1nutfbpdh7" path="res://objectives/level1_objectives/mx.tres" id="1_xnrg6"]
+[ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_t65xx"]
+[ext_resource type="Resource" uid="uid://bnmikbnuk1x7k" path="res://items/steel_ingot/item_steel_ingot.tres" id="3_yj6lv"]
+[ext_resource type="Script" path="res://custom_types/sub_objective_collect.gd" id="4_gx2l5"]
+[ext_resource type="Resource" uid="uid://c0jr4bbtlys8l" path="res://items/thungsten_ore/item_thungsten_ore.tres" id="5_35xf5"]
+
+[sub_resource type="Resource" id="Resource_05dl6"]
+script = ExtResource("4_gx2l5")
+item_to_collect = ExtResource("3_yj6lv")
+name = "Supply Drill Heads"
+current_completion = 0
+finish_completion = 10
+
+[sub_resource type="Resource" id="Resource_teo40"]
+script = ExtResource("4_gx2l5")
+item_to_collect = ExtResource("3_yj6lv")
+name = "Supply Steal"
+current_completion = 0
+finish_completion = 100
+
+[sub_resource type="Resource" id="Resource_o10ib"]
+script = ExtResource("4_gx2l5")
+item_to_collect = ExtResource("5_35xf5")
+name = "Supply Stone"
+current_completion = 0
+finish_completion = 100
+
+[resource]
+script = ExtResource("1_g253c")
+name = "Supply the Drillevator"
+sub_objectives = Array[ExtResource("2_t65xx")]([SubResource("Resource_05dl6"), SubResource("Resource_teo40"), SubResource("Resource_o10ib")])
+next_objective = ExtResource("1_xnrg6")
+level_complete = false

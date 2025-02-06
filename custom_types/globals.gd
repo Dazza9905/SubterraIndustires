@@ -42,7 +42,6 @@ func get_GRS() -> GridReferenceSystem:
 	return get_node("/root/Game/Systems/GridReferenceSystem")
 	
 func get_ObjectiveSystem() -> ObjectiveSystem:
-	printerr(get_node("/root/Game/Systems/ObjectiveSystem").current_objective)
 	return get_node("/root/Game/Systems/ObjectiveSystem")
 
 func get_level_num() -> int:

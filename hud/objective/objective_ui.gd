@@ -9,8 +9,6 @@ class_name ObjectiveUI
 
 func _ready() -> void:
 	Globals.get_ObjectiveSystem().objective_changed.connect(_on_objective_changed)
-	if Globals.get_ObjectiveSystem().current_objective == null:
-		printerr(":((")
 	objective_label.text = Globals.get_ObjectiveSystem().current_objective.name
 	for sub_objective in Globals.get_ObjectiveSystem().current_objective.sub_objectives:
 		sub_objectives_parent.add_child(SubObjectiveUI.new(sub_objective))
