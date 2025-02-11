@@ -29,16 +29,16 @@ static func join_belt_paths(bp1: BeltPath, bp2: BeltPath):
 
 func belt_removed(belt_comp) -> void:
 	var belt_comp_index : int = path.rfind(belt_comp)
-	print("\tFOR BeltPath:")
+	#print("\tFOR BeltPath:")
 	if(path.size() == 1):
 		path.erase(belt_comp)
-		print("was freed")
+		#print("was freed")
 	elif(belt_comp_index == path.size()-1):
 		remove_last(belt_comp)
-		print("last belt was removed")
+		#print("last belt was removed")
 	elif(belt_comp_index == 0):
 		remove_first(belt_comp)
-		print("first belt was removed")
+		#print("first belt was removed")
 	else:
 		split_at(belt_comp_index)
 		
@@ -54,12 +54,12 @@ func remove_first(belt_comp: BeltComponent) -> void:
 
 func split_at(index_of_removed: int):
 	#FIXME insted of calculating it, store the index in BeltComponent. Can be also user elsewere in debug
-	print("Original:")
+	#print("Original:")
 	for i in range(0, path.size()):
 		print(i)
 	var temp_bp = BeltPath.new(path[index_of_removed+1])
 	path[index_of_removed+1].belt_path = temp_bp
-	print("New (1st):")
+	#print("New (1st):")
 	for i in range(0, temp_bp.path.size()):
 		print(i)
 		
@@ -67,12 +67,12 @@ func split_at(index_of_removed: int):
 		path[i].belt_path = temp_bp
 		temp_bp.append_belt(path[i])
 		
-	print("New (all):")
+	#print("New (all):")
 	for i in range(0, temp_bp.path.size()):
 		print(i)
 	
 	path.resize(index_of_removed)
 		
-	print("Original (updated):")
+	#print("Original (updated):")
 	for i in range(0, path.size()):
 		print(i)

@@ -15,7 +15,6 @@ func _process_tilemap_collision(body_rid: RID, current_tilemap: TileMapLayer):
 	print(source_item.name)
 	area.body_shape_entered.disconnect(_process_tilemap_collision)
 	area.queue_free()
-	
 
 func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
@@ -27,10 +26,10 @@ func connect_to_tick() -> void:
 		#if body.has_node("SupplyNode"):
 			#item = (body.get_node("SupplyNode") as SupplyNode).source_item
 			#area.queue_free()
-		
+
 func _on_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int, _local_shappe_index: int):
-	if body is  TileMapLayer:
+	if body is TileMapLayer:
 		_process_tilemap_collision(body_rid, body)
-	
+
 func _on_machanine_tick() -> void:
 	slot.give_item(item)

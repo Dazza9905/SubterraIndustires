@@ -24,7 +24,7 @@ func GO_built(grid_object: GridObject) -> void:
 	
 	grid_object.connect_components()
 	
-	print_dict()
+	#print_dict()
 	
 func get_GO_from_XY(coordinates: Vector2i) -> GridObject:
 	if reference_hashmap.has(coordinates):
@@ -45,7 +45,7 @@ func asign_GP_cells_to_GO(grid_object: GridObject):
 		var p_offset: Vector2i
 		p_offset.x = indicator.position.x / Globals.TILE_SIZE
 		p_offset.y = indicator.position.y / Globals.TILE_SIZE
-		print("p_offset: ", p_offset)
+		#print("p_offset: ", p_offset)
 		var coordinate: Vector2i = GO_position + GF.rotate(p_offset, $"../../World/GridPositioner/ManipulationParent".rotation)
 		#add it to the object
 		grid_object.ocuppied_cells.append(coordinate)

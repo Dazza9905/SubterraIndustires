@@ -2,30 +2,41 @@ extends CharacterBody2D
 
 # Variable for movement speed
 var speed = 5000
-@export var belt_detector: Area2D
+
+var conveyor_speed = 32
+
+@export var detector_area: Area2D
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if Input.is_action_pressed("camera_zoom_out"):
-			$Camera2D.zoom *= Vector2(0.952, 0.952)
+			if ($Camera2D.zoom.x > 1):
+				$Camera2D.zoom *= Vector2(0.952, 0.952)
 		if Input.is_action_pressed("camera_zoom_in"):
-			$Camera2D.zoom *= Vector2(1.05, 1.05)
+			if ($Camera2D.zoom.x < 8):
+				$Camera2D.zoom *= Vector2(1.05, 1.05)
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			$Camera2D.zoom *= Vector2(1.07, 1.07)
+			if ($Camera2D.zoom.x < 8):
+				$Camera2D.zoom *= Vector2(1.07, 1.07)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			$Camera2D.zoom *= Vector2(0.95, 0.95)
+			if ($Camera2D.zoom.x > 1):
+				$Camera2D.zoom *= Vector2(0.95, 0.95)
 
 func _physics_process(delta):
+	var colliders = detector_area.get_overlapping_bodies()
+	
 	var conveyor_velocity = Vector2.ZERO
-	var conveyor_speed = 32
-	var colliders = belt_detector.get_overlapping_bodies()
 	
 	for collider in colliders:
-		if collider != null and collider.name.begins_with("Belt"):
+		if collider != null and collider.name.begins_with("belt"):
 			print("Collided with: " + collider.name)
 			conveyor_velocity = Vector2.RIGHT.rotated(collider.rotation) * conveyor_speed
-			break
+		if collider.name == "find_remains":
+			Globals.get_ObjectiveSystem().complete_task("find_remains")
+	
+	
+
 	
 	var input_direction = Vector2(
 		Input.get_action_strength("move_right") - Input.get_action_strength("move_left"),

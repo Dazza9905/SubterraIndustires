@@ -41,36 +41,37 @@ func get_io_con():
 	var target_GO: GridObject = Globals.get_GRS().get_GO_from_XY(target_XY)
 	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
-	else:
-		print("\tno GO on target_XY")
+	#else:
+		#print("\tno GO on target_XY")
 		
 func accepts_conn_from(comp_to_test: IOComponent):
 	if(IOComponent.are_diff(self, comp_to_test)): #are diff
 		#if(IOComponent.are_facing_eachother(self, comp_to_test)): #are facing eachother (THIS REDUNDAND BECAUSE OF NEXT STEP, BUT JUST TO BE SURE)
 		if(self_XY == comp_to_test.target_XY and comp_to_test.self_XY == target_XY): #are actually tageting each other
 			return true
-		else:
-			print("\t\tno same position:")
+		#else:
+			#print("\t\tno same position:")
 	return false
 
 func _notification(what: int) -> void:
 	if (what == NOTIFICATION_EXIT_TREE):
 		if (IO_connection == null):
-			print(self.name , " io-conn is null even in notif")
+			pass
+			#print(self.name , " io-conn is null even in notif")
 		else:
 			IO_connection.IO_connection = null
-			print(IO_connection.IO_connection)
+			#print(IO_connection.IO_connection)
 
 func _exit_tree() -> void:
 	if (IO_connection == null):
 		pass
-		print(self.name , " io-conn is null even in notif")
+		#print(self.name , " io-conn is null even in notif")
 	#IO_connection.IO_connection == null
 	queue_free()
 
 func connect_to_tick():
 	get_io_con()
-		
+#		
 func get_io_info() -> String:
 	return name + " @" + str(self_XY) + " >" + str(target_XY)
 
@@ -78,13 +79,13 @@ static func are_facing_eachother(comp1: IOComponent, comp2: IOComponent) -> bool
 	var comp1_deg: float = comp1.rotation_degrees + comp1.parent_GO.rotation_degrees
 	var comp2_deg: float = comp2.rotation_degrees + comp2.parent_GO.rotation_degrees
 	var result = is_equal_approx(roundi(comp1_deg + 180.0) % 360, comp2_deg)
-	if !result:
-		print("\t\tare not facing eachother")
-		print("\t\t\tDegs: ", comp1_deg, " -- ", comp2_deg)
+	#if !result:
+		#print("\t\tare not facing eachother")
+		#print("\t\t\tDegs: ", comp1_deg, " -- ", comp2_deg)
 	return result
 
 static func are_diff(comp1: Node, comp2: Node) -> bool:
 	var result = (comp1 is InputComponent and comp2 is OutputComponent) or (comp1 is OutputComponent and comp2 is InputComponent)
-	if !result:
-		print("\t\tare not diff:")
+	#if !result:
+		#print("\t\tare not diff:")
 	return result

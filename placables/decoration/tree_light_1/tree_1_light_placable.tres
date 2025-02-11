@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://dutfe2xir6e54"]
+
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_8acor"]
+[ext_resource type="Texture2D" uid="uid://cx75p75j8r7bj" path="res://art/downloaded/trees_sheet.png" id="1_m5dep"]
+[ext_resource type="PackedScene" uid="uid://cuiqumbs52n63" path="res://placables/decoration/tree_light_1/tree_1_light.tscn" id="2_duym1"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_p8vcj"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_3oe8g"]
+[ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="6_tkjni"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45wo8"]
+atlas = ExtResource("1_m5dep")
+region = Rect2(0, 0, 80, 112)
+
+[resource]
+script = ExtResource("2_p8vcj")
+display_name = &"Tree 1"
+icon = SubResource("AtlasTexture_45wo8")
+packed_scene = ExtResource("2_duym1")
+tags = Array[ExtResource("3_3oe8g")]([ExtResource("6_tkjni")])
+placement_rules = Array[ExtResource("1_8acor")]([])
+ignore_base_rules = false

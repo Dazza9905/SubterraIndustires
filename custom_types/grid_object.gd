@@ -11,9 +11,10 @@ func _exit_tree() -> void:
 	if grid_ref_system:
 		for cell in ocuppied_cells:
 			if grid_ref_system.reference_hashmap.erase(cell):
-				print("Cell ", cell, " was deleted")
-		grid_ref_system.print_dict()
-	else:
+				pass
+				#print("Cell ", cell, " was deleted")
+		#grid_ref_system.print_dict()
+	#else:
 		assert("Grid Reference system not found")
 	
 
@@ -23,20 +24,20 @@ func request_connection(placed_comp: IOComponent):
 		for exist_comp in ($Components.get_children()):
 		
 			if (exist_comp is IOComponent):
-				print("\tTESTING EXISTING ", exist_comp.get_io_info(), ":")
+				#print("\tTESTING EXISTING ", exist_comp.get_io_info(), ":")
 				if (exist_comp.accepts_conn_from(placed_comp)):
-					print("\tWE GOT CONNECTION!")
+					#print("\tWE GOT CONNECTION!")
 					exist_comp.IO_connection = placed_comp
 					return exist_comp
-			else:
-				print("\tTESTING EXISTING ", exist_comp.name, ":")
-				print("\t\tIs not IOComponent")
+			#else:
+				#print("\tTESTING EXISTING ", exist_comp.name, ":")
+				#print("\t\tIs not IOComponent")
 
 func get_components():
 	if has_node("Components:"):
 		return $Components.get_children()
 	else:
-		print(self.name, "has no comps")
+		#print(self.name, "has no comps")
 		return {}
 
 func get_file_path() -> String:
@@ -46,10 +47,10 @@ func connect_components():
 	if has_node("Components:"):
 		var components := $Components.get_children()
 		for comp in components:
-			if comp is IOComponent:
-				print("==JUST PLACED ", comp.get_io_info())
-			else:
-				print("==JUST PLACED ", comp.name, "==")
+			#if comp is IOComponent:
+				#print("==JUST PLACED ", comp.get_io_info())
+			#else:
+				#print("==JUST PLACED ", comp.name, "==")
 			(comp as Component).connect_to_tick()
-	else:
-		print(self.name, "has no components")
+	#else:
+		#print(self.name, "has no components")

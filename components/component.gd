@@ -24,5 +24,5 @@ func update():
 func connect_to_tick():
 	assert(false, "The method 'connect_to_tick()' must be overridden in the child class.")
 
-func _ready() -> void:
-	print(self.name)
+#func _ready() -> void:
+	#print(self.name)

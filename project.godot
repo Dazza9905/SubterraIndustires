@@ -140,6 +140,7 @@ camera_zoom_in={
 
 [layer_names]
 
+2d_physics/layer_9="ObjectineColliti"
 2d_physics/layer_10="PlayerCollision"
 2d_physics/layer_11="Targetable"
 2d_physics/layer_12="Grid_UsedSpace"
@@ -149,4 +150,3 @@ camera_zoom_in={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"

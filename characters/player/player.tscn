@@ -14,11 +14,11 @@ region = Rect2(0, 0, 32, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x0w6k"]
 size = Vector2(18, 17)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("belt_detector")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("detector_area")]
 collision_layer = 2560
 collision_mask = 512
 script = ExtResource("1_cwch7")
-belt_detector = NodePath("Area2D")
+detector_area = NodePath("Detector")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -34,12 +34,12 @@ script = ExtResource("2_i15o5")
 user_state = ExtResource("3_g7yyi")
 user_root = NodePath("..")
 
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
+[node name="Detector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 524288
+collision_mask = 524544
+input_pickable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Detector"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_x0w6k")
 

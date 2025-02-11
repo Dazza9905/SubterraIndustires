@@ -25,7 +25,7 @@ func complete_task(id_name: String):
 	for sub_objective in current_objective.sub_objectives:
 		if sub_objective is SubObjectiveTask:
 			if (sub_objective as SubObjectiveTask).id_name == id_name:
-				(sub_objective as SubObjectiveTask).current_completion += 1
+				(sub_objective as SubObjectiveTask).current_completion = 1
 	switch_if_completed()
 
 

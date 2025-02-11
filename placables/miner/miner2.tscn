@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dl4l2mrxxfm0n"]
+[gd_scene load_steps=11 format=3 uid="uid://dl4l2mrxxfm0n"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_sipws"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_u82vp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_qndn6"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_jievt"]
 [ext_resource type="Script" path="res://components/miner_component.gd" id="5_okaoa"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="8_6sql8"]
 
 [sub_resource type="Resource" id="Resource_aiahj"]
 script = ExtResource("5_jievt")
@@ -20,6 +21,7 @@ movable = false
 demolishable = true
 
 [node name="Miner2" type="StaticBody2D"]
+z_index = 1
 collision_layer = 3584
 collision_mask = 0
 script = ExtResource("1_sipws")
@@ -51,6 +53,11 @@ root = NodePath("..")
 [node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
 script = ExtResource("3_uvyhf")
 item_sprite = NodePath("../../ItemSprite")
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("8_6sql8")
+base_side = 2
+slot = NodePath("../SlotComponent")
 
 [node name="MinerComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot", "area")]
 script = ExtResource("5_okaoa")

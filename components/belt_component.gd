@@ -42,31 +42,31 @@ func connect_to_tick():
 #bum tu je error lebo si to itak nevsimnes
 func _notification(what: int) -> void:
 	if (what == NOTIFICATION_EXIT_TREE):
-		print("IN JUST REMOVED BeltComponent:")
+		#print("IN JUST REMOVED BeltComponent:")
 		belt_path.belt_removed(self)
 
 func connect_to_BP():
-	print("\tFOR BeltPath:")
+	#print("\tFOR BeltPath:")
 	
 	if(not is_there_belt(input) and not is_there_belt(output)):
 		belt_path = BeltPath.new(self)
-		print("\t\tCreated BeltPath")
+		#print("\t\tCreated BeltPath")
 	elif(is_there_belt(input) and is_there_belt(output)):
 		if(in_bp == out_bp):
 			in_bp.append_belt(self)
 			belt_path = in_bp
-			print("\t\tOuuu a circle! Appened it self to the END of th BeltPath")
+			#print("\t\tOuuu a circle! Appened it self to the END of th BeltPath")
 		else:
 			in_bp.append_belt(self)
 			belt_path = in_bp
 			BeltPath.join_belt_paths(in_bp, out_bp)
-			print("\t\tAppended it self and joined the two BeltPaths")
+			#print("\t\tAppended it self and joined the two BeltPaths")
 	elif(is_there_belt(input) and not is_there_belt(output)):
 		if(is_there_belt(input)):
 			in_bp.append_belt(self)
 			belt_path = in_bp
-			print("\t\tAppended it self to another BeltPath")
+			#print("\t\tAppended it self to another BeltPath")
 	else: 
 		out_bp.prepend_belt(self)
 		belt_path = out_bp
-		print("\t\tPreppended it self to another BeltPath")
+		#print("\t\tPreppended it self to another BeltPath")

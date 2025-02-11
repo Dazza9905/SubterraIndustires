@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://clueo7m2kwqom"]
 
 [ext_resource type="Script" path="res://custom_types/ingredient.gd" id="1_b7qvf"]
-[ext_resource type="Texture2D" uid="uid://bar4h5r6c61bw" path="res://art/tile_set.png" id="1_shraq"]
+[ext_resource type="Texture2D" uid="uid://bar4h5r6c61bw" path="res://art/my_tile_set.png" id="1_shraq"]
 [ext_resource type="Script" path="res://recipes/recipe.gd" id="2_alm53"]
 [ext_resource type="Resource" uid="uid://d3l6ld2fqu13v" path="res://items/iron_ore/item_iron.tres" id="3_jrqc4"]
 [ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/coal/item_coal.tres" id="4_mttam"]
