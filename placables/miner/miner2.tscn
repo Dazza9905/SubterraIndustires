@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_u82vp"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_6tbyj"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_c2cjc"]
-[ext_resource type="Script" path="res://custom_types/slot.gd" id="3_uvyhf"]
+[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="3_uvyhf"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_qndn6"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_jievt"]
 [ext_resource type="Script" path="res://components/miner_component.gd" id="5_okaoa"]

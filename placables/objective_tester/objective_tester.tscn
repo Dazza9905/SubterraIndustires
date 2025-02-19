@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bt328flac0wd1"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_rs67v"]
-[ext_resource type="Script" path="res://custom_types/slot.gd" id="2_hgawv"]
+[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="2_hgawv"]
 [ext_resource type="Texture2D" uid="uid://dwrutix7l4f0f" path="res://placables/item_trash/item_trash_sprite.png" id="2_sonvd"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_hkgou"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_ib03u"]

@@ -8,10 +8,10 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_rk0eq"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="7_st278"]
-[ext_resource type="Script" path="res://custom_types/slot.gd" id="8_1n57p"]
+[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="8_1n57p"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="8_3p8j0"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="8_gtscd"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="9_hx3sj"]
+[ext_resource type="Script" path="res://components/input_component.gd" id="10_7s2np"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="11_f2teu"]
 
 [sub_resource type="Resource" id="Resource_xewl6"]
 script = ExtResource("4_rk0eq")
@@ -76,11 +76,11 @@ item_sprite = NodePath("../../ItemSprite")
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
-script = ExtResource("8_gtscd")
+script = ExtResource("10_7s2np")
 slot = NodePath("../SlotComponent")
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-script = ExtResource("9_hx3sj")
+script = ExtResource("11_f2teu")
 base_side = 2
 slot = NodePath("../SlotComponent")
 

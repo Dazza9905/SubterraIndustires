@@ -7,7 +7,7 @@ var path: Array[BeltComponent]
 func _init(belt: BeltComponent) -> void:
 	Globals.get_tts().belt_tick.connect(_on_belt_tick)
 	path.append(belt)
-	id = randi_range(1000, 9999)
+	id = randi_range(100, 999)
 
 func _on_belt_tick():
 	var last_in_path: bool = true

@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://components/output_component.gd" id="4_d5gum"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_d82xm"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_5gyes"]
-[ext_resource type="Script" path="res://custom_types/slot.gd" id="5_bnxp2"]
+[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="5_bnxp2"]
 [ext_resource type="Script" path="res://components/splitter_component.gd" id="6_urk3r"]
 
 [sub_resource type="Resource" id="Resource_m5pbt"]

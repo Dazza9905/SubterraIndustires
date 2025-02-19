@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_aev0m"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_6v8v7"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_82to5"]
-[ext_resource type="Script" path="res://custom_types/slot.gd" id="8_exmld"]
+[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="8_exmld"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="8_uveuj"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="9_g7b6o"]
 

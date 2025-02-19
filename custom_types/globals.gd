@@ -47,6 +47,8 @@ func get_ObjectiveSystem() -> ObjectiveSystem:
 func get_level_num() -> int:
 	return get_node("/root/Game/Systems/LevelInfo").level_num
 
+func get_GP_cell_postion() -> Vector2i:
+	return  Vector2((get_node("/root/Game/World/GridPositioner").position.x - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE, (get_node("/root/Game/World/GridPositioner").position.y - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE) as Vector2i
 
 #DEBUG FLAGS
 var show_debug_io_conn: bool = false

@@ -16,15 +16,11 @@ var reference_hashmap: Dictionary
 func GO_built(grid_object: GridObject) -> void:
 	asign_GP_cells_to_GO(grid_object) #assign GridPostionerIndicator cells to GridObject
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
-	#connect_GO_to_GRS(grid_object)
 	
-	var GP_main_cell: Vector2i = Vector2(($"../../World/GridPositioner".position.x - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE, ($"../../World/GridPositioner".position.y - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE) as Vector2i
-	grid_object.main_cell = GP_main_cell
-	
-	
+	grid_object.main_cell = Globals.get_GP_cell_postion()
 	grid_object.connect_components()
 	
-	#print_dict()
+	print_dict()
 	
 func get_GO_from_XY(coordinates: Vector2i) -> GridObject:
 	if reference_hashmap.has(coordinates):
