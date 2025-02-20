@@ -44,7 +44,7 @@ func get_io_con():
 	#else:
 		#print("\tno GO on target_XY")
 		
-func accepts_conn_from(comp_to_test: IOComponent):
+func accepts_conn_from(comp_to_test: IOComponent) -> bool:
 	if(IOComponent.are_diff(self, comp_to_test)): #are diff
 		#if(IOComponent.are_facing_eachother(self, comp_to_test)): #are facing eachother (THIS REDUNDAND BECAUSE OF NEXT STEP, BUT JUST TO BE SURE)
 		if(self_XY == comp_to_test.target_XY and comp_to_test.self_XY == target_XY): #are actually tageting each other
