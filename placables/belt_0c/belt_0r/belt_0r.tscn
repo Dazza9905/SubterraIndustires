@@ -1,27 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bolshrsaj453m"]
+[gd_scene load_steps=12 format=3 uid="uid://bolshrsaj453m"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_4bvu2"]
 [ext_resource type="SpriteFrames" uid="uid://cjo1w4ejgqk7t" path="res://placables/belt_0c/belt_0r/belt_0r_frames.tres" id="2_tkbx6"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_0tgg7"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_kd10n"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_dnsgx"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_k1gyn"]
+[ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_gqpo7"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_5j1vl"]
 [ext_resource type="Script" path="res://components/belt_component.gd" id="6_hp0iw"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="6_jss24"]
 [ext_resource type="Script" path="res://custom_types/slot_component.gd" id="8_3rogh"]
 [ext_resource type="Script" path="res://components/input_component.gd" id="8_ys2m1"]
 [ext_resource type="Script" path="res://components/output_component.gd" id="9_fge0t"]
-
-[sub_resource type="Resource" id="Resource_xewl6"]
-script = ExtResource("5_k1gyn")
-move_rules = Array[ExtResource("4_dnsgx")]([])
-ignore_base_rules = false
-rotateable = true
-flip_horizontal = true
-flip_vertical = true
-movable = true
-demolishable = true
 
 [node name="belt_0r" type="StaticBody2D"]
 z_index = 1
@@ -41,7 +30,7 @@ shape = ExtResource("3_0tgg7")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_kd10n")
-settings = SubResource("Resource_xewl6")
+settings = ExtResource("5_gqpo7")
 root = NodePath("..")
 
 [node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]

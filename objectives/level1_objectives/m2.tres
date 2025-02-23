@@ -1,36 +1,21 @@
-[gd_resource type="Resource" script_class="Objective" load_steps=10 format=3 uid="uid://dlpfytii1l0in"]
+[gd_resource type="Resource" script_class="Objective" load_steps=7 format=3 uid="uid://dlpfytii1l0in"]
 
 [ext_resource type="Script" path="res://custom_types/objective.gd" id="1_2bb12"]
 [ext_resource type="Resource" uid="uid://c118x1u1aj7mb" path="res://objectives/level1_objectives/m3.tres" id="1_x75ww"]
 [ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_ihmha"]
-[ext_resource type="Script" path="res://custom_types/sub_objective_task.gd" id="3_a5uqk"]
 [ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="4_1osp3"]
 [ext_resource type="Script" path="res://custom_types/sub_objective_produce.gd" id="4_puet5"]
-
-[sub_resource type="Resource" id="Resource_lyi3t"]
-script = ExtResource("3_a5uqk")
-id_name = "find_coal"
-name = "Find Coal"
-current_completion = 0
-finish_completion = 0
-
-[sub_resource type="Resource" id="Resource_n7axv"]
-script = ExtResource("3_a5uqk")
-id_name = "find_iron"
-name = "Find Iron"
-current_completion = 0
-finish_completion = 0
 
 [sub_resource type="Resource" id="Resource_pwkd1"]
 script = ExtResource("4_puet5")
 item_to_produce = ExtResource("4_1osp3")
 name = "Smelt Iron"
 current_completion = 0
-finish_completion = 10
+finish_completion = 30
 
 [resource]
 script = ExtResource("1_2bb12")
-name = "Build something similar"
-sub_objectives = Array[ExtResource("2_ihmha")]([SubResource("Resource_lyi3t"), SubResource("Resource_n7axv"), SubResource("Resource_pwkd1")])
+name = "Ironnn"
+sub_objectives = Array[ExtResource("2_ihmha")]([SubResource("Resource_pwkd1")])
 next_objective = ExtResource("1_x75ww")
 level_complete = false

@@ -12,10 +12,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = 11.0
-offset_right = -57.0
-offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -46,9 +42,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -174.0
-offset_top = -382.0
+offset_top = -313.0
 offset_right = 174.0
-offset_bottom = -160.0
+offset_bottom = -205.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -60,6 +56,7 @@ theme_override_font_sizes/font_size = 48
 text = "Begin"
 
 [node name="Option" type="Button" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_mhrcu")
@@ -67,6 +64,7 @@ theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

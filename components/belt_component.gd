@@ -43,7 +43,8 @@ func connect_to_tick():
 func _notification(what: int) -> void:
 	if (what == NOTIFICATION_EXIT_TREE):
 		#print("IN JUST REMOVED BeltComponent:")
-		belt_path.belt_removed(self)
+		if belt_path:
+			belt_path.belt_removed(self)
 
 func connect_to_BP():
 	#print("\tFOR BeltPath:")

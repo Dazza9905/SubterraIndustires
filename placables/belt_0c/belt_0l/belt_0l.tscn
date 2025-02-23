@@ -18,8 +18,8 @@ script = ExtResource("5_xaln4")
 move_rules = Array[ExtResource("4_mtjan")]([])
 ignore_base_rules = false
 rotateable = true
-flip_horizontal = true
-flip_vertical = true
+flip_horizontal = false
+flip_vertical = false
 movable = true
 demolishable = true
 

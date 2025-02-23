@@ -10,4 +10,4 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	visible = Globals.show_debug_belt_paths
-	text = str(belt_comp.belt_path.id) + "\n" + str(belt_comp.belt_path.path.rfind(belt_comp))
+	#text = str(belt_comp.belt_path.id) + "\n" + str(belt_comp.belt_path.path.rfind(belt_comp))

@@ -15,8 +15,8 @@ finish_completion = 1
 [sub_resource type="Resource" id="Resource_b8hdh"]
 script = ExtResource("3_wrf3w")
 id_name = "invastigate_remains"
-name = "Invastigate remains"
-current_completion = 0
+name = "Build something similar"
+current_completion = 1
 finish_completion = 1
 
 [resource]

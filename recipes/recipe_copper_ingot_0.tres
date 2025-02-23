@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://recipes/recipe.gd" id="2_dmeoo"]
 [ext_resource type="Resource" uid="uid://cgq1h6vvjbpo7" path="res://items/copper_ore/item_copper_ore.tres" id="2_hyeyb"]
 [ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/coal/item_coal.tres" id="4_0b1hm"]
-[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="5_beoqc"]
+[ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/copper_ingot/item_copper_ingot.tres" id="4_hrk5k"]
 
 [sub_resource type="Resource" id="Resource_udqfj"]
 metadata/__load_path__ = "res://items/copper/copper_sprite.png"
@@ -21,7 +21,7 @@ amount = 2
 
 [sub_resource type="Resource" id="Resource_ipsjs"]
 script = ExtResource("1_dwrph")
-item = ExtResource("5_beoqc")
+item = ExtResource("4_hrk5k")
 amount = 1
 
 [resource]

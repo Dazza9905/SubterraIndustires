@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=7 format=3 uid="uid://4oqhawk1uj1n"]
+
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_1mg1l"]
+[ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="1_kbo8v"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_1nrdu"]
+[ext_resource type="PackedScene" uid="uid://builpreqxscj2" path="res://placables/crafter/crafter.tscn" id="2_ng4gq"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_xgq01"]
+[ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="6_j1gvj"]
+
+[resource]
+script = ExtResource("2_1nrdu")
+display_name = &"Crafter"
+icon = ExtResource("1_kbo8v")
+packed_scene = ExtResource("2_ng4gq")
+tags = Array[ExtResource("3_xgq01")]([ExtResource("6_j1gvj")])
+placement_rules = Array[ExtResource("1_1mg1l")]([])
+ignore_base_rules = false

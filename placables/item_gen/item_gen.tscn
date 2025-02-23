@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://1tsok1vm60ly"]
+[gd_scene load_steps=13 format=3 uid="uid://1tsok1vm60ly"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_4mkui"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_6pfpx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://custom_types/slot_component.gd" id="7_8x721"]
 [ext_resource type="PackedScene" uid="uid://cc4hlnx3k8lys" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
 [ext_resource type="Script" path="res://components/creative_genenerator_component.gd" id="9_niei1"]
+[ext_resource type="Script" path="res://components/output_component.gd" id="10_i6dki"]
 
 [sub_resource type="Resource" id="Resource_j87vo"]
 script = ExtResource("5_xogw8")
@@ -63,6 +64,11 @@ packed_ui = ExtResource("7_eatvi")
 [node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
 script = ExtResource("7_8x721")
 item_sprite = NodePath("../../ItemSprite")
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("10_i6dki")
+base_side = 2
+slot = NodePath("../SlotComponent")
 
 [node name="CreativeGenComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("9_niei1")
