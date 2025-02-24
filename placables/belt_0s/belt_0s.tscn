@@ -7,10 +7,10 @@
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_c8rvs"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="7_st278"]
-[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="8_1n57p"]
-[ext_resource type="Script" path="res://components/belt_component.gd" id="8_3p8j0"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="10_7s2np"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="11_f2teu"]
+[ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="8_1n57p"]
+[ext_resource type="Script" path="res://components/go_components/belt_component.gd" id="8_3p8j0"]
+[ext_resource type="Script" path="res://components/go_components/input_component.gd" id="10_7s2np"]
+[ext_resource type="Script" path="res://components/go_components/output_component.gd" id="11_f2teu"]
 
 [node name="belt_0s" type="StaticBody2D"]
 z_index = 1

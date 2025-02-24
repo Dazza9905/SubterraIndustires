@@ -40,7 +40,10 @@ func get_tts() -> TimeTickSystem:
 	
 func get_GRS() -> GridReferenceSystem:
 	return get_node("/root/Game/Systems/GridReferenceSystem")
-	
+
+func get_UIS() -> UISystem:
+	return get_node("/root/Game/Systems/UISystem")
+
 func get_ObjectiveSystem() -> ObjectiveSystem:
 	return get_node("/root/Game/Systems/ObjectiveSystem")
 

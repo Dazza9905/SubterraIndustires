@@ -6,9 +6,9 @@
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_p0muk"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_07xw6"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_gtugd"]
-[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="7_lvr2n"]
-[ext_resource type="Script" path="res://components/creative_trash_component.gd" id="8_hmy6u"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="8_sib11"]
+[ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="7_lvr2n"]
+[ext_resource type="Script" path="res://components/go_components/creative_trash_component.gd" id="8_hmy6u"]
+[ext_resource type="Script" path="res://components/go_components/input_component.gd" id="8_sib11"]
 
 [sub_resource type="Resource" id="Resource_j87vo"]
 script = ExtResource("5_gtugd")

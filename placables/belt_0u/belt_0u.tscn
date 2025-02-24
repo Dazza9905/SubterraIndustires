@@ -6,11 +6,11 @@
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_k7oqj"]
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="3_vfkmr"]
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_ws432"]
-[ext_resource type="Script" path="res://components/belt_component.gd" id="6_82to5"]
+[ext_resource type="Script" path="res://components/go_components/belt_component.gd" id="6_82to5"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="7_c8o76"]
-[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="8_exmld"]
-[ext_resource type="Script" path="res://components/output_component.gd" id="8_uveuj"]
-[ext_resource type="Script" path="res://components/input_component.gd" id="9_g7b6o"]
+[ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="8_exmld"]
+[ext_resource type="Script" path="res://components/go_components/output_component.gd" id="8_uveuj"]
+[ext_resource type="Script" path="res://components/go_components/input_component.gd" id="9_g7b6o"]
 
 [node name="belt_0u" type="StaticBody2D"]
 z_index = 1

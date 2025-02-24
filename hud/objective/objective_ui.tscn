@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bodjh1gtscs2r"]
 
 [ext_resource type="Script" path="res://hud/objective/objective_ui.gd" id="1_km6d7"]
-[ext_resource type="Texture2D" uid="uid://012d4a0digm4" path="res://hud/panel_sprite.png" id="2_5utoo"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_q0hn2"]
 [ext_resource type="Script" path="res://hud/objective/nine_patch_scale.gd" id="2_rfh88"]
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="4_kypy7"]
+[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="5_1gary"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sgjev"]
 font = ExtResource("4_kypy7")
@@ -49,14 +49,8 @@ grow_vertical = 2
 script = ExtResource("2_rfh88")
 tile_scale = 4.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Objective/NinePactchScaler"]
+[node name="NinePatchRect" parent="Objective/NinePactchScaler" instance=ExtResource("5_1gary")]
 layout_mode = 2
-texture = ExtResource("2_5utoo")
-region_rect = Rect2(0, 0, 35, 34)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Objective"]
 layout_mode = 2

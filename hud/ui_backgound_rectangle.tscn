@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3kvbp2288ir7"]
+
+[ext_resource type="Texture2D" uid="uid://012d4a0digm4" path="res://hud/panel_sprite.png" id="1_frl62"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+texture = ExtResource("1_frl62")
+region_rect = Rect2(0, 0, 35, 34)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5

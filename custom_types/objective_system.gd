@@ -30,7 +30,6 @@ func complete_task(id_name: String):
 
 
 func switch_if_completed() -> void:
-	print("switch")
 	if current_objective:
 		if current_objective.is_complete():
 			if current_objective.next_objective is Objective:

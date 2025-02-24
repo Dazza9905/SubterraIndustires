@@ -14,4 +14,6 @@ func _on_mode_changed(building_mode: GBEnums.Mode) -> void:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
 		
 func _pressed() -> void:
-	add_child(packed_ui.instantiate())
+	var ui_instace = packed_ui.instantiate()
+	ui_instace.link_all_ui_components(self.get_parent())
+	Globals.get_UIS().display_new_building_ui(ui_instace)

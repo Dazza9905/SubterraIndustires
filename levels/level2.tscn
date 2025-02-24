@@ -17,8 +17,8 @@
 [ext_resource type="Resource" uid="uid://dbkoum2vbx2ha" path="res://addons/grid_building/template/resources/manipulation_actions.tres" id="15_65436"]
 [ext_resource type="Script" path="res://addons/grid_building/components/target_highlighter.gd" id="16_45yyh"]
 [ext_resource type="Script" path="res://addons/grid_building/grid_targeting_system/highlight_settings.gd" id="17_vhxrv"]
-[ext_resource type="Script" path="res://custom_types/grid_reference_system.gd" id="18_78amn"]
-[ext_resource type="Script" path="res://TimeTickSystem.gd" id="19_p213o"]
+[ext_resource type="Script" path="res://systems/grid_reference_system.gd" id="18_78amn"]
+[ext_resource type="Script" path="res://systems/TimeTickSystem.gd" id="19_p213o"]
 [ext_resource type="Script" path="res://custom_types/objective_system.gd" id="20_fa5u5"]
 [ext_resource type="Resource" uid="uid://dlpfytii1l0in" path="res://objectives/level1_objectives/m2.tres" id="21_hntwh"]
 [ext_resource type="Script" path="res://custom_types/level_info.gd" id="22_4kshd"]
@@ -29,7 +29,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="27_8ky36"]
 [ext_resource type="PackedScene" uid="uid://ctr73a3smgupf" path="res://addons/grid_building/template/indicator/rule_check_indicator_16x16_minimal.tscn" id="28_v4de0"]
 [ext_resource type="Script" path="res://addons/grid_building/components/grid_state_assigner.gd" id="29_wy4iy"]
-[ext_resource type="TileSet" uid="uid://ce7odcw84v8je" path="res://tile_set.tres" id="30_lrr12"]
+[ext_resource type="TileSet" uid="uid://ce7odcw84v8je" path="res://art/tile_set.tres" id="30_lrr12"]
 [ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player/player.tscn" id="32_c15qv"]
 [ext_resource type="PackedScene" uid="uid://bodjh1gtscs2r" path="res://hud/objective/objective_ui.tscn" id="38_qp44v"]
 [ext_resource type="Script" path="res://hud/button_load_level.gd" id="39_bd0fr"]
@@ -56,7 +56,7 @@
 [ext_resource type="Resource" uid="uid://43u6sr7kgw1r" path="res://placables/objective_tester/objective_tester_placable.tres" id="60_at311"]
 [ext_resource type="Resource" uid="uid://coick28xvywj2" path="res://placables/elevator/elevator_placable.tres" id="61_kupu7"]
 [ext_resource type="Resource" uid="uid://dutfe2xir6e54" path="res://placables/decoration/tree_light_1/tree_1_light_placable.tres" id="62_56pnq"]
-[ext_resource type="Script" path="res://fps.gd" id="63_uwce8"]
+[ext_resource type="Script" path="res://debug/fps.gd" id="63_uwce8"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]
 script = ExtResource("17_vhxrv")

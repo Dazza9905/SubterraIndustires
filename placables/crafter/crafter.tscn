@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="6_nlg7m"]
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="7_2wqww"]
 [ext_resource type="PackedScene" uid="uid://kwphu548t7j4" path="res://placables/smelter/smelter_ui.tscn" id="8_ovmmi"]
-[ext_resource type="Script" path="res://custom_types/slot_component.gd" id="9_veou0"]
-[ext_resource type="Script" path="res://components/crafter_componet.gd" id="12_7e7y4"]
+[ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="9_veou0"]
+[ext_resource type="Script" path="res://components/go_components/crafter_componet.gd" id="12_7e7y4"]
 
 [sub_resource type="Resource" id="Resource_iacxl"]
 script = ExtResource("6_nlg7m")

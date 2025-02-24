@@ -1,6 +1,9 @@
 extends Component
 class_name SlotComponent
 
+signal slot_contents_changed
+
+
 @export var capacity: int = 1
 @export var item_sprite: Sprite2D
 @export var _amount: int = 0:
@@ -13,6 +16,7 @@ class_name SlotComponent
 			item = null
 			if item_sprite:
 				item_sprite.visible = false
+		slot_contents_changed.emit()
 @export var item: Item:
 	set(new_item):
 		item = new_item
@@ -23,6 +27,7 @@ class_name SlotComponent
 				item_sprite.texture = item.texture
 			else:
 				item_sprite.visible = false
+		slot_contents_changed.emit()
 			
 
 func give_item(passed_item: Item, passed_amount: int = 1) -> Error:

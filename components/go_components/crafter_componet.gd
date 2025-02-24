@@ -1,12 +1,17 @@
 extends Component
 class_name CrafterComponent
 
+signal recipe_changed
+signal item_crafted
+signal craft_progress_changed
+
 @export var recipe_icon: Sprite2D
 @export var progress_label: Label
 
 @export var recipe: Recipe:
 	set(new_recipe):
 		recipe = new_recipe
+		recipe_changed.emit()
 		if(recipe != null):
 			if(recipe.icon != null):
 				recipe_icon.texture = recipe.icon
@@ -40,12 +45,16 @@ func _on_machanine_tick() -> void:
 	if craft_progress > 0:
 		if can_craft:
 			craft_progress = craft_progress - 1
+			craft_progress_changed.emit()
+			
 
 	
 	if craft_progress == 0:
 		if can_craft:
 			actually_craft(target_outputs)
 			craft_progress = recipe.ticks_to_craft
+			item_crafted.emit()
+			craft_progress_changed.emit()
 			
 
 

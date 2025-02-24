@@ -33,12 +33,14 @@ func request_connection(placed_comp: IOComponent):
 				#print("\tTESTING EXISTING ", exist_comp.name, ":")
 				#print("\t\tIs not IOComponent")
 
-func get_components():
+func get_components() -> Array[Component]:
+	var components: Array[Component] = []
 	if has_node("Components:"):
-		return $Components.get_children()
-	else:
-		#print(self.name, "has no comps")
-		return {}
+		for child in $Components.get_children():
+			assert(child is Component, child.name + " is not a Component!")
+			components.append(child)
+	return components
+
 
 func get_file_path() -> String:
 	return Globals.PLACABLES_PATH + code_name + "/" + code_name
