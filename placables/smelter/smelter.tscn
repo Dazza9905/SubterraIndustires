@@ -88,26 +88,24 @@ script = ExtResource("3_7rfgt")
 capacity = 25
 ui_link_id = "slot_product"
 
-[node name="InputRaw" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+[node name="InRaw" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
 script = ExtResource("9_fn677")
 slot = NodePath("../SlotRaw")
-ui_link_id = "slot_raw"
 
-[node name="InputFuel" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+[node name="InFuel" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(0, 16)
 rotation = 3.14159
 script = ExtResource("9_fn677")
 cell_offset = Vector2i(0, 1)
 slot = NodePath("../SlotFuel")
 
-[node name="OutputRafined" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+[node name="OutProduct" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(16, 0)
 script = ExtResource("10_vjxfm")
 cell_offset = Vector2i(1, 0)
 base_side = 2
 slot = NodePath("../SlotRafined")
-ui_link_id = "slot_product"
 
 [node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("recipe_icon", "progress_label", "inputs", "outputs")]
 script = ExtResource("9_5ob0n")

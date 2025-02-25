@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xogw8"]
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="6_pdaj7"]
 [ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="7_8x721"]
-[ext_resource type="PackedScene" uid="uid://cc4hlnx3k8lys" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
-[ext_resource type="Script" path="res://components/go_components/creative_genenerator_component.gd" id="9_niei1"]
+[ext_resource type="PackedScene" uid="uid://bn2f3hjxbnue2" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
+[ext_resource type="Script" path="res://components/go_components/spawner_comp.gd" id="9_niei1"]
 [ext_resource type="Script" path="res://components/go_components/output_component.gd" id="10_i6dki"]
 
 [sub_resource type="Resource" id="Resource_j87vo"]
@@ -64,6 +64,7 @@ packed_ui = ExtResource("7_eatvi")
 [node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
 script = ExtResource("7_8x721")
 item_sprite = NodePath("../../ItemSprite")
+ui_link_id = "slot_out"
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("10_i6dki")
@@ -73,3 +74,4 @@ slot = NodePath("../SlotComponent")
 [node name="CreativeGenComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("9_niei1")
 slot = NodePath("../SlotComponent")
+ui_link_id = "generator"

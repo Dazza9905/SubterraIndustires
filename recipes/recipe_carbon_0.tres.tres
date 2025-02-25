@@ -23,4 +23,4 @@ icon = ExtResource("1_bh773")
 valid_machines = Array[String](["craffter"])
 input_ingredients = Array[ExtResource("1_o1wwb")]([SubResource("Resource_3enfh")])
 output_products = Array[ExtResource("1_o1wwb")]([SubResource("Resource_gddss")])
-ticks_to_craft = 0
+ticks_to_craft = 1

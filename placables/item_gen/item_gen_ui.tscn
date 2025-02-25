@@ -1,35 +1,70 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc4hlnx3k8lys"]
+[gd_scene load_steps=7 format=3 uid="uid://bn2f3hjxbnue2"]
 
-[ext_resource type="Script" path="res://placables/item_gen/item_gen_ui.gd" id="1_8rdy6"]
-[ext_resource type="Script" path="res://hud/material_item_option_button.gd" id="2_7rky2"]
+[ext_resource type="Script" path="res://components/ui_components/grid_object_ui.gd" id="1_4vjjt"]
+[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="2_j428x"]
+[ext_resource type="Texture2D" uid="uid://dphbif4tqbboa" path="res://hud/ui_bg_1.png" id="3_aqm7v"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot_comp_ui.tscn" id="4_fi7u8"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_gt8wl"]
+[ext_resource type="PackedScene" uid="uid://ddc1s1blcy5py" path="res://components/ui_components/spawner_comp_ui.tscn" id="5_pk44j"]
 
-[node name="UI" type="CanvasLayer"]
-script = ExtResource("1_8rdy6")
-
-[node name="GridContainer" type="GridContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -41.5
-offset_top = -23.5
-offset_right = 41.5
-offset_bottom = 23.5
+[node name="ItemGeneratorUI" type="Control" node_paths=PackedStringArray("ui_components", "close_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4vjjt")
+ui_components = [NodePath("NinePatchRect/SlotOut"), NodePath("NinePatchRect/SpawnerCompUI")]
+close_button = NodePath("CloseButton")
 
-[node name="Label" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "Item Type: "
+[node name="NinePatchRect" parent="." instance=ExtResource("2_j428x")]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 151.0
+texture = ExtResource("3_aqm7v")
+region_rect = Rect2(28, 28, 136, 136)
+patch_margin_left = 36
+patch_margin_top = 36
+patch_margin_right = 36
+patch_margin_bottom = 36
 
-[node name="OptionButton" type="OptionButton" parent="GridContainer"]
-layout_mode = 2
-script = ExtResource("2_7rky2")
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 37.0
+offset_right = 233.0
+offset_bottom = 60.0
+theme = ExtResource("5_gt8wl")
+text = "Item to spawn:"
 
-[node name="CloseUI" type="Button" parent="GridContainer"]
-layout_mode = 2
-text = "<- Close"
+[node name="SlotOut" parent="NinePatchRect" instance=ExtResource("4_fi7u8")]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 43.0
+offset_right = 105.0
+offset_bottom = 107.0
+ui_link_id = "slot_out"
 
-[connection signal="item_selected" from="GridContainer/OptionButton" to="." method="_on_option_button_item_selected"]
-[connection signal="pressed" from="GridContainer/CloseUI" to="." method="_on_close_ui_pressed"]
+[node name="SpawnerCompUI" parent="NinePatchRect" instance=ExtResource("5_pk44j")]
+layout_mode = 1
+offset_left = 126.0
+offset_top = 64.0
+offset_right = -45.0
+offset_bottom = -32.0
+ui_link_id = "generator"
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_top = -48.0
+offset_right = 85.0
+theme = ExtResource("5_gt8wl")
+text = "Close"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = -48.0
+offset_right = 427.0
+theme = ExtResource("5_gt8wl")
+text = "Flush all items"

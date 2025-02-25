@@ -42,19 +42,21 @@ func _on_machanine_tick() -> void:
 	var target_outputs: Array[int]
 	var can_craft: bool = can_craft(target_outputs)
 	
-	if craft_progress > 0:
-		if can_craft:
-			craft_progress = craft_progress - 1
-			craft_progress_changed.emit()
+	if recipe:
+		if craft_progress < recipe.ticks_to_craft:
+			if craft_progress == recipe.ticks_to_craft:
+				craft_progress == 0
+			if can_craft:
+				craft_progress = craft_progress + 1
+				craft_progress_changed.emit()
 			
-
 	
-	if craft_progress == 0:
-		if can_craft:
-			actually_craft(target_outputs)
-			craft_progress = recipe.ticks_to_craft
-			item_crafted.emit()
-			craft_progress_changed.emit()
+		if craft_progress == recipe.ticks_to_craft:
+			if can_craft:
+				actually_craft(target_outputs)
+				craft_progress = 0
+				item_crafted.emit()
+				craft_progress_changed.emit()
 			
 
 

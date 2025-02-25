@@ -1,8 +1,13 @@
 extends Component
-class_name CreativeGenComp
+class_name SpawnerComp
+
+signal item_changed
 
 @export var slot: SlotComponent
-@export var item: Item
+@export var item: Item:
+	set(new_item):
+		item = new_item
+		item_changed.emit()
 
 func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)

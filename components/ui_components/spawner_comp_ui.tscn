@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddc1s1blcy5py"]
+
+[ext_resource type="Script" path="res://components/ui_components/spawner_comp_ui.gd" id="1_limms"]
+[ext_resource type="Script" path="res://hud/material_item_option_button.gd" id="2_f5rs0"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="3_mfwvt"]
+
+[node name="SpawnerCompUI" type="Control" node_paths=PackedStringArray("option_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_limms")
+option_button = NodePath("OptionButton")
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_right = 251.0
+offset_bottom = 55.0
+theme = ExtResource("3_mfwvt")
+script = ExtResource("2_f5rs0")
+
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
