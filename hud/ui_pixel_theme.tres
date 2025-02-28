@@ -127,6 +127,7 @@ PopupMenu/font_sizes/font_separator_size = 17
 PopupMenu/font_sizes/font_size = 17
 PopupMenu/font_sizes/title_font_size = 17
 PopupMenu/fonts/font = ExtResource("1_xiunv")
+PopupMenu/styles/hover = null
 PopupMenu/styles/panel = SubResource("StyleBoxTexture_wv2up")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_cixhf")
 ProgressBar/constants/outline_size = 4
