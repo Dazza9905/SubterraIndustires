@@ -34,3 +34,40 @@ func update_ui():
 	else:
 		item_texture.visible = false
 	
+	
+func _get_drag_data(at_position: Vector2) -> DraggedItem:
+	if slot_component.item is Item:
+		var dragged_item: DraggedItem = DraggedItem.new(slot_component.item, slot_component)
+		
+		var item_drag_preview = TextureRect.new()
+		item_drag_preview.texture = slot_component.item.texture
+		item_drag_preview.expand_mode = 1
+		item_drag_preview.size = Vector2(48, 48)
+		item_drag_preview.position = Vector2(-24, -24)
+		
+		var preview_parent: Control = Control.new()
+		preview_parent.add_child(item_drag_preview)
+	
+		set_drag_preview(preview_parent)
+		
+		return dragged_item
+	else:
+		return null
+	
+func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+	if data is DraggedItem:
+		if slot_component.item == null and slot_component._amount < slot_component.capacity:
+			return true
+		elif slot_component.item == (data as DraggedItem).item and slot_component._amount < slot_component.capacity:
+			return true
+		else:
+			return false
+	else:
+		return false
+		
+	
+func _drop_data(at_position: Vector2, data: Variant) -> void:
+	(data as DraggedItem).source_slot_component._amount -= 1
+	slot_component._amount += 1
+	slot_component.item = (data as DraggedItem).item
+	print("dropped ", data)

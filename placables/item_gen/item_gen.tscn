@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1tsok1vm60ly"]
+[gd_scene load_steps=14 format=3 uid="uid://1tsok1vm60ly"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_4mkui"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_6pfpx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://hud/open_ui_button.gd" id="6_pdaj7"]
 [ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="7_8x721"]
 [ext_resource type="PackedScene" uid="uid://bn2f3hjxbnue2" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
+[ext_resource type="Script" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="7_ga6pg"]
 [ext_resource type="Script" path="res://components/go_components/spawner_comp.gd" id="9_niei1"]
 [ext_resource type="Script" path="res://components/go_components/output_component.gd" id="10_i6dki"]
 
@@ -40,8 +41,10 @@ script = ExtResource("3_uvgt1")
 settings = SubResource("Resource_j87vo")
 root = NodePath("..")
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("7_ga6pg")
+slot_component = NodePath("../Components/SlotComponent")
 
 [node name="OpenUI" type="Button" parent="."]
 anchors_preset = 8
@@ -61,9 +64,8 @@ packed_ui = ExtResource("7_eatvi")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("7_8x721")
-item_sprite = NodePath("../../ItemSprite")
 ui_link_id = "slot_out"
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]

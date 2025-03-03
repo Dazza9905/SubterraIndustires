@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dut5g8r8vttdj"]
+[gd_scene load_steps=13 format=3 uid="uid://dut5g8r8vttdj"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6erbl"]
 [ext_resource type="SpriteFrames" uid="uid://bs3hwgrv44j0r" path="res://placables/belt_0u/belt_0u_frames.tres" id="3_bhhbc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_ws432"]
 [ext_resource type="Script" path="res://components/go_components/belt_component.gd" id="6_82to5"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="7_c8o76"]
+[ext_resource type="Script" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="8_14fag"]
 [ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="8_exmld"]
 [ext_resource type="Script" path="res://components/go_components/output_component.gd" id="8_uveuj"]
 [ext_resource type="Script" path="res://components/go_components/input_component.gd" id="9_g7b6o"]
@@ -58,15 +59,16 @@ script = ExtResource("3_ws432")
 settings = ExtResource("7_c8o76")
 root = NodePath("..")
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 visible = false
 scale = Vector2(0.5, 0.5)
+script = ExtResource("8_14fag")
+slot_component = NodePath("../Components/SlotComponent")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("8_exmld")
-item_sprite = NodePath("../../ItemSprite")
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(16, 0)
@@ -86,4 +88,3 @@ slot = NodePath("../SlotComponent")
 script = ExtResource("6_82to5")
 input = NodePath("../InputComponent")
 output = NodePath("../OutputComponent")
-active_component = true

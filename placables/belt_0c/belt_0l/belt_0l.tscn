@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://hjtirkn3xwes"]
+[gd_scene load_steps=15 format=3 uid="uid://hjtirkn3xwes"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
@@ -11,6 +11,7 @@
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
 [ext_resource type="Script" path="res://components/go_components/input_component.gd" id="8_ghf4s"]
 [ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="8_nw4v4"]
+[ext_resource type="Script" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="9_aus6q"]
 [ext_resource type="Script" path="res://components/go_components/output_component.gd" id="9_lybbn"]
 
 [sub_resource type="Resource" id="Resource_xewl6"]
@@ -66,15 +67,17 @@ script = ExtResource("6_5bee7")
 belt_comp = NodePath("../Components/BeltComponent")
 metadata/_edit_use_anchors_ = true
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 visible = false
 scale = Vector2(0.5, 0.5)
+script = ExtResource("9_aus6q")
+slot_component = NodePath("../Components/SlotComponent")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("8_nw4v4")
-item_sprite = NodePath("../../ItemSprite")
+item_sprite = NodePath("")
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
@@ -91,4 +94,3 @@ slot = NodePath("../SlotComponent")
 script = ExtResource("6_gx7wa")
 input = NodePath("../InputComponent")
 output = NodePath("../OutputComponent")
-active_component = true

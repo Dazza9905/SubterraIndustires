@@ -1,15 +1,34 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://dutfe2xir6e54"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=15 format=3 uid="uid://dutfe2xir6e54"]
 
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_8acor"]
 [ext_resource type="Texture2D" uid="uid://cx75p75j8r7bj" path="res://art/downloaded/trees_sheet.png" id="1_m5dep"]
 [ext_resource type="PackedScene" uid="uid://cuiqumbs52n63" path="res://placables/decoration/tree_light_1/tree_1_light.tscn" id="2_duym1"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_p8vcj"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_3oe8g"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/template_rules/resources/node_locator.gd" id="4_71nfk"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/template_rules/resources/resource_stack.gd" id="5_krpsg"]
+[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="6_5nh2b"]
+[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/template_rules/spend_materials_rule_generic.gd" id="6_eyjr8"]
 [ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="6_tkjni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45wo8"]
 atlas = ExtResource("1_m5dep")
 region = Rect2(0, 0, 80, 112)
+
+[sub_resource type="Resource" id="Resource_tb1hc"]
+script = ExtResource("4_71nfk")
+method = 0
+search_string = "InventoryYAY"
+
+[sub_resource type="Resource" id="Resource_xp346"]
+script = ExtResource("5_krpsg")
+type = ExtResource("6_5nh2b")
+count = 1
+
+[sub_resource type="Resource" id="Resource_dqsu4"]
+script = ExtResource("6_eyjr8")
+resource_stacks_to_spend = Array[ExtResource("5_krpsg")]([SubResource("Resource_xp346")])
+locator = SubResource("Resource_tb1hc")
 
 [resource]
 script = ExtResource("2_p8vcj")
@@ -17,5 +36,5 @@ display_name = &"Tree 1"
 icon = SubResource("AtlasTexture_45wo8")
 packed_scene = ExtResource("2_duym1")
 tags = Array[ExtResource("3_3oe8g")]([ExtResource("6_tkjni")])
-placement_rules = Array[ExtResource("1_8acor")]([])
+placement_rules = Array[ExtResource("1_8acor")]([SubResource("Resource_dqsu4")])
 ignore_base_rules = false

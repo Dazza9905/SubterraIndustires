@@ -353,6 +353,7 @@ script = ExtResource("33_csten")
 next_level_path = "res://level2.tscn"
 
 [node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
+mouse_filter = 2
 building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
 placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("57_kc6er")])

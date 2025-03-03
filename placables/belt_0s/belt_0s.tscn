@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://kbhoioejyouu"]
+[gd_scene load_steps=13 format=3 uid="uid://kbhoioejyouu"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_mbni2"]
 [ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belt_0s/belt_0s_frames.tres" id="1_tm2ff"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://debug/belt_paths/bp_label.gd" id="7_st278"]
 [ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="8_1n57p"]
 [ext_resource type="Script" path="res://components/go_components/belt_component.gd" id="8_3p8j0"]
+[ext_resource type="Script" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="8_600ir"]
 [ext_resource type="Script" path="res://components/go_components/input_component.gd" id="10_7s2np"]
 [ext_resource type="Script" path="res://components/go_components/output_component.gd" id="11_f2teu"]
 
@@ -53,15 +54,16 @@ vertical_alignment = 1
 script = ExtResource("7_st278")
 belt_comp = NodePath("../Components/BeltComponent")
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 visible = false
 scale = Vector2(0.5, 0.5)
+script = ExtResource("8_600ir")
+slot_component = NodePath("../Components/SlotComponent")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("8_1n57p")
-item_sprite = NodePath("../../ItemSprite")
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
@@ -77,4 +79,3 @@ slot = NodePath("../SlotComponent")
 script = ExtResource("8_3p8j0")
 input = NodePath("../InputComponent")
 output = NodePath("../OutputComponent")
-active_component = true

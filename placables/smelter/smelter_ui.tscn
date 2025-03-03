@@ -1,14 +1,65 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh1w00yy8paun"]
+[gd_scene load_steps=9 format=3 uid="uid://dh1w00yy8paun"]
 
 [ext_resource type="Script" path="res://components/ui_components/grid_object_ui.gd" id="1_ssald"]
-[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="2_c5hb7"]
 [ext_resource type="Texture2D" uid="uid://dphbif4tqbboa" path="res://hud/ui_bg_1.png" id="3_4jsqq"]
 [ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot_comp_ui.tscn" id="3_hsd2t"]
+[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="4_r430a"]
+[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots_ui.tscn" id="4_y7nqx"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_1sjeo"]
 [ext_resource type="PackedScene" uid="uid://bpjvcjpehq56i" path="res://components/ui_components/crafter_comp_ui.tscn" id="5_2wyci"]
+[ext_resource type="LabelSettings" uid="uid://t644xndeaww8" path="res://hud/building_title_settings.tres" id="6_fdp3v"]
 
-[node name="SmelterUI" type="NinePatchRect" node_paths=PackedStringArray("ui_components", "close_button")]
+[node name="SmelterUI" type="Control" node_paths=PackedStringArray("ui_components", "close_button")]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 507.0
+offset_bottom = 240.0
+script = ExtResource("1_ssald")
+ui_components = [NodePath("NinePatchRect3/HBoxContainer/VBoxContainer/SlotRawUI"), NodePath("NinePatchRect3/HBoxContainer/VBoxContainer/SlotFuelUI"), NodePath("NinePatchRect3/HBoxContainer/SlotProductUI"), NodePath("NinePatchRect3/HBoxContainer/CrafterComponentUI"), NodePath("FlushButton")]
+close_button = NodePath("CloseButton")
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_top = -52.0
+offset_right = -1.0
+offset_bottom = -4.0
+grow_horizontal = 0
+theme = ExtResource("5_1sjeo")
+text = "X"
+
+[node name="FlushButton" parent="." instance=ExtResource("4_y7nqx")]
+layout_mode = 1
+offset_left = -255.0
+offset_right = -53.0
+ui_link_ids = Array[String](["slot_raw", "slot_fuel", "slot_product"])
+
+[node name="NinePatchRect2" parent="." instance=ExtResource("4_r430a")]
+offset_left = 12.0
+offset_top = -52.0
+offset_right = 180.0
+offset_bottom = 20.0
+texture = ExtResource("3_4jsqq")
+region_rect = Rect2(28, 28, 136, 136)
+patch_margin_left = 36
+patch_margin_top = 36
+patch_margin_right = 36
+patch_margin_bottom = 36
+
+[node name="Label2" type="Label" parent="NinePatchRect2"]
+offset_left = 25.0
+offset_top = 18.0
+offset_right = 144.0
+offset_bottom = 53.0
+theme = ExtResource("5_1sjeo")
+text = "Smelter"
+label_settings = ExtResource("6_fdp3v")
+
+[node name="NinePatchRect3" parent="." instance=ExtResource("4_r430a")]
+offset_right = 506.0
 offset_bottom = 240.0
 texture = ExtResource("3_4jsqq")
 region_rect = Rect2(28, 28, 136, 136)
@@ -16,31 +67,8 @@ patch_margin_left = 36
 patch_margin_top = 36
 patch_margin_right = 36
 patch_margin_bottom = 36
-script = ExtResource("1_ssald")
-ui_components = [NodePath("HBoxContainer/VBoxContainer/SlotRawUI"), NodePath("HBoxContainer/VBoxContainer/SlotFuelUI"), NodePath("HBoxContainer/VBoxContainer2/SlotProductUI"), NodePath("HBoxContainer/CrafterComponentUI")]
-close_button = NodePath("CloseButton")
 
-[node name="CloseButton" type="Button" parent="."]
-layout_mode = 0
-offset_top = -52.0
-offset_right = 85.0
-offset_bottom = -4.0
-theme = ExtResource("5_1sjeo")
-text = "Close"
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -202.0
-offset_top = -52.0
-offset_bottom = -4.0
-grow_horizontal = 0
-theme = ExtResource("5_1sjeo")
-text = "Flush all items"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -53,39 +81,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect3/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="SlotRawUI" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_hsd2t")]
+[node name="SlotRawUI" parent="NinePatchRect3/HBoxContainer/VBoxContainer" instance=ExtResource("3_hsd2t")]
 layout_mode = 2
 ui_link_id = "slot_raw"
 
-[node name="SlotFuelUI" parent="HBoxContainer/VBoxContainer" instance=ExtResource("3_hsd2t")]
+[node name="SlotFuelUI" parent="NinePatchRect3/HBoxContainer/VBoxContainer" instance=ExtResource("3_hsd2t")]
 layout_mode = 2
 ui_link_id = "slot_fuel"
 
-[node name="CrafterComponentUI" parent="HBoxContainer" instance=ExtResource("5_2wyci")]
+[node name="CrafterComponentUI" parent="NinePatchRect3/HBoxContainer" instance=ExtResource("5_2wyci")]
 layout_mode = 2
 size_flags_vertical = 4
 ui_link_id = "crafter_comp"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="SlotProductUI" parent="NinePatchRect3/HBoxContainer" instance=ExtResource("3_hsd2t")]
 layout_mode = 2
-alignment = 1
-
-[node name="SlotProductUI" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("3_hsd2t")]
-layout_mode = 2
+size_flags_vertical = 4
 ui_link_id = "slot_product"
-
-[node name="NinePatchRect" parent="." instance=ExtResource("2_c5hb7")]
-visible = false
-layout_mode = 0
-offset_right = 484.0
-offset_bottom = 198.0
-texture = ExtResource("3_4jsqq")
-region_rect = Rect2(28, 28, 136, 136)
-patch_margin_left = 36
-patch_margin_top = 36
-patch_margin_right = 36
-patch_margin_bottom = 36

@@ -2,7 +2,7 @@ extends Control
 class_name GridObjectUI
 
 
-@export var ui_components: Array[ComponentUI]
+@export var ui_components: Array[Control]
 @export var close_button: Button
 
 func _ready() -> void:

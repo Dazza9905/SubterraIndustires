@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://clfimfreq1gha"]
+
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="1_ux2hm"]
+[ext_resource type="Script" path="res://components/ui_components/flush_slots_ui.gd" id="2_hvmkt"]
+
+[node name="FlushButton" type="Button"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -202.0
+offset_top = -52.0
+offset_bottom = -4.0
+grow_horizontal = 0
+theme = ExtResource("1_ux2hm")
+text = "Flush all items"
+script = ExtResource("2_hvmkt")

@@ -27,6 +27,8 @@ func _on_objective_changed() -> void:
 func _on_open_objectives_menu_button_pressed() -> void:
 	if objective_menu.visible:
 		objective_menu.visible = false
+		objective_menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	else: 
 		objective_menu.visible = true
+		objective_menu.mouse_filter = Control.MOUSE_FILTER_STOP
 	

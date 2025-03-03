@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://305len5dbras"]
+[gd_scene load_steps=12 format=3 uid="uid://305len5dbras"]
 
 [ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_mmw4v"]
 [ext_resource type="Texture2D" uid="uid://dwrutix7l4f0f" path="res://placables/item_trash/item_trash_sprite.png" id="2_k1qcl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_p0muk"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_07xw6"]
 [ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_gtugd"]
+[ext_resource type="Script" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="7_hp1h7"]
 [ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="7_lvr2n"]
 [ext_resource type="Script" path="res://components/go_components/creative_trash_component.gd" id="8_hmy6u"]
 [ext_resource type="Script" path="res://components/go_components/input_component.gd" id="8_sib11"]
@@ -38,14 +39,15 @@ script = ExtResource("3_7isns")
 settings = SubResource("Resource_j87vo")
 root = NodePath("..")
 
-[node name="ItemSprite" type="Sprite2D" parent="."]
+[node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("7_hp1h7")
+slot_component = NodePath("../Components/SlotComponent")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("7_lvr2n")
-item_sprite = NodePath("../../ItemSprite")
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("8_sib11")

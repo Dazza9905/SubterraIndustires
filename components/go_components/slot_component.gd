@@ -5,28 +5,17 @@ signal slot_contents_changed
 
 
 @export var capacity: int = 1
-@export var item_sprite: Sprite2D
 @export var _amount: int = 0:
 	set(new_amount):
 		_amount = new_amount
 		if(_amount > 0):
-			if item_sprite:
-				item_sprite.visible = true
+			pass
 		else:
 			item = null
-			if item_sprite:
-				item_sprite.visible = false
 		slot_contents_changed.emit()
 @export var item: Item:
 	set(new_item):
 		item = new_item
-		
-		if item_sprite:
-			if item:
-				item_sprite.visible = true
-				item_sprite.texture = item.texture
-			else:
-				item_sprite.visible = false
 		slot_contents_changed.emit()
 			
 
@@ -48,7 +37,7 @@ func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
 			# Case 3: slot already has an item
 			if item.type != passed_item.type:
 				return FAILED
-			if _amount + passed_amount >= capacity:
+			if _amount + passed_amount > capacity:
 				return FAILED
 			_amount += passed_amount
 			return OK
@@ -87,6 +76,8 @@ func take(passed_amount: int = 1): # -1 <- max amount
 		return null
 	else:
 		if _amount >= passed_amount:
+			#if passed_amount == -1:
+				#passed_amount = _amount
 			var temp_item: Item = item
 			_amount = _amount - passed_amount
 			return temp_item
