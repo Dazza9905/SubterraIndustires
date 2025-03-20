@@ -15,3 +15,6 @@ func close_building_ui() -> void:
 	if building_ui:
 		building_ui.queue_free()
 	building_ui = null
+
+func toggle_inventory():
+	pass

@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://addons/grid_building/placement/rule_check_indicator/rule_check_indicator_manager.gd" id="19_tn0h0"]
 [ext_resource type="Script" path="res://custom_types/objective_system.gd" id="20_gwnkt"]
 [ext_resource type="PackedScene" uid="uid://ctr73a3smgupf" path="res://addons/grid_building/template/indicator/rule_check_indicator_16x16_minimal.tscn" id="20_skc42"]
-[ext_resource type="Resource" uid="uid://drq2xcfpjui23" path="res://objectives/level1_objectives/m1.tres" id="21_j23b2"]
+[ext_resource type="Resource" uid="uid://drq2xcfpjui23" path="res://objectives/level1_objectives/m1.tres" id="21_qdeu5"]
 [ext_resource type="Script" path="res://custom_types/level_info.gd" id="22_mgfdr"]
 [ext_resource type="Script" path="res://addons/grid_building/components/grid_state_assigner.gd" id="23_1geoc"]
 [ext_resource type="Script" path="res://systems/UISystem.gd" id="23_ebk3s"]
@@ -133,7 +133,7 @@ script = ExtResource("1_4s1je")
 
 [node name="ObjectiveSystem" type="Node" parent="Systems"]
 script = ExtResource("20_gwnkt")
-current_objective = ExtResource("21_j23b2")
+current_objective = ExtResource("21_qdeu5")
 
 [node name="LevelInfo" type="Node" parent="Systems"]
 script = ExtResource("22_mgfdr")

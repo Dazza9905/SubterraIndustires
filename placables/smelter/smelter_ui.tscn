@@ -38,6 +38,7 @@ offset_right = -53.0
 ui_link_ids = Array[String](["slot_raw", "slot_fuel", "slot_product"])
 
 [node name="NinePatchRect2" parent="." instance=ExtResource("4_r430a")]
+layout_mode = 0
 offset_left = 12.0
 offset_top = -52.0
 offset_right = 180.0
@@ -50,6 +51,7 @@ patch_margin_right = 36
 patch_margin_bottom = 36
 
 [node name="Label2" type="Label" parent="NinePatchRect2"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 18.0
 offset_right = 144.0
@@ -59,6 +61,7 @@ text = "Smelter"
 label_settings = ExtResource("6_fdp3v")
 
 [node name="NinePatchRect3" parent="." instance=ExtResource("4_r430a")]
+layout_mode = 0
 offset_right = 506.0
 offset_bottom = 240.0
 texture = ExtResource("3_4jsqq")
