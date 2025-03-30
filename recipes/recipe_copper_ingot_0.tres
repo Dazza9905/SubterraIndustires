@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Recipe" load_steps=10 format=3 uid="uid://gidybsb50xgu"]
 
-[ext_resource type="Script" path="res://custom_types/stack.gd" id="1_dwrph"]
-[ext_resource type="Script" path="res://recipes/recipe.gd" id="2_dmeoo"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_dwrph"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://recipes/recipe.gd" id="2_dmeoo"]
 [ext_resource type="Resource" uid="uid://cgq1h6vvjbpo7" path="res://items/copper_ore/item_copper_ore.tres" id="2_hyeyb"]
 [ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/coal/item_coal.tres" id="4_0b1hm"]
 [ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/copper_ingot/item_copper_ingot.tres" id="4_hrk5k"]

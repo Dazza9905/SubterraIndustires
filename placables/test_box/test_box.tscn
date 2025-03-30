@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://baeqdh3fam55a"]
 
-[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_6n65p"]
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_6n65p"]
 [ext_resource type="Texture2D" uid="uid://d11swyrhcasno" path="res://art/downloaded/pixel_art_pack/TX Props.png" id="1_vqf0t"]
-[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="2_vqd5t"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_bd5y3"]
+[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="2_vqd5t"]
+[ext_resource type="Script" uid="uid://ckaftdlnistaw" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_bd5y3"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_e7ici"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_gjr1l"]
+[ext_resource type="Script" uid="uid://vhisgipry3gu" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_gjr1l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s81fj"]
 atlas = ExtResource("1_vqf0t")

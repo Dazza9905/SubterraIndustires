@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwl1ideqa038k"]
 
-[ext_resource type="Script" path="res://hud/main_menu.gd" id="1_5gt41"]
+[ext_resource type="Script" uid="uid://bi0xpeap8k1ep" path="res://hud/main_menu.gd" id="1_5gt41"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_mhrcu"]
 [ext_resource type="Texture2D" uid="uid://c8o1yf5l3kybv" path="res://art/Subterra Industries logo 1x.png" id="2_ycwou"]
 

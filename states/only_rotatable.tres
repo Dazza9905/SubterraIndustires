@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ManipulatableSettings" load_steps=3 format=3 uid="uid://cx2bgibcempgo"]
 
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="1_be0o2"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="2_bbuvn"]
+[ext_resource type="Script" uid="uid://ckaftdlnistaw" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="1_be0o2"]
+[ext_resource type="Script" uid="uid://vhisgipry3gu" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="2_bbuvn"]
 
 [resource]
 script = ExtResource("2_bbuvn")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://c2rq8myd0wwne"]
 
-[ext_resource type="Script" path="res://characters/player/player.gd" id="1_cwch7"]
+[ext_resource type="Script" uid="uid://dqhuur023qk0r" path="res://characters/player/player.gd" id="1_cwch7"]
 [ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="1_viuuy"]
-[ext_resource type="Script" path="res://addons/grid_building/user/user_assigner.gd" id="2_i15o5"]
+[ext_resource type="Script" uid="uid://bgb258c3gmnos" path="res://addons/grid_building/user/user_assigner.gd" id="2_i15o5"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_vakfu"]
 [ext_resource type="Resource" uid="uid://wyagesi4fad5" path="res://addons/grid_building/template/resources/user_state.tres" id="3_g7yyi"]
 

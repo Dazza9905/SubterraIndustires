@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Objective" load_steps=9 format=3 uid="uid://587cjfnlcxxs"]
 
 [ext_resource type="Resource" uid="uid://c4yeda52ma28s" path="res://objectives/level1_objectives/test2_objective.tres" id="1_6583m"]
-[ext_resource type="Script" path="res://custom_types/objective.gd" id="1_vfxvg"]
-[ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_8ukhp"]
-[ext_resource type="Script" path="res://custom_types/sub_objective_produce.gd" id="3_qc883"]
+[ext_resource type="Script" uid="uid://0qc3lwuiucuq" path="res://custom_types/objective.gd" id="1_vfxvg"]
+[ext_resource type="Script" uid="uid://cxwll5nkvvftm" path="res://custom_types/sub_objective.gd" id="2_8ukhp"]
+[ext_resource type="Script" uid="uid://dfnebnbmctf2q" path="res://custom_types/sub_objective_produce.gd" id="3_qc883"]
 [ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="3_v0eih"]
 [ext_resource type="Resource" uid="uid://3pc7812iixf7" path="res://items/carbon/item_carbon.tres" id="5_v8bds"]
 

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bodjh1gtscs2r"]
+[gd_scene load_steps=6 format=3 uid="uid://bodjh1gtscs2r"]
 
-[ext_resource type="Script" path="res://hud/objective/objective_ui.gd" id="1_km6d7"]
+[ext_resource type="Script" uid="uid://c1flw8u4056wj" path="res://hud/objective/objective_ui.gd" id="1_km6d7"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_q0hn2"]
-[ext_resource type="Script" path="res://hud/objective/nine_patch_scale.gd" id="2_rfh88"]
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="4_kypy7"]
 [ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="5_1gary"]
 
@@ -16,8 +15,8 @@ offset_bottom = 500.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_km6d7")
-objective_label = NodePath("Objective/ScrollContainer/Objective/Label")
-sub_objectives_parent = NodePath("Objective/ScrollContainer/Objective/SubObjectivesParent")
+objective_label = NodePath("Objective/NinePatchRect/ScrollContainer/Objective/Label")
+sub_objectives_parent = NodePath("Objective/NinePatchRect/ScrollContainer/Objective/SubObjectivesParent")
 objective_menu = NodePath("Objective")
 
 [node name="OpenObjectivesMenuButton" type="Button" parent="."]
@@ -27,9 +26,9 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_q0hn2")
 theme_override_colors/font_hover_color = Color(0.117647, 0.160784, 0.215686, 1)
-theme_override_colors/font_pressed_color = Color(0.619608, 0.682353, 0.670588, 1)
-theme_override_colors/font_focus_color = Color(0.117647, 0.160784, 0.215686, 1)
 theme_override_colors/font_color = Color(0.117647, 0.160784, 0.215686, 1)
+theme_override_colors/font_focus_color = Color(0.117647, 0.160784, 0.215686, 1)
+theme_override_colors/font_pressed_color = Color(0.619608, 0.682353, 0.670588, 1)
 theme_override_fonts/font = ExtResource("4_kypy7")
 theme_override_font_sizes/font_size = 32
 text = "Objectives"
@@ -39,20 +38,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NinePactchScaler" type="Container" parent="Objective"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_rfh88")
-tile_scale = 4.0
+[node name="NinePatchRect" parent="Objective" instance=ExtResource("5_1gary")]
+layout_mode = 0
+offset_right = 342.0
+offset_bottom = 436.0
 
-[node name="NinePatchRect" parent="Objective/NinePactchScaler" instance=ExtResource("5_1gary")]
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Objective"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Objective/NinePatchRect"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -64,14 +55,14 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="Objective" type="VBoxContainer" parent="Objective/ScrollContainer"]
+[node name="Objective" type="VBoxContainer" parent="Objective/NinePatchRect/ScrollContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Objective/ScrollContainer/Objective"]
+[node name="Label" type="Label" parent="Objective/NinePatchRect/ScrollContainer/Objective"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_sgjev")
 
-[node name="SubObjectivesParent" type="VBoxContainer" parent="Objective/ScrollContainer/Objective"]
+[node name="SubObjectivesParent" type="VBoxContainer" parent="Objective/NinePatchRect/ScrollContainer/Objective"]
 custom_minimum_size = Vector2(100, 20)
 layout_mode = 2
 

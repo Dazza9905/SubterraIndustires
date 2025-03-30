@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://dphsq0ifx5awj"]
 
-[ext_resource type="Script" path="res://custom_types/objective_manager.gd" id="1_8j75w"]
-[ext_resource type="Script" path="res://hud/objective/objective_ui.gd" id="2_ilbvl"]
+[ext_resource type="Script" uid="uid://c1flw8u4056wj" path="res://hud/objective/objective_ui.gd" id="2_ilbvl"]
 [ext_resource type="Resource" uid="uid://587cjfnlcxxs" path="res://objectives/level1_objectives/test_objective.tres" id="3_8nkoi"]
+
+[sub_resource type="Resource" id="Resource_ki33d"]
+metadata/__load_path__ = "res://custom_types/objective_manager.gd"
 
 [sub_resource type="Theme" id="Theme_xmb0i"]
 default_font_size = 0
@@ -12,7 +14,7 @@ offset_right = 147.0
 offset_bottom = 8.0
 text = "asdadadad"
 flat = false
-script = ExtResource("1_8j75w")
+script = SubResource("Resource_ki33d")
 objectives_ui_parent = NodePath("ScrollContainer/VBoxContainer")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

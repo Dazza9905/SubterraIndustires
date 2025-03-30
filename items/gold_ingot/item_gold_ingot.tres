@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cvbj3db6m5icp"]
 
-[ext_resource type="Script" path="res://custom_types/item.gd" id="1_ne50e"]
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_ne50e"]
 [ext_resource type="Texture2D" uid="uid://y2b4imcuncxk" path="res://items/gold_ingot/gold_ingot_sprite.png" id="2_cmpbq"]
 
 [resource]

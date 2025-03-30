@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dwrutix7l4f0f" path="res://placables/item_trash/item_trash_sprite.png" id="1_mewsv"]
 [ext_resource type="PackedScene" uid="uid://305len5dbras" path="res://placables/item_trash/item_trash.tscn" id="2_0as32"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_ffvfd"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_a3aoi"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_5elbe"]
+[ext_resource type="Script" uid="uid://egnsnyanjjoy" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_ffvfd"]
+[ext_resource type="Script" uid="uid://c2ur0t4qei6fa" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_a3aoi"]
+[ext_resource type="Script" uid="uid://bl8hpgj2h4c2u" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_5elbe"]
 [ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="6_c0kn1"]
 
 [resource]

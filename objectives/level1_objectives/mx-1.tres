@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Objective" load_steps=10 format=3 uid="uid://dpqrcj1p54fbh"]
 
-[ext_resource type="Script" path="res://custom_types/objective.gd" id="1_g253c"]
+[ext_resource type="Script" uid="uid://0qc3lwuiucuq" path="res://custom_types/objective.gd" id="1_g253c"]
 [ext_resource type="Resource" uid="uid://dfx1nutfbpdh7" path="res://objectives/level1_objectives/mx.tres" id="1_xnrg6"]
-[ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_t65xx"]
+[ext_resource type="Script" uid="uid://cxwll5nkvvftm" path="res://custom_types/sub_objective.gd" id="2_t65xx"]
 [ext_resource type="Resource" uid="uid://bnmikbnuk1x7k" path="res://items/steel_ingot/item_steel_ingot.tres" id="3_yj6lv"]
-[ext_resource type="Script" path="res://custom_types/sub_objective_collect.gd" id="4_gx2l5"]
+[ext_resource type="Script" uid="uid://bc533en5pbpyx" path="res://custom_types/sub_objective_collect.gd" id="4_gx2l5"]
 [ext_resource type="Resource" uid="uid://c0jr4bbtlys8l" path="res://items/thungsten_ore/item_thungsten_ore.tres" id="5_35xf5"]
 
 [sub_resource type="Resource" id="Resource_05dl6"]

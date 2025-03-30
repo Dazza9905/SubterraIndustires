@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="1_wooa4"]
 [ext_resource type="PackedScene" uid="uid://wx0imx3ix2ic" path="res://placables/smelter/smelter.tscn" id="2_l5c5b"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_di46v"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_734x5"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_537pv"]
+[ext_resource type="Script" uid="uid://egnsnyanjjoy" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_di46v"]
+[ext_resource type="Script" uid="uid://c2ur0t4qei6fa" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_734x5"]
+[ext_resource type="Script" uid="uid://bl8hpgj2h4c2u" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_537pv"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="6_c1kdy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjjrs"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://1tbuyh1tbme"]
 
-[ext_resource type="Script" path="res://hud/level_picker.gd" id="1_bjm1k"]
+[ext_resource type="Script" uid="uid://du7mftcd448c3" path="res://hud/level_picker.gd" id="1_bjm1k"]
 [ext_resource type="PackedScene" uid="uid://by8dbqmri4u3r" path="res://hud/level_entry.tscn" id="2_wm0w0"]
 
 [node name="LevelPicker" type="Control"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://dl4l2mrxxfm0n"]
 
-[ext_resource type="Script" path="res://custom_types/grid_object.gd" id="1_sipws"]
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_sipws"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_u82vp"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_6tbyj"]
-[ext_resource type="Script" path="res://addons/grid_building/components/manipulatable.gd" id="3_c2cjc"]
-[ext_resource type="Script" path="res://components/go_components/slot_component.gd" id="3_uvyhf"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_qndn6"]
-[ext_resource type="Script" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_jievt"]
-[ext_resource type="Script" path="res://components/go_components/miner_component.gd" id="5_okaoa"]
-[ext_resource type="Script" path="res://components/go_components/output_component.gd" id="8_6sql8"]
+[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="3_c2cjc"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="3_uvyhf"]
+[ext_resource type="Script" uid="uid://ckaftdlnistaw" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_qndn6"]
+[ext_resource type="Script" uid="uid://vhisgipry3gu" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_jievt"]
+[ext_resource type="Script" uid="uid://cp5x0nve6cj2j" path="res://components/go_components/miner_component.gd" id="5_okaoa"]
+[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="8_6sql8"]
 
 [sub_resource type="Resource" id="Resource_aiahj"]
 script = ExtResource("5_jievt")

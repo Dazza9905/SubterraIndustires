@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Objective" load_steps=7 format=3 uid="uid://drq2xcfpjui23"]
 
-[ext_resource type="Script" path="res://custom_types/objective.gd" id="1_3170j"]
+[ext_resource type="Script" uid="uid://0qc3lwuiucuq" path="res://custom_types/objective.gd" id="1_3170j"]
 [ext_resource type="Resource" uid="uid://dlpfytii1l0in" path="res://objectives/level1_objectives/m2.tres" id="1_k3t2w"]
-[ext_resource type="Script" path="res://custom_types/sub_objective.gd" id="2_74t2x"]
-[ext_resource type="Script" path="res://custom_types/sub_objective_task.gd" id="3_wrf3w"]
+[ext_resource type="Script" uid="uid://cxwll5nkvvftm" path="res://custom_types/sub_objective.gd" id="2_74t2x"]
+[ext_resource type="Script" uid="uid://nqpfyc6c6buy" path="res://custom_types/sub_objective_task.gd" id="3_wrf3w"]
 
 [sub_resource type="Resource" id="Resource_wi2gy"]
 script = ExtResource("3_wrf3w")
