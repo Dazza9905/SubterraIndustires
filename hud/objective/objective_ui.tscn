@@ -1,23 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bodjh1gtscs2r"]
+[gd_scene load_steps=5 format=3 uid="uid://bodjh1gtscs2r"]
 
 [ext_resource type="Script" uid="uid://c1flw8u4056wj" path="res://hud/objective/objective_ui.gd" id="1_km6d7"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_q0hn2"]
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="4_kypy7"]
-[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="5_1gary"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sgjev"]
 font = ExtResource("4_kypy7")
 font_size = 28
 
-[node name="TextureWrapped" type="VBoxContainer" node_paths=PackedStringArray("objective_label", "sub_objectives_parent", "objective_menu")]
-offset_right = 350.0
-offset_bottom = 500.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="ObjectiveUI" type="VBoxContainer" node_paths=PackedStringArray("objective_label", "sub_objectives_parent", "objective_menu", "sub_objective_parent", "size_node")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_km6d7")
-objective_label = NodePath("Objective/NinePatchRect/ScrollContainer/Objective/Label")
-sub_objectives_parent = NodePath("Objective/NinePatchRect/ScrollContainer/Objective/SubObjectivesParent")
-objective_menu = NodePath("Objective")
+objective_label = NodePath("Panel/Objective/Label")
+sub_objectives_parent = NodePath("Panel/Objective/SubObjectivesParent")
+objective_menu = NodePath("Panel")
+sub_objective_parent = NodePath("Panel/Objective/SubObjectivesParent")
+size_node = NodePath("Panel/Objective")
 
 [node name="OpenObjectivesMenuButton" type="Button" parent="."]
 z_index = 10
@@ -33,37 +35,40 @@ theme_override_fonts/font = ExtResource("4_kypy7")
 theme_override_font_sizes/font_size = 32
 text = "Objectives"
 
-[node name="Objective" type="Control" parent="."]
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+theme = ExtResource("2_q0hn2")
 
-[node name="NinePatchRect" parent="Objective" instance=ExtResource("5_1gary")]
-layout_mode = 0
-offset_right = 342.0
-offset_bottom = 436.0
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Objective/NinePatchRect"]
-layout_mode = 2
+[node name="Objective" type="VBoxContainer" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -21.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-horizontal_scroll_mode = 0
+size_flags_vertical = 0
+theme = ExtResource("2_q0hn2")
 
-[node name="Objective" type="VBoxContainer" parent="Objective/NinePatchRect/ScrollContainer"]
+[node name="Label" type="Label" parent="Panel/Objective"]
+custom_minimum_size = Vector2(100, 28)
 layout_mode = 2
+text = "asdasd 
 
-[node name="Label" type="Label" parent="Objective/NinePatchRect/ScrollContainer/Objective"]
-layout_mode = 2
+
+
+
+asdasdas "
 label_settings = SubResource("LabelSettings_sgjev")
+autowrap_mode = 2
 
-[node name="SubObjectivesParent" type="VBoxContainer" parent="Objective/NinePatchRect/ScrollContainer/Objective"]
-custom_minimum_size = Vector2(100, 20)
+[node name="SubObjectivesParent" type="VBoxContainer" parent="Panel/Objective"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [connection signal="pressed" from="OpenObjectivesMenuButton" to="." method="_on_open_objectives_menu_button_pressed"]

@@ -10,9 +10,17 @@ extends Node2D
 # passive - updated and managed from other compoenents
 # example: I/O, Slot/Buffer, Storage
 var ads := RefCounted.new()
-@onready var parent_GO: GridObject = self.get_parent().get_parent()
+@export var part_of_GO: bool = true
+var parent_GO: GridObject 
 
 @export var ui_link_id: String
+
+func _ready() -> void:
+	if part_of_GO:
+		parent_GO = self.get_parent().get_parent()
+	else:
+		connect_to_tick()
+
 
 #This parent class sould not be used as it is!
 func get_parent_GO() -> GridObject:

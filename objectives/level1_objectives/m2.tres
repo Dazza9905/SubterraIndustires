@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Objective" load_steps=7 format=3 uid="uid://dlpfytii1l0in"]
+[gd_resource type="Resource" script_class="Objective" load_steps=17 format=3 uid="uid://dlpfytii1l0in"]
 
 [ext_resource type="Script" uid="uid://0qc3lwuiucuq" path="res://custom_types/objective.gd" id="1_2bb12"]
 [ext_resource type="Resource" uid="uid://c118x1u1aj7mb" path="res://objectives/level1_objectives/m3.tres" id="1_x75ww"]
@@ -13,9 +13,79 @@ name = "Smelt Iron"
 current_completion = 0
 finish_completion = 30
 
+[sub_resource type="Resource" id="Resource_2rl0h"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_ar2bk"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_vq0t3"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_fadot"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_vaslt"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_oplyh"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_bltnw"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_ggc5h"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_aibyo"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
+[sub_resource type="Resource" id="Resource_ey4wl"]
+script = ExtResource("4_puet5")
+item_to_produce = ExtResource("4_1osp3")
+name = "Smelt Iron"
+current_completion = 0
+finish_completion = 30
+
 [resource]
 script = ExtResource("1_2bb12")
 name = "Ironnn"
-sub_objectives = Array[ExtResource("2_ihmha")]([SubResource("Resource_pwkd1")])
+sub_objectives = Array[ExtResource("2_ihmha")]([SubResource("Resource_pwkd1"), SubResource("Resource_2rl0h"), SubResource("Resource_ar2bk"), SubResource("Resource_vq0t3"), SubResource("Resource_fadot"), SubResource("Resource_vaslt"), SubResource("Resource_oplyh"), SubResource("Resource_bltnw"), SubResource("Resource_ggc5h"), SubResource("Resource_aibyo"), SubResource("Resource_ey4wl")])
 next_objective = ExtResource("1_x75ww")
 level_complete = false

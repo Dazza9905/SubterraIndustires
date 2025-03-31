@@ -334,10 +334,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ObjectiveUI" parent="UserInterface" instance=ExtResource("30_xhqwm")]
-offset_left = 4.0
-offset_top = 5.0
-offset_right = 354.0
-offset_bottom = 320.0
+offset_right = -1440.0
+offset_bottom = -540.0
 
 [node name="Button" type="Button" parent="UserInterface"]
 visible = false

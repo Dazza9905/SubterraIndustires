@@ -1,34 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://c2rq8myd0wwne"]
+[gd_scene load_steps=13 format=3 uid="uid://c2rq8myd0wwne"]
 
 [ext_resource type="Script" uid="uid://dqhuur023qk0r" path="res://characters/player/player.gd" id="1_cwch7"]
 [ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="1_viuuy"]
 [ext_resource type="Script" uid="uid://bgb258c3gmnos" path="res://addons/grid_building/user/user_assigner.gd" id="2_i15o5"]
-[ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_vakfu"]
 [ext_resource type="Resource" uid="uid://wyagesi4fad5" path="res://addons/grid_building/template/resources/user_state.tres" id="3_g7yyi"]
-
-[sub_resource type="GDScript" id="GDScript_c84gi"]
-script/source = "extends Node
-## Provides virtual methods for an inventory node class that needs to work
-## with SpendMaterialsRuleGeneric
-
-var holding_amount: int = 10
-## Tries to remove a number of items from the container
-## Returns the actual amount removed
-func try_remove(type : Resource, amount : int) -> int:
-	holding_amount -= amount
-	return amount
-	
-## Tries to add a number of an item to the container
-## Returns the actual amount added
-func try_add(type : Resource, amount : int) -> int:
-	holding_amount += amount
-	return amount
-	
-## Gets a number count of an item type stored in the container if any
-func get_count(type : Resource) -> int:
-	return holding_amount
-	
-"
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_c6leb"]
+[ext_resource type="Script" uid="uid://dhhi867521m22" path="res://characters/player/player_invetory.gd" id="5_dirf7"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot_comp_ui.tscn" id="6_c6leb"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="6_idpv6"]
+[ext_resource type="Script" uid="uid://gs2nhgblduco" path="res://components/go_components/creative_trash_component.gd" id="7_rpf03"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5uw5"]
 atlas = ExtResource("1_viuuy")
@@ -44,12 +24,7 @@ collision_layer = 2560
 collision_mask = 512
 script = ExtResource("1_cwch7")
 detector_area = NodePath("Detector")
-inventory = NodePath("InventoryYAY")
-
-[node name="InventoryYAY" type="TextureRect" parent="."]
-z_index = 100
-texture = ExtResource("2_vakfu")
-script = SubResource("GDScript_c84gi")
+inventory = NodePath("InventorySystem")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -76,3 +51,161 @@ shape = SubResource("RectangleShape2D_x0w6k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="InventorySystem" type="Node" parent="." node_paths=PackedStringArray("ui_view_parent", "ui_componets")]
+script = ExtResource("5_dirf7")
+ui_view_parent = NodePath("../CanvasLayer/InvetoryView")
+ui_componets = [NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi2"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi3"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi4"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi6"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi7"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi8"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi9"), NodePath("../CanvasLayer/InvetoryView/SlotComponentUiTrash")]
+
+[node name="SlotComponent" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_1"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent2" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_2"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent3" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_3"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent4" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_4"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent5" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_5"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent6" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_6"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent7" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_7"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent8" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_8"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="SlotComponent9" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_9"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="CreativeTrashComp" type="Node2D" parent="InventorySystem" node_paths=PackedStringArray("slot")]
+script = ExtResource("7_rpf03")
+slot = NodePath("../SlotComponentTrash")
+part_of_GO = false
+metadata/_custom_type_script = "uid://gs2nhgblduco"
+
+[node name="SlotComponentTrash" type="Node2D" parent="InventorySystem"]
+script = ExtResource("6_idpv6")
+capacity = 100
+part_of_GO = false
+ui_link_id = "inv_slot_trash"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InvetoryView" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 474.0
+offset_right = -1660.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_c6leb")
+
+[node name="Button" type="Button" parent="CanvasLayer/InvetoryView"]
+layout_mode = 1
+offset_top = -52.0
+offset_right = 84.0
+offset_bottom = -4.0
+text = "Close"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InvetoryView"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -570.0
+offset_right = 230.0
+offset_bottom = -30.0
+grow_vertical = 0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="SlotComponentUi" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_1"
+
+[node name="SlotComponentUi2" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_2"
+
+[node name="SlotComponentUi3" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_3"
+
+[node name="SlotComponentUi4" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_4"
+
+[node name="SlotComponentUi5" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_5"
+
+[node name="SlotComponentUi6" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_6"
+
+[node name="SlotComponentUi7" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_7"
+
+[node name="SlotComponentUi8" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_8"
+
+[node name="SlotComponentUi9" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+ui_link_id = "inv_slot_9"
+
+[node name="SlotComponentUiTrash" parent="CanvasLayer/InvetoryView" instance=ExtResource("6_c6leb")]
+layout_mode = 2
+offset_left = 167.0
+offset_top = 513.0
+offset_right = 231.0
+offset_bottom = 577.0
+ui_link_id = "inv_slot_trash"

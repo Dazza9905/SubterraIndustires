@@ -6,7 +6,7 @@ var speed = 5000
 var conveyor_speed = 32
 
 @export var detector_area: Area2D
-@export var inventory: Control
+@export var inventory: PlayerInventory
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -18,7 +18,7 @@ func _input(event: InputEvent) -> void:
 				$Camera2D.zoom *= Vector2(1.05, 1.05)
 				
 		if Input.is_action_pressed("toggle_inventory"):
-			inventory.visible = not inventory.visible
+			inventory.toggle_inventory()
 				
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:

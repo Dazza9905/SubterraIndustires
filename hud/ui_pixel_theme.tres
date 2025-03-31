@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://bqnstwubygps6"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bqnstwubygps6"]
 
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_xiunv"]
 [ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_vk65x"]
 [ext_resource type="Texture2D" uid="uid://c6v8w66pm7fik" path="res://hud/btn_clicked.png" id="3_5qldq"]
+[ext_resource type="Texture2D" uid="uid://dphbif4tqbboa" path="res://hud/ui_bg_1.png" id="4_cv5i3"]
 [ext_resource type="Texture2D" uid="uid://cdjuigsvkc5qt" path="res://hud/progress_bar_filled.png" id="4_sbeu5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqerr"]
@@ -58,6 +59,16 @@ texture_margin_bottom = 12.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 28, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cstng"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(28, 28, 136, 136)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv2up"]
 texture = SubResource("CompressedTexture2D_dcr4q")
@@ -122,7 +133,12 @@ Button/styles/normal = SubResource("StyleBoxTexture_7y2co")
 Button/styles/pressed = SubResource("StyleBoxTexture_esx4t")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_xiunv")
+MarginContainer/constants/margin_bottom = 25
+MarginContainer/constants/margin_left = 30
+MarginContainer/constants/margin_right = 30
+MarginContainer/constants/margin_top = 25
 OptionButton/constants/arrow_margin = 20
+Panel/styles/panel = SubResource("StyleBoxTexture_cstng")
 PopupMenu/font_sizes/font_separator_size = 17
 PopupMenu/font_sizes/font_size = 17
 PopupMenu/font_sizes/title_font_size = 17
