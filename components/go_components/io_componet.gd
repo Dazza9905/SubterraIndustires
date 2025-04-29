@@ -67,7 +67,8 @@ func _exit_tree() -> void:
 		pass
 		#print(self.name , " io-conn is null even in notif")
 	#IO_connection.IO_connection == null
-	queue_free()
+	if not Engine.is_editor_hint():
+		queue_free()
 
 func connect_to_tick():
 	get_io_con()

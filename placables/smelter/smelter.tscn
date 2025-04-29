@@ -1,17 +1,23 @@
-[gd_scene load_steps=14 format=3 uid="uid://wx0imx3ix2ic"]
+[gd_scene load_steps=16 format=3 uid="uid://wx0imx3ix2ic"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_u54kl"]
-[ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="2_1pau7"]
+[ext_resource type="Texture2D" uid="uid://fbdaquhy1gsb" path="res://placables/smelter/smelter_base_sprite.png" id="2_j6551"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="3_7rfgt"]
-[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="3_b0fne"]
+[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="3_b0fne"]
 [ext_resource type="Shape2D" uid="uid://c022plhiax132" path="res://custom_types/32x32_collision.tres" id="3_uscam"]
-[ext_resource type="Script" uid="uid://ckaftdlnistaw" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_i43wo"]
-[ext_resource type="Script" uid="uid://vhisgipry3gu" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
+[ext_resource type="Script" uid="uid://lxcqpvghjy1a" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_i43wo"]
+[ext_resource type="Script" uid="uid://dbt71w0chjpwi" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="6_lv7jb"]
 [ext_resource type="PackedScene" uid="uid://dh1w00yy8paun" path="res://placables/smelter/smelter_ui.tscn" id="8_g1kxj"]
 [ext_resource type="Script" uid="uid://dgp5ewhq1eq33" path="res://components/go_components/crafter_componet.gd" id="9_5ob0n"]
-[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="9_fn677"]
-[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="10_vjxfm"]
+[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="11_j6551"]
+[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="12_j37wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04fxs"]
+size = Vector2(47.9, 7.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c484a"]
+size = Vector2(47.9, 7.9)
 
 [sub_resource type="Resource" id="Resource_iacxl"]
 script = ExtResource("5_sfdrg")
@@ -31,11 +37,25 @@ code_name = "smelter"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-texture = ExtResource("2_1pau7")
+texture = ExtResource("2_j6551")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="GridUsedSpace" type="CollisionShape2D" parent="."]
 position = Vector2(8, 8)
 shape = ExtResource("3_uscam")
+
+[node name="GridUsedSpace2" type="Area2D" parent="."]
+collision_layer = 12288
+collision_mask = 0
+
+[node name="BloackedSpace" type="CollisionShape2D" parent="GridUsedSpace2"]
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(8, -12)
+shape = SubResource("RectangleShape2D_04fxs")
+
+[node name="BloackedSpace2" type="CollisionShape2D" parent="GridUsedSpace2"]
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(8, 28)
+shape = SubResource("RectangleShape2D_c484a")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_b0fne")
@@ -57,10 +77,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -7.0
-offset_top = -7.0
-offset_right = 23.0
-offset_bottom = 23.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
@@ -88,25 +108,6 @@ script = ExtResource("3_7rfgt")
 capacity = 25
 ui_link_id = "slot_product"
 
-[node name="InRaw" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-rotation = 3.14159
-script = ExtResource("9_fn677")
-slot = NodePath("../SlotRaw")
-
-[node name="InFuel" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(0, 16)
-rotation = 3.14159
-script = ExtResource("9_fn677")
-cell_offset = Vector2i(0, 1)
-slot = NodePath("../SlotFuel")
-
-[node name="OutProduct" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(16, 0)
-script = ExtResource("10_vjxfm")
-cell_offset = Vector2i(1, 0)
-base_side = 2
-slot = NodePath("../SlotRafined")
-
 [node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("recipe_icon", "progress_label", "inputs", "outputs")]
 script = ExtResource("9_5ob0n")
 recipe_icon = NodePath("../../RecipeSprite")
@@ -114,5 +115,27 @@ progress_label = NodePath("../../Label")
 inputs = [NodePath("../SlotRaw"), NodePath("../SlotFuel")]
 outputs = [NodePath("../SlotRafined")]
 ui_link_id = "crafter_comp"
+
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 3.14159
+script = ExtResource("11_j6551")
+slot = NodePath("../SlotRaw")
+metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
+
+[node name="InputComponent2" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(0, 16)
+rotation = 3.14159
+script = ExtResource("11_j6551")
+cell_offset = Vector2i(0, 1)
+slot = NodePath("../SlotFuel")
+metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(16, 0)
+script = ExtResource("12_j37wi")
+cell_offset = Vector2i(1, 0)
+base_side = 2
+slot = NodePath("../SlotRafined")
+metadata/_custom_type_script = "uid://dv6bwtrax2k8t"
 
 [connection signal="pressed" from="OpenUI" to="OpenUI" method="_on_pressed"]

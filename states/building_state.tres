@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingState" load_steps=2 format=3 uid="uid://c4hmeqfhqfexu"]
 
-[ext_resource type="Script" uid="uid://t3fr82dsagv3" path="res://addons/grid_building/building_system/building_state.gd" id="1_osql7"]
+[ext_resource type="Script" uid="uid://76amqrmqnw50" path="res://addons/grid_building/building_system/building_state.gd" id="1_osql7"]
 
 [resource]
 script = ExtResource("1_osql7")

@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://drl338ci5l4tj" path="res://placables/splitter/splitter_sprite.png" id="2_h6gh0"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="3_6ol5y"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_migdn"]
-[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="3_noymc"]
+[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="3_noymc"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="4_d5gum"]
-[ext_resource type="Script" uid="uid://ckaftdlnistaw" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_d82xm"]
-[ext_resource type="Script" uid="uid://vhisgipry3gu" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_5gyes"]
+[ext_resource type="Script" uid="uid://lxcqpvghjy1a" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_d82xm"]
+[ext_resource type="Script" uid="uid://dbt71w0chjpwi" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_5gyes"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="5_bnxp2"]
 [ext_resource type="Script" uid="uid://disv18mivrlhp" path="res://components/go_components/split_merge_component.gd" id="6_urk3r"]
 

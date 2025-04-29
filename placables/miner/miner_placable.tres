@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Placeable" load_steps=7 format=3 uid="uid://twhge4smthhp"]
 
-[ext_resource type="Script" uid="uid://egnsnyanjjoy" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_m21is"]
+[ext_resource type="Script" uid="uid://deh8nmrmv5b7c" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_m21is"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="1_v1gfg"]
 [ext_resource type="PackedScene" uid="uid://dl4l2mrxxfm0n" path="res://placables/miner/miner2.tscn" id="2_6txie"]
-[ext_resource type="Script" uid="uid://c2ur0t4qei6fa" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_6ut6y"]
-[ext_resource type="Script" uid="uid://bl8hpgj2h4c2u" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_n4mbe"]
+[ext_resource type="Script" uid="uid://nmxv7k5qdv1o" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_6ut6y"]
+[ext_resource type="Script" uid="uid://1cqu7ybicsoh" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_n4mbe"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="6_s10t7"]
 
 [resource]

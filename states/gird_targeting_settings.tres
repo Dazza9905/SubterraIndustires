@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GridTargetingSettings" load_steps=2 format=3 uid="uid://vpvxepjf5e7c"]
 
-[ext_resource type="Script" uid="uid://b1l2ums8647d0" path="res://addons/grid_building/grid_targeting_system/grid_targeting_settings.gd" id="1_pwli7"]
+[ext_resource type="Script" uid="uid://xk2okpyj3lgu" path="res://addons/grid_building/grid_targeting_system/grid_targeting_settings.gd" id="1_pwli7"]
 
 [resource]
 script = ExtResource("1_pwli7")

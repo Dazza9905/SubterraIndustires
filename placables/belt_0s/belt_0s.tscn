@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_mbni2"]
 [ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belt_0s/belt_0s_frames.tres" id="1_tm2ff"]
-[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
+[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_r1dcr"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_c8rvs"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]

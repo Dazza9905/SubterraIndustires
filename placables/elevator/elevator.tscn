@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cghl6d373bvnl" path="res://placables/elevator/elevator_sprite.png" id="2_5go2o"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="2_50idv"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="3_cugsj"]
-[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="3_pkhk7"]
+[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="3_pkhk7"]
 [ext_resource type="Script" uid="uid://blsyaemthco7j" path="res://components/go_components/objective_collect.gd" id="4_igu7x"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="4_ttdjc"]
 

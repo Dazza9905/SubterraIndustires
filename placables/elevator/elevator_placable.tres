@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Placeable" load_steps=7 format=3 uid="uid://coick28xvywj2"]
 
 [ext_resource type="Texture2D" uid="uid://cghl6d373bvnl" path="res://placables/elevator/elevator_sprite.png" id="1_5egkx"]
-[ext_resource type="Script" uid="uid://egnsnyanjjoy" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_ouw48"]
-[ext_resource type="Script" uid="uid://c2ur0t4qei6fa" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_l15ei"]
+[ext_resource type="Script" uid="uid://deh8nmrmv5b7c" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_ouw48"]
+[ext_resource type="Script" uid="uid://nmxv7k5qdv1o" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_l15ei"]
 [ext_resource type="PackedScene" uid="uid://d2dk46qx62l7p" path="res://placables/elevator/elevator.tscn" id="2_n5qan"]
-[ext_resource type="Script" uid="uid://bl8hpgj2h4c2u" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_2wsj2"]
+[ext_resource type="Script" uid="uid://1cqu7ybicsoh" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_2wsj2"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="6_hxq1b"]
 
 [resource]

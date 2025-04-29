@@ -26,10 +26,10 @@ func _ready() -> void:
 func get_parent_GO() -> GridObject:
 	return self.get_parent().get_parent()
 
-func update():
+func update() -> void:
 	assert(false, "The method 'update()' must be overridden in the child class.")
 
-func connect_to_tick():
+func connect_to_tick() -> void:
 	assert(false, "The method 'connect_to_tick()' must be overridden in the child class.")
 
 #func _ready() -> void:

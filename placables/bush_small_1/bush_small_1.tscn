@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_4a7kb"]
 [ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_ymvff"]
-[ext_resource type="Script" uid="uid://is6rl3cm1rk8" path="res://addons/grid_building/components/manipulatable.gd" id="2_77hbh"]
-[ext_resource type="Script" uid="uid://ckaftdlnistaw" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_n0ujn"]
-[ext_resource type="Script" uid="uid://vhisgipry3gu" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_0o0cy"]
+[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="2_77hbh"]
+[ext_resource type="Script" uid="uid://lxcqpvghjy1a" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="3_n0ujn"]
+[ext_resource type="Script" uid="uid://dbt71w0chjpwi" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="4_0o0cy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ruwme"]
 atlas = ExtResource("1_ymvff")

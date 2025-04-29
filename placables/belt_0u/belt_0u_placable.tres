@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ckkqu0ks7ajb" path="res://placables/belt_0u/belt_0u_in_seq.png" id="1_yfyxo"]
 [ext_resource type="PackedScene" uid="uid://dut5g8r8vttdj" path="res://placables/belt_0u/belt_0u.tscn" id="2_6ku0l"]
-[ext_resource type="Script" uid="uid://egnsnyanjjoy" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_dhgn3"]
-[ext_resource type="Script" uid="uid://c2ur0t4qei6fa" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_w4lq6"]
-[ext_resource type="Script" uid="uid://bl8hpgj2h4c2u" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_nhiey"]
+[ext_resource type="Script" uid="uid://deh8nmrmv5b7c" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_dhgn3"]
+[ext_resource type="Script" uid="uid://nmxv7k5qdv1o" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_w4lq6"]
+[ext_resource type="Script" uid="uid://1cqu7ybicsoh" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_nhiey"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="6_scrp8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkhi7"]

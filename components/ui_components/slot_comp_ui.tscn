@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dxuc7q0xgbp6l"]
 
-[ext_resource type="Script" uid="uid://bjkb51coc8nyj" path="res://components/ui_components/slot_comp_ui.gd" id="1_hu7pl"]
+[ext_resource type="Script" uid="uid://bjkb51coc8nyj" path="res://components/slot_comp_ui.gd" id="1_hu7pl"]
 [ext_resource type="Texture2D" uid="uid://bjcwrdi73b61g" path="res://hud/slot.png" id="2_28lnq"]
 [ext_resource type="Texture2D" uid="uid://cjjtl572niccu" path="res://art/tile_set.png" id="3_jxyg7"]
 [ext_resource type="LabelSettings" uid="uid://dj0pyglytqvub" path="res://hud/pixel_light.tres" id="4_0vudj"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CategoricalTag" load_steps=4 format=3 uid="uid://dm8t24n18j2q1"]
 
 [ext_resource type="Texture2D" uid="uid://c20ml8ymia7ev" path="res://art/downloaded/pixel_art_pack/TX Plant.png" id="1_qnbr2"]
-[ext_resource type="Script" uid="uid://bl8hpgj2h4c2u" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="2_2wsqa"]
+[ext_resource type="Script" uid="uid://1cqu7ybicsoh" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="2_2wsqa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ll5l6"]
 atlas = ExtResource("1_qnbr2")
