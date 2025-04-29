@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_sralu"]
-[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="3_ubp1r"]
-[ext_resource type="Script" uid="uid://lxcqpvghjy1a" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_mtjan"]
-[ext_resource type="Script" uid="uid://dbt71w0chjpwi" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xaln4"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_ubp1r"]
+[ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_mtjan"]
+[ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xaln4"]
 [ext_resource type="Script" uid="uid://dm5o5qfr4t6ka" path="res://debug/belt_paths/bp_label.gd" id="6_5bee7"]
 [ext_resource type="Script" uid="uid://c457kn3n5l2wd" path="res://components/go_components/belt_component.gd" id="6_gx7wa"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
@@ -32,12 +32,10 @@ script = ExtResource("1_1x4qi")
 code_name = "belt_0l"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("2_d3iye")
 animation = &"left"
 autoplay = "left"
-frame = 26
-frame_progress = 0.523812
+frame_progress = 0.789807
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_sralu")
@@ -77,7 +75,6 @@ slot_component = NodePath("../Components/SlotComponent")
 
 [node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("8_nw4v4")
-item_sprite = NodePath("")
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159

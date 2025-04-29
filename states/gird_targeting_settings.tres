@@ -1,11 +1,12 @@
 [gd_resource type="Resource" script_class="GridTargetingSettings" load_steps=2 format=3 uid="uid://vpvxepjf5e7c"]
 
-[ext_resource type="Script" uid="uid://xk2okpyj3lgu" path="res://addons/grid_building/grid_targeting_system/grid_targeting_settings.gd" id="1_pwli7"]
+[ext_resource type="Script" uid="uid://bf1f0wwpo5syj" path="res://addons/grid_building/grid_targeting_system/grid_targeting_settings.gd" id="1_pwli7"]
 
 [resource]
 script = ExtResource("1_pwli7")
 limit_to_adjacent = false
 max_tile_distance = 3
+restrict_to_map_area = false
 show_debug = false
 region_size = Vector2i(50, 50)
 cell_shape = 0

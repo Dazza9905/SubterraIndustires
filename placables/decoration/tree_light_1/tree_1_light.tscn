@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_5weks"]
 [ext_resource type="Texture2D" uid="uid://cx75p75j8r7bj" path="res://art/downloaded/trees_sheet.png" id="2_6giyq"]
-[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="3_kl1ne"]
-[ext_resource type="Script" uid="uid://lxcqpvghjy1a" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_3hkyg"]
-[ext_resource type="Script" uid="uid://dbt71w0chjpwi" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_vx2bu"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_kl1ne"]
+[ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_3hkyg"]
+[ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_vx2bu"]
 [ext_resource type="Script" uid="uid://b8fo5551vk5hg" path="res://custom_types/fade_out_on_hover.gd" id="6_q1hh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45wo8"]

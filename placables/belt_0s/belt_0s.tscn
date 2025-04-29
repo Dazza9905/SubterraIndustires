@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://kbhoioejyouu"]
+[gd_scene load_steps=14 format=3 uid="uid://kbhoioejyouu"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_mbni2"]
 [ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belt_0s/belt_0s_frames.tres" id="1_tm2ff"]
-[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="2_s3413"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_r1dcr"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_c8rvs"]
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]
@@ -13,18 +13,30 @@
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="10_7s2np"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="11_f2teu"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83ttg"]
+size = Vector2(18, 18)
+
 [node name="belt_0s" type="StaticBody2D"]
-z_index = 1
+z_index = 3
 collision_layer = 527360
 collision_mask = 0
 script = ExtResource("1_mbni2")
 code_name = "belt_0s"
 
 [node name="BeltSprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("1_tm2ff")
 animation = &"straight"
 autoplay = "straight"
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+show_behind_parent = true
+collision_layer = 4096
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-4.76837e-07, -4.76837e-07)
+shape = SubResource("RectangleShape2D_83ttg")
+debug_color = Color(3.36915e-07, 0.6343, 0.43063, 0.42)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_r1dcr")

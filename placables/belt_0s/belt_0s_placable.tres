@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://djrxg7bxkd167"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=10 format=3 uid="uid://djrxg7bxkd167"]
 
 [ext_resource type="Texture2D" uid="uid://duuj8vhp2qt8r" path="res://placables/belt_0s/belt_0s_seq.png" id="1_xj7aq"]
 [ext_resource type="PackedScene" uid="uid://kbhoioejyouu" path="res://placables/belt_0s/belt_0s.tscn" id="2_08nl1"]
-[ext_resource type="Script" uid="uid://deh8nmrmv5b7c" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_v14ek"]
-[ext_resource type="Script" uid="uid://nmxv7k5qdv1o" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_n0lhy"]
-[ext_resource type="Script" uid="uid://1cqu7ybicsoh" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_l8rll"]
+[ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_v14ek"]
+[ext_resource type="Resource" uid="uid://da86vgm28x33k" path="res://gb_rules/straight_belt_collision1.tres" id="4_b2oub"]
+[ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_n0lhy"]
+[ext_resource type="Resource" uid="uid://h2qyupvxudn6" path="res://gb_rules/straight_belt_collision2.tres" id="5_agmav"]
+[ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_l8rll"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="6_sysye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbigs"]
@@ -13,9 +15,9 @@ region = Rect2(0, 0, 32, 32)
 
 [resource]
 script = ExtResource("4_n0lhy")
-display_name = &""
+display_name = &"Slow Straight Belt"
 icon = SubResource("AtlasTexture_wbigs")
 packed_scene = ExtResource("2_08nl1")
 tags = Array[ExtResource("5_l8rll")]([ExtResource("6_sysye")])
-placement_rules = Array[ExtResource("3_v14ek")]([])
+placement_rules = Array[ExtResource("3_v14ek")]([ExtResource("4_b2oub"), ExtResource("5_agmav")])
 ignore_base_rules = false

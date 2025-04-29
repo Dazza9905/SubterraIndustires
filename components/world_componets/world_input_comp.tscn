@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6w4tf1trx1rf"]
+
+[ext_resource type="Script" uid="uid://d0mi45qsue8i0" path="res://components/world_componets/world_input_comp.gd" id="1_yab5i"]
+[ext_resource type="Texture2D" uid="uid://ckqb7yvo30sbi" path="res://components/world_componets/world_io_comp_atlas.png" id="2_85a3h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85a3h"]
+atlas = ExtResource("2_85a3h")
+region = Rect2(28, 32, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n6qc"]
+atlas = ExtResource("2_85a3h")
+region = Rect2(48, 0, 16, 16)
+
+[node name="WorldInputCompLeft" type="Node2D"]
+script = ExtResource("1_yab5i")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_85a3h")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+visibility_layer = 2
+texture = SubResource("AtlasTexture_2n6qc")

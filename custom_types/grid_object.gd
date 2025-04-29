@@ -2,7 +2,9 @@
 class_name GridObject
 extends StaticBody2D
 
+## the global XY of GO's main cell
 var main_cell: Vector2i
+
 var ocuppied_cells: Array[Vector2i]
 @export var code_name: String
 

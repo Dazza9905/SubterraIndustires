@@ -140,15 +140,19 @@ moving_mode={
 "deadzone": 0.5,
 "events": []
 }
+info_mode={
+"deadzone": 0.2,
+"events": []
+}
 
 [layer_names]
 
 2d_physics/layer_9="ObjectineColliti"
 2d_physics/layer_10="PlayerCollision"
 2d_physics/layer_11="Targetable"
-2d_physics/layer_12="Grid_UsedSpace (GRS Ref)"
-2d_physics/layer_13="Grid_Blocked (No GRS Ref)"
-2d_physics/layer_14="Grid_OnlyBeltAllowed (No GRS Ref)"
+2d_physics/layer_12="GRS_AddReff"
+2d_physics/layer_13="BlockedSpace"
+2d_physics/layer_14="Blocked&BeltAllowed"
 2d_physics/layer_19="Minable Node"
 2d_physics/layer_20="Belt"
 

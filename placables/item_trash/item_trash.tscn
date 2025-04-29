@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_mmw4v"]
 [ext_resource type="Texture2D" uid="uid://dwrutix7l4f0f" path="res://placables/item_trash/item_trash_sprite.png" id="2_k1qcl"]
-[ext_resource type="Script" uid="uid://cvviodnwmahrp" path="res://addons/grid_building/components/manipulatable.gd" id="3_7isns"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_7isns"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_p0muk"]
-[ext_resource type="Script" uid="uid://lxcqpvghjy1a" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_07xw6"]
-[ext_resource type="Script" uid="uid://dbt71w0chjpwi" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_gtugd"]
+[ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_07xw6"]
+[ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_gtugd"]
 [ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="7_hp1h7"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="7_lvr2n"]
 [ext_resource type="Script" uid="uid://gs2nhgblduco" path="res://components/go_components/creative_trash_component.gd" id="8_hmy6u"]

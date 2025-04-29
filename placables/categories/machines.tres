@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CategoricalTag" load_steps=3 format=3 uid="uid://41ylut0j802"]
 
 [ext_resource type="Texture2D" uid="uid://dob6pcfqnmssi" path="res://placables/smelter/smelter_sprite.png" id="1_rwqnp"]
-[ext_resource type="Script" uid="uid://1cqu7ybicsoh" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="2_smbv1"]
+[ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="2_smbv1"]
 
 [resource]
 script = ExtResource("2_smbv1")
