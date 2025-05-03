@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hjtirkn3xwes"]
+[gd_scene load_steps=16 format=3 uid="uid://hjtirkn3xwes"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
@@ -24,6 +24,9 @@ flip_vertical = false
 movable = true
 demolishable = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t43sk"]
+size = Vector2(15.9, 15.9)
+
 [node name="belt_0l" type="StaticBody2D"]
 z_index = 1
 collision_layer = 527360
@@ -44,6 +47,16 @@ shape = ExtResource("3_sralu")
 script = ExtResource("3_ubp1r")
 settings = SubResource("Resource_xewl6")
 root = NodePath("..")
+
+[node name="Blocked" type="Area2D" parent="."]
+show_behind_parent = true
+z_index = 3
+collision_layer = 528640
+collision_mask = 28672
+
+[node name="Collision" type="CollisionShape2D" parent="Blocked"]
+shape = SubResource("RectangleShape2D_t43sk")
+debug_color = Color(3.36915e-07, 0.6343, 0.43063, 0.42)
 
 [node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]
 anchors_preset = 8

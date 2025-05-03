@@ -1,11 +1,18 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=7 format=3 uid="uid://n7ucctjg3nfg"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=10 format=3 uid="uid://n7ucctjg3nfg"]
 
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="1_c3nnp"]
 [ext_resource type="PackedScene" uid="uid://1tsok1vm60ly" path="res://placables/item_gen/item_gen.tscn" id="2_i05yk"]
 [ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_cqruo"]
 [ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_6edr4"]
+[ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="4_8uwbn"]
 [ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_6xb23"]
+[ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="5_8uwbn"]
 [ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="6_4pfqv"]
+
+[sub_resource type="Resource" id="Resource_845sr"]
+script = ExtResource("5_8uwbn")
+these_layers = 12288
+metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]
 script = ExtResource("4_6edr4")
@@ -13,5 +20,5 @@ display_name = &""
 icon = ExtResource("1_c3nnp")
 packed_scene = ExtResource("2_i05yk")
 tags = Array[ExtResource("5_6xb23")]([ExtResource("6_4pfqv")])
-placement_rules = Array[ExtResource("3_cqruo")]([])
+placement_rules = Array[ExtResource("3_cqruo")]([ExtResource("4_8uwbn"), SubResource("Resource_845sr")])
 ignore_base_rules = false

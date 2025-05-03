@@ -18,7 +18,7 @@ func GO_built(grid_object: GridObject) -> void:
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
 	
 	grid_object.main_cell = Globals.get_GP_cell_postion()
-	grid_object.connect_components()
+	grid_object.GO_initialize()
 	
 	print_dict()
 	

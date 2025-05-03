@@ -2,7 +2,11 @@
 extends Node
 class_name TimeTickSystem
 
-var ticks_per_second: int = 4
+@export var ticks_per_second: int = 4:
+	set(new_tps):
+		ticks_per_second = new_tps
+		tick_max_delta = 1.0 / ticks_per_second
+		
 var tick_max_delta: float = 1.0 / ticks_per_second
 var tick_delta: float = 0
 var tick_num: int = 0

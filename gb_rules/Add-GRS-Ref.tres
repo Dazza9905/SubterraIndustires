@@ -1,12 +1,12 @@
-[gd_resource type="Resource" script_class="CollisionsCheckRule" load_steps=2 format=3 uid="uid://be8vnn66pf8k3"]
+[gd_resource type="Resource" script_class="CollisionsCheckRule" load_steps=2 format=3 uid="uid://dr62hgc7ixa8h"]
 
-[ext_resource type="Script" uid="uid://canj8n1of5xmx" path="res://addons/grid_building/placement/placement_rules/template_rules/collisions_check_rule.gd" id="1_aavuf"]
+[ext_resource type="Script" uid="uid://canj8n1of5xmx" path="res://addons/grid_building/placement/placement_rules/template_rules/collisions_check_rule.gd" id="1_tk2mo"]
 
 [resource]
-resource_name = "GRS Collision"
-script = ExtResource("1_aavuf")
+resource_name = "Add GRS Ref"
+script = ExtResource("1_tk2mo")
 pass_on_collision = false
-collision_mask = 2048
+collision_mask = 0
 success_message = "No placement collisions found"
 expected_no_collisions_message = "Must have no collisions"
 expected_collisions_message = "Must overlap "

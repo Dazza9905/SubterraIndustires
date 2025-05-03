@@ -47,6 +47,13 @@ func get_components() -> Array[Component]:
 func get_file_path() -> String:
 	return Globals.PLACABLES_PATH + code_name + "/" + code_name
 	
+func GO_initialize() -> void:
+	var epc = self.find_child("ExtraPlayerCollision")
+	if epc is StaticBody2D:
+		epc.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	connect_components()
+	
 func connect_components():
 	if has_node("Components:"):
 		var components := $Components.get_children()

@@ -3,10 +3,13 @@ extends Node2D
 class_name WorldInputComp
 
 
-@export var io_comp: IOComponent
+@export var io_comp: IOComponent:
+	set(new_io):
+		io_comp = new_io
+		update()
 
 
-func _ready() -> void:
+func update() -> void:
 	var texture: Texture2D = preload("uid://ckqb7yvo30sbi")
 	
 	var shadow: Sprite2D = Sprite2D.new()
