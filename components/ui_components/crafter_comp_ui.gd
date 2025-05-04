@@ -13,7 +13,7 @@ func link_to_component(components: Array[Component]) -> void:
 		if comp is CrafterComponent and comp.ui_link_id == ui_link_id:
 			print(self.name, " linked to ", comp.name)
 			crafter_component = comp
-			crafter_component.craft_progress_changed.connect(update_progress)
+			crafter_component.craft_progress_changed.connect(update_progress.unbind(1))
 			crafter_component.recipe_changed.connect(_on_recipe_changed)
 			option_button.selected = Enums.recipes.find(crafter_component.recipe)
 			_on_recipe_changed()

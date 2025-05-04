@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 func load_world(world_name: String) -> void:
 	if ResourceLoader.exists(Globals.LEVEL_PATH + world_name):
 		var current_world: PackedScene = load(Globals.LEVEL_PATH + world_name) as PackedScene
-		var current_world_instance: Node = current_world.instantiate()
+		#var current_world_instance: Node = current_world.instantiate()
 		current_level = world_name
 		self.get_tree().change_scene_to_packed(current_world)
 		
@@ -71,7 +71,7 @@ func create_world_from_packed(world_name: String, packed_scene: PackedScene) -> 
 	reload_worlds.emit()
 
 func is_file_accessible(file_path: String) -> bool:
-	var file = FileAccess.open(file_path, FileAccess.READ)
+	var file := FileAccess.open(file_path, FileAccess.READ)
 	if file:
 		file.close()
 		return true

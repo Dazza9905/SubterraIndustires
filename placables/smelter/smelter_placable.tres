@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]
 script = ExtResource("4_734x5")
-display_name = &""
+display_name = &"Smelter"
 icon = SubResource("AtlasTexture_vjjrs")
 packed_scene = ExtResource("2_l5c5b")
 tags = Array[ExtResource("5_537pv")]([ExtResource("6_c1kdy")])

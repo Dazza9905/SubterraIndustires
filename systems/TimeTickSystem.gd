@@ -12,6 +12,7 @@ var tick_delta: float = 0
 var tick_num: int = 0
 signal machine_tick
 signal belt_tick
+signal tick
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +26,7 @@ func _process(delta: float) -> void:
 	if(tick_delta >= tick_max_delta):
 		tick_delta = tick_delta - tick_max_delta
 		tick_num = tick_num + 1
-		#print("Tick num: ", tick_num, "\t Tick delta: ", tick_delta)
+		emit_signal("tick")
 		if tick_num % 2 == 0:
 			#print("BELT TICK:")
 			emit_signal("belt_tick")
@@ -33,5 +34,6 @@ func _process(delta: float) -> void:
 		else:
 			#print("MACHINE TICK:")
 			emit_signal("machine_tick")
-		#print()
+		
+		
 	

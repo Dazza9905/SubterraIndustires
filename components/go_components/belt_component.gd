@@ -37,7 +37,6 @@ func update_belt(output_too: bool) -> void:
 func connect_to_tick():
 	connect_to_BP()
 
-#TODO: KOKOT DOPROGRAMUJ DEI$"."NICIALIZACIUS BeltCOmponentu
 #split baths functions, tu v tomto script, nieco s notif eventom
 #bum tu je error lebo si to itak nevsimnes
 func _notification(what: int) -> void:

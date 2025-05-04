@@ -15,7 +15,7 @@ region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="Resource" id="Resource_b2oub"]
 script = ExtResource("4_ptcat")
-these_layers = 16384
+these_layers = 256
 metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]

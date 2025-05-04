@@ -17,7 +17,6 @@ signal slot_contents_changed
 	set(new_item):
 		item = new_item
 		slot_contents_changed.emit()
-			
 
 func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
 	match [passed_item, item]:
@@ -71,7 +70,7 @@ func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 
 
 #ANY
-func take(passed_amount: int = 1): # -1 <- max amount
+func take(passed_amount: int = 1) -> Item: # -1 <- max amount
 	if (is_empty()):
 		return null
 	else:
@@ -85,7 +84,7 @@ func take(passed_amount: int = 1): # -1 <- max amount
 			return null
 
 #SINGLE
-func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount = 1):
+func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount = 1) -> Item:
 	if (is_empty()):
 		return null
 	else:
@@ -94,7 +93,7 @@ func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount = 1):
 	return null
 	
 #MULTI
-func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM], passed_amount = 1):
+func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM], passed_amount = 1) -> Item:
 	if (is_empty()):
 		return null
 	else: 

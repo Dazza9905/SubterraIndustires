@@ -28,4 +28,11 @@ func validate_condition() -> RuleResult:
 						did_pass = false
 					else:
 						print("\tsame object")
+				for c_stb in (child as Area2D).get_overlapping_bodies():
+					print(c_stb, " AND ", grid_object)
+					if c_stb != grid_object:
+						print("\tcollided with ", c_stb.name)
+						did_pass = false
+					else:
+						print("\tsame object")
 	return RuleResult.new(self,did_pass,"")

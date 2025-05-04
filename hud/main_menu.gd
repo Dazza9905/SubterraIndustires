@@ -12,14 +12,14 @@ func _on_begin_pressed() -> void:
 	$ProgressBar.visible = true
 	
 func _process(delta: float) -> void:
-	var status = ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)
+	var status := ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)
 	
 	var load_desatinne: float = load_progress[0]
 	#
 	#print(load_desatinne)
 	#print(load_desatinne*100)
 	
-	var tween = get_tree().create_tween()
+	var tween := get_tree().create_tween()
 	tween.tween_property($ProgressBar, "value", load_desatinne*100, 0.1)
 	
 	

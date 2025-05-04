@@ -24,29 +24,29 @@ enum MATERIAL_ITEM {
 var recipes: Array[Recipe]
 var items: Array[Item]
 
-func load_items():
+func load_items() -> void:
 	load_resources_recursively(Globals.ITEM_PATH, r"^item_.*\.tres$", items)
-	var items_names: String
+	var items_names: String = ""
 	for item in items:
 		items_names += item.name + "   "
 	print("Loaded items:\t\t", items_names)
 	
-func load_recipes():
+func load_recipes() -> void:
 	load_resources_recursively(Globals.RECIPE_PATH, r"^recipe_.*\.tres$", recipes)
-	var recipes_names: String
+	var recipes_names: String = ""
 	for recipe in recipes:
 		recipes_names += recipe.name + "   "
 	print("Loaded recipes:\t\t", recipes_names)
 
 func load_resources_recursively(base_path: String, file_regex: String, storage: Array, recursive := true) -> void:
-	var dir = DirAccess.open(base_path)
+	var dir := DirAccess.open(base_path)
 	if not dir:
 		push_error("Failed to open directory: " + base_path)
 		return
 	
 	dir.list_dir_begin() # skip hidden
-	var entry = dir.get_next()
-	var pattern = RegEx.new()
+	var entry := dir.get_next()
+	var pattern := RegEx.new()
 	pattern.compile(file_regex)
 
 	while entry != "":
@@ -62,7 +62,7 @@ func load_resources_recursively(base_path: String, file_regex: String, storage: 
 			# Check filename against regex
 			if pattern.search(entry):
 				var resource_path = base_path + entry
-				var res = load(resource_path)
+				var res := load(resource_path)
 				if res:
 					storage.append(res)
 		entry = dir.get_next()

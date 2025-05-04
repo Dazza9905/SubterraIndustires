@@ -34,7 +34,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/grid_building/plugin.cfg", "res://addons/script-ide/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/editor_icon_previewer/plugin.cfg", "res://addons/grid_building/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/solo_visibility/plugin.cfg")
 
 [filesystem]
 
@@ -156,6 +156,10 @@ info_mode={
 2d_physics/layer_15="IsBelt (Allowed)"
 2d_physics/layer_19="Minable Node"
 2d_physics/layer_20="BeltMove"
+
+[plugins]
+
+icon_explorer/preview_size_exp=6.0
 
 [rendering]
 

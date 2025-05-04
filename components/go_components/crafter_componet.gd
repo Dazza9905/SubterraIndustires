@@ -3,7 +3,7 @@ class_name CrafterComponent
 
 signal recipe_changed
 signal item_crafted
-signal craft_progress_changed
+signal craft_progress_changed(progress: float)
 
 @export var recipe_icon: Sprite2D
 @export var progress_label: Label
@@ -48,7 +48,7 @@ func _on_machanine_tick() -> void:
 				craft_progress == 0
 			if can_craft:
 				craft_progress = craft_progress + 1
-				craft_progress_changed.emit()
+				craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
 			
 	
 		if craft_progress == recipe.ticks_to_craft:
@@ -56,7 +56,7 @@ func _on_machanine_tick() -> void:
 				actually_craft(target_outputs)
 				craft_progress = 0
 				item_crafted.emit()
-				craft_progress_changed.emit()
+				craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
 			
 
 

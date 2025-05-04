@@ -53,7 +53,7 @@ func remove_first(belt_comp: BeltComponent) -> void:
 		path.remove_at(0)
 
 func split_at(index_of_removed: int):
-	#FIXME insted of calculating it, store the index in BeltComponent. Can be also user elsewere in debug
+	#HACK insted of calculating it, store the index in BeltComponent. Can be also user elsewere in debug
 	#print("Original:")
 	for i in range(0, path.size()):
 		print(i)

@@ -22,8 +22,7 @@ func update() -> void:
 	
 	self.add_child(shadow)
 	self.add_child(highlight)
-	
-	
+
 	
 	(shadow.texture as AtlasTexture).atlas = texture
 	(highlight.texture as AtlasTexture).atlas = texture

@@ -8,12 +8,22 @@ class_name GridReferenceSystem
 # - !IMPORTANT! GridObject only handles the:
 #		function calling (of components),
 #	for other pupouses modidy this script instead
-
-
-
 var reference_hashmap: Dictionary
 
-func GO_built(grid_object: GridObject) -> void:
+func _ready() -> void:
+	Globals.get_BS().state.success.connect(GO_built)
+	Globals.get_MS().state.confirmed.connect(_on_manipulation_action_confirmed)
+	Globals.get_BS().state.preview_changed.connect(_on_manipulation_action_confirmed.unbind(1))
+
+func _on_manipulation_action_confirmed() -> void:
+	print("asa")
+	var go := Globals.get_GP_MP().get_child(1)
+	if go is GridObject:
+		go.update_sprites()
+
+func GO_built(build_action_data: BuildActionData) -> void:
+	print("BUILT")
+	var grid_object = build_action_data.placed as GridObject
 	asign_GP_cells_to_GO(grid_object) #assign GridPostionerIndicator cells to GridObject
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
 	
@@ -28,7 +38,7 @@ func get_GO_from_XY(coordinates: Vector2i) -> GridObject:
 	else:
 		return
 
-func asign_GP_cells_to_GO(grid_object: GridObject):
+func asign_GP_cells_to_GO(grid_object: GridObject) -> void:
 	var GO_position: Vector2i
 	GO_position.x = (grid_object.position.x - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE
 	GO_position.y = (grid_object.position.y - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE

@@ -8,6 +8,8 @@ const RECIPE_PATH = "res://recipes/"
 
 const TILE_SIZE = 16
 
+
+
 enum SlotFlag {
 	APPROVED,
 	FULL,
@@ -16,6 +18,17 @@ enum SlotFlag {
 	INVALID
 }
 
+
+var global_frame: int = 0
+var _time_accum: float = 0.0
+
+const ANIMATION_FPS := 32
+
+func _process(delta):
+	_time_accum += delta
+	while _time_accum >= 1.0 / ANIMATION_FPS:
+		_time_accum -= 1.0 / ANIMATION_FPS
+		global_frame += 1
 
 #INPUTS HANDELING
 func _input(event) -> void:
@@ -40,6 +53,15 @@ func get_tts() -> TimeTickSystem:
 	
 func get_GRS() -> GridReferenceSystem:
 	return get_node("/root/Game/Systems/GridReferenceSystem")
+	
+func get_BS() -> BuildingSystem:
+	return get_node("/root/Game/Systems/GBPluginSystems/BuildingSystem")
+	
+func get_MS() -> ManipulationSystem:
+	return get_node("/root/Game/Systems/GBPluginSystems/ManipulationSystem")
+	
+func get_GP_MP() -> ManipulationSystem:
+	return get_node("/root/Game/World/GridPositioner/ManipulationParent")
 
 func get_UIS() -> UISystem:
 	return get_node("/root/Game/Systems/UISystem")

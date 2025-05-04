@@ -5,6 +5,10 @@ class_name SlotItemSprite
 
 func _ready() -> void:
 	slot_component.slot_contents_changed.connect(update)
+	
+
+func GO_init() -> void:
+	rotation = -get_parent().rotation
 
 func update():
 	if slot_component.item:

@@ -11,7 +11,7 @@ extends Node2D
 # example: I/O, Slot/Buffer, Storage
 var ads := RefCounted.new()
 @export var part_of_GO: bool = true
-var parent_GO: GridObject 
+var parent_GO: GridObject
 
 @export var ui_link_id: String
 
