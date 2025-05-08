@@ -1,0 +1,112 @@
+[gd_scene load_steps=18 format=3 uid="uid://hjtirkn3xwes"]
+
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
+[ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belts/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
+[ext_resource type="Script" uid="uid://chyse01apocwr" path="res://placables/belts/belt_0c/belt_0l/globaly_animated_sprite_2d.gd" id="3_451hv"]
+[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_sralu"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_ubp1r"]
+[ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_mtjan"]
+[ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xaln4"]
+[ext_resource type="Script" uid="uid://dm5o5qfr4t6ka" path="res://debug/belt_paths/bp_label.gd" id="6_5bee7"]
+[ext_resource type="Script" uid="uid://c457kn3n5l2wd" path="res://components/go_components/belt_component.gd" id="6_gx7wa"]
+[ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
+[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="8_ghf4s"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="8_nw4v4"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="8_p7sbr"]
+[ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belts/belt_0c/belt_0l/slot_item_sprite.gd" id="9_aus6q"]
+[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="9_lybbn"]
+
+[sub_resource type="Resource" id="Resource_xewl6"]
+script = ExtResource("5_xaln4")
+move_rules = Array[ExtResource("4_mtjan")]([])
+ignore_base_rules = false
+rotateable = true
+flip_horizontal = false
+flip_vertical = false
+movable = true
+demolishable = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t43sk"]
+size = Vector2(15.9, 15.9)
+
+[node name="belt_0l" type="StaticBody2D"]
+z_index = 1
+collision_layer = 527360
+collision_mask = 0
+script = ExtResource("1_1x4qi")
+self_packed_uid = "uid://hjtirkn3xwes"
+code_name = "belt_0l"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_d3iye")
+animation = &"left"
+autoplay = "left"
+script = ExtResource("3_451hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("3_sralu")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("3_ubp1r")
+settings = SubResource("Resource_xewl6")
+root = NodePath("..")
+
+[node name="Blocked" type="Area2D" parent="."]
+show_behind_parent = true
+z_index = 3
+collision_layer = 4352
+collision_mask = 30720
+script = ExtResource("8_p7sbr")
+
+[node name="Collision" type="CollisionShape2D" parent="Blocked"]
+shape = SubResource("RectangleShape2D_t43sk")
+debug_color = Color(3.36915e-07, 0.6343, 0.43063, 0.42)
+
+[node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+label_settings = ExtResource("6_xdbhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("6_5bee7")
+belt_comp = NodePath("../Components/BeltComponent")
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
+visible = false
+scale = Vector2(0.5, 0.5)
+script = ExtResource("9_aus6q")
+slot_component = NodePath("../Components/SlotComponent")
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotComponent" type="Node2D" parent="Components"]
+script = ExtResource("8_nw4v4")
+
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 3.14159
+script = ExtResource("8_ghf4s")
+slot = NodePath("../SlotComponent")
+display_port = false
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 4.71239
+script = ExtResource("9_lybbn")
+base_side = 1
+slot = NodePath("../SlotComponent")
+display_port = false
+
+[node name="BeltComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("input", "output")]
+script = ExtResource("6_gx7wa")
+input = NodePath("../InputComponent")
+output = NodePath("../OutputComponent")

@@ -36,6 +36,10 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/
 
 import/blender/enabled=false
 
+[gui]
+
+theme/custom="uid://bqnstwubygps6"
+
 [input]
 
 confirm={

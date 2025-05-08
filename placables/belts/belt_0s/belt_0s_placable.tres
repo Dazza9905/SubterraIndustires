@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=11 format=3 uid="uid://djrxg7bxkd167"]
+
+[ext_resource type="Texture2D" uid="uid://duuj8vhp2qt8r" path="res://placables/belts/belt_0s/belt_0s_seq.png" id="1_xj7aq"]
+[ext_resource type="PackedScene" uid="uid://kbhoioejyouu" path="res://placables/belts/belt_0s/belt_0s.tscn" id="2_08nl1"]
+[ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_v14ek"]
+[ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_n0lhy"]
+[ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="4_ptcat"]
+[ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="5_b2oub"]
+[ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_l8rll"]
+[ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="6_sysye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbigs"]
+atlas = ExtResource("1_xj7aq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Resource" id="Resource_b2oub"]
+script = ExtResource("4_ptcat")
+these_layers = 256
+metadata/_custom_type_script = "uid://cy11kg2kimykw"
+
+[resource]
+script = ExtResource("4_n0lhy")
+display_name = &"Slow Straight Belt"
+icon = SubResource("AtlasTexture_wbigs")
+packed_scene = ExtResource("2_08nl1")
+tags = Array[ExtResource("5_l8rll")]([ExtResource("6_sysye")])
+placement_rules = Array[ExtResource("3_v14ek")]([SubResource("Resource_b2oub"), ExtResource("5_b2oub")])
+ignore_base_rules = false

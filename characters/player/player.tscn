@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://wyagesi4fad5" path="res://addons/grid_building/grid_building_templates/resources/user_state.tres" id="3_g7yyi"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_c6leb"]
 [ext_resource type="Script" uid="uid://dhhi867521m22" path="res://characters/player/player_invetory.gd" id="5_dirf7"]
-[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot_comp_ui.tscn" id="6_c6leb"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="6_c6leb"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="6_idpv6"]
 [ext_resource type="Script" uid="uid://gs2nhgblduco" path="res://components/go_components/creative_trash_component.gd" id="7_rpf03"]
 [ext_resource type="Texture2D" uid="uid://bj548f34l625b" path="res://hud/slot_trash.png" id="10_x5dtk"]
@@ -69,7 +69,7 @@ zoom = Vector2(4, 4)
 [node name="InventorySystem" type="Node" parent="." node_paths=PackedStringArray("ui_view_parent", "ui_componets", "trash_comp")]
 script = ExtResource("5_dirf7")
 ui_view_parent = NodePath("../CanvasLayer/InvetoryView")
-ui_componets = [NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi2"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi3"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi4"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi6"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi7"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi8"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi9"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi10"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi11"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi12"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi13"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi14"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi15"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi16"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi17"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi18"), NodePath("../CanvasLayer/InvetoryView/SlotComponentUiTrash")]
+ui_componets = [NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi2"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi3"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi4"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi6"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi7"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi8"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi9"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi10"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi11"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi12"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi13"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi14"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi15"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi16"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi17"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi18"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/SlotComponentUiTrash")]
 trash_comp = NodePath("CreativeTrashComp")
 
 [node name="SlotComponent" type="Node2D" parent="InventorySystem"]
@@ -198,27 +198,6 @@ part_of_GO = false
 ui_link_id = "inv_slot_18"
 metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 
-[node name="SlotComponent19" type="Node2D" parent="InventorySystem"]
-script = ExtResource("6_idpv6")
-capacity = 100
-part_of_GO = false
-ui_link_id = "inv_slot_19"
-metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
-
-[node name="SlotComponent20" type="Node2D" parent="InventorySystem"]
-script = ExtResource("6_idpv6")
-capacity = 100
-part_of_GO = false
-ui_link_id = "inv_slot_20"
-metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
-
-[node name="SlotComponent21" type="Node2D" parent="InventorySystem"]
-script = ExtResource("6_idpv6")
-capacity = 100
-part_of_GO = false
-ui_link_id = "inv_slot_21"
-metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
-
 [node name="SlotComponentTrash" type="Node2D" parent="InventorySystem"]
 script = ExtResource("6_idpv6")
 capacity = 100
@@ -235,132 +214,128 @@ metadata/_custom_type_script = "uid://gs2nhgblduco"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
-[node name="InvetoryView" type="Panel" parent="CanvasLayer"]
+[node name="InvetoryView" type="VBoxContainer" parent="CanvasLayer"]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = 474.0
-offset_right = -1660.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = -651.0
+offset_right = 272.0
+grow_vertical = 0
+size_flags_horizontal = 0
 theme = ExtResource("5_c6leb")
 
 [node name="Button" type="Button" parent="CanvasLayer/InvetoryView" node_paths=PackedStringArray("invetory_system")]
-layout_mode = 1
-offset_top = -52.0
-offset_right = 50.0
-offset_bottom = -4.0
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 theme = ExtResource("5_c6leb")
 text = "X"
 script = SubResource("GDScript_rpf03")
 invetory_system = NodePath("../../../InventorySystem")
 
-[node name="Label" type="Label" parent="CanvasLayer/InvetoryView"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -54.0
-offset_top = 31.0
-offset_right = 54.0
-offset_bottom = 62.0
-grow_horizontal = 2
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/InvetoryView"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/InvetoryView/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
 text = "Invetory"
 label_settings = SubResource("LabelSettings_rpf03")
+horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InvetoryView"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = -530.0
-offset_right = 230.0
-offset_bottom = 10.0
-grow_vertical = 0
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
 theme_override_constants/h_separation = 4
 theme_override_constants/v_separation = 4
 columns = 3
 
-[node name="SlotComponentUi" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_1"
 
-[node name="SlotComponentUi2" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi2" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_2"
 
-[node name="SlotComponentUi3" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi3" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_3"
 
-[node name="SlotComponentUi4" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi4" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_4"
 
-[node name="SlotComponentUi5" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi5" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_5"
 
-[node name="SlotComponentUi6" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi6" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_6"
 
-[node name="SlotComponentUi7" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi7" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_7"
 
-[node name="SlotComponentUi8" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi8" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_8"
 
-[node name="SlotComponentUi9" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi9" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_9"
 
-[node name="SlotComponentUi10" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi10" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_10"
 
-[node name="SlotComponentUi11" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi11" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_11"
 
-[node name="SlotComponentUi12" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi12" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_12"
 
-[node name="SlotComponentUi13" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi13" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_13"
 
-[node name="SlotComponentUi14" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi14" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_14"
 
-[node name="SlotComponentUi15" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi15" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_15"
 
-[node name="SlotComponentUi16" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi16" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_16"
 
-[node name="SlotComponentUi17" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi17" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_17"
 
-[node name="SlotComponentUi18" parent="CanvasLayer/InvetoryView/GridContainer" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUi18" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
 ui_link_id = "inv_slot_18"
 
-[node name="SlotComponentUiTrash" parent="CanvasLayer/InvetoryView" instance=ExtResource("6_c6leb")]
+[node name="SlotComponentUiTrash" parent="CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("6_c6leb")]
 layout_mode = 2
-offset_left = 167.0
-offset_top = 513.0
-offset_right = 231.0
-offset_bottom = 577.0
+size_flags_horizontal = 8
 texture = ExtResource("10_x5dtk")
 ui_link_id = "inv_slot_trash"
 

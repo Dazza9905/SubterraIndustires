@@ -1,6 +1,7 @@
 extends Panel
 
 @export var level_saver: LevelSaverLoader
+@export var placeable_selection_ui: Node
 var is_menu_open: bool = false:
 	set(new_val):
 		is_menu_open = new_val
@@ -21,7 +22,11 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
 		if Input.is_action_pressed("toggle_esc_menu"):
-			is_menu_open = not is_menu_open
+			if is_menu_open == false:
+				if placeable_selection_ui.visible == false:
+					is_menu_open = true
+			else: 
+				is_menu_open = false
 		
 
 

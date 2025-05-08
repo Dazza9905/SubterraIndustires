@@ -1,94 +1,104 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh1w00yy8paun"]
+[gd_scene load_steps=7 format=3 uid="uid://ut2a3brwg4tw"]
 
-[ext_resource type="Script" uid="uid://dbca4ixhidxdn" path="res://components/ui_components/grid_object_ui.gd" id="1_ssald"]
-[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot_comp_ui.tscn" id="3_hsd2t"]
-[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="4_r430a"]
-[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots_ui.tscn" id="4_y7nqx"]
-[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_1sjeo"]
-[ext_resource type="PackedScene" uid="uid://bpjvcjpehq56i" path="res://components/ui_components/crafter_comp_ui.tscn" id="5_2wyci"]
-[ext_resource type="LabelSettings" uid="uid://t644xndeaww8" path="res://hud/building_title_settings.tres" id="6_fdp3v"]
+[ext_resource type="Script" uid="uid://dbca4ixhidxdn" path="res://components/ui_components/grid_object_ui.gd" id="1_dwfnj"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_otl0d"]
+[ext_resource type="LabelSettings" uid="uid://t644xndeaww8" path="res://hud/building_title_settings.tres" id="3_i6ldc"]
+[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots/flush_slots_ui.tscn" id="4_k6rrk"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="5_halwo"]
+[ext_resource type="PackedScene" uid="uid://bpjvcjpehq56i" path="res://components/ui_components/crafter/crafter_comp_ui.tscn" id="6_v8ybg"]
 
-[node name="SmelterUI" type="Control" node_paths=PackedStringArray("ui_components", "close_button")]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 507.0
-offset_bottom = 240.0
-script = ExtResource("1_ssald")
-ui_components = [NodePath("NinePatchRect3/HBoxContainer/VBoxContainer/SlotRawUI"), NodePath("NinePatchRect3/HBoxContainer/VBoxContainer/SlotFuelUI"), NodePath("NinePatchRect3/HBoxContainer/SlotProductUI"), NodePath("NinePatchRect3/HBoxContainer/CrafterComponentUI"), NodePath("FlushButton")]
-close_button = NodePath("CloseButton")
+[node name="SmelterUI" type="VBoxContainer" node_paths=PackedStringArray("ui_components", "close_button")]
+offset_right = 378.0
+offset_bottom = 125.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = -20
+script = ExtResource("1_dwfnj")
+ui_components = [NodePath("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SlotComponentUi"), NodePath("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SlotComponentUi2"), NodePath("PanelContainer/MarginContainer/HBoxContainer/SlotComponentUi"), NodePath("PanelContainer/MarginContainer/HBoxContainer/CrafterCompUI"), NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton")]
+close_button = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/CloseButton")
 
-[node name="CloseButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -49.0
-offset_top = -52.0
-offset_right = -1.0
-offset_bottom = -4.0
-grow_horizontal = 0
-theme = ExtResource("5_1sjeo")
-text = "X"
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
 
-[node name="FlushButton" parent="." instance=ExtResource("4_y7nqx")]
-layout_mode = 1
-offset_left = -255.0
-offset_right = -53.0
-ui_link_ids = Array[String](["slot_raw", "slot_fuel", "slot_product"])
-
-[node name="NinePatchRect2" parent="." instance=ExtResource("4_r430a")]
-layout_mode = 0
-offset_left = 12.0
-offset_top = -52.0
-offset_right = 180.0
-offset_bottom = 20.0
-
-[node name="Label2" type="Label" parent="NinePatchRect2"]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 18.0
-offset_right = 144.0
-offset_bottom = 53.0
-theme = ExtResource("5_1sjeo")
-text = "Smelter"
-label_settings = ExtResource("6_fdp3v")
-
-[node name="NinePatchRect3" parent="." instance=ExtResource("4_r430a")]
-layout_mode = 0
-offset_right = 506.0
-offset_bottom = 240.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect3"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 36.0
-offset_top = 36.0
-offset_right = -36.0
-offset_bottom = -36.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect3/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="SlotRawUI" parent="NinePatchRect3/HBoxContainer/VBoxContainer" instance=ExtResource("3_hsd2t")]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_otl0d")
+theme_type_variation = &"PanelHeading"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_otl0d")
+text = "NAME"
+label_settings = ExtResource("3_i6ldc")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_constants/margin_top = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="FlushButton" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("4_k6rrk")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+ui_link_ids = Array[String](["slot_raw", "slot_fuel", "slot_product"])
+
+[node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("2_otl0d")
+text = "X"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_otl0d")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SlotComponentUi" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("5_halwo")]
 layout_mode = 2
 ui_link_id = "slot_raw"
 
-[node name="SlotFuelUI" parent="NinePatchRect3/HBoxContainer/VBoxContainer" instance=ExtResource("3_hsd2t")]
+[node name="SlotComponentUi2" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("5_halwo")]
 layout_mode = 2
 ui_link_id = "slot_fuel"
 
-[node name="CrafterComponentUI" parent="NinePatchRect3/HBoxContainer" instance=ExtResource("5_2wyci")]
+[node name="CrafterCompUI" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("6_v8ybg")]
 layout_mode = 2
 size_flags_vertical = 4
 ui_link_id = "crafter_comp"
 
-[node name="SlotProductUI" parent="NinePatchRect3/HBoxContainer" instance=ExtResource("3_hsd2t")]
+[node name="SlotComponentUi" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_halwo")]
 layout_mode = 2
 size_flags_vertical = 4
 ui_link_id = "slot_product"

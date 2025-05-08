@@ -5,8 +5,8 @@
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_mhrcu"]
 [ext_resource type="Texture2D" uid="uid://c8o1yf5l3kybv" path="res://art/Subterra Industries logo 1x.png" id="2_ycwou"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j18f"]
-bg_color = Color(0.20897, 0.746544, 0.0722462, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_7h4so"]
+font_size = 30
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -75,14 +75,31 @@ text = "Options"
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -27.0
+offset_left = -400.0
+offset_top = -80.0
+offset_right = 400.0
+offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_4j18f")
+value = 34.51
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.5
+offset_top = -30.0
+offset_right = 106.5
+offset_bottom = 1.0
+grow_horizontal = 2
+text = "LOADING WORLD..."
+label_settings = SubResource("LabelSettings_7h4so")
 
 [connection signal="pressed" from="VBoxContainer/Begin" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]

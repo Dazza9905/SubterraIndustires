@@ -3,7 +3,6 @@ extends Node
 const LEVEL_PATH = "user://gamesaves/"
 const ITEM_TEX_PATH = "res://items/"
 const ITEM_PATH = "res://items/"
-const PLACABLES_PATH = "res://placables/"
 const RECIPE_PATH = "res://recipes/"
 const TILE_SIZE = 16
 

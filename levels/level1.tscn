@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=59 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" uid="uid://bcknl5c8go14d" path="res://systems/TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" uid="uid://dnl6gv8yc3how" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -43,12 +43,11 @@
 [ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="32_yh7yd"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Script" uid="uid://b2d7v7bftn84t" path="res://hud/button_load_level.gd" id="33_csten"]
-[ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
-[ext_resource type="Script" uid="uid://ga06alre7c56" path="res://debug/fps.gd" id="38_d6oh1"]
-[ext_resource type="Resource" uid="uid://djrxg7bxkd167" path="res://placables/belt_0s/belt_0s_placable.tres" id="38_w1uh7"]
-[ext_resource type="Resource" uid="uid://brd1gu1pa3ves" path="res://placables/belt_0c/belt_0l/belt_0l_placable.tres" id="39_3eb2x"]
+[ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belts/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
+[ext_resource type="Resource" uid="uid://djrxg7bxkd167" path="res://placables/belts/belt_0s/belt_0s_placable.tres" id="38_w1uh7"]
+[ext_resource type="Resource" uid="uid://brd1gu1pa3ves" path="res://placables/belts/belt_0c/belt_0l/belt_0l_placable.tres" id="39_3eb2x"]
 [ext_resource type="Resource" uid="uid://dcpiagq8b217s" path="res://placables/splitter/splitter_placable.tres" id="40_5bajv"]
-[ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belt_0c/belt_0r/belt_0r_placable.tres" id="40_xewns"]
+[ext_resource type="Resource" uid="uid://cqpxr46wlwv0l" path="res://placables/belts/belt_0c/belt_0r/belt_0r_placable.tres" id="40_xewns"]
 [ext_resource type="Resource" uid="uid://g0c4gpa5md5p" path="res://placables/merger/merger_placable.tres" id="41_0bint"]
 [ext_resource type="Resource" uid="uid://n7ucctjg3nfg" path="res://placables/item_gen/item_gen_placable.tres" id="43_plyex"]
 [ext_resource type="Resource" uid="uid://bpytjbs0gasyx" path="res://placables/smelter/smelter_placable.tres" id="45_hm8ja"]
@@ -294,17 +293,11 @@ building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
 placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("57_kc6er")])
 
-[node name="Label" type="Label" parent="UserInterface"]
-offset_left = 1028.0
-offset_top = 5.0
-offset_right = 1143.0
-offset_bottom = 54.0
-script = ExtResource("38_d6oh1")
-
-[node name="EscapeMenu" parent="UserInterface" node_paths=PackedStringArray("level_saver") instance=ExtResource("63_60joo")]
+[node name="EscapeMenu" parent="UserInterface" node_paths=PackedStringArray("level_saver", "placeable_selection_ui") instance=ExtResource("63_60joo")]
 process_mode = 3
 visible = false
 z_index = 20
 level_saver = NodePath("../../Systems/LevelSaverLoader")
+placeable_selection_ui = NodePath("../PlaceableSelectionUI")
 
 [connection signal="pressed" from="UserInterface/Button" to="UserInterface/Button" method="_on_pressed"]

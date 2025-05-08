@@ -67,9 +67,6 @@ func get_components() -> Array[Component]:
 			components.append(child as Component)
 
 	return components
-
-func get_file_path() -> String:
-	return Globals.PLACABLES_PATH + code_name + "/" + code_name
 	
 #func _init() -> void:
 	#view_right.call()

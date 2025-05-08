@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_u54kl"]
 [ext_resource type="Texture2D" uid="uid://fbdaquhy1gsb" path="res://placables/smelter/smelter_base_sprite.png" id="2_j6551"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="3_7rfgt"]
-[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/smelter/RotatableSprite2D.gd" id="3_32pie"]
+[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="3_32pie"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_b0fne"]
 [ext_resource type="Shape2D" uid="uid://c022plhiax132" path="res://custom_types/32x32_collision.tres" id="3_uscam"]
 [ext_resource type="Texture2D" uid="uid://cbmw0blvmcgtn" path="res://placables/smelter/smelter_chimneys.png" id="4_04fxs"]
@@ -11,11 +11,11 @@
 [ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_i43wo"]
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="6_lv7jb"]
-[ext_resource type="PackedScene" uid="uid://dh1w00yy8paun" path="res://placables/smelter/smelter_ui.tscn" id="8_g1kxj"]
+[ext_resource type="PackedScene" uid="uid://ut2a3brwg4tw" path="res://placables/smelter/smelter_ui.tscn" id="8_g1kxj"]
 [ext_resource type="Script" uid="uid://dgp5ewhq1eq33" path="res://components/go_components/crafter_componet.gd" id="9_5ob0n"]
-[ext_resource type="Texture2D" uid="uid://cv04nvll15pi3" path="res://placables/general/fire-icon.png" id="10_wvb2i"]
+[ext_resource type="Texture2D" uid="uid://cv04nvll15pi3" path="res://placables/_general/fire-icon.png" id="10_wvb2i"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="11_j6551"]
-[ext_resource type="Texture2D" uid="uid://db8wqsht48jhq" path="res://placables/general/recipe_icon_bottom.png" id="12_c484a"]
+[ext_resource type="Texture2D" uid="uid://db8wqsht48jhq" path="res://placables/_general/recipe_icon_bottom.png" id="12_c484a"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="12_j37wi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvb2i"]
@@ -168,6 +168,7 @@ left_position = Vector2i(2, -1)
 up_position = Vector2i(18, -1)
 
 [node name="OpenUI" type="Button" parent="."]
+visible = false
 z_index = 5
 anchors_preset = 8
 anchor_left = 0.5

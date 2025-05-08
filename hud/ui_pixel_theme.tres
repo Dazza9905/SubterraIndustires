@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bqnstwubygps6"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bqnstwubygps6"]
 
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_xiunv"]
 [ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_vk65x"]
@@ -60,7 +60,7 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 28, 28)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cstng"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv5i3"]
 texture = ExtResource("4_cv5i3")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
@@ -68,7 +68,14 @@ texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-region_rect = Rect2(28, 28, 136, 136)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cstng"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 18.0
+region_rect = Rect2(0, 0, 44, 42)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv2up"]
 texture = SubResource("CompressedTexture2D_dcr4q")
@@ -133,12 +140,11 @@ Button/styles/normal = SubResource("StyleBoxTexture_7y2co")
 Button/styles/pressed = SubResource("StyleBoxTexture_esx4t")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_xiunv")
-MarginContainer/constants/margin_bottom = 25
-MarginContainer/constants/margin_left = 30
-MarginContainer/constants/margin_right = 30
-MarginContainer/constants/margin_top = 25
+MarginContainer/constants/margin_right = 0
 OptionButton/constants/arrow_margin = 20
-Panel/styles/panel = SubResource("StyleBoxTexture_cstng")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_cv5i3")
+PanelHeading/base_type = &"PanelContainer"
+PanelHeading/styles/panel = SubResource("StyleBoxTexture_cstng")
 PopupMenu/font_sizes/font_separator_size = 17
 PopupMenu/font_sizes/font_size = 17
 PopupMenu/font_sizes/title_font_size = 17
@@ -147,6 +153,7 @@ PopupMenu/styles/hover = null
 PopupMenu/styles/panel = SubResource("StyleBoxTexture_wv2up")
 PopupMenu/styles/separator = SubResource("StyleBoxLine_cixhf")
 ProgressBar/constants/outline_size = 4
+ProgressBar/font_sizes/font_size = 20
 ProgressBar/fonts/font = ExtResource("1_xiunv")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_3mxck")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_b1sb3")

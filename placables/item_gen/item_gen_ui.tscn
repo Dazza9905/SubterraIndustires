@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dbca4ixhidxdn" path="res://components/ui_components/grid_object_ui.gd" id="1_4vjjt"]
 [ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="2_j428x"]
 [ext_resource type="Texture2D" uid="uid://dphbif4tqbboa" path="res://hud/ui_bg_1.png" id="3_aqm7v"]
-[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot_comp_ui.tscn" id="4_fi7u8"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="4_fi7u8"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_gt8wl"]
 [ext_resource type="LabelSettings" uid="uid://t644xndeaww8" path="res://hud/building_title_settings.tres" id="5_os6kq"]
-[ext_resource type="PackedScene" uid="uid://ddc1s1blcy5py" path="res://components/ui_components/spawner_comp_ui.tscn" id="5_pk44j"]
-[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots_ui.tscn" id="7_7kef6"]
+[ext_resource type="PackedScene" uid="uid://ddc1s1blcy5py" path="res://components/ui_components/spawner/spawner_comp_ui.tscn" id="5_pk44j"]
+[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots/flush_slots_ui.tscn" id="7_7kef6"]
 
 [node name="ItemGeneratorUI" type="Control" node_paths=PackedStringArray("ui_components", "close_button")]
 layout_mode = 3
