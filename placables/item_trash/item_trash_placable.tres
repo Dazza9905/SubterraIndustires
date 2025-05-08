@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]
 script = ExtResource("4_a3aoi")
-display_name = &""
+display_name = &"Item Trash"
 icon = ExtResource("1_mewsv")
 packed_scene = ExtResource("2_0as32")
 tags = Array[ExtResource("5_5elbe")]([ExtResource("6_c0kn1")])

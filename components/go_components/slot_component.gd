@@ -114,3 +114,9 @@ func serialize() -> Dictionary:
 		amount = var_to_str(_amount)
 	}
 	return save_dict
+	
+func deserialize(comp_data: Dictionary) -> void:
+	capacity = str_to_var(comp_data.capacity)
+	item = str_to_var(comp_data.item)
+	_amount = str_to_var(comp_data.amount)
+	

@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("4_cd4vq")
-display_name = &""
+display_name = &"Merger"
 icon = ExtResource("1_f776t")
 packed_scene = ExtResource("2_wc4nx")
 tags = Array[ExtResource("5_0361t")]([ExtResource("6_ps04j")])

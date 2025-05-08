@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=60 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" uid="uid://bcknl5c8go14d" path="res://systems/TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" uid="uid://dnl6gv8yc3how" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -36,21 +36,13 @@
 [ext_resource type="Script" uid="uid://bgiahs37daemf" path="res://systems/grid_reference_system.gd" id="26_ir2r4"]
 [ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="26_w3lc3"]
 [ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="27_pk7sx"]
-[ext_resource type="Resource" uid="uid://de8o88bvo72qh" path="res://placables/bush_small_1/bush_small_1_placable.tres" id="28_nyp5n"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="29_3lrbf"]
-[ext_resource type="Resource" uid="uid://cg1h7hitfbtr2" path="res://placables/bush_large_1/bush_large_1_placable.tres" id="29_5njd3"]
 [ext_resource type="TileSet" uid="uid://ce7odcw84v8je" path="res://art/tile_set.tres" id="29_ac3o8"]
 [ext_resource type="PackedScene" uid="uid://bodjh1gtscs2r" path="res://hud/objective/objective_ui.tscn" id="30_xhqwm"]
 [ext_resource type="PackedScene" uid="uid://cuiqumbs52n63" path="res://placables/decoration/tree_light_1/tree_1_light.tscn" id="31_7kaj1"]
 [ext_resource type="Resource" uid="uid://chst24agtwd3s" path="res://placables/categories/creative.tres" id="32_yh7yd"]
-[ext_resource type="PackedScene" uid="uid://kbhoioejyouu" path="res://placables/belt_0s/belt_0s.tscn" id="33_4p7y6"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Script" uid="uid://b2d7v7bftn84t" path="res://hud/button_load_level.gd" id="33_csten"]
-[ext_resource type="PackedScene" uid="uid://bolshrsaj453m" path="res://placables/belt_0c/belt_0r/belt_0r.tscn" id="34_e8aaf"]
-[ext_resource type="Resource" uid="uid://g4347ghv3dw4" path="res://placables/test_box/test_box_placable.tres" id="34_e363j"]
-[ext_resource type="PackedScene" uid="uid://wx0imx3ix2ic" path="res://placables/smelter/smelter.tscn" id="35_buniy"]
-[ext_resource type="PackedScene" uid="uid://hjtirkn3xwes" path="res://placables/belt_0c/belt_0l/belt_0l.tscn" id="36_ueiuw"]
-[ext_resource type="PackedScene" uid="uid://dl4l2mrxxfm0n" path="res://placables/miner/miner2.tscn" id="37_15sr7"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
 [ext_resource type="Script" uid="uid://ga06alre7c56" path="res://debug/fps.gd" id="38_d6oh1"]
 [ext_resource type="Resource" uid="uid://djrxg7bxkd167" path="res://placables/belt_0s/belt_0s_placable.tres" id="38_w1uh7"]
@@ -125,9 +117,6 @@ targeting_state = ExtResource("7_mrlq7")
 manipulation_state = ExtResource("12_cbhbh")
 highlight_settings = SubResource("Resource_ogy2c")
 
-[node name="Node" type="Node" parent="Systems/GBPluginSystems"]
-script = ExtResource("18_k62iv")
-
 [node name="GridReferenceSystem" type="Node" parent="Systems"]
 script = ExtResource("26_ir2r4")
 
@@ -139,20 +128,19 @@ paused = false
 script = ExtResource("20_gwnkt")
 current_objective = ExtResource("21_qdeu5")
 
-[node name="LevelSaverLoader" type="Node" parent="Systems" node_paths=PackedStringArray("game_level", "tts", "root")]
-process_mode = 3
-script = ExtResource("18_k62iv")
-game_level = NodePath("../../World/Game Level")
-tts = NodePath("../TimeTickSystem")
-root = NodePath("../..")
-metadata/_custom_type_script = "uid://cq7bmcota1r4y"
-
 [node name="LevelInfo" type="Node" parent="Systems"]
 script = ExtResource("22_mgfdr")
 
 [node name="UISystem" type="Node" parent="Systems" node_paths=PackedStringArray("ui_canvas")]
 script = ExtResource("23_ebk3s")
 ui_canvas = NodePath("../../UserInterface/BuildingUI")
+
+[node name="LevelSaverLoader" type="Node" parent="Systems" node_paths=PackedStringArray("game_level", "tts", "root")]
+script = ExtResource("18_k62iv")
+game_level = NodePath("../../World/Game Level")
+tts = NodePath("../TimeTickSystem")
+root = NodePath("../..")
+metadata/_custom_type_script = "uid://cq7bmcota1r4y"
 
 [node name="World" type="Node2D" parent="."]
 
@@ -255,7 +243,7 @@ position = Vector2(680, 776)
 position = Vector2(728, 808)
 
 [node name="Player" parent="World/Game Level" instance=ExtResource("23_pxl76")]
-z_index = 5
+z_index = 2
 position = Vector2(521, 291)
 scale = Vector2(0.5, 0.5)
 
@@ -264,70 +252,6 @@ position = Vector2(440, 760)
 
 [node name="Tree1Light12" parent="World/Game Level" instance=ExtResource("31_7kaj1")]
 position = Vector2(248, 760)
-
-[node name="belt_0s" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(1000, 312)
-rotation = -3.04844
-
-[node name="belt_0s2" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(984, 312)
-rotation = 2.92633
-
-[node name="belt_0s3" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(968, 312)
-rotation = -3.10448
-
-[node name="belt_0s4" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(952, 296)
-rotation = -1.48933
-
-[node name="belt_0s6" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(904, 184)
-rotation = -1.48933
-
-[node name="belt_0s7" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(904, 200)
-rotation = -1.48933
-
-[node name="belt_0s9" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(904, 232)
-rotation = -1.48933
-
-[node name="belt_0s10" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(920, 248)
-rotation = -1.48933
-
-[node name="belt_0s11" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(952, 248)
-rotation = -1.48933
-
-[node name="belt_0s5" parent="World/Game Level" instance=ExtResource("33_4p7y6")]
-position = Vector2(952, 280)
-rotation = -1.62174
-
-[node name="belt_0r" parent="World/Game Level" instance=ExtResource("34_e8aaf")]
-position = Vector2(952, 312)
-rotation = 2.76477
-
-[node name="belt_0r2" parent="World/Game Level" instance=ExtResource("34_e8aaf")]
-position = Vector2(952, 264)
-rotation = -1.52044
-
-[node name="smelter" parent="World/Game Level" instance=ExtResource("35_buniy")]
-position = Vector2(968, 248)
-rotation = -0.0532129
-
-[node name="belt_0l" parent="World/Game Level" instance=ExtResource("36_ueiuw")]
-position = Vector2(904, 248)
-rotation = 1.44638
-
-[node name="Miner2" parent="World/Game Level" instance=ExtResource("37_15sr7")]
-position = Vector2(904, 168)
-rotation = 1.5708
-
-[node name="Miner3" parent="World/Game Level" instance=ExtResource("37_15sr7")]
-position = Vector2(920, 168)
-rotation = 1.5708
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 layer = 2
@@ -367,7 +291,7 @@ next_level_path = "res://level2.tscn"
 mouse_filter = 2
 building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
-placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("28_nyp5n"), ExtResource("29_5njd3"), ExtResource("34_e363j"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("57_kc6er")])
+placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("57_kc6er")])
 
 [node name="Label" type="Label" parent="UserInterface"]
 offset_left = 1028.0
@@ -378,6 +302,7 @@ script = ExtResource("38_d6oh1")
 
 [node name="EscapeMenu" parent="UserInterface" node_paths=PackedStringArray("level_saver") instance=ExtResource("63_60joo")]
 process_mode = 3
+visible = false
 z_index = 20
 level_saver = NodePath("../../Systems/LevelSaverLoader")
 

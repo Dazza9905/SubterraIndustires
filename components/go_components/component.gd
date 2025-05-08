@@ -15,11 +15,14 @@ var parent_GO: GridObject
 
 @export var ui_link_id: String
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	if part_of_GO:
 		parent_GO = self.get_parent().get_parent()
-	else:
-		connect_to_tick()
+
+#func _ready() -> void:
+#
+	#else:
+		#connect_to_tick()
 
 
 #This parent class sould not be used as it is!

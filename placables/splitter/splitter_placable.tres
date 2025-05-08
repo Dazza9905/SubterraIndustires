@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("2_kgw6i")
-display_name = &""
+display_name = &"Splitter"
 icon = ExtResource("1_xswy5")
 packed_scene = ExtResource("1_hi5mn")
 tags = Array[ExtResource("3_f4jx0")]([ExtResource("6_klckw")])

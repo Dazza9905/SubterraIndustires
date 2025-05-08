@@ -104,5 +104,4 @@ func serialize() -> Dictionary:
 	return save_dict
 
 func deserialize(comp_data: Dictionary) -> void:
-	#recipe = str_to_var(comp_data.recipe)
-	pass
+	recipe = str_to_var(comp_data.recipe)

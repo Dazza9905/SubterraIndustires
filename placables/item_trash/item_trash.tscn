@@ -53,6 +53,7 @@ script = ExtResource("7_lvr2n")
 script = ExtResource("8_sib11")
 base_side = 2
 slot = NodePath("../SlotComponent")
+display_port = false
 
 [node name="CreativeTrashComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("8_hmy6u")

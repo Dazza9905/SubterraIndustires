@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_1x4qi"]
 [ext_resource type="SpriteFrames" uid="uid://p5el4p0kcn8v" path="res://placables/belt_0c/belt_0l/belt_0l_frames.tres" id="2_d3iye"]
-[ext_resource type="Script" path="res://placables/belt_0c/belt_0l/globaly_animated_sprite_2d.gd" id="3_451hv"]
+[ext_resource type="Script" uid="uid://chyse01apocwr" path="res://placables/belt_0c/belt_0l/globaly_animated_sprite_2d.gd" id="3_451hv"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_sralu"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_ubp1r"]
 [ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_mtjan"]
@@ -12,7 +12,7 @@
 [ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_xdbhn"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="8_ghf4s"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="8_nw4v4"]
-[ext_resource type="Script" path="res://custom_types/presets-area-2d.gd" id="8_p7sbr"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="8_p7sbr"]
 [ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belt_0c/belt_0l/slot_item_sprite.gd" id="9_aus6q"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="9_lybbn"]
 

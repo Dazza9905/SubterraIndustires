@@ -26,11 +26,15 @@ func save_level() -> void:
 	file.store_line(JSON.stringify(save_dict))
 
 func _ready() -> void:
+	print(game_level)
 	if Globals.load_level_path != "":
 		load_level(Globals.load_level_path)
-	get_tree().root.find_child("Game", false, false).process_mode = Node.PROCESS_MODE_INHERIT
+	#get_tree().root.find_child("Game", false, false).process_mode = Node.PROCESS_MODE_INHERIT
 	#$"../../TimeTickSystem".paused = false
 
+#func _process(delta: float) -> void:
+	#print(game_level)
+	#print("1")
 
 func load_level(lvl_file: String) -> void:
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)

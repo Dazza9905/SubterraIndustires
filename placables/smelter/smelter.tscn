@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_u54kl"]
 [ext_resource type="Texture2D" uid="uid://fbdaquhy1gsb" path="res://placables/smelter/smelter_base_sprite.png" id="2_j6551"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="3_7rfgt"]
-[ext_resource type="Script" path="res://placables/smelter/RotatableSprite2D.gd" id="3_32pie"]
+[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/smelter/RotatableSprite2D.gd" id="3_32pie"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_b0fne"]
 [ext_resource type="Shape2D" uid="uid://c022plhiax132" path="res://custom_types/32x32_collision.tres" id="3_uscam"]
 [ext_resource type="Texture2D" uid="uid://cbmw0blvmcgtn" path="res://placables/smelter/smelter_chimneys.png" id="4_04fxs"]
-[ext_resource type="Script" path="res://custom_types/presets-area-2d.gd" id="4_32pie"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="4_32pie"]
 [ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_i43wo"]
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_sfdrg"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="6_lv7jb"]
@@ -59,13 +59,14 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea0l5"]
 atlas = ExtResource("12_c484a")
 
-[node name="smelter" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
+[node name="smelter" type="StaticBody2D" node_paths=PackedStringArray("init_after_place", "ui_button")]
 collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_u54kl")
 self_packed_uid = "uid://wx0imx3ix2ic"
 code_name = "smelter"
 init_after_place = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("CraftProgressIndicator"), NodePath("RecipeIcon")]
+ui_button = NodePath("OpenUI")
 metadata/_custom_type_script = "uid://kjjkl8o0k1up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
