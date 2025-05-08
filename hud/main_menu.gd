@@ -1,6 +1,7 @@
 extends Control
 
 var load_progress: Array[int]
+@export var level_picker: PackedScene
 
 func _ready() -> void:
 	self.get_tree().paused = false
@@ -11,11 +12,11 @@ func _on_begin_pressed() -> void:
 	ResourceLoader.load_threaded_request("res://levels/level1.tscn")
 	$ProgressBar.visible = true
 	
-func _process(delta: float) -> void:
-	var status := ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)
+func _process(_delta: float) -> void:
+	var _status := ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)
 	
 	var load_desatinne: float = load_progress[0]
-	#
+
 	#print(load_desatinne)
 	#print(load_desatinne*100)
 	
@@ -26,6 +27,6 @@ func _process(delta: float) -> void:
 	if (ResourceLoader.THREAD_LOAD_LOADED == ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)):
 		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get("res://levels/level1.tscn"))
-	
-	
-	
+
+func _on_load_game_pressed() -> void:
+	get_tree().change_scene_to_packed(level_picker)

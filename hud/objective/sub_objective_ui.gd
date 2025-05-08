@@ -13,5 +13,5 @@ func _ready() -> void:
 	
 	label_settings = l_settings
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	text = sub_objective.name + " " + str(sub_objective.current_completion) + "/" + str(sub_objective.finish_completion)

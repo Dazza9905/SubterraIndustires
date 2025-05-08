@@ -1,23 +1,22 @@
 extends Control
 
-const LEVELS_PATH = "res://levels/"
 @export var level_entry: PackedScene
 @onready var level_picker_container = $VBoxContainer/WorldsCointainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.reload_worlds.connect(reload_worlds)
-	load_levels()
+	reload_worlds()
 
 
 	
 func load_levels():
-	var dir = DirAccess.open(LEVELS_PATH)
+	var dir = DirAccess.open(Globals.LEVEL_PATH)
 	if dir:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
-			if file_name.ends_with(".tscn"):  # Assuming LevelData files are saved as .tres resources
+			if file_name.ends_with(".json"):  # Assuming LevelData files are saved as .tres resources
 				var level_entry = level_entry.instantiate()
 				level_entry.get_node("Label").text = file_name
 				level_picker_container.add_child(level_entry)

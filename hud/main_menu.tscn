@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwl1ideqa038k"]
+[gd_scene load_steps=6 format=3 uid="uid://cwl1ideqa038k"]
 
 [ext_resource type="Script" uid="uid://bi0xpeap8k1ep" path="res://hud/main_menu.gd" id="1_5gt41"]
+[ext_resource type="PackedScene" uid="uid://1tbuyh1tbme" path="res://hud/level_picker.tscn" id="2_7h4so"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_mhrcu"]
 [ext_resource type="Texture2D" uid="uid://c8o1yf5l3kybv" path="res://art/Subterra Industries logo 1x.png" id="2_ycwou"]
 
@@ -16,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_5gt41")
+level_picker = ExtResource("2_7h4so")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -53,7 +55,14 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_mhrcu")
 theme_override_font_sizes/font_size = 48
-text = "Begin"
+text = "New Game"
+
+[node name="LoadGame" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_mhrcu")
+theme_override_font_sizes/font_size = 48
+text = "Load Game"
 
 [node name="Option" type="Button" parent="VBoxContainer"]
 visible = false
@@ -76,3 +85,4 @@ grow_vertical = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_4j18f")
 
 [connection signal="pressed" from="VBoxContainer/Begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]

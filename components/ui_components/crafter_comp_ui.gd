@@ -37,7 +37,7 @@ func update_progress(do_tween: bool = true):
 					if bar_progress > crafter_component.recipe.ticks_to_craft:
 						tween.tween_property(progress_bar, "value", 0, 0.0)
 					else:
-						tween.tween_property(progress_bar, "value", bar_progress, 0.4)
+						tween.tween_property(progress_bar, "value", bar_progress, Globals.get_tts().tick_max_delta)
 				else:
 					tween.tween_property(progress_bar, "value", 0, 0.0)
 		else:

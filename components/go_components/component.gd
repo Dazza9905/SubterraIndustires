@@ -31,6 +31,13 @@ func update() -> void:
 
 func connect_to_tick() -> void:
 	assert(false, "The method 'connect_to_tick()' must be overridden in the child class.")
-
+	
+func serialize() -> Dictionary:
+	#assert(false, "The method 'serialize()' must be overridden in the child class.")
+	return {}
+	
+func deserialize(comp_data: Dictionary) -> void:
+	#assert(false, "The method 'deserialize' must be overridden in the child class.")
+	pass
 #func _ready() -> void:
 	#print(self.name)

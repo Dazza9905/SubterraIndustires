@@ -1,13 +1,13 @@
 extends Node
 
-const LEVEL_PATH = "res://levels/"
+const LEVEL_PATH = "user://gamesaves/"
 const ITEM_TEX_PATH = "res://items/"
 const ITEM_PATH = "res://items/"
 const PLACABLES_PATH = "res://placables/"
 const RECIPE_PATH = "res://recipes/"
-
 const TILE_SIZE = 16
 
+var load_level_path: String = ""
 
 
 enum SlotFlag {
@@ -17,18 +17,6 @@ enum SlotFlag {
 	DIFF_TYPE,
 	INVALID
 }
-
-
-var global_frame: int = 0
-var _time_accum: float = 0.0
-
-const ANIMATION_FPS := 32
-
-func _process(delta):
-	_time_accum += delta
-	while _time_accum >= 1.0 / ANIMATION_FPS:
-		_time_accum -= 1.0 / ANIMATION_FPS
-		global_frame += 1
 
 #INPUTS HANDELING
 func _input(event) -> void:

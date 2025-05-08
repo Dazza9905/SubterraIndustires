@@ -78,12 +78,15 @@ reset_color = Color(1, 1, 1, 1)
 
 [sub_resource type="GDScript" id="GDScript_l3bwo"]
 resource_name = "area_abondend_factory"
+script/source = "extends Area2D
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oolbb"]
 radius = 107.234
 height = 372.962
 
 [node name="Game" type="Node"]
+process_mode = 4
 
 [node name="Systems" type="Node" parent="."]
 
@@ -133,7 +136,6 @@ script = ExtResource("26_ir2r4")
 
 [node name="TimeTickSystem" type="Node" parent="Systems"]
 script = ExtResource("1_4s1je")
-paused = false
 
 [node name="ObjectiveSystem" type="Node" parent="Systems"]
 script = ExtResource("20_gwnkt")

@@ -18,6 +18,7 @@ signal craft_progress_changed(progress: float)
 				recipe_icon.visible = true
 			else:
 				recipe_icon.visible = false
+			craft_progress = 0
 		else:
 			recipe_icon.visible = false
 @export var inputs: Array[SlotComponent]
@@ -32,7 +33,7 @@ signal craft_progress_changed(progress: float)
 var objective_system: ObjectiveSystem
 
 
-signal produced_items(item: Item, amount: int)
+#signal produced_items(item: Item, amount: int)
 
 func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
@@ -40,7 +41,7 @@ func connect_to_tick() -> void:
 
 func _on_machanine_tick() -> void:
 	var target_outputs: Array[int]
-	var can_craft: bool = can_craft(target_outputs)
+	var can_craft: bool = if_can_craft(target_outputs)
 	
 	if recipe:
 		if craft_progress < recipe.ticks_to_craft:
@@ -57,11 +58,8 @@ func _on_machanine_tick() -> void:
 				craft_progress = 0
 				item_crafted.emit()
 				craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
-			
 
-
-		
-func can_craft(target_outputs: Array[int]) -> bool:
+func if_can_craft(target_outputs: Array[int]) -> bool:
 	if recipe == null:
 		return false
 	for in_ingradient in recipe.input_ingredients:
@@ -97,3 +95,14 @@ func actually_craft(target_outputs: Array[int]) -> void:
 	for i in range(0, target_outputs.size()):
 		outputs[i].give_item(recipe.output_products[i].item, recipe.output_products[i].amount)
 		objective_system.complete_produce(recipe.output_products[i].item, recipe.output_products[i].amount)
+
+func serialize() -> Dictionary:
+	var save_dict: Dictionary = {
+		recipe = var_to_str(recipe),
+
+	}
+	return save_dict
+
+func deserialize(comp_data: Dictionary) -> void:
+	#recipe = str_to_var(comp_data.recipe)
+	pass

@@ -44,7 +44,6 @@ func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
 		_:
 			return FAILED
 
-			
 func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 	match [passed_item, item]:
 		[null, _]:
@@ -102,12 +101,16 @@ func take_multi_type(passed_item_types: Array[Enums.MATERIAL_ITEM], passed_amoun
 				return take(passed_amount)
 	return null
 
-
-
 func is_empty() -> bool:
 	return _amount == 0 or item == null
-	
-	
-	
+
 func connect_to_tick() -> void:
 	pass
+
+func serialize() -> Dictionary:
+	var save_dict: Dictionary = {
+		capacity = var_to_str(capacity),
+		item = var_to_str(item),
+		amount = var_to_str(_amount)
+	}
+	return save_dict

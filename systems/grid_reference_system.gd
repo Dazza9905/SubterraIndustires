@@ -54,14 +54,14 @@ func asign_GP_cells_to_GO(grid_object: GridObject) -> void:
 		#print("p_offset: ", p_offset)
 		var coordinate: Vector2i = GO_position + GF.rotate(p_offset, $"../../World/GridPositioner/ManipulationParent".rotation)
 		#add it to the object
-		grid_object.ocuppied_cells.append(coordinate)
+		grid_object.occuppied_cells.append(coordinate)
 
 func asign_GO_cells_to_GRS(grid_object: GridObject):
-	for cell in grid_object.ocuppied_cells:
+	for cell in grid_object.occuppied_cells:
 		reference_hashmap[cell] = grid_object
 
 #func connect_GO_to_GRS(grid_object: GridObject):
-	#grid_object.tree_exited.connect(GO_destroyed.bind(grid_object.ocuppied_cells))
+	#grid_object.tree_exited.connect(GO_destroyed.bind(grid_object.occuppied_cells))
 
 
 func print_dict():
