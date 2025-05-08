@@ -8,7 +8,7 @@
 font = ExtResource("4_kypy7")
 font_size = 28
 
-[node name="ObjectiveUI" type="VBoxContainer" node_paths=PackedStringArray("objective_label", "sub_objectives_parent", "objective_menu", "sub_objective_parent", "size_node")]
+[node name="ObjectiveUIParent" type="VBoxContainer" node_paths=PackedStringArray("objective_label", "sub_objectives_parent", "objective_menu", "sub_objective_parent", "size_node")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -37,6 +37,7 @@ theme_override_font_sizes/font_size = 32
 text = "Objectives"
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 clip_contents = true
 layout_mode = 2
 theme = ExtResource("2_q0hn2")

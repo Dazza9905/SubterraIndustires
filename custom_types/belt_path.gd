@@ -42,7 +42,7 @@ func belt_removed(belt_comp) -> void:
 	else:
 		split_at(belt_comp_index)
 		
-	print(path)
+	#print(path)
 
 func remove_last(belt_comp: BeltComponent) -> void:
 	if(path.back() == belt_comp):
@@ -55,24 +55,24 @@ func remove_first(belt_comp: BeltComponent) -> void:
 func split_at(index_of_removed: int):
 	#HACK insted of calculating it, store the index in BeltComponent. Can be also user elsewere in debug
 	#print("Original:")
-	for i in range(0, path.size()):
-		print(i)
+	#for i in range(0, path.size()):
+		#print(i)
 	var temp_bp = BeltPath.new(path[index_of_removed+1])
 	path[index_of_removed+1].belt_path = temp_bp
 	#print("New (1st):")
-	for i in range(0, temp_bp.path.size()):
-		print(i)
+	#for i in range(0, temp_bp.path.size()):
+		#print(i)
 		
 	for i in range(index_of_removed+2, path.size()):
 		path[i].belt_path = temp_bp
 		temp_bp.append_belt(path[i])
 		
 	#print("New (all):")
-	for i in range(0, temp_bp.path.size()):
-		print(i)
+	#for i in range(0, temp_bp.path.size()):
+		#print(i)
 	
 	path.resize(index_of_removed)
 		
 	#print("Original (updated):")
-	for i in range(0, path.size()):
-		print(i)
+	#for i in range(0, path.size()):
+		#print(i)

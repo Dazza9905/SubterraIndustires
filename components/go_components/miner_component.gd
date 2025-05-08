@@ -12,7 +12,7 @@ func _process_tilemap_collision(body_rid: RID, current_tilemap: TileMapLayer):
 	var tile_data: TileData =  current_tilemap.get_cell_tile_data(collision_coords)
 	var source_item: Item = tile_data.get_custom_data_by_layer_id(0)
 	item = source_item
-	print(source_item.name)
+	#print(source_item.name)
 	area.body_shape_entered.disconnect(_process_tilemap_collision)
 	area.queue_free()
 

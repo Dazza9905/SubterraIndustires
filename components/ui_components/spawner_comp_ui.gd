@@ -10,7 +10,7 @@ func link_to_component(components: Array[Component]) -> void:
 	var is_linked: bool = false
 	for comp in components:
 		if comp is SpawnerComp and comp.ui_link_id == ui_link_id:
-			print(self.name, " linked to ", comp.name)
+			#print(self.name, " linked to ", comp.name)
 			creative_gen = comp
 			option_button.selected = Enums.items.find(creative_gen.item)
 			break

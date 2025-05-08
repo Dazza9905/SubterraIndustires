@@ -25,6 +25,7 @@ demolishable = true
 collision_layer = 3584
 collision_mask = 0
 script = ExtResource("1_s030c")
+self_packed_uid = "uid://bfijcbkjp3mo6"
 code_name = "splitter"
 
 [node name="SplitterSprite" type="Sprite2D" parent="."]

@@ -38,7 +38,7 @@ func _on_machanine_tick() -> void:
 	#print(target_out_slot)
 	if(target_in_slot is SlotComponent and target_out_slot is SlotComponent):
 		var error: Error = target_out_slot.give_item(target_in_slot.item)
-		print(error)
+		#print(error)
 		if error == OK:
 			target_in_slot.take()
 	

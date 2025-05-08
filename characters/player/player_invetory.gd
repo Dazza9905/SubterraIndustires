@@ -4,6 +4,7 @@ class_name PlayerInventory
 @export var ui_view_parent: Control
 @export var ui_componets: Array[ComponentUI]
 var components: Array[Component]
+@export var trash_comp: CreativeTrashComp
 
 var is_open: bool = false:
 	set(new_state):
@@ -18,11 +19,10 @@ var is_open: bool = false:
 			is_open = new_state
 
 func _ready() -> void:
-	for child in get_children():
-		if(child is Component):
-			components.append(child)
+	update_slots()
 	for ui_comp in ui_componets:
 		ui_comp.link_to_component(components)
+	trash_comp.connect_to_tick()
 
 func _open_inventory() -> void:
 	ui_view_parent.visible = true
@@ -36,3 +36,8 @@ func _close_inventory() -> void:
 	
 func toggle_inventory() -> void:
 	is_open = not is_open
+
+func update_slots() -> void:
+	for child in get_children():
+		if(child is SlotComponent):
+			components.append(child)

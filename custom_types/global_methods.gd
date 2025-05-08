@@ -5,7 +5,7 @@ func rotate(vector: Vector2i,  rad: float) -> Vector2i:
 		var rotated_vector: Vector2 = Vector2(vector).rotated(rad)
 		return Vector2i(rotated_vector.round())
 	else:
-		printerr("rotation is not multiple of 90")
+		#printerr("rotation is not multiple of 90")
 		return vector
 
 func are_IO_COMPs_diff(comp1: Node, comp2: Node) -> bool:

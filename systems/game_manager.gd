@@ -25,12 +25,12 @@ func load_world(world_name: String) -> void:
 func delete_world(world_name: String) -> void:
 	if ResourceLoader.exists(Globals.LEVEL_PATH + world_name):
 		var error : Error = DirAccess.remove_absolute(Globals.LEVEL_PATH + world_name)
-		if(error == OK):
-			print("File deleted successfully.")
-		else:
-			print("Failed to delete the file. Error code: ", error)
-	else:
-		print("File does not exist: ", Globals.LEVEL_PATH + world_name)
+		#if(error == OK):
+			#print("File deleted successfully.")
+		#else:
+			#print("Failed to delete the file. Error code: ", error)
+	#else:
+		#print("File does not exist: ", Globals.LEVEL_PATH + world_name)
 	reload_worlds.emit()
 
 #func save_world_and_exit() -> void:

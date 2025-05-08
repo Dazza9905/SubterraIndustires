@@ -66,10 +66,11 @@ shape = SubResource("RectangleShape2D_x0w6k")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="InventorySystem" type="Node" parent="." node_paths=PackedStringArray("ui_view_parent", "ui_componets")]
+[node name="InventorySystem" type="Node" parent="." node_paths=PackedStringArray("ui_view_parent", "ui_componets", "trash_comp")]
 script = ExtResource("5_dirf7")
 ui_view_parent = NodePath("../CanvasLayer/InvetoryView")
 ui_componets = [NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi2"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi3"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi4"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi6"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi7"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi8"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi9"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi10"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi11"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi12"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi13"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi14"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi15"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi16"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi17"), NodePath("../CanvasLayer/InvetoryView/GridContainer/SlotComponentUi18"), NodePath("../CanvasLayer/InvetoryView/SlotComponentUiTrash")]
+trash_comp = NodePath("CreativeTrashComp")
 
 [node name="SlotComponent" type="Node2D" parent="InventorySystem"]
 script = ExtResource("6_idpv6")
@@ -218,12 +219,6 @@ part_of_GO = false
 ui_link_id = "inv_slot_21"
 metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 
-[node name="CreativeTrashComp" type="Node2D" parent="InventorySystem" node_paths=PackedStringArray("slot")]
-script = ExtResource("7_rpf03")
-slot = NodePath("../SlotComponentTrash")
-part_of_GO = false
-metadata/_custom_type_script = "uid://gs2nhgblduco"
-
 [node name="SlotComponentTrash" type="Node2D" parent="InventorySystem"]
 script = ExtResource("6_idpv6")
 capacity = 100
@@ -231,10 +226,17 @@ part_of_GO = false
 ui_link_id = "inv_slot_trash"
 metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 
+[node name="CreativeTrashComp" type="Node2D" parent="InventorySystem" node_paths=PackedStringArray("slot")]
+script = ExtResource("7_rpf03")
+slot = NodePath("../SlotComponentTrash")
+part_of_GO = false
+metadata/_custom_type_script = "uid://gs2nhgblduco"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
 [node name="InvetoryView" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

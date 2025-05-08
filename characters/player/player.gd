@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 # Variable for movement speed
 var speed = 5000
 
@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 	for collider in colliders:
 		if collider != null and collider.name.begins_with("belt"):
-			print("Collided with: " + collider.name)
+			#print("Collided with: " + collider.name)
 			conveyor_velocity = Vector2.RIGHT.rotated(collider.rotation) * conveyor_speed
 		if collider.name == "find_remains":
 			Globals.get_ObjectiveSystem().complete_task("find_remains")
@@ -59,3 +59,25 @@ func _physics_process(delta):
 
 	# Move the character using the move_and_slide method
 	move_and_slide()
+
+func serialize() -> Dictionary: 
+	var save_dict: Dictionary = {
+		position = var_to_str(position),
+		inventory = []
+	}
+	
+	for slot_comp in inventory.components:
+		save_dict.inventory.push_back(slot_comp.serialize())
+		
+	return save_dict
+	
+
+func deserialize(load_dict: Dictionary) -> void:
+	position = str_to_var(load_dict.position)
+	
+	inventory.update_slots()
+	
+	var i = 0
+	for slot_comp in inventory.components:
+		slot_comp.deserialize(load_dict.inventory[i])
+		i += 1

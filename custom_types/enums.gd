@@ -29,14 +29,14 @@ func load_items() -> void:
 	var items_names: String = ""
 	for item in items:
 		items_names += item.name + "   "
-	print("Loaded items:\t\t", items_names)
+	#print("Loaded items:\t\t", items_names)
 	
 func load_recipes() -> void:
 	load_resources_recursively(Globals.RECIPE_PATH, r"^recipe_.*\.tres$", recipes)
 	var recipes_names: String = ""
 	for recipe in recipes:
 		recipes_names += recipe.name + "   "
-	print("Loaded recipes:\t\t", recipes_names)
+	#print("Loaded recipes:\t\t", recipes_names)
 
 func load_resources_recursively(base_path: String, file_regex: String, storage: Array, recursive := true) -> void:
 	var dir := DirAccess.open(base_path)

@@ -25,6 +25,7 @@ z_index = 1
 collision_layer = 3584
 collision_mask = 0
 script = ExtResource("1_sipws")
+self_packed_uid = "uid://dl4l2mrxxfm0n"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -50,9 +51,8 @@ root = NodePath("..")
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("item_sprite")]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_uvyhf")
-item_sprite = NodePath("../../ItemSprite")
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("8_6sql8")

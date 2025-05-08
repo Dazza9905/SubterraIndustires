@@ -23,13 +23,13 @@ func _input(event) -> void:
 	if event is InputEventKey and event.pressed:
 		if Input.is_action_pressed("debug_toggle_connections"):
 			show_debug_io_conn = not show_debug_io_conn
-			print("DEBUG - Show IO Connections: ", show_debug_io_conn)
+			#print("DEBUG - Show IO Connections: ", show_debug_io_conn)
 		if Input.is_action_pressed("debug_toggle_io_ports"):
 			show_debug_io_port = not show_debug_io_port
-			print("DEBUG - Show IO Ports: ", show_debug_io_port)
+			#print("DEBUG - Show IO Ports: ", show_debug_io_port)
 		if Input.is_action_pressed("debug_toggle_belt_paths"):
 			show_debug_belt_paths = not show_debug_belt_paths
-			print("DEBUG - Show BeltPaths: ", show_debug_belt_paths)
+			#print("DEBUG - Show BeltPaths: ", show_debug_belt_paths)
 
 
 func get_mode_building_system() -> BuildingSystem:

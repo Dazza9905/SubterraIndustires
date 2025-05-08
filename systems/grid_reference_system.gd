@@ -16,13 +16,13 @@ func _ready() -> void:
 	Globals.get_BS().state.preview_changed.connect(_on_manipulation_action_confirmed.unbind(1))
 
 func _on_manipulation_action_confirmed() -> void:
-	print("asa")
+	#print("asa")
 	var go := Globals.get_GP_MP().get_child(1)
 	if go is GridObject:
 		go.update_sprites()
 
 func GO_built(build_action_data: BuildActionData) -> void:
-	print("BUILT")
+	#print("BUILT")
 	var grid_object = build_action_data.placed as GridObject
 	asign_GP_cells_to_GO(grid_object) #assign GridPostionerIndicator cells to GridObject
 	asign_GO_cells_to_GRS(grid_object) #add GridObject.occupied_cells to the actuall GridHashmap
@@ -67,5 +67,5 @@ func asign_GO_cells_to_GRS(grid_object: GridObject):
 func print_dict():
 	for key in reference_hashmap.keys():
 		var value = reference_hashmap[key]
-		print("Key: ", key, " - Value: ", value)
-	print("-------------")
+		#print("Key: ", key, " - Value: ", value)
+	#print("-------------")

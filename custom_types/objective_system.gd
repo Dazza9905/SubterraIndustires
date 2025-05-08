@@ -34,8 +34,8 @@ func switch_if_completed() -> void:
 		if current_objective.is_complete():
 			if current_objective.next_objective is Objective:
 				current_objective = current_objective.next_objective
-				print("objective swithced")
+				#print("objective swithced")
 				objective_changed.emit()
 			else:
-				print("level complete")
+				#print("level complete")
 				level_completed.emit()

@@ -26,11 +26,13 @@ flip_vertical = false
 movable = false
 demolishable = true
 
-[node name="item_gen" type="StaticBody2D"]
+[node name="item_gen" type="StaticBody2D" node_paths=PackedStringArray("ui_button")]
 collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_4mkui")
+self_packed_uid = "uid://1tsok1vm60ly"
 code_name = "item_gen"
+ui_button = NodePath("OpenUI")
 
 [node name="ItemGenSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

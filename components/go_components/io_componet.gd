@@ -72,9 +72,9 @@ func update_IO_port_view() -> void:
 	var column: int
 	if parent_GO != null:
 		column = (base_side + (((360 + int(parent_GO.rotation_degrees)) % 360) / 90)) % 4
-		print(self.name, ": ", column)
-		print("\t", parent_GO.rotation_degrees)
-		print("\t", (360 + int(parent_GO.rotation_degrees)))
+		#print(self.name, ": ", column)
+		#print("\t", parent_GO.rotation_degrees)
+		#print("\t", (360 + int(parent_GO.rotation_degrees)))
 	else:
 		column = base_side
 	var row : int = 1

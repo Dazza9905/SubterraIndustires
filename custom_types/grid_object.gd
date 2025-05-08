@@ -38,7 +38,7 @@ func _exit_tree() -> void:
 			for cell in occuppied_cells:
 				if grid_ref_system.reference_hashmap.erase(cell):
 					pass
-					print("Cell ", cell, " was deleted")
+					#print("Cell ", cell, " was deleted")
 			#grid_ref_system.print_dict()
 		else:
 			assert(false, "Grid Reference system not found")
@@ -110,7 +110,7 @@ func connect_components() -> void:
 		#print(self.name, "has no components")
 
 func serialize() -> Dictionary:
-	var dict_go : Dictionary = {
+	var save_dict : Dictionary = {
 		uid = var_to_str(self_packed_uid),
 		position = var_to_str(position),
 		rotation = var_to_str(rotation),
@@ -119,9 +119,9 @@ func serialize() -> Dictionary:
 		components = []
 	}
 	for comp in get_components():
-		dict_go.components.push_back(comp.serialize())
-	#print(JSON.stringify(dict_go, "\t"))
-	return dict_go
+		save_dict.components.push_back(comp.serialize())
+	#print(JSON.stringify(save_dict, "\t"))
+	return save_dict
 	
 static func deserialize(go_data: Dictionary) -> GridObject:
 	if str_to_var(go_data.uid) == "":
@@ -141,14 +141,15 @@ static func deserialize(go_data: Dictionary) -> GridObject:
 	
 	Globals.get_GRS().asign_GO_cells_to_GRS(instance)
 	
-	instance.ui_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	if instance.ui_button:
+		instance.ui_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	
 	var i = 0
 	for comp in instance.get_components():
-		print("COMP DATA:", go_data.components[i])
+		#print("COMP DATA:", go_data.components[i])
 		comp.deserialize(go_data.components[i])
 		i += 1
-		print(i)
+		#print(i)
 		
 	return instance
 	

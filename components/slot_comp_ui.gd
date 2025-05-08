@@ -12,7 +12,7 @@ func link_to_component(components: Array[Component]) -> void:
 	for comp in components:
 		if is_linked == false:
 			if comp is SlotComponent and comp.ui_link_id == ui_link_id:
-				print(self.name, " linked to ", comp.name)
+				#print(self.name, " linked to ", comp.name)
 				slot_component = comp
 				slot_component.slot_contents_changed.connect(update_ui)
 				update_ui()
@@ -71,4 +71,4 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	(data as DraggedItem).source_slot_component._amount -= 1
 	slot_component._amount += 1
 	slot_component.item = (data as DraggedItem).item
-	print("dropped ", data)
+	#print("dropped ", data)

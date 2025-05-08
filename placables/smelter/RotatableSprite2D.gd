@@ -14,7 +14,7 @@ signal preview_change(view_func: Callable)
 @export_tool_button("Update Texture", "Callable")
 var update_button = update_region
 func update_region() -> void:
-	print(region_rect)
+	#print(region_rect)
 	for region in base_regions:
 		if region is AtlasTexture:
 			region.atlas = base_texture_atlas

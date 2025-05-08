@@ -15,3 +15,13 @@ func connect_to_tick() -> void:
 	
 func _on_machanine_tick() -> void:
 	slot.give_item(item)
+
+func serialize() -> Dictionary:
+	var save_dict: Dictionary = {
+		item = var_to_str(item)
+	}
+	
+	return save_dict
+	
+func deserialize(load_dict: Dictionary) -> void:
+	item = str_to_var(load_dict.item)

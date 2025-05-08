@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dlt4esflqmeh" path="res://items/carbon/carbon_sprite.png" id="1_bh773"]
 [ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_o1wwb"]
-[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://recipes/recipe.gd" id="2_0gikh"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_0gikh"]
 [ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/coal/item_coal.tres" id="3_7rp0r"]
 [ext_resource type="Resource" uid="uid://3pc7812iixf7" path="res://items/carbon/item_carbon.tres" id="5_m88a2"]
 
