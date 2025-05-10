@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=11 format=3 uid="uid://djrxg7bxkd167"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=12 format=3 uid="uid://djrxg7bxkd167"]
 
 [ext_resource type="Texture2D" uid="uid://duuj8vhp2qt8r" path="res://placables/belts/belt_0s/belt_0s_seq.png" id="1_xj7aq"]
 [ext_resource type="PackedScene" uid="uid://kbhoioejyouu" path="res://placables/belts/belt_0s/belt_0s.tscn" id="2_08nl1"]
@@ -9,9 +9,13 @@
 [ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_l8rll"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="6_sysye"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wbigs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lne7c"]
 atlas = ExtResource("1_xj7aq")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 16, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbigs"]
+atlas = SubResource("AtlasTexture_lne7c")
+region = Rect2(0, -2, 16, 16)
 
 [sub_resource type="Resource" id="Resource_b2oub"]
 script = ExtResource("4_ptcat")
@@ -20,7 +24,7 @@ metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]
 script = ExtResource("4_n0lhy")
-display_name = &"Slow Straight Belt"
+display_name = &"Straight Belt"
 icon = SubResource("AtlasTexture_wbigs")
 packed_scene = ExtResource("2_08nl1")
 tags = Array[ExtResource("5_l8rll")]([ExtResource("6_sysye")])

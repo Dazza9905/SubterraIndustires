@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=63 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" uid="uid://bcknl5c8go14d" path="res://systems/TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" uid="uid://dnl6gv8yc3how" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -31,7 +31,6 @@
 [ext_resource type="Script" uid="uid://cqasikji0k41w" path="res://systems/ui_system.gd" id="23_ebk3s"]
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="23_g61e4"]
 [ext_resource type="PackedScene" uid="uid://c2rq8myd0wwne" path="res://characters/player/player.tscn" id="23_pxl76"]
-[ext_resource type="PackedScene" uid="uid://erm78oe3trac" path="res://addons/grid_building/grid_building_templates/ui/placement_selection/placeable_selection_ui.tscn" id="24_12s6v"]
 [ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="25_njtw1"]
 [ext_resource type="Script" uid="uid://bgiahs37daemf" path="res://systems/grid_reference_system.gd" id="26_ir2r4"]
 [ext_resource type="Resource" uid="uid://dm8t24n18j2q1" path="res://placables/categories/plant.tres" id="26_w3lc3"]
@@ -44,6 +43,8 @@
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="33_5npah"]
 [ext_resource type="Script" uid="uid://b2d7v7bftn84t" path="res://hud/button_load_level.gd" id="33_csten"]
 [ext_resource type="Resource" uid="uid://byntnli253glg" path="res://placables/belts/belt_0u/belt_0u_placable.tres" id="37_cfgxv"]
+[ext_resource type="Script" uid="uid://3kn8tixptsci" path="res://addons/grid_building/ui/placeable_selection_ui.gd" id="37_sadvb"]
+[ext_resource type="PackedScene" uid="uid://dh2uw3vswpnt5" path="res://addons/grid_building/grid_building_templates/ui/placement_selection/placeable_grid.tscn" id="38_tk73g"]
 [ext_resource type="Resource" uid="uid://djrxg7bxkd167" path="res://placables/belts/belt_0s/belt_0s_placable.tres" id="38_w1uh7"]
 [ext_resource type="Resource" uid="uid://brd1gu1pa3ves" path="res://placables/belts/belt_0c/belt_0l/belt_0l_placable.tres" id="39_3eb2x"]
 [ext_resource type="Resource" uid="uid://dcpiagq8b217s" path="res://placables/splitter/splitter_placable.tres" id="40_5bajv"]
@@ -73,6 +74,91 @@ resource_name = "area_abondend_factory"
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oolbb"]
 radius = 107.234
 height = 372.962
+
+[sub_resource type="Animation" id="Animation_unj4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BuildingUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(940, 520)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BuildingUI:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BuildingUI:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_p6dnf"]
+resource_name = "open_building_ui"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BuildingUI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(731, 1000), Vector2(731, 100), Vector2(731, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BuildingUI:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BuildingUI:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sadvb"]
+_data = {
+&"RESET": SubResource("Animation_unj4i"),
+&"open_building_ui": SubResource("Animation_p6dnf")
+}
 
 [node name="Game" type="Node"]
 
@@ -130,9 +216,10 @@ current_objective = ExtResource("21_qdeu5")
 [node name="LevelInfo" type="Node" parent="Systems"]
 script = ExtResource("22_mgfdr")
 
-[node name="UISystem" type="Node" parent="Systems" node_paths=PackedStringArray("ui_canvas")]
+[node name="UISystem" type="Node" parent="Systems" node_paths=PackedStringArray("ui_canvas", "buildingUI_anim_player")]
 script = ExtResource("23_ebk3s")
 ui_canvas = NodePath("../../UserInterface/BuildingUI")
+buildingUI_anim_player = NodePath("../../UserInterface/AnimationPlayer")
 
 [node name="LevelSaverLoader" type="Node" parent="Systems" node_paths=PackedStringArray("game_level", "tts", "root", "player")]
 script = ExtResource("18_k62iv")
@@ -256,23 +343,36 @@ position = Vector2(248, 760)
 [node name="UserInterface" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="BuildingUI" type="Control" parent="UserInterface"]
-layout_mode = 3
-anchors_preset = 8
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UserInterface"]
+libraries = {
+&"": SubResource("AnimationLibrary_sadvb")
+}
+
+[node name="BuildingUI" type="BoxContainer" parent="UserInterface"]
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = 1000.0
+offset_right = 229.0
+offset_bottom = 1000.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+alignment = 1
+vertical = true
 
 [node name="ObjectiveUIParent" parent="UserInterface" instance=ExtResource("30_xhqwm")]
-offset_right = -1440.0
-offset_bottom = -561.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 190.0
+offset_bottom = 50.0
+grow_horizontal = 1
+grow_vertical = 1
+alignment = 1
 
 [node name="Button" type="Button" parent="UserInterface"]
 visible = false
@@ -287,17 +387,29 @@ text = "Next Level"
 script = ExtResource("33_csten")
 next_level_path = "res://level2.tscn"
 
-[node name="PlaceableSelectionUI" parent="UserInterface" node_paths=PackedStringArray("building_system") instance=ExtResource("24_12s6v")]
-mouse_filter = 2
+[node name="PlaceableSelectionUI" type="Control" parent="UserInterface" node_paths=PackedStringArray("building_system", "ui_root")]
+layout_mode = 3
+anchor_left = 0.679
+anchor_top = 0.26
+anchor_right = 0.989
+anchor_bottom = 0.735
+offset_right = -0.199951
+script = ExtResource("37_sadvb")
 building_system = NodePath("../../Systems/GBPluginSystems/BuildingSystem")
+mode_state = ExtResource("6_xwb55")
+placeable_grid_template = ExtResource("38_tk73g")
 category_tags = Array[ExtResource("25_njtw1")]([ExtResource("29_3lrbf"), ExtResource("26_w3lc3"), ExtResource("32_yh7yd"), ExtResource("33_5npah")])
 placeables = Array[ExtResource("27_pk7sx")]([ExtResource("38_w1uh7"), ExtResource("39_3eb2x"), ExtResource("40_xewns"), ExtResource("37_cfgxv"), ExtResource("40_5bajv"), ExtResource("41_0bint"), ExtResource("45_hm8ja"), ExtResource("43_plyex"), ExtResource("46_8k7xm"), ExtResource("47_hmus8"), ExtResource("57_kc6er")])
+column_count = 2
+ui_root = NodePath(".")
+metadata/_custom_type_script = "uid://3kn8tixptsci"
 
-[node name="EscapeMenu" parent="UserInterface" node_paths=PackedStringArray("level_saver", "placeable_selection_ui") instance=ExtResource("63_60joo")]
+[node name="EscapeMenu" parent="UserInterface" node_paths=PackedStringArray("level_saver", "placeable_selection_ui", "building_ui") instance=ExtResource("63_60joo")]
 process_mode = 3
 visible = false
 z_index = 20
 level_saver = NodePath("../../Systems/LevelSaverLoader")
 placeable_selection_ui = NodePath("../PlaceableSelectionUI")
+building_ui = NodePath("../BuildingUI")
 
 [connection signal="pressed" from="UserInterface/Button" to="UserInterface/Button" method="_on_pressed"]

@@ -30,6 +30,7 @@ func save_level() -> void:
 				#print("GOOOO")
 				
 	file.store_line(JSON.stringify(save_dict))
+	tts.paused = false
 
 func _ready() -> void:
 	#print(game_level)

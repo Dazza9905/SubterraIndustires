@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2rq8myd0wwne"]
+[gd_scene load_steps=19 format=3 uid="uid://c2rq8myd0wwne"]
 
 [ext_resource type="Script" uid="uid://dqhuur023qk0r" path="res://characters/player/player.gd" id="1_cwch7"]
 [ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="1_viuuy"]
@@ -10,6 +10,91 @@
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="6_idpv6"]
 [ext_resource type="Script" uid="uid://gs2nhgblduco" path="res://components/go_components/creative_trash_component.gd" id="7_rpf03"]
 [ext_resource type="Texture2D" uid="uid://bj548f34l625b" path="res://hud/slot_trash.png" id="10_x5dtk"]
+
+[sub_resource type="Animation" id="Animation_3t07l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/InvetoryView:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 438)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/InvetoryView:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/InvetoryView:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x5dtk"]
+resource_name = "open_inv"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/InvetoryView:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-272, 438), Vector2(0, 438)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/InvetoryView:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/InvetoryView:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_on558"]
+_data = {
+&"RESET": SubResource("Animation_3t07l"),
+&"open_inv": SubResource("Animation_x5dtk")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5uw5"]
 atlas = ExtResource("1_viuuy")
@@ -40,6 +125,11 @@ script = ExtResource("1_cwch7")
 detector_area = NodePath("Detector")
 inventory = NodePath("InventorySystem")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_on558")
+}
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(-0.25, -15.75)
@@ -66,11 +156,12 @@ shape = SubResource("RectangleShape2D_x0w6k")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="InventorySystem" type="Node" parent="." node_paths=PackedStringArray("ui_view_parent", "ui_componets", "trash_comp")]
+[node name="InventorySystem" type="Node" parent="." node_paths=PackedStringArray("ui_view_parent", "ui_componets", "trash_comp", "anim_player")]
 script = ExtResource("5_dirf7")
 ui_view_parent = NodePath("../CanvasLayer/InvetoryView")
 ui_componets = [NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi2"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi3"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi4"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi5"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi6"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi7"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi8"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi9"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi10"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi11"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi12"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi13"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi14"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi15"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi16"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi17"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/GridContainer/SlotComponentUi18"), NodePath("../CanvasLayer/InvetoryView/PanelContainer/MarginContainer/HBoxContainer/SlotComponentUiTrash")]
 trash_comp = NodePath("CreativeTrashComp")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="SlotComponent" type="Node2D" parent="InventorySystem"]
 script = ExtResource("6_idpv6")
@@ -215,14 +306,13 @@ metadata/_custom_type_script = "uid://gs2nhgblduco"
 layer = 0
 
 [node name="InvetoryView" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -651.0
+offset_top = -642.0
 offset_right = 272.0
 grow_vertical = 0
-size_flags_horizontal = 0
 theme = ExtResource("5_c6leb")
 
 [node name="Button" type="Button" parent="CanvasLayer/InvetoryView" node_paths=PackedStringArray("invetory_system")]

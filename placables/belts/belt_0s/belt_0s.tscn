@@ -7,13 +7,13 @@
 [ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_r1dcr"]
 [ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="4_gsk3q"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_c8rvs"]
-[ext_resource type="LabelSettings" uid="uid://cooekwba5yhia" path="res://debug/belt_paths/id_label_setting.tres" id="6_yev84"]
-[ext_resource type="Script" uid="uid://dm5o5qfr4t6ka" path="res://debug/belt_paths/bp_label.gd" id="7_st278"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="8_1n57p"]
 [ext_resource type="Script" uid="uid://c457kn3n5l2wd" path="res://components/go_components/belt_component.gd" id="8_3p8j0"]
 [ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belts/belt_0c/belt_0l/slot_item_sprite.gd" id="8_600ir"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="10_7s2np"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="11_f2teu"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="11_ry5cj"]
+[ext_resource type="PackedScene" uid="uid://dkmht40h2hvph" path="res://placables/belts/belt_0s/belt_0s_ui.tscn" id="12_ry5cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_83ttg"]
 size = Vector2(15.9, 15.9)
@@ -51,36 +51,36 @@ script = ExtResource("2_s3413")
 settings = ExtResource("5_c8rvs")
 root = NodePath("..")
 
-[node name="BeltPathID" type="Label" parent="." node_paths=PackedStringArray("belt_comp")]
-z_index = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-label_settings = ExtResource("6_yev84")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("7_st278")
-belt_comp = NodePath("../Components/BeltComponent")
-
 [node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 visible = false
 scale = Vector2(0.5, 0.5)
 script = ExtResource("8_600ir")
 slot_component = NodePath("../Components/SlotComponent")
 
+[node name="OpenUI" type="Button" parent="."]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.75
+offset_top = -7.75
+offset_right = 23.25
+offset_bottom = 23.25
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+flat = true
+script = ExtResource("11_ry5cj")
+packed_ui = ExtResource("12_ry5cj")
+
 [node name="Components" type="Node2D" parent="."]
 
 [node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("8_1n57p")
+ui_link_id = "slot1"
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
@@ -98,3 +98,5 @@ display_port = false
 script = ExtResource("8_3p8j0")
 input = NodePath("../InputComponent")
 output = NodePath("../OutputComponent")
+
+[connection signal="pressed" from="OpenUI" to="OpenUI" method="_on_pressed"]

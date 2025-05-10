@@ -11,7 +11,7 @@ var occuppied_cells: Array[Vector2i]
 @export var self_packed_uid: String
 @export var code_name: String
 @export var init_after_place: Array[RotatableSprite2D] = []
-@export var ui_button: Button
+#@export var ui_button: Button
 
 @export_tool_button("View Right", "ArrowRight")
 var view_right = func():
@@ -138,8 +138,11 @@ static func deserialize(go_data: Dictionary) -> GridObject:
 	
 	Globals.get_GRS().asign_GO_cells_to_GRS(instance)
 	
-	if instance.ui_button:
-		instance.ui_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	#if instance.ui_button:
+		#instance.ui_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	for i_child in instance.get_children():
+		if i_child is Control:
+			(i_child as Control).mouse_filter = Control.MOUSE_FILTER_STOP
 	
 	var i = 0
 	for comp in instance.get_components():

@@ -2,6 +2,8 @@ extends Panel
 
 @export var level_saver: LevelSaverLoader
 @export var placeable_selection_ui: Node
+@export var building_ui: Node
+@export var main_menu: PackedScene
 var is_menu_open: bool = false:
 	set(new_val):
 		is_menu_open = new_val
@@ -24,7 +26,8 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_pressed("toggle_esc_menu"):
 			if is_menu_open == false:
 				if placeable_selection_ui.visible == false:
-					is_menu_open = true
+					if building_ui.get_child_count() == 0:
+						is_menu_open = true
 			else: 
 				is_menu_open = false
 		
@@ -33,6 +36,8 @@ func _input(event: InputEvent) -> void:
 func _on_resume_pressed() -> void:
 	is_menu_open = false
 
-
-func _on_save_and_exit_pressed() -> void:
+func _on_save_pressed() -> void:
 	level_saver.save_level()
+
+func _on_exit_pressed() -> void:
+	get_tree().change_scene_to_packed(main_menu)

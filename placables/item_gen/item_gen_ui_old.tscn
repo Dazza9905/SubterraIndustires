@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://bn2f3hjxbnue2"]
+
+[ext_resource type="Script" uid="uid://dbca4ixhidxdn" path="res://components/ui_components/grid_object_ui.gd" id="1_4vjjt"]
+[ext_resource type="PackedScene" uid="uid://b3kvbp2288ir7" path="res://hud/ui_backgound_rectangle.tscn" id="2_j428x"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="4_fi7u8"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="5_gt8wl"]
+[ext_resource type="LabelSettings" uid="uid://t644xndeaww8" path="res://hud/building_title_settings.tres" id="5_os6kq"]
+[ext_resource type="PackedScene" uid="uid://ddc1s1blcy5py" path="res://components/ui_components/spawner/spawner_comp_ui.tscn" id="5_pk44j"]
+[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots/flush_slots_ui.tscn" id="7_7kef6"]
+
+[node name="ItemGeneratorUI" type="Control" node_paths=PackedStringArray("ui_components", "close_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vjjt")
+ui_components = [NodePath("NinePatchRect/SlotOut"), NodePath("NinePatchRect/SpawnerCompUI"), NodePath("NinePatchRect/FlushButton")]
+close_button = NodePath("NinePatchRect/CloseButton")
+
+[node name="NinePatchRect2" parent="." instance=ExtResource("2_j428x")]
+layout_mode = 0
+offset_left = 12.0
+offset_top = -52.0
+offset_right = 265.0
+offset_bottom = 20.0
+
+[node name="NinePatchRect" parent="." instance=ExtResource("2_j428x")]
+layout_mode = 0
+offset_right = 569.0
+offset_bottom = 152.0
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = -34.0
+offset_right = 241.0
+offset_bottom = 1.0
+theme = ExtResource("5_gt8wl")
+text = "Item Spawner"
+label_settings = ExtResource("5_os6kq")
+
+[node name="CloseButton" type="Button" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = -52.0
+offset_bottom = -4.0
+grow_horizontal = 0
+theme = ExtResource("5_gt8wl")
+text = "X"
+
+[node name="FlushButton" parent="NinePatchRect" instance=ExtResource("7_7kef6")]
+layout_mode = 1
+offset_left = -254.0
+offset_right = -52.0
+ui_link_ids = Array[String](["slot_out"])
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 37.0
+offset_right = 233.0
+offset_bottom = 60.0
+theme = ExtResource("5_gt8wl")
+text = "Item to spawn:"
+
+[node name="SlotOut" parent="NinePatchRect" instance=ExtResource("4_fi7u8")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 42.0
+offset_right = 104.0
+offset_bottom = 106.0
+ui_link_id = "slot_out"
+
+[node name="SpawnerCompUI" parent="NinePatchRect" instance=ExtResource("5_pk44j")]
+layout_mode = 1
+offset_left = 126.0
+offset_top = 64.0
+offset_right = -45.0
+offset_bottom = -32.0
+ui_link_id = "generator"

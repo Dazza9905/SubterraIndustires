@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xogw8"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="6_pdaj7"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="7_8x721"]
-[ext_resource type="PackedScene" uid="uid://bn2f3hjxbnue2" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
+[ext_resource type="PackedScene" uid="uid://c3bb0sh1vqnpt" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
 [ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belts/belt_0c/belt_0l/slot_item_sprite.gd" id="7_ga6pg"]
 [ext_resource type="Script" uid="uid://bot7fp7d3t6im" path="res://components/go_components/spawner_comp.gd" id="9_niei1"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="10_i6dki"]

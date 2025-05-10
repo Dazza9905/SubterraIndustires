@@ -7,6 +7,9 @@ signal item_changed
 @export var item: Item:
 	set(new_item):
 		item = new_item
+		slot._amount = 0
+		slot.item = item
+		slot._amount = 1
 		item_changed.emit()
 
 func connect_to_tick() -> void:

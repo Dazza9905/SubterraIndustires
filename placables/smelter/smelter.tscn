@@ -168,7 +168,6 @@ left_position = Vector2i(2, -1)
 up_position = Vector2i(18, -1)
 
 [node name="OpenUI" type="Button" parent="."]
-visible = false
 z_index = 5
 anchors_preset = 8
 anchor_left = 0.5

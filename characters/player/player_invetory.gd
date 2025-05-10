@@ -5,6 +5,7 @@ class_name PlayerInventory
 @export var ui_componets: Array[ComponentUI]
 var components: Array[Component]
 @export var trash_comp: CreativeTrashComp
+@export var anim_player: AnimationPlayer
 
 var is_open: bool = false:
 	set(new_state):
@@ -23,14 +24,18 @@ func _ready() -> void:
 	for ui_comp in ui_componets:
 		ui_comp.link_to_component(components)
 	trash_comp.connect_to_tick()
+	ui_view_parent.visible = false
+
 
 func _open_inventory() -> void:
-	ui_view_parent.visible = true
+	anim_player.play("open_inv")
+	#ui_view_parent.visible = true
 	ui_view_parent.mouse_filter = Control.MOUSE_FILTER_STOP
 	is_open = true
 	
 func _close_inventory() -> void:
-	ui_view_parent.visible = false
+	anim_player.play_backwards("open_inv")
+	#ui_view_parent.visible = false
 	ui_view_parent.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	is_open = false
 	

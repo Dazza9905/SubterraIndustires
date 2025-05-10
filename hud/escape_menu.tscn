@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://krdjq300stsl"]
+[gd_scene load_steps=4 format=3 uid="uid://krdjq300stsl"]
 
 [ext_resource type="Script" uid="uid://cwrgjbjruogxa" path="res://hud/escape_menu.gd" id="1_nxwxw"]
+[ext_resource type="PackedScene" uid="uid://cwl1ideqa038k" path="res://hud/main_menu.tscn" id="2_k53ey"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_tabec"]
 
 [node name="EscapeMenu" type="Panel"]
@@ -12,8 +13,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_nxwxw")
+main_menu = ExtResource("2_k53ey")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,10 +35,18 @@ layout_mode = 2
 theme = ExtResource("2_tabec")
 text = "Resume"
 
-[node name="SaveAndExit" type="Button" parent="VBoxContainer"]
+[node name="Save" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_tabec")
-text = "Save & Exit"
+text = "Save"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+text = "EXIT"
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="VBoxContainer/SaveAndExit" to="." method="_on_save_and_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

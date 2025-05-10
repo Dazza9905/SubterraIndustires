@@ -46,4 +46,7 @@ func update_progress(do_tween: bool = true):
 		progress_bar.value = 0
 
 func _on_control_item_selected(index: int) -> void:
-	crafter_component.recipe = Enums.recipes[index]
+	if index == 0:
+		crafter_component.recipe = null
+		return
+	crafter_component.recipe = Enums.recipes[index-1]

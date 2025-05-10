@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bqnstwubygps6"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://bqnstwubygps6"]
 
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_xiunv"]
 [ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_vk65x"]
@@ -74,17 +74,17 @@ texture = ExtResource("4_cv5i3")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
 texture_margin_right = 20.0
-texture_margin_bottom = 18.0
-region_rect = Rect2(0, 0, 44, 42)
+texture_margin_bottom = 19.0
+region_rect = Rect2(0, 0, 44, 39)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wv2up"]
 texture = SubResource("CompressedTexture2D_dcr4q")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-texture_margin_bottom = 12.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+texture_margin_left = 15.0
+texture_margin_top = 13.0
+texture_margin_right = 15.0
+texture_margin_bottom = 13.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 28, 28)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_cixhf"]
@@ -111,6 +111,55 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 28, 28)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vxfs"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unbh4"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 24.0
+texture_margin_top = 20.0
+texture_margin_right = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 44, 24)
+modulate_color = Color(1, 0.23, 0.23, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cv5i3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atsoy"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 24.0
+texture_margin_top = 20.0
+texture_margin_right = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 44, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jpcm"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 24.0
+texture_margin_top = 20.0
+texture_margin_right = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 44, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aq5jy"]
+texture = ExtResource("4_cv5i3")
+texture_margin_left = 24.0
+texture_margin_top = 20.0
+texture_margin_right = 24.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 44, 24)
+modulate_color = Color(0.77, 0.77, 0.77, 1)
+
 [resource]
 Button/colors/font_color = Color(0.117647, 0.160784, 0.215686, 1)
 Button/colors/font_disabled_color = Color(1, 0.682028, 0.682028, 1)
@@ -129,7 +178,7 @@ Button/constants/align_to_largest_stylebox = 0
 Button/constants/h_separation = 4
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
-Button/font_sizes/font_size = 20
+Button/font_sizes/font_size = 30
 Button/fonts/font = ExtResource("1_xiunv")
 Button/styles/disabled = SubResource("StyleBoxTexture_uqerr")
 Button/styles/disabled_mirrored = SubResource("StyleBoxTexture_1ndm4")
@@ -138,8 +187,11 @@ Button/styles/hover = SubResource("StyleBoxTexture_7y2co")
 Button/styles/hover_pressed = SubResource("StyleBoxTexture_5oxoo")
 Button/styles/normal = SubResource("StyleBoxTexture_7y2co")
 Button/styles/pressed = SubResource("StyleBoxTexture_esx4t")
-Label/font_sizes/font_size = 24
+Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_xiunv")
+LabelHeading/base_type = &"Label"
+LabelHeading/constants/outline_size = 5
+LabelHeading/font_sizes/font_size = 30
 MarginContainer/constants/margin_right = 0
 OptionButton/constants/arrow_margin = 20
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cv5i3")
@@ -157,3 +209,11 @@ ProgressBar/font_sizes/font_size = 20
 ProgressBar/fonts/font = ExtResource("1_xiunv")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_3mxck")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_b1sb3")
+TabContainer/constants/side_margin = 8
+TabContainer/font_sizes/font_size = 20
+TabContainer/styles/panel = SubResource("StyleBoxTexture_5vxfs")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_unbh4")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_cv5i3")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_atsoy")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_8jpcm")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_aq5jy")
