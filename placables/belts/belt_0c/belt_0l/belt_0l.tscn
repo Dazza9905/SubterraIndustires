@@ -30,7 +30,6 @@ demolishable = true
 size = Vector2(15.9, 15.9)
 
 [node name="belt_0l" type="StaticBody2D"]
-z_index = 1
 collision_layer = 527360
 collision_mask = 0
 script = ExtResource("1_1x4qi")
@@ -38,6 +37,7 @@ self_packed_uid = "uid://hjtirkn3xwes"
 code_name = "belt_0l"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = ExtResource("2_d3iye")
 animation = &"left"
 autoplay = "left"
@@ -64,6 +64,7 @@ debug_color = Color(3.36915e-07, 0.6343, 0.43063, 0.42)
 
 [node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 visible = false
+z_index = 2
 scale = Vector2(0.5, 0.5)
 script = ExtResource("9_aus6q")
 slot_component = NodePath("../Components/SlotComponent")

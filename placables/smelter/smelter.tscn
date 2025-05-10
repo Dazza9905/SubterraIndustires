@@ -59,14 +59,13 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea0l5"]
 atlas = ExtResource("12_c484a")
 
-[node name="smelter" type="StaticBody2D" node_paths=PackedStringArray("init_after_place", "ui_button")]
+[node name="smelter" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
 collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_u54kl")
 self_packed_uid = "uid://wx0imx3ix2ic"
 code_name = "smelter"
 init_after_place = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("CraftProgressIndicator"), NodePath("RecipeIcon")]
-ui_button = NodePath("OpenUI")
 metadata/_custom_type_script = "uid://kjjkl8o0k1up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -76,7 +75,7 @@ script = ExtResource("3_32pie")
 base_texture_atlas = ExtResource("2_j6551")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 3
 position = Vector2(8, 8)
 texture = SubResource("AtlasTexture_1hfed")
 offset = Vector2(0, -18)
@@ -158,6 +157,7 @@ settings = SubResource("Resource_iacxl")
 root = NodePath("..")
 
 [node name="CraftProgressIndicator" type="Sprite2D" parent="."]
+z_index = 3
 texture = SubResource("AtlasTexture_qy05v")
 offset = Vector2(18, 15)
 script = ExtResource("3_32pie")
@@ -187,7 +187,7 @@ packed_ui = ExtResource("8_g1kxj")
 metadata/_edit_lock_ = true
 
 [node name="RecipeIcon" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 3
 position = Vector2(8, 8)
 texture = SubResource("AtlasTexture_ea0l5")
 offset = Vector2(-8, 6)

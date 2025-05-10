@@ -54,7 +54,7 @@ func update_IO_port_view() -> void:
 	var shadow: Sprite2D = Sprite2D.new()
 	var highlight: Sprite2D = Sprite2D.new()
 	
-	highlight.z_index = 4
+	highlight.z_index = 2
 	
 	shadow.texture = AtlasTexture.new()
 	highlight.texture = AtlasTexture.new()

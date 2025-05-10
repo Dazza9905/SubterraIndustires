@@ -15,7 +15,7 @@ func link_to_component(components: Array[Component]) -> void:
 			crafter_component = comp
 			crafter_component.craft_progress_changed.connect(update_progress.unbind(1))
 			crafter_component.recipe_changed.connect(_on_recipe_changed)
-			option_button.selected = Enums.recipes.find(crafter_component.recipe)
+			option_button.selected = Enums.recipes.find(crafter_component.recipe) + 1
 			_on_recipe_changed()
 			update_progress(false)
 	if not is_linked:

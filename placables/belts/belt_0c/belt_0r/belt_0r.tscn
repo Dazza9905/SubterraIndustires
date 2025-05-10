@@ -19,7 +19,6 @@
 size = Vector2(15.9, 15.9)
 
 [node name="belt_0r" type="StaticBody2D"]
-z_index = 1
 collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_4bvu2")
@@ -27,6 +26,7 @@ self_packed_uid = "uid://bolshrsaj453m"
 code_name = "belt_0r"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
 sprite_frames = ExtResource("2_tkbx6")
 animation = &"right"
 autoplay = "right"
@@ -53,6 +53,7 @@ root = NodePath("..")
 
 [node name="ItemSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("slot_component")]
 visible = false
+z_index = 2
 scale = Vector2(0.5, 0.5)
 script = ExtResource("8_tndxl")
 slot_component = NodePath("../Components/SlotComponent")

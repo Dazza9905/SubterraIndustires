@@ -330,8 +330,7 @@ position = Vector2(680, 776)
 position = Vector2(728, 808)
 
 [node name="Player" parent="World/Game Level" instance=ExtResource("23_pxl76")]
-z_index = 2
-position = Vector2(521, 291)
+position = Vector2(585, 621)
 scale = Vector2(0.5, 0.5)
 
 [node name="Tree1Light11" parent="World/Game Level" instance=ExtResource("31_7kaj1")]
@@ -353,10 +352,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = 1000.0
-offset_right = 229.0
-offset_bottom = 1000.0
+offset_left = -20.0
+offset_top = 520.0
+offset_right = 438.0
+offset_bottom = 520.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
