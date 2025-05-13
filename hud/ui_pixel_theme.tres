@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://bqnstwubygps6"]
+[gd_resource type="Theme" load_steps=27 format=3 uid="uid://bqnstwubygps6"]
 
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_xiunv"]
 [ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_vk65x"]
@@ -59,6 +59,10 @@ texture_margin_bottom = 12.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 28, 28)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cstng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vxfs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv5i3"]
 texture = ExtResource("4_cv5i3")
@@ -187,6 +191,18 @@ Button/styles/hover = SubResource("StyleBoxTexture_7y2co")
 Button/styles/hover_pressed = SubResource("StyleBoxTexture_5oxoo")
 Button/styles/normal = SubResource("StyleBoxTexture_7y2co")
 Button/styles/pressed = SubResource("StyleBoxTexture_esx4t")
+InvisButton/base_type = &"Button"
+InvisButton/styles/disabled = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vxfs")
+InvisButton/styles/focus = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/hover = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/hover_mirrored = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/hover_pressed = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/normal = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/normal_mirrored = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/pressed = SubResource("StyleBoxEmpty_cstng")
+InvisButton/styles/pressed_mirrored = SubResource("StyleBoxEmpty_cstng")
 Label/font_sizes/font_size = 20
 Label/fonts/font = ExtResource("1_xiunv")
 LabelHeading/base_type = &"Label"

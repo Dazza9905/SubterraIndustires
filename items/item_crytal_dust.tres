@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bh16cvd8mry8h"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_d7v78"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_cma0i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eexmx"]
+atlas = ExtResource("2_cma0i")
+region = Rect2(96, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_d7v78")
+type = 40
+name = "Crystal Dust"
+texture = SubResource("AtlasTexture_eexmx")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

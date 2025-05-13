@@ -10,24 +10,29 @@ var occuppied_cells: Array[Vector2i]
 
 @export var self_packed_uid: String
 @export var code_name: String
-@export var init_after_place: Array[RotatableSprite2D] = []
+@export var init_after_place: Array[Node2D] = []
 #@export var ui_button: Button
+var wannabe_rotation_degrees: float
 
 @export_tool_button("View Right", "ArrowRight")
 var view_right = func():
 	rotation_degrees = 0
+	wannabe_rotation_degrees = 0
 	update_sprites()
 @export_tool_button("View Bottom", "ArrowDown")
 var view_down = func():
 	rotation_degrees = 90
+	wannabe_rotation_degrees = 90
 	update_sprites()
 @export_tool_button("View Left", "ArrowLeft")
 var view_left = func():
 	rotation_degrees = 180
+	wannabe_rotation_degrees = 180
 	update_sprites()
 @export_tool_button("View Up", "ArrowUp")
 var view_up = func():
 	rotation_degrees = -90
+	wannabe_rotation_degrees = -90
 	update_sprites()
 	
 	
@@ -77,13 +82,16 @@ func _ready() -> void:
 	
 func update_sprites() -> void:
 	for node in init_after_place:
-		#if node is RotatableSprite2D:
-		node.GO_init()
+		if node is RotatableSprite2D:
+			(node as RotatableSprite2D).GO_init()
+		if node is AnimatedRotatableSprite2D:
+			(node as AnimatedRotatableSprite2D).GO_init()
 	for comp in get_components():
 		if comp is IOComponent:
 			(comp as IOComponent).update_IO_port_view()
 	
 func GO_initialize() -> void:
+	wannabe_rotation_degrees = rotation_degrees
 	self.add_to_group("savable")
 	var epc := self.find_child("ExtraPlayerCollision")
 	if epc is StaticBody2D:

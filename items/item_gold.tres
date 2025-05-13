@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cjpgqm8eu2ccw"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_b7jqg"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_n6obk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dtx2"]
+atlas = ExtResource("2_n6obk")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_b7jqg")
+type = 4
+name = "Gold"
+texture = SubResource("AtlasTexture_4dtx2")

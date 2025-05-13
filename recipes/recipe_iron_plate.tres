@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://bp33vtphyfj61"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://bp33vtphyfj61"]
 
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_e1ynb"]
 [ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_sejxn"]
 [ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_1173i"]
-[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="2_uin32"]
-[ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/copper_ingot/item_copper_ingot.tres" id="3_e1ynb"]
+[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/item_iron_ingot.tres" id="2_uin32"]
+[ext_resource type="Resource" uid="uid://cly4r0rut4kks" path="res://items/item_iron_plate.tres" id="4_e1ynb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t38t3"]
+atlas = ExtResource("1_e1ynb")
+region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="Resource" id="Resource_t38t3"]
 script = ExtResource("1_sejxn")
@@ -13,15 +18,16 @@ metadata/_custom_type_script = "uid://bfehi825e0pux"
 
 [sub_resource type="Resource" id="Resource_68jxs"]
 script = ExtResource("1_sejxn")
-item = ExtResource("3_e1ynb")
+item = ExtResource("4_e1ynb")
 amount = 2
 metadata/_custom_type_script = "uid://bfehi825e0pux"
 
 [resource]
 script = ExtResource("2_1173i")
 name = "Iron Plate (2x)"
-valid_machines = Array[String](["smelter"])
+icon = SubResource("AtlasTexture_t38t3")
+valid_machines = Array[String](["assembler"])
 input_ingredients = Array[ExtResource("1_sejxn")]([SubResource("Resource_t38t3")])
 output_products = Array[ExtResource("1_sejxn")]([SubResource("Resource_68jxs")])
-ticks_to_craft = 0
+ticks_to_craft = 6
 metadata/_custom_type_script = "uid://ipyjq45ixx6s"

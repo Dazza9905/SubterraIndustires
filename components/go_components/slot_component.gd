@@ -105,7 +105,7 @@ func is_empty() -> bool:
 	return _amount == 0 or item == null
 
 func connect_to_tick() -> void:
-	pass
+	slot_contents_changed.emit()
 
 func serialize() -> Dictionary:
 	var save_dict: Dictionary = {

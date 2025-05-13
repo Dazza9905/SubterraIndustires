@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://b01s486j0xbmc"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_1ngsy"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_o1wwb"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_0gikh"]
+[ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/item_coal.tres" id="3_7rp0r"]
+[ext_resource type="Resource" uid="uid://3pc7812iixf7" path="res://items/item_carbon.tres" id="5_m88a2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ofrj"]
+atlas = ExtResource("1_1ngsy")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_3enfh"]
+script = ExtResource("1_o1wwb")
+item = ExtResource("3_7rp0r")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_gddss"]
+script = ExtResource("1_o1wwb")
+item = ExtResource("5_m88a2")
+amount = 2
+
+[resource]
+script = ExtResource("2_0gikh")
+name = "Carbon (2x)"
+icon = SubResource("AtlasTexture_6ofrj")
+valid_machines = Array[String](["crafter"])
+input_ingredients = Array[ExtResource("1_o1wwb")]([SubResource("Resource_3enfh")])
+output_products = Array[ExtResource("1_o1wwb")]([SubResource("Resource_gddss")])
+ticks_to_craft = 6

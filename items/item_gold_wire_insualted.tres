@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bh540db0wk7yt"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_gvcy6"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_qhlco"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab8fu"]
+atlas = ExtResource("2_qhlco")
+region = Rect2(48, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_gvcy6")
+type = 25
+name = "Gold Insualted Wire"
+texture = SubResource("AtlasTexture_ab8fu")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

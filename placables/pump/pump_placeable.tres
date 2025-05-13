@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=11 format=3 uid="uid://c0e07imnasj6g"]
+
+[ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="1_6aw43"]
+[ext_resource type="Texture2D" uid="uid://dikf8bahn16mb" path="res://placables/_general/pump_sprite-sheet.png" id="1_a8012"]
+[ext_resource type="PackedScene" uid="uid://1ku3wq6et1pk" path="res://placables/pump/pump.tscn" id="2_i6cni"]
+[ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="2_xjhg6"]
+[ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="3_a8012"]
+[ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="4_8l66i"]
+[ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="5_3k3jk"]
+[ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="8_c7x4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrwv4"]
+atlas = ExtResource("1_a8012")
+region = Rect2(38, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1y7ih"]
+script = ExtResource("5_3k3jk")
+these_layers = 256
+metadata/_custom_type_script = "uid://cy11kg2kimykw"
+
+[resource]
+script = ExtResource("2_xjhg6")
+display_name = &"Pump"
+icon = SubResource("AtlasTexture_xrwv4")
+packed_scene = ExtResource("2_i6cni")
+tags = Array[ExtResource("3_a8012")]([ExtResource("8_c7x4v")])
+placement_rules = Array[ExtResource("1_6aw43")]([ExtResource("4_8l66i"), SubResource("Resource_1y7ih")])
+ignore_base_rules = false
+metadata/_custom_type_script = "uid://b01uvfnfuldd6"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ce5kafijqvpxh"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_2n4eq"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_5cwxi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfc0y"]
+atlas = ExtResource("2_5cwxi")
+region = Rect2(144, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_2n4eq")
+type = 17
+name = "Dirty Goo"
+texture = SubResource("AtlasTexture_gfc0y")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

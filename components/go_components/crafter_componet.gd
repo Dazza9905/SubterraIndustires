@@ -12,15 +12,16 @@ signal craft_progress_changed(progress: float)
 	set(new_recipe):
 		recipe = new_recipe
 		recipe_changed.emit()
-		if(recipe != null):
-			if(recipe.icon != null):
-				recipe_icon.texture = recipe.icon
-				recipe_icon.visible = true
+		if recipe_icon != null:
+			if(recipe != null):
+				if(recipe.icon != null):
+					recipe_icon.texture = recipe.icon
+					recipe_icon.visible = true
+				else:
+					recipe_icon.visible = false
+				craft_progress = 0
 			else:
 				recipe_icon.visible = false
-			craft_progress = 0
-		else:
-			recipe_icon.visible = false
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]
 @export var speed_multiplier: float

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bk2y708itnjap"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_qe3ck"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_eut0h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v61if"]
+atlas = ExtResource("2_eut0h")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_qe3ck")
+type = 3
+name = "Coal Ore"
+texture = SubResource("AtlasTexture_v61if")

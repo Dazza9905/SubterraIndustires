@@ -54,8 +54,8 @@
 [ext_resource type="Resource" uid="uid://cc8tq7jdh5dxg" path="res://placables/item_trash/item_trash_placable.tres" id="58_0svx2"]
 [ext_resource type="Resource" uid="uid://twhge4smthhp" path="res://placables/miner/miner_placable.tres" id="59_105cj"]
 [ext_resource type="Resource" path="res://placables/objective_tester/objective_tester_placable.tres" id="60_at311"]
-[ext_resource type="Resource" uid="uid://coick28xvywj2" path="res://placables/elevator/elevator_placable.tres" id="61_kupu7"]
-[ext_resource type="Resource" uid="uid://dutfe2xir6e54" path="res://placables/decoration/tree_light_1/tree_1_light_placable.tres" id="62_56pnq"]
+[ext_resource type="Resource" uid="uid://coick28xvywj2" path="res://placables/core_drill/core_drill_placable.tres" id="61_kupu7"]
+[ext_resource type="Resource" uid="uid://dutfe2xir6e54" path="res://placables/_decoration/tree_light_1/tree_1_light_placable.tres" id="62_56pnq"]
 [ext_resource type="Script" uid="uid://ga06alre7c56" path="res://debug/fps.gd" id="63_uwce8"]
 
 [sub_resource type="Resource" id="Resource_ogy2c"]

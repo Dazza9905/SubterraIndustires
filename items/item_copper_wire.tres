@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://yruxtqnv671s"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_kiqt1"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_xx7th"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw7s3"]
+atlas = ExtResource("2_xx7th")
+region = Rect2(32, 80, 16, 16)
+
+[resource]
+script = ExtResource("1_kiqt1")
+type = 22
+name = "Copper Wire"
+texture = SubResource("AtlasTexture_cw7s3")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://ckjr0ctgs1iaw"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_jkc1a"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_sy2pk"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_sy2pk"]
+[ext_resource type="Resource" uid="uid://csxqli224jx02" path="res://items/item_thungsten_ingot.tres" id="3_7iv4a"]
+[ext_resource type="Resource" uid="uid://bg3i0vrxwro5o" path="res://items/item_thungsten_plate.tres" id="4_vkhv4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db3dq"]
+atlas = ExtResource("1_sy2pk")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="Resource" id="Resource_24p0y"]
+script = ExtResource("1_jkc1a")
+item = ExtResource("3_7iv4a")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_nl2xj"]
+script = ExtResource("1_jkc1a")
+item = ExtResource("4_vkhv4")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_sy2pk")
+name = "Thungsten Plate (2x)"
+icon = SubResource("AtlasTexture_db3dq")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_jkc1a")]([SubResource("Resource_24p0y")])
+output_products = Array[ExtResource("1_jkc1a")]([SubResource("Resource_nl2xj")])
+ticks_to_craft = 6
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

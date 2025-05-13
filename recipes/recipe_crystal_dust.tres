@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://3hq1ay1yssf1"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_7i2h5"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_rf2n0"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_rf2n0"]
+[ext_resource type="Resource" uid="uid://cxj85lgcx3q6k" path="res://items/item_crystal.tres" id="3_8hye6"]
+[ext_resource type="Resource" uid="uid://bh16cvd8mry8h" path="res://items/item_crytal_dust.tres" id="4_20dsm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iskd3"]
+atlas = ExtResource("1_rf2n0")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_5rdcs"]
+script = ExtResource("1_7i2h5")
+item = ExtResource("3_8hye6")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_ummo2"]
+script = ExtResource("1_7i2h5")
+item = ExtResource("4_20dsm")
+amount = 4
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_rf2n0")
+name = "Crystal Dust (4x)"
+icon = SubResource("AtlasTexture_iskd3")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_7i2h5")]([SubResource("Resource_5rdcs")])
+output_products = Array[ExtResource("1_7i2h5")]([SubResource("Resource_ummo2")])
+ticks_to_craft = 12
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

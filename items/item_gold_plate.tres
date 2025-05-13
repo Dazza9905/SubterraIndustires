@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dvesxvyt062s2"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_jjowe"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_bnblv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xblp4"]
+atlas = ExtResource("2_bnblv")
+region = Rect2(48, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_jjowe")
+type = 31
+name = "Gold Plate"
+texture = SubResource("AtlasTexture_xblp4")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

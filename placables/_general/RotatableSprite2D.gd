@@ -96,8 +96,9 @@ func update_diff() -> void:
 		texture = AtlasTexture.new()
 		
 	(texture as AtlasTexture).atlas = base_texture_atlas
-	var rot_idx: int = (((360 + int(grid_object.rotation_degrees)) % 360) / 90) % 4
+	var rot_idx: int = (((360 + int(grid_object.wannabe_rotation_degrees)) % 360) / 90) % 4
 	texture = base_regions[rot_idx]
+	rotation = -deg_to_rad(grid_object.wannabe_rotation_degrees)
 
 
 func update_symetric() -> void:
@@ -105,10 +106,10 @@ func update_symetric() -> void:
 		texture = AtlasTexture.new()
 	(texture as AtlasTexture).atlas = base_texture_atlas
 	#(texture as AtlasTexture).region = Rect2i()
-	rotation = -grid_object.rotation
+	rotation = -deg_to_rad(grid_object.wannabe_rotation_degrees)
 
 func update_offset() -> void:
-	match (((360 + int(grid_object.rotation_degrees)) % 360) / 90) % 4:
+	match (((360 + int(grid_object.wannabe_rotation_degrees)) % 360) / 90) % 4:
 		0:
 			offset = right_position
 		1:

@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://bvxtft7n5b17e"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_3e8eg"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="2_ukin1"]
+[ext_resource type="Resource" uid="uid://bh16cvd8mry8h" path="res://items/item_crytal_dust.tres" id="3_d2k2l"]
+[ext_resource type="Resource" uid="uid://d02qjauj43boo" path="res://items/item_water.tres" id="4_l07ob"]
+[ext_resource type="Resource" uid="uid://or6r01khdpqh" path="res://items/item_rocket_fuel.tres" id="5_v6w0p"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="6_hcfos"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21w51"]
+atlas = ExtResource("1_3e8eg")
+region = Rect2(128, 112, 16, 16)
+
+[sub_resource type="Resource" id="Resource_g3lns"]
+script = ExtResource("2_ukin1")
+item = ExtResource("3_d2k2l")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_5qp6q"]
+script = ExtResource("2_ukin1")
+item = ExtResource("4_l07ob")
+amount = 25
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_2kiq7"]
+script = ExtResource("2_ukin1")
+item = ExtResource("5_v6w0p")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("6_hcfos")
+name = "Rocket Fuel"
+icon = SubResource("AtlasTexture_21w51")
+valid_machines = Array[String](["rafinery"])
+input_ingredients = Array[ExtResource("2_ukin1")]([SubResource("Resource_g3lns"), SubResource("Resource_5qp6q")])
+output_products = Array[ExtResource("2_ukin1")]([SubResource("Resource_2kiq7")])
+ticks_to_craft = 18
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

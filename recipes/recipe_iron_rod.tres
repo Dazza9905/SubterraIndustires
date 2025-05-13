@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://bctrwms0pjv1i"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_2pc07"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_ylixr"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_ylixr"]
+[ext_resource type="Resource" uid="uid://cly4r0rut4kks" path="res://items/item_iron_plate.tres" id="3_hvg6r"]
+[ext_resource type="Resource" uid="uid://b176i2hcc2rsc" path="res://items/item_iron_rod.tres" id="3_pw08s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw08s"]
+atlas = ExtResource("1_ylixr")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_hvg6r"]
+script = ExtResource("1_2pc07")
+item = ExtResource("3_hvg6r")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_t3qje"]
+script = ExtResource("1_2pc07")
+item = ExtResource("3_pw08s")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_ylixr")
+name = "Iron Rod (2x)"
+icon = SubResource("AtlasTexture_pw08s")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_2pc07")]([SubResource("Resource_hvg6r")])
+output_products = Array[ExtResource("1_2pc07")]([SubResource("Resource_t3qje")])
+ticks_to_craft = 6
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

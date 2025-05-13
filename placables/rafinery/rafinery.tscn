@@ -1,0 +1,227 @@
+[gd_scene load_steps=29 format=3 uid="uid://dju1ipum87qex"]
+
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_hacwv"]
+[ext_resource type="Texture2D" uid="uid://br03i0s3svkr2" path="res://placables/rafinery/rafinery_base.png" id="2_ujwmu"]
+[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="3_3ws4l"]
+[ext_resource type="Texture2D" uid="uid://dikf8bahn16mb" path="res://placables/_general/pump_sprite-sheet.png" id="4_dk323"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="5_p6nbu"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="6_26d7j"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="7_3ws4l"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="7_26d7j"]
+[ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="7_ht0ci"]
+[ext_resource type="Script" uid="uid://cp5x0nve6cj2j" path="res://components/go_components/miner_component.gd" id="7_rs6lo"]
+[ext_resource type="Script" uid="uid://dgp5ewhq1eq33" path="res://components/go_components/crafter_componet.gd" id="8_ht0ci"]
+[ext_resource type="PackedScene" uid="uid://bbv8hhaip0tve" path="res://placables/rafinery/rafinery_ui.tscn" id="9_ca4ka"]
+[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="9_kmq6i"]
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="9_p6nbu"]
+[ext_resource type="Resource" uid="uid://d02qjauj43boo" path="res://items/item_water.tres" id="10_26d7j"]
+[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="10_ca4ka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk323"]
+atlas = ExtResource("2_ujwmu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0bqh"]
+atlas = ExtResource("4_dk323")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjogs"]
+atlas = ExtResource("4_dk323")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vneao"]
+atlas = ExtResource("4_dk323")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4vbd"]
+atlas = ExtResource("4_dk323")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hacwv"]
+size = Vector2(47.95, 47.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26d7j"]
+size = Vector2(38, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht0ci"]
+size = Vector2(8, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca4ka"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmq6i"]
+size = Vector2(7, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rs6lo"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0bqh"]
+size = Vector2(30, 30)
+
+[node name="Rafinery" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
+collision_layer = 3072
+collision_mask = 0
+script = ExtResource("1_hacwv")
+self_packed_uid = "uid://dju1ipum87qex"
+code_name = "rafinery"
+init_after_place = [NodePath("RotatableSprite2D"), NodePath("RotatableSprite2D2")]
+metadata/_custom_type_script = "uid://kjjkl8o0k1up"
+
+[node name="RotatableSprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = SubResource("AtlasTexture_dk323")
+script = ExtResource("3_3ws4l")
+base_texture_atlas = ExtResource("2_ujwmu")
+metadata/_custom_type_script = "uid://svlocokxdnvo"
+
+[node name="RotatableSprite2D2" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_l0bqh")
+offset = Vector2(40, 0)
+script = ExtResource("3_3ws4l")
+is_symetric = false
+base_texture_atlas = ExtResource("4_dk323")
+base_regions = Array[AtlasTexture]([SubResource("AtlasTexture_l0bqh"), SubResource("AtlasTexture_qjogs"), SubResource("AtlasTexture_vneao"), SubResource("AtlasTexture_s4vbd")])
+right_position = Vector2i(40, 0)
+down_position = Vector2i(0, 40)
+left_position = Vector2i(-40, 0)
+up_position = Vector2i(0, -40)
+metadata/_custom_type_script = "uid://svlocokxdnvo"
+
+[node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 512
+collision_mask = 0
+
+[node name="Bloacked" type="CollisionShape2D" parent="ExtraPlayerCollision"]
+self_modulate = Color(1, 0, 1, 1)
+position = Vector2(8.025, 8)
+shape = SubResource("RectangleShape2D_hacwv")
+debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
+
+[node name="Blocked" type="Area2D" parent="."]
+visible = false
+collision_layer = 4352
+collision_mask = 61440
+script = ExtResource("5_p6nbu")
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(12, 8)
+shape = SubResource("RectangleShape2D_26d7j")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(-11, -12)
+shape = SubResource("RectangleShape2D_ht0ci")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(-11, 28)
+shape = SubResource("RectangleShape2D_ht0ci")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="BlockedWaterAllow" type="Area2D" parent="."]
+collision_layer = 4352
+collision_mask = 28672
+script = ExtResource("5_p6nbu")
+collision_type = 3
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BlockedWaterAllow"]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_ca4ka")
+debug_color = Color(0.492, 0.478, 1, 0.392)
+
+[node name="BlockedBeltAllow" type="Area2D" parent="."]
+visible = false
+collision_layer = 8448
+collision_mask = 45056
+script = ExtResource("5_p6nbu")
+collision_type = 1
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockedBeltAllow"]
+z_index = 4
+position = Vector2(-11.5, 8)
+shape = SubResource("RectangleShape2D_kmq6i")
+debug_color = Color(1, 0.427, 0, 0.392)
+
+[node name="Miner" type="Area2D" parent="."]
+visible = false
+collision_layer = 262144
+collision_mask = 262144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Miner"]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_rs6lo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_l0bqh")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("6_26d7j")
+settings = ExtResource("7_ht0ci")
+root = NodePath("..")
+metadata/_custom_type_script = "uid://bib4d58jc2hi1"
+
+[node name="OpenUIButton" type="Button" parent="."]
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 26.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_type_variation = &"InvisButton"
+script = ExtResource("7_26d7j")
+packed_ui = ExtResource("9_ca4ka")
+metadata/_custom_type_script = "uid://dcpogcc84lab7"
+metadata/_edit_lock_ = true
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="dirty" type="Node2D" parent="Components"]
+script = ExtResource("7_3ws4l")
+capacity = 25
+ui_link_id = "dirty_slot"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="water" type="Node2D" parent="Components"]
+script = ExtResource("7_3ws4l")
+capacity = 5
+ui_link_id = "water_slot"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="goo" type="Node2D" parent="Components"]
+script = ExtResource("7_3ws4l")
+capacity = 25
+ui_link_id = "goo_slot"
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="MinerComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot", "area")]
+script = ExtResource("7_rs6lo")
+slot = NodePath("../water")
+area = NodePath("../../Miner")
+limit = true
+allow_to_mine = Array[ExtResource("9_p6nbu")]([ExtResource("10_26d7j")])
+metadata/_custom_type_script = "uid://cp5x0nve6cj2j"
+
+[node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
+script = ExtResource("8_ht0ci")
+inputs = [NodePath("../dirty"), NodePath("../water")]
+outputs = [NodePath("../goo")]
+ui_link_id = "crafter_comp"
+metadata/_custom_type_script = "uid://dgp5ewhq1eq33"
+
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+position = Vector2(0, 16)
+rotation = 3.14159
+script = ExtResource("9_kmq6i")
+cell_offset = Vector2i(0, 1)
+slot = NodePath("../dirty")
+metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 3.14159
+script = ExtResource("10_ca4ka")
+slot = NodePath("../goo")
+metadata/_custom_type_script = "uid://dv6bwtrax2k8t"

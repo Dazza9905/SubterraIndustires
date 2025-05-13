@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=10 format=3 uid="uid://fqtqnsi5uowg"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_c28tj"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_goge8"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_goge8"]
+[ext_resource type="Resource" uid="uid://yruxtqnv671s" path="res://items/item_copper_wire.tres" id="3_13y88"]
+[ext_resource type="Resource" uid="uid://dyvmkn3tga2p" path="res://items/item_goo.tres" id="4_3sklo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq26n"]
+atlas = ExtResource("1_goge8")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_xr18g"]
+script = ExtResource("1_c28tj")
+item = ExtResource("3_13y88")
+amount = 6
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_f2gm5"]
+script = ExtResource("1_c28tj")
+item = ExtResource("4_3sklo")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_efrjv"]
+script = ExtResource("1_c28tj")
+amount = 6
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_goge8")
+name = "Copper Insualted Wire"
+icon = SubResource("AtlasTexture_cq26n")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_c28tj")]([SubResource("Resource_xr18g"), SubResource("Resource_f2gm5")])
+output_products = Array[ExtResource("1_c28tj")]([SubResource("Resource_efrjv")])
+ticks_to_craft = 12
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

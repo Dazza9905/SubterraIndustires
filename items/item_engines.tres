@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cf180qoinsgfx"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_vvty6"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_knh1a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t72x0"]
+atlas = ExtResource("2_knh1a")
+region = Rect2(128, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_vvty6")
+type = 38
+name = "Engines"
+texture = SubResource("AtlasTexture_t72x0")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

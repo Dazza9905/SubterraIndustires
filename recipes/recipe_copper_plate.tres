@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://dst25r8a363d7"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_syme3"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_tsbhu"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_syme3"]
+[ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/item_copper_ingot.tres" id="3_w5skj"]
+[ext_resource type="Resource" uid="uid://cfqhtxkorgm6v" path="res://items/item_copper_plate.tres" id="4_pdj87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t3uh"]
+atlas = ExtResource("1_syme3")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="Resource" id="Resource_cbumd"]
+script = ExtResource("1_tsbhu")
+item = ExtResource("3_w5skj")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_siq77"]
+script = ExtResource("1_tsbhu")
+item = ExtResource("4_pdj87")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_syme3")
+name = "Copper Plate (2x)"
+icon = SubResource("AtlasTexture_6t3uh")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_tsbhu")]([SubResource("Resource_cbumd")])
+output_products = Array[ExtResource("1_tsbhu")]([SubResource("Resource_siq77")])
+ticks_to_craft = 6
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

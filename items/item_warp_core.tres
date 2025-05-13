@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://gtfpsflids5k"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_cdg5s"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_kor54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmq3u"]
+atlas = ExtResource("2_kor54")
+region = Rect2(144, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_cdg5s")
+type = 37
+name = "Warp Core"
+texture = SubResource("AtlasTexture_gmq3u")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

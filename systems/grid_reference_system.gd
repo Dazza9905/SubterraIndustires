@@ -67,5 +67,5 @@ func asign_GO_cells_to_GRS(grid_object: GridObject):
 func print_dict():
 	for key in reference_hashmap.keys():
 		var value = reference_hashmap[key]
-		#print("Key: ", key, " - Value: ", value)
-	#print("-------------")
+		print("Key: ", key, " - Value: ", value)
+	print("-------------")

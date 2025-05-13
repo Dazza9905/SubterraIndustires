@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://0qc3lwuiucuq" path="res://custom_types/objective.gd" id="1_qd72q"]
 [ext_resource type="Script" uid="uid://cxwll5nkvvftm" path="res://custom_types/sub_objective.gd" id="2_14p5k"]
-[ext_resource type="Resource" uid="uid://3pc7812iixf7" path="res://items/carbon/item_carbon.tres" id="3_ajrld"]
-[ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/copper_ingot/item_copper_ingot.tres" id="3_hbpvf"]
+[ext_resource type="Resource" uid="uid://3pc7812iixf7" path="res://items/item_carbon.tres" id="3_ajrld"]
+[ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/item_copper_ingot.tres" id="3_hbpvf"]
 [ext_resource type="Script" uid="uid://dfnebnbmctf2q" path="res://custom_types/sub_objective_produce.gd" id="4_8vb82"]
 
 [sub_resource type="Resource" id="Resource_s4771"]

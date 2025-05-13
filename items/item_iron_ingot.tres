@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ba35edtbqwnv1"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_l18y3"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_40nn4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fi2t"]
+atlas = ExtResource("2_40nn4")
+region = Rect2(16, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_l18y3")
+type = 5
+name = "Iron Ingot"
+texture = SubResource("AtlasTexture_4fi2t")

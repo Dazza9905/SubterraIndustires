@@ -1,0 +1,180 @@
+[gd_scene load_steps=26 format=3 uid="uid://1ku3wq6et1pk"]
+
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_fa4ch"]
+[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="2_gryw6"]
+[ext_resource type="Texture2D" uid="uid://tthnk2k16w53" path="res://placables/pump/pump_base.png" id="3_xinsd"]
+[ext_resource type="Texture2D" uid="uid://dikf8bahn16mb" path="res://placables/_general/pump_sprite-sheet.png" id="4_3v3sh"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="4_fn6fh"]
+[ext_resource type="Script" uid="uid://cp5x0nve6cj2j" path="res://components/go_components/miner_component.gd" id="5_p7yq2"]
+[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="6_3v3sh"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="6_6t1sx"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="7_p7yq2"]
+[ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="7_ynyim"]
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="8_aldiq"]
+[ext_resource type="Resource" uid="uid://ce5kafijqvpxh" path="res://items/item_dirty_goo.tres" id="9_naxtb"]
+[ext_resource type="Resource" uid="uid://d02qjauj43boo" path="res://items/item_water.tres" id="10_naxtb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t1sx"]
+atlas = ExtResource("3_xinsd")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v3sh"]
+atlas = ExtResource("4_3v3sh")
+region = Rect2(32, 16, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv74q"]
+atlas = ExtResource("4_3v3sh")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aldiq"]
+atlas = ExtResource("4_3v3sh")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naxtb"]
+atlas = ExtResource("4_3v3sh")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naxtb"]
+size = Vector2(31.95, 31.95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7yq2"]
+size = Vector2(6, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v3sh"]
+size = Vector2(23, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aldiq"]
+size = Vector2(7, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynyim"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn6fh"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv74q"]
+size = Vector2(16, 16)
+
+[node name="Pump" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
+collision_layer = 3072
+collision_mask = 0
+script = ExtResource("1_fa4ch")
+self_packed_uid = "uid://1ku3wq6et1pk"
+code_name = "pump"
+init_after_place = [NodePath("RotatableSprite2D"), NodePath("RotatableSprite2D2")]
+metadata/_custom_type_script = "uid://kjjkl8o0k1up"
+
+[node name="RotatableSprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6t1sx")
+script = ExtResource("2_gryw6")
+base_texture_atlas = ExtResource("3_xinsd")
+metadata/_custom_type_script = "uid://svlocokxdnvo"
+
+[node name="RotatableSprite2D2" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_3v3sh")
+offset = Vector2(-24, 0)
+script = ExtResource("2_gryw6")
+is_symetric = false
+base_texture_atlas = ExtResource("4_3v3sh")
+base_regions = Array[AtlasTexture]([SubResource("AtlasTexture_3v3sh"), SubResource("AtlasTexture_iv74q"), SubResource("AtlasTexture_aldiq"), SubResource("AtlasTexture_naxtb")])
+right_position = Vector2i(-24, 0)
+down_position = Vector2i(0, -24)
+left_position = Vector2i(24, 0)
+up_position = Vector2i(0, 24)
+metadata/_custom_type_script = "uid://svlocokxdnvo"
+
+[node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 512
+collision_mask = 0
+
+[node name="Bloacked" type="CollisionShape2D" parent="ExtraPlayerCollision"]
+shape = SubResource("RectangleShape2D_naxtb")
+debug_color = Color(0.134536, 0.297719, 1, 0.42)
+
+[node name="BlockedBeltAllow" type="Area2D" parent="."]
+z_index = 3
+collision_layer = 8448
+collision_mask = 45056
+script = ExtResource("7_p7yq2")
+collision_type = 1
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="GRS-AddRef3" type="CollisionShape2D" parent="BlockedBeltAllow"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_p7yq2")
+debug_color = Color(1, 0.427, 0, 0.392)
+
+[node name="Blocked" type="Area2D" parent="."]
+collision_layer = 4352
+collision_mask = 61440
+script = ExtResource("7_p7yq2")
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="GRS-AddRef" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_3v3sh")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="GRS-AddRef2" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(11.5, 12)
+shape = SubResource("RectangleShape2D_aldiq")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="GRS-AddRef3" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(11.5, -12)
+shape = SubResource("RectangleShape2D_aldiq")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="BlockedWaterAllow" type="Area2D" parent="."]
+collision_layer = 4352
+collision_mask = 28672
+script = ExtResource("7_p7yq2")
+collision_type = 3
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="GRS-AddRef4" type="CollisionShape2D" parent="BlockedWaterAllow"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_ynyim")
+debug_color = Color(0.492, 0.478, 1, 0.392)
+
+[node name="GRS-AddRef" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_fn6fh")
+
+[node name="MineChackArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 262144
+collision_mask = 262144
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineChackArea"]
+position = Vector2(-24, 0)
+shape = SubResource("RectangleShape2D_iv74q")
+debug_color = Color(0.75244, 0.256096, 0.932362, 0.42)
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("6_6t1sx")
+settings = ExtResource("7_ynyim")
+root = NodePath("..")
+metadata/_custom_type_script = "uid://bib4d58jc2hi1"
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotComponent" type="Node2D" parent="Components"]
+script = ExtResource("4_fn6fh")
+capacity = 5
+metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
+
+[node name="MinerComp" type="Node2D" parent="Components" node_paths=PackedStringArray("slot", "area")]
+script = ExtResource("5_p7yq2")
+slot = NodePath("../SlotComponent")
+area = NodePath("../../MineChackArea")
+limit = true
+allow_to_mine = Array[ExtResource("8_aldiq")]([ExtResource("9_naxtb"), ExtResource("10_naxtb")])
+metadata/_custom_type_script = "uid://cp5x0nve6cj2j"
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("6_3v3sh")
+base_side = 2
+slot = NodePath("../SlotComponent")
+metadata/_custom_type_script = "uid://dv6bwtrax2k8t"

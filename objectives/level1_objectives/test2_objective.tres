@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0qc3lwuiucuq" path="res://custom_types/objective.gd" id="1_3mdfm"]
 [ext_resource type="Script" uid="uid://cxwll5nkvvftm" path="res://custom_types/sub_objective.gd" id="2_73ts5"]
-[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/iron_ingot/item_iron_ingot.tres" id="3_32rp7"]
+[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/item_iron_ingot.tres" id="3_32rp7"]
 [ext_resource type="Script" uid="uid://dfnebnbmctf2q" path="res://custom_types/sub_objective_produce.gd" id="4_5ko44"]
 
 [sub_resource type="Resource" id="Resource_nwlvh"]

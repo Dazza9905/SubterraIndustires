@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bg3i0vrxwro5o"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_1wka7"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_1sp0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i81cp"]
+atlas = ExtResource("2_1sp0e")
+region = Rect2(80, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_1wka7")
+type = 41
+name = "Thungsten Plate"
+texture = SubResource("AtlasTexture_i81cp")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

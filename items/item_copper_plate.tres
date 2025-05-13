@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cfqhtxkorgm6v"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_g0qd6"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_4sl77"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxub4"]
+atlas = ExtResource("2_4sl77")
+region = Rect2(32, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_g0qd6")
+type = 30
+name = "Copper Plate"
+texture = SubResource("AtlasTexture_gxub4")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

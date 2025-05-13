@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dyvmkn3tga2p"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_r4adr"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_b0m31"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t1kl"]
+atlas = ExtResource("2_b0m31")
+region = Rect2(144, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_r4adr")
+type = 18
+name = "Goo"
+texture = SubResource("AtlasTexture_3t1kl")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

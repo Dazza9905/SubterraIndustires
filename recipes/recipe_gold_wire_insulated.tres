@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://deiesmg6ciygh"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_8ectt"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_e3dob"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_e3dob"]
+[ext_resource type="Resource" uid="uid://bfan7yijmxdia" path="res://items/item_gold_wire.tres" id="3_ap2u0"]
+[ext_resource type="Resource" uid="uid://dyvmkn3tga2p" path="res://items/item_goo.tres" id="4_4s4m3"]
+[ext_resource type="Resource" uid="uid://bh540db0wk7yt" path="res://items/item_gold_wire_insualted.tres" id="5_4s4m3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5uwo"]
+atlas = ExtResource("1_e3dob")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="Resource" id="Resource_k6xvr"]
+script = ExtResource("1_8ectt")
+item = ExtResource("3_ap2u0")
+amount = 6
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_31xoc"]
+script = ExtResource("1_8ectt")
+item = ExtResource("4_4s4m3")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_3bhub"]
+script = ExtResource("1_8ectt")
+item = ExtResource("5_4s4m3")
+amount = 6
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_e3dob")
+name = "Gold Insulated Wire"
+icon = SubResource("AtlasTexture_w5uwo")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_8ectt")]([SubResource("Resource_k6xvr"), SubResource("Resource_31xoc")])
+output_products = Array[ExtResource("1_8ectt")]([SubResource("Resource_3bhub")])
+ticks_to_craft = 12
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

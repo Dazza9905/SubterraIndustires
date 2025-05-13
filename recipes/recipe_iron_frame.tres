@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://cgb8j7bes3doe"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_1x17e"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_ch8l4"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_h6mkt"]
+[ext_resource type="Resource" uid="uid://b176i2hcc2rsc" path="res://items/item_iron_rod.tres" id="3_0ohda"]
+[ext_resource type="Resource" uid="uid://ddd77hf2ymgay" path="res://items/item_iron_frame.tres" id="4_xorxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adxpm"]
+atlas = ExtResource("1_ch8l4")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1fk4d"]
+script = ExtResource("1_1x17e")
+item = ExtResource("3_0ohda")
+amount = 12
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_6h0eh"]
+script = ExtResource("1_1x17e")
+item = ExtResource("4_xorxp")
+amount = 0
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_h6mkt")
+name = "Iron Frame"
+icon = SubResource("AtlasTexture_adxpm")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_1x17e")]([SubResource("Resource_1fk4d")])
+output_products = Array[ExtResource("1_1x17e")]([SubResource("Resource_6h0eh")])
+ticks_to_craft = 16
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

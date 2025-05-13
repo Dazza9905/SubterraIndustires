@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://gidybsb50xgu"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_thifb"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="2_r3gbg"]
+[ext_resource type="Resource" uid="uid://cgq1h6vvjbpo7" path="res://items/item_copper_ore.tres" id="3_5n0mh"]
+[ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/item_coal.tres" id="4_sigan"]
+[ext_resource type="Resource" uid="uid://cx7tlfmmduxx4" path="res://items/item_copper_ingot.tres" id="5_1q76f"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="6_jq0vl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcbaq"]
+atlas = ExtResource("1_thifb")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="Resource" id="Resource_5qswy"]
+script = ExtResource("2_r3gbg")
+item = ExtResource("3_5n0mh")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_o5nw5"]
+script = ExtResource("2_r3gbg")
+item = ExtResource("4_sigan")
+amount = 2
+
+[sub_resource type="Resource" id="Resource_ipsjs"]
+script = ExtResource("2_r3gbg")
+item = ExtResource("5_1q76f")
+amount = 1
+
+[resource]
+script = ExtResource("6_jq0vl")
+name = "Copper Ingot (1x)"
+icon = SubResource("AtlasTexture_kcbaq")
+valid_machines = Array[String](["smelter"])
+input_ingredients = Array[ExtResource("2_r3gbg")]([SubResource("Resource_5qswy"), SubResource("Resource_o5nw5")])
+output_products = Array[ExtResource("2_r3gbg")]([SubResource("Resource_ipsjs")])
+ticks_to_craft = 8

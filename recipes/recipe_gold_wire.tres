@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://c4qnqmee3oaut"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_4c075"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_n0r0o"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_n0r0o"]
+[ext_resource type="Resource" uid="uid://dvesxvyt062s2" path="res://items/item_gold_plate.tres" id="3_jsv0k"]
+[ext_resource type="Resource" uid="uid://bfan7yijmxdia" path="res://items/item_gold_wire.tres" id="4_dthaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsv0k"]
+atlas = ExtResource("1_n0r0o")
+region = Rect2(48, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_dthaa"]
+script = ExtResource("1_4c075")
+item = ExtResource("3_jsv0k")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_sw58h"]
+script = ExtResource("1_4c075")
+item = ExtResource("4_dthaa")
+amount = 4
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_n0r0o")
+name = "Gold Wire (4x)"
+icon = SubResource("AtlasTexture_jsv0k")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_4c075")]([SubResource("Resource_dthaa")])
+output_products = Array[ExtResource("1_4c075")]([SubResource("Resource_sw58h")])
+ticks_to_craft = 8
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

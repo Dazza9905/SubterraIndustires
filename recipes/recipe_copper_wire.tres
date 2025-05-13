@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://bq03o2evolpjf"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_cwe1p"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_s3256"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_s3256"]
+[ext_resource type="Resource" uid="uid://cfqhtxkorgm6v" path="res://items/item_copper_plate.tres" id="3_u38tp"]
+[ext_resource type="Resource" uid="uid://yruxtqnv671s" path="res://items/item_copper_wire.tres" id="4_wifcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7dgt"]
+atlas = ExtResource("1_s3256")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_s3256"]
+script = ExtResource("1_cwe1p")
+item = ExtResource("3_u38tp")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_g7dgt"]
+script = ExtResource("1_cwe1p")
+item = ExtResource("4_wifcx")
+amount = 4
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_s3256")
+name = "Copper Wire (4x)"
+icon = SubResource("AtlasTexture_g7dgt")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_cwe1p")]([SubResource("Resource_s3256")])
+output_products = Array[ExtResource("1_cwe1p")]([SubResource("Resource_g7dgt")])
+ticks_to_craft = 8
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

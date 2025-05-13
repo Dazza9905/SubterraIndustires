@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=13 format=3 uid="uid://cvtq616is4y2k"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_6rig4"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_pwlr6"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_6rig4"]
+[ext_resource type="Resource" uid="uid://bh540db0wk7yt" path="res://items/item_gold_wire_insualted.tres" id="3_du4vi"]
+[ext_resource type="Resource" uid="uid://cltkgaf104wbb" path="res://items/item_chip_poly.tres" id="4_sd7ci"]
+[ext_resource type="Resource" uid="uid://ddd77hf2ymgay" path="res://items/item_iron_frame.tres" id="5_pju2n"]
+[ext_resource type="Resource" uid="uid://gtfpsflids5k" path="res://items/item_warp_core.tres" id="6_yn7ug"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lg1em"]
+atlas = ExtResource("1_6rig4")
+region = Rect2(144, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1w408"]
+script = ExtResource("1_pwlr6")
+item = ExtResource("3_du4vi")
+amount = 24
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_nguev"]
+script = ExtResource("1_pwlr6")
+item = ExtResource("4_sd7ci")
+amount = 16
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_nsuis"]
+script = ExtResource("1_pwlr6")
+item = ExtResource("5_pju2n")
+amount = 32
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_77c13"]
+script = ExtResource("1_pwlr6")
+item = ExtResource("6_yn7ug")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_6rig4")
+name = "Warp Core (1x)"
+icon = SubResource("AtlasTexture_lg1em")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_pwlr6")]([SubResource("Resource_1w408"), SubResource("Resource_nguev"), SubResource("Resource_nsuis")])
+output_products = Array[ExtResource("1_pwlr6")]([SubResource("Resource_77c13")])
+ticks_to_craft = 120
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

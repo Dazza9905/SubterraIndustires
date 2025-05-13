@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=11 format=3 uid="uid://5x4l7kw5p6r8"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_4y6i4"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_cmvpd"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_4y6i4"]
+[ext_resource type="Resource" uid="uid://ce5kafijqvpxh" path="res://items/item_dirty_goo.tres" id="3_oibjx"]
+[ext_resource type="Resource" uid="uid://d02qjauj43boo" path="res://items/item_water.tres" id="4_bd1q8"]
+[ext_resource type="Resource" uid="uid://dyvmkn3tga2p" path="res://items/item_goo.tres" id="5_5x8sd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v38d"]
+atlas = ExtResource("1_4y6i4")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="Resource" id="Resource_cawq1"]
+script = ExtResource("1_cmvpd")
+item = ExtResource("3_oibjx")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_xyswx"]
+script = ExtResource("1_cmvpd")
+item = ExtResource("4_bd1q8")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_ofbu8"]
+script = ExtResource("1_cmvpd")
+item = ExtResource("5_5x8sd")
+amount = 1
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_4y6i4")
+name = "Goo (1x)"
+icon = SubResource("AtlasTexture_3v38d")
+valid_machines = Array[String](["rafinery"])
+input_ingredients = Array[ExtResource("1_cmvpd")]([SubResource("Resource_cawq1"), SubResource("Resource_xyswx")])
+output_products = Array[ExtResource("1_cmvpd")]([SubResource("Resource_ofbu8")])
+ticks_to_craft = 4
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"
