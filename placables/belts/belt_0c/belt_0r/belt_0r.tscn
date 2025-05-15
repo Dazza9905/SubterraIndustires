@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bolshrsaj453m"]
+[gd_scene load_steps=17 format=3 uid="uid://bolshrsaj453m"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_4bvu2"]
 [ext_resource type="SpriteFrames" uid="uid://cjo1w4ejgqk7t" path="res://placables/belts/belt_0c/belt_0r/belt_0r_frames.tres" id="2_tkbx6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="5_ak0cf"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_gqpo7"]
 [ext_resource type="Script" uid="uid://c457kn3n5l2wd" path="res://components/go_components/belt_component.gd" id="6_hp0iw"]
+[ext_resource type="Script" uid="uid://bkyo5y1wuwe1i" path="res://placables/belts/belt_0s/player_move_collider.gd" id="6_tyqhj"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="8_3rogh"]
 [ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belts/belt_0c/belt_0l/slot_item_sprite.gd" id="8_tndxl"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="8_ys2m1"]
@@ -35,16 +36,22 @@ script = ExtResource("3_gavtp")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_0tgg7")
 
-[node name="Blocked" type="Area2D" parent="."]
+[node name="IsBeltUnallowed" type="Area2D" parent="."]
 show_behind_parent = true
 z_index = 3
-collision_layer = 4352
-collision_mask = 30720
+collision_layer = 528640
+collision_mask = 61440
 script = ExtResource("5_ak0cf")
+collision_type = 4
 
-[node name="Collision" type="CollisionShape2D" parent="Blocked"]
+[node name="PlayerMoveInfo" type="Node" parent="IsBeltUnallowed"]
+script = ExtResource("6_tyqhj")
+dir_degrees = 1.5708
+metadata/_custom_type_script = "uid://bkyo5y1wuwe1i"
+
+[node name="Collision" type="CollisionShape2D" parent="IsBeltUnallowed"]
 shape = SubResource("RectangleShape2D_1iv15")
-debug_color = Color(3.36915e-07, 0.6343, 0.43063, 0.42)
+debug_color = Color(1, 0, 0, 0.392)
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_kd10n")

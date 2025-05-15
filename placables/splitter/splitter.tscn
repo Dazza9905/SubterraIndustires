@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfijcbkjp3mo6"]
+[gd_scene load_steps=15 format=3 uid="uid://bfijcbkjp3mo6"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_s030c"]
 [ext_resource type="Texture2D" uid="uid://drl338ci5l4tj" path="res://placables/splitter/splitter_sprite.png" id="2_h6gh0"]
@@ -10,6 +10,11 @@
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_5gyes"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="5_bnxp2"]
 [ext_resource type="Script" uid="uid://disv18mivrlhp" path="res://components/go_components/split_merge_component.gd" id="6_urk3r"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="7_upk72"]
+[ext_resource type="PackedScene" uid="uid://o3sgu6cwgrdo" path="res://placables/splitter/splitter_ui.tscn" id="8_5g3rf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g3rf"]
+size = Vector2(16, 16)
 
 [sub_resource type="Resource" id="Resource_m5pbt"]
 script = ExtResource("5_5gyes")
@@ -22,59 +27,92 @@ movable = false
 demolishable = true
 
 [node name="splitter" type="StaticBody2D"]
-collision_layer = 3584
+collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_s030c")
 self_packed_uid = "uid://bfijcbkjp3mo6"
 code_name = "splitter"
 
 [node name="SplitterSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_h6gh0")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_migdn")
+
+[node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 512
+collision_mask = 0
+
+[node name="Bloacked" type="CollisionShape2D" parent="ExtraPlayerCollision"]
+self_modulate = Color(1, 0, 1, 1)
+shape = SubResource("RectangleShape2D_5g3rf")
+debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_noymc")
 settings = SubResource("Resource_m5pbt")
 root = NodePath("..")
 
+[node name="OpenUIButton" type="Button" parent="."]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+mouse_filter = 2
+theme_type_variation = &"InvisButton"
+script = ExtResource("7_upk72")
+packed_ui = ExtResource("8_5g3rf")
+metadata/_custom_type_script = "uid://dcpogcc84lab7"
+
 [node name="Components" type="Node2D" parent="."]
 
 [node name="Slot_In_Left" type="Node2D" parent="Components"]
 script = ExtResource("5_bnxp2")
+capacity = 2
+ui_link_id = "in1"
 
 [node name="Slot_Out_Top" type="Node2D" parent="Components"]
 script = ExtResource("5_bnxp2")
+capacity = 2
+ui_link_id = "out1"
 
 [node name="Slot_Out_Right" type="Node2D" parent="Components"]
 script = ExtResource("5_bnxp2")
+capacity = 2
+ui_link_id = "out2"
 
 [node name="Slot_Out_Bot" type="Node2D" parent="Components"]
 script = ExtResource("5_bnxp2")
+capacity = 2
+ui_link_id = "out3"
 
 [node name="InLeft" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
 script = ExtResource("3_6ol5y")
 slot = NodePath("../Slot_In_Left")
+display_port = false
 
 [node name="OutTop" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 4.71239
 script = ExtResource("4_d5gum")
 base_side = 1
 slot = NodePath("../Slot_Out_Top")
+display_port = false
 
 [node name="OutRight" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("4_d5gum")
 base_side = 2
 slot = NodePath("../Slot_Out_Right")
+display_port = false
 
 [node name="OutBot" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 1.5708
 script = ExtResource("4_d5gum")
 base_side = 3
 slot = NodePath("../Slot_Out_Bot")
+display_port = false
 
 [node name="SplitterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
 script = ExtResource("6_urk3r")

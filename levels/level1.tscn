@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://ctc8rnt7qr81d"]
+[gd_scene load_steps=70 format=4 uid="uid://ctc8rnt7qr81d"]
 
 [ext_resource type="Script" uid="uid://bcknl5c8go14d" path="res://systems/TimeTickSystem.gd" id="1_4s1je"]
 [ext_resource type="Script" uid="uid://dnl6gv8yc3how" path="res://addons/grid_building/grid_targeting_system/grid_targeting_system.gd" id="1_ulsyg"]
@@ -164,6 +164,17 @@ _data = {
 &"RESET": SubResource("Animation_unj4i"),
 &"open_building_ui": SubResource("Animation_p6dnf")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_kklod"]
+font_size = 40
+
+[sub_resource type="GDScript" id="GDScript_kklod"]
+script/source = "extends Label
+
+
+func _process(delta: float) -> void:
+	text = str(Engine.get_frames_per_second())
+"
 
 [node name="Game" type="Node"]
 
@@ -417,5 +428,14 @@ z_index = 20
 level_saver = NodePath("../../Systems/LevelSaverLoader")
 placeable_selection_ui = NodePath("../PlaceableSelectionUI")
 building_ui = NodePath("../BuildingUI")
+
+[node name="Label" type="Label" parent="UserInterface"]
+offset_left = 696.0
+offset_top = 117.0
+offset_right = 736.0
+offset_bottom = 131.0
+text = "asdasd"
+label_settings = SubResource("LabelSettings_kklod")
+script = SubResource("GDScript_kklod")
 
 [connection signal="pressed" from="UserInterface/Button" to="UserInterface/Button" method="_on_pressed"]

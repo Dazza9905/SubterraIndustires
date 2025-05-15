@@ -49,6 +49,14 @@ enum MATERIAL_ITEM {
 var recipes: Array[Recipe]
 var items: Array[Item]
 
+func filter_recipes_by_machine(machine: String) -> Array[Recipe]:
+	var filtered_recipes: Array[Recipe] = []
+	for r in recipes:
+		if r.valid_machines.has(machine):
+			filtered_recipes.append(r)
+	return filtered_recipes
+
+
 func load_items() -> void:
 	load_resources_recursively(Globals.ITEM_PATH, r"^item_.*\.tres$", items)
 	#var items_names: String = ""

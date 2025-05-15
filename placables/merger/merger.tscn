@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://588d3c4xhj67"]
+[gd_scene load_steps=15 format=3 uid="uid://588d3c4xhj67"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_dfm3p"]
 [ext_resource type="Texture2D" uid="uid://b5uo83u41glmu" path="res://placables/merger/merger_sprite.png" id="2_mtmlr"]
@@ -8,8 +8,13 @@
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_2tk78"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="6_x1peo"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="7_fvm7l"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="7_jw33y"]
+[ext_resource type="PackedScene" uid="uid://cw03hna24eeyv" path="res://placables/merger/merger_ui.tscn" id="8_lctek"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="8_n2vm3"]
 [ext_resource type="Script" uid="uid://disv18mivrlhp" path="res://components/go_components/split_merge_component.gd" id="9_ibw3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lctek"]
+size = Vector2(16, 16)
 
 [sub_resource type="Resource" id="Resource_m5pbt"]
 script = ExtResource("5_2tk78")
@@ -29,16 +34,33 @@ self_packed_uid = "uid://588d3c4xhj67"
 code_name = "merger"
 
 [node name="MergerSprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_mtmlr")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = ExtResource("3_1g2us")
 
+[node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
+process_mode = 4
+collision_layer = 512
+collision_mask = 0
+
+[node name="Bloacked" type="CollisionShape2D" parent="ExtraPlayerCollision"]
+self_modulate = Color(1, 0, 1, 1)
+shape = SubResource("RectangleShape2D_lctek")
+debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
+
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_eh8j4")
 settings = SubResource("Resource_m5pbt")
 root = NodePath("..")
+
+[node name="OpenUIButton" type="Button" parent="."]
+offset_right = 24.0
+offset_bottom = 24.0
+theme_type_variation = &"InvisButton"
+script = ExtResource("7_jw33y")
+packed_ui = ExtResource("8_lctek")
+metadata/_custom_type_script = "uid://dcpogcc84lab7"
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -59,22 +81,26 @@ rotation = 4.71239
 script = ExtResource("7_fvm7l")
 base_side = 1
 slot = NodePath("../Slot_In_Top")
+display_port = false
 
 [node name="InputComponentLeft" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 3.14159
 script = ExtResource("7_fvm7l")
 slot = NodePath("../Slot_In_Left")
+display_port = false
 
 [node name="InputComponentBottom" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 1.5708
 script = ExtResource("7_fvm7l")
 base_side = 3
 slot = NodePath("../Slot_In_Bot")
+display_port = false
 
 [node name="OutputComponentRight" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("8_n2vm3")
 base_side = 2
 slot = NodePath("../Slot_Out_Right")
+display_port = false
 
 [node name="SplitterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
 script = ExtResource("9_ibw3a")

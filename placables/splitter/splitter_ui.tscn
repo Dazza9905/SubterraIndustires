@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://o3sgu6cwgrdo"]
+
+[ext_resource type="Script" uid="uid://dbca4ixhidxdn" path="res://components/ui_components/grid_object_ui.gd" id="1_oslnm"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_usgmp"]
+[ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots/flush_slots_ui.tscn" id="3_kkdfr"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="4_qwxgr"]
+[ext_resource type="Texture2D" uid="uid://djxwbwhrsi4id" path="res://placables/splitter/split_icon.png" id="5_l2cfh"]
+
+[node name="SmelterUI" type="VBoxContainer" node_paths=PackedStringArray("ui_components", "close_button")]
+offset_right = 244.0
+offset_bottom = 121.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = -15
+script = ExtResource("1_oslnm")
+ui_components = [NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton"), NodePath("PanelContainer/MarginContainer/VBoxContainer/SlotComponentUi2"), NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SlotComponentUi"), NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SlotComponentUi3"), NodePath("PanelContainer/MarginContainer/VBoxContainer/SlotComponentUi4")]
+close_button = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/CloseButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_usgmp")
+theme_type_variation = &"PanelHeading"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_usgmp")
+theme_type_variation = &"LabelHeading"
+text = "SPLITTER"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="FlushButton" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_kkdfr")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "🗑"
+ui_link_ids = Array[String](["out1", "out2", "out3", "in1"])
+
+[node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("2_usgmp")
+text = "x"
+icon_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_usgmp")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SlotComponentUi2" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_qwxgr")]
+layout_mode = 2
+size_flags_horizontal = 4
+ui_link_id = "out1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SlotComponentUi" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_qwxgr")]
+layout_mode = 2
+ui_link_id = "in1"
+
+[node name="Panel" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+texture = ExtResource("5_l2cfh")
+
+[node name="SlotComponentUi3" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_qwxgr")]
+layout_mode = 2
+ui_link_id = "out2"
+
+[node name="SlotComponentUi4" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_qwxgr")]
+layout_mode = 2
+size_flags_horizontal = 4
+ui_link_id = "out3"

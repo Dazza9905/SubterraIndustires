@@ -39,7 +39,7 @@ func update_ui():
 	#print(slot_component)
 	
 func _get_drag_data(at_position: Vector2) -> DraggedItem:
-	if slot_component.item is Item:
+	if slot_component.item is Item and interactable:
 		var dragged_item: DraggedItem = DraggedItem.new(slot_component.item, slot_component)
 		
 		var item_drag_preview = TextureRect.new()
@@ -58,7 +58,7 @@ func _get_drag_data(at_position: Vector2) -> DraggedItem:
 		return null
 	
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	if data is DraggedItem:
+	if data is DraggedItem and interactable:
 		if slot_component.item == null and slot_component._amount < slot_component.capacity:
 			return true
 		elif slot_component.item == (data as DraggedItem).item and slot_component._amount < slot_component.capacity:

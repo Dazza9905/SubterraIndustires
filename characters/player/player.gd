@@ -56,7 +56,17 @@ func _physics_process(delta):
 	# Apply delta to scale movement by frame time for frame rate independence
 	velocity = (input_velocity + conveyor_velocity)
 	
+	var global_deg_move: float
+	for overlaped in detector_area.get_overlapping_areas():
+		global_deg_move = (overlaped.get_parent() as Node2D).rotation
 
+		var first_child := overlaped.get_child(0)
+		if first_child is PlayerMoveInfo:
+			global_deg_move += (first_child as PlayerMoveInfo).dir_degrees
+		print(global_deg_move)
+		velocity += Vector2.from_angle(global_deg_move) * 32
+		break
+			
 	# Move the character using the move_and_slide method
 	move_and_slide()
 

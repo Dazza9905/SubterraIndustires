@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://kbhoioejyouu"]
+[gd_scene load_steps=17 format=3 uid="uid://kbhoioejyouu"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_mbni2"]
 [ext_resource type="SpriteFrames" uid="uid://rmykw6ofukiq" path="res://placables/belts/belt_0s/belt_0s_frames.tres" id="1_tm2ff"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c457kn3n5l2wd" path="res://components/go_components/belt_component.gd" id="8_3p8j0"]
 [ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belts/belt_0c/belt_0l/slot_item_sprite.gd" id="8_600ir"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="10_7s2np"]
+[ext_resource type="Script" uid="uid://bkyo5y1wuwe1i" path="res://placables/belts/belt_0s/player_move_collider.gd" id="11_ejles"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="11_f2teu"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="11_ry5cj"]
 [ext_resource type="PackedScene" uid="uid://dkmht40h2hvph" path="res://placables/belts/belt_0s/belt_0s_ui.tscn" id="12_ry5cj"]
@@ -19,7 +20,7 @@
 size = Vector2(15.9, 15.9)
 
 [node name="belt_0s" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
-collision_layer = 3072
+collision_layer = 527360
 collision_mask = 0
 script = ExtResource("1_mbni2")
 self_packed_uid = "uid://kbhoioejyouu"
@@ -39,6 +40,10 @@ collision_layer = 540928
 collision_mask = 53248
 script = ExtResource("4_gsk3q")
 collision_type = 2
+
+[node name="PlayerMoveInfo" type="Node" parent="IsBelt"]
+script = ExtResource("11_ejles")
+metadata/_custom_type_script = "uid://bkyo5y1wuwe1i"
 
 [node name="Collision" type="CollisionShape2D" parent="IsBelt"]
 shape = SubResource("RectangleShape2D_83ttg")
@@ -77,6 +82,7 @@ mouse_filter = 2
 flat = true
 script = ExtResource("11_ry5cj")
 packed_ui = ExtResource("12_ry5cj")
+metadata/_edit_use_anchors_ = true
 
 [node name="Components" type="Node2D" parent="."]
 

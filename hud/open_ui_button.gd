@@ -16,6 +16,5 @@ func _on_mode_changed(building_mode: GBEnums.Mode) -> void:
 		print("buttons are inactive")
 		
 func _pressed() -> void:
-	var ui_instace = packed_ui.instantiate()
-	ui_instace.link_all_ui_components(self.get_parent())
-	Globals.get_UIS().display_new_building_ui(ui_instace)
+	Globals.get_UIS().display_new_building_ui(packed_ui, self.get_parent())
+	

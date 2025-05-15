@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=27 format=3 uid="uid://bqnstwubygps6"]
+[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bqnstwubygps6"]
 
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_xiunv"]
 [ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_vk65x"]
@@ -59,6 +59,28 @@ texture_margin_bottom = 12.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 28, 28)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8jpcm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unbh4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_atsoy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aq5jy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yal78"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cdk3d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsvah"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ohsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kheb5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jshvp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lss4h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cstng"]
 
@@ -191,6 +213,26 @@ Button/styles/hover = SubResource("StyleBoxTexture_7y2co")
 Button/styles/hover_pressed = SubResource("StyleBoxTexture_5oxoo")
 Button/styles/normal = SubResource("StyleBoxTexture_7y2co")
 Button/styles/pressed = SubResource("StyleBoxTexture_esx4t")
+IconLabel/base_type = &"Button"
+IconLabel/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+IconLabel/colors/font_disabled_color = Color(0.494118, 0.588235, 0.584314, 1)
+IconLabel/colors/font_focus_color = Color(0.494118, 0.588235, 0.584314, 1)
+IconLabel/colors/font_hover_color = Color(0.494118, 0.588235, 0.584314, 1)
+IconLabel/colors/font_hover_pressed_color = Color(0.494118, 0.588235, 0.584314, 1)
+IconLabel/colors/font_outline_color = Color(0.494118, 0.588235, 0.584314, 1)
+IconLabel/colors/font_pressed_color = Color(0.494118, 0.588235, 0.584314, 1)
+IconLabel/font_sizes/font_size = 20
+IconLabel/styles/disabled = SubResource("StyleBoxEmpty_8jpcm")
+IconLabel/styles/disabled_mirrored = SubResource("StyleBoxEmpty_unbh4")
+IconLabel/styles/focus = SubResource("StyleBoxEmpty_atsoy")
+IconLabel/styles/hover = SubResource("StyleBoxEmpty_aq5jy")
+IconLabel/styles/hover_mirrored = SubResource("StyleBoxEmpty_yal78")
+IconLabel/styles/hover_pressed = SubResource("StyleBoxEmpty_cdk3d")
+IconLabel/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_lsvah")
+IconLabel/styles/normal = SubResource("StyleBoxEmpty_1ohsi")
+IconLabel/styles/normal_mirrored = SubResource("StyleBoxEmpty_kheb5")
+IconLabel/styles/pressed = SubResource("StyleBoxEmpty_jshvp")
+IconLabel/styles/pressed_mirrored = SubResource("StyleBoxEmpty_lss4h")
 InvisButton/base_type = &"Button"
 InvisButton/styles/disabled = SubResource("StyleBoxEmpty_cstng")
 InvisButton/styles/disabled_mirrored = SubResource("StyleBoxEmpty_5vxfs")

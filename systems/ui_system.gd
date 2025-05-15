@@ -5,12 +5,14 @@ class_name UISystem
 var building_ui: GridObjectUI
 @export var buildingUI_anim_player: AnimationPlayer
 
-func display_new_building_ui(new_ui: GridObjectUI):
+func display_new_building_ui(new_ui: PackedScene, grid_object: GridObject):
 	if building_ui:
-		building_ui.queue_free()
-	building_ui = new_ui
+		building_ui.free()
+	building_ui = new_ui.instantiate() as GridObjectUI
+	building_ui.grid_object = grid_object
+	ui_canvas.add_child(building_ui)
+	(building_ui as GridObjectUI).link_all_ui_components(grid_object)
 	
-	ui_canvas.add_child(new_ui)
 	buildingUI_anim_player.play("open_building_ui", -1, 1.0, false)
 	
 func close_building_ui() -> void:
@@ -20,7 +22,7 @@ func close_building_ui() -> void:
 	
 func on_close_anim_finish(anim_name: String) -> void:
 	if building_ui:
-		building_ui.queue_free()
+		building_ui.free()
 	building_ui = null
 
 func toggle_inventory():

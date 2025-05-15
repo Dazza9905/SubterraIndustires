@@ -6,7 +6,8 @@ enum CollisionType{
 	BLOCKED,
 	BLOCKED_BELT_ALLOW,
 	IS_BELT,
-	BLOCKED_WATER_ALLOW
+	BLOCKED_WATER_ALLOW,
+	IS_BELT_UNALLOWED
 }
 
 
@@ -44,6 +45,12 @@ func update_coliders() -> void:
 		for child in get_children():
 			if child is CollisionShape2D:
 				(child as CollisionShape2D).debug_color = Color(0.492, 0.478, 1.0, 0.392)
+	if collision_type == CollisionType.IS_BELT_UNALLOWED:
+		collision_layer = is_belt_unallowed_l
+		collision_mask = is_belt_unallowed_m
+		for child in get_children():
+			if child is CollisionShape2D:
+				(child as CollisionShape2D).debug_color = Color(1.0, 0.0, 0.0, 0.392)
 	name = str(CollisionType.keys()[collision_type]).to_pascal_case()
 
 var blocked_l: int = 4352
@@ -54,6 +61,9 @@ var blocked_belt_allow_m: int = 45056
 
 var is_belt_l: int = 540928
 var is_belt_m: int = 53248 
+
+var is_belt_unallowed_l: int = 528640
+var is_belt_unallowed_m: int = 61440
 
 var blocked_water_allow_l: int = 4352
 var blocked_water_allow_m: int = 28672

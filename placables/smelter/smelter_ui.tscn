@@ -7,14 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://bpjvcjpehq56i" path="res://components/ui_components/crafter/crafter_comp_ui.tscn" id="6_v8ybg"]
 
 [node name="SmelterUI" type="VBoxContainer" node_paths=PackedStringArray("ui_components", "close_button")]
-offset_right = 378.0
-offset_bottom = 125.0
+offset_right = 458.0
+offset_bottom = 253.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = -15
 script = ExtResource("1_dwfnj")
 ui_components = [NodePath("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SlotComponentUi"), NodePath("PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/SlotComponentUi2"), NodePath("PanelContainer/MarginContainer/HBoxContainer/SlotComponentUi"), NodePath("PanelContainer/MarginContainer/HBoxContainer/CrafterCompUI"), NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton")]
 close_button = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/CloseButton")
+metadata/_custom_type_script = "uid://dbca4ixhidxdn"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -97,7 +98,7 @@ ui_link_id = "slot_fuel"
 
 [node name="CrafterCompUI" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("6_v8ybg")]
 layout_mode = 2
-size_flags_vertical = 4
+size_flags_vertical = 1
 ui_link_id = "crafter_comp"
 
 [node name="SlotComponentUi" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_halwo")]

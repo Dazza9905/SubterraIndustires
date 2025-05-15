@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://wx0imx3ix2ic"]
+[gd_scene load_steps=30 format=3 uid="uid://wx0imx3ix2ic"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_u54kl"]
 [ext_resource type="Texture2D" uid="uid://fbdaquhy1gsb" path="res://placables/smelter/smelter_base_sprite.png" id="2_j6551"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="11_j6551"]
 [ext_resource type="Texture2D" uid="uid://db8wqsht48jhq" path="res://placables/_general/recipe_icon_bottom.png" id="12_c484a"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="12_j37wi"]
+[ext_resource type="Script" uid="uid://dlqbwx8l8kb5a" path="res://placables/smelter/recipe_icon.gd" id="13_1hfed"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvb2i"]
 atlas = ExtResource("2_j6551")
@@ -67,7 +68,7 @@ collision_mask = 0
 script = ExtResource("1_u54kl")
 self_packed_uid = "uid://wx0imx3ix2ic"
 code_name = "smelter"
-init_after_place = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("CraftProgressIndicator"), NodePath("RecipeIcon")]
+init_after_place = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("CraftProgressIndicator"), NodePath("")]
 metadata/_custom_type_script = "uid://kjjkl8o0k1up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -149,6 +150,7 @@ shape = SubResource("RectangleShape2D_c484a")
 debug_color = Color(1, 0, 0, 0.392)
 
 [node name="GRS_Detetion_Collider" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_wvb2i")
 
@@ -187,20 +189,19 @@ script = ExtResource("6_lv7jb")
 packed_ui = ExtResource("8_g1kxj")
 metadata/_edit_lock_ = true
 
-[node name="RecipeIcon" type="Sprite2D" parent="."]
+[node name="RecipeIcon" type="Sprite2D" parent="." node_paths=PackedStringArray("craft_comp")]
 z_index = 3
 position = Vector2(8, 8)
 texture = SubResource("AtlasTexture_ea0l5")
 offset = Vector2(-8, 6)
-script = ExtResource("3_32pie")
+script = ExtResource("13_1hfed")
+craft_comp = NodePath("../Components/CrafterComponent")
 base_texture_atlas = ExtResource("12_c484a")
 right_position = Vector2i(-8, 6)
 down_position = Vector2i(-8, 6)
 left_position = Vector2i(-8, 6)
 up_position = Vector2i(-8, 6)
-
-[node name="Sprite2D" type="Sprite2D" parent="RecipeIcon"]
-offset = Vector2(-8, 6)
+metadata/_custom_type_script = "uid://dlqbwx8l8kb5a"
 
 [node name="Components" type="Node2D" parent="."]
 
@@ -219,9 +220,8 @@ script = ExtResource("3_7rfgt")
 capacity = 25
 ui_link_id = "slot_product"
 
-[node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("recipe_icon", "inputs", "outputs")]
+[node name="CrafterComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("inputs", "outputs")]
 script = ExtResource("9_5ob0n")
-recipe_icon = NodePath("../../RecipeIcon/Sprite2D")
 inputs = [NodePath("../SlotRaw"), NodePath("../SlotFuel")]
 outputs = [NodePath("../SlotRafined")]
 ui_link_id = "crafter_comp"

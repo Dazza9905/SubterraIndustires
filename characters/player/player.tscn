@@ -148,7 +148,7 @@ user_root = NodePath("..")
 
 [node name="Detector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 524544
+collision_mask = 524288
 input_pickable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Detector"]
@@ -305,7 +305,6 @@ part_of_GO = false
 metadata/_custom_type_script = "uid://gs2nhgblduco"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
 
 [node name="InvetoryView" type="VBoxContainer" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
@@ -315,6 +314,7 @@ anchor_bottom = 1.0
 offset_top = -642.0
 offset_right = 272.0
 grow_vertical = 0
+mouse_filter = 2
 theme = ExtResource("5_c6leb")
 
 [node name="Button" type="Button" parent="CanvasLayer/InvetoryView" node_paths=PackedStringArray("invetory_system")]

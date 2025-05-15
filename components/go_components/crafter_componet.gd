@@ -3,33 +3,22 @@ class_name CrafterComponent
 
 signal recipe_changed
 signal item_crafted
-signal craft_progress_changed(progress: float)
+signal craft_progress_changed
 
-@export var recipe_icon: Sprite2D
 @export var progress_label: Label
 
 @export var recipe: Recipe:
 	set(new_recipe):
 		recipe = new_recipe
+		craft_progress = 0
 		recipe_changed.emit()
-		if recipe_icon != null:
-			if(recipe != null):
-				if(recipe.icon != null):
-					recipe_icon.texture = recipe.icon
-					recipe_icon.visible = true
-				else:
-					recipe_icon.visible = false
-				craft_progress = 0
-			else:
-				recipe_icon.visible = false
 @export var inputs: Array[SlotComponent]
 @export var outputs: Array[SlotComponent]
 @export var speed_multiplier: float
 @export var craft_progress: int = 0:
 	set(new_progress):
 		craft_progress = new_progress
-		if progress_label:
-			progress_label.text = str(craft_progress)
+		craft_progress_changed.emit()
 
 var objective_system: ObjectiveSystem
 
@@ -42,23 +31,29 @@ func connect_to_tick() -> void:
 
 func _on_machanine_tick() -> void:
 	var target_outputs: Array[int]
-	var can_craft: bool = if_can_craft(target_outputs)
 	
-	if recipe:
-		if craft_progress < recipe.ticks_to_craft:
-			if craft_progress == recipe.ticks_to_craft:
-				craft_progress == 0
-			if can_craft:
-				craft_progress = craft_progress + 1
-				craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
-			
-	
+	if if_can_craft(target_outputs):
+		print("asd")
+		craft_progress += 1
+		
 		if craft_progress == recipe.ticks_to_craft:
-			if can_craft:
-				actually_craft(target_outputs)
-				craft_progress = 0
-				item_crafted.emit()
-				craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
+			process_items(target_outputs)
+			craft_progress = 0
+		
+		#if craft_progress < recipe.ticks_to_craft:
+			#if craft_progress == recipe.ticks_to_craft:
+				#craft_progress == 0
+			#if can_craft:
+				#craft_progress = craft_progress + 1
+				#craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
+			#
+	#
+		#if craft_progress == recipe.ticks_to_craft:
+			#if can_craft:
+				#process_items(target_outputs)
+				#craft_progress = 0
+				#item_crafted.emit()
+				#craft_progress_changed.emit(float(craft_progress) / float(recipe.ticks_to_craft))
 
 func if_can_craft(target_outputs: Array[int]) -> bool:
 	if recipe == null:
@@ -83,7 +78,7 @@ func if_can_craft(target_outputs: Array[int]) -> bool:
 			return false
 	return true
 	
-func actually_craft(target_outputs: Array[int]) -> void:
+func process_items(target_outputs: Array[int]) -> void:
 	if target_outputs.size() == 0:
 		assert("Crafting failed. Tried to craft and certainoli did not validate if crafting is possible")
 	#IF WE GOT HERE, EVERITHING SHOULD BE GOOD TO GO

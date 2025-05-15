@@ -14,6 +14,7 @@ var output_index: int = 0:
 func connect_to_tick() -> void:
 	Globals.get_tts().machine_tick.connect(_on_machanine_tick)
 	
+
 	
 func _on_machanine_tick() -> void:
 	#print("splitter ticked")
