@@ -13,6 +13,8 @@ func _ready() -> void:
 	icon_display = Sprite2D.new()
 	add_child(icon_display)
 	_on_recipe_changed()
+	icon_display.offset = offset
+	
 func _on_recipe_changed():
 	if craft_comp.recipe:
 		icon_display.texture = craft_comp.recipe.icon

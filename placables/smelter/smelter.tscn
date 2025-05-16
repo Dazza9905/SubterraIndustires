@@ -68,7 +68,7 @@ collision_mask = 0
 script = ExtResource("1_u54kl")
 self_packed_uid = "uid://wx0imx3ix2ic"
 code_name = "smelter"
-init_after_place = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("CraftProgressIndicator"), NodePath("")]
+init_after_place = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("CraftProgressIndicator"), NodePath("RecipeIcon")]
 metadata/_custom_type_script = "uid://kjjkl8o0k1up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

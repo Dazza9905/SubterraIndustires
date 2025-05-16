@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://by8dbqmri4u3r"]
+
+[ext_resource type="Script" uid="uid://bposwgdx1hdok" path="res://hud/main_menu/level_picker/level_entry.gd" id="1_57268"]
+[ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_lfbac"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dcr4q"]
+load_path = "res://.godot/imported/btn_clicked.png-a55402487916b630eb5338e2266bbb4b.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfbac"]
+texture = SubResource("CompressedTexture2D_dcr4q")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 28, 28)
+modulate_color = Color(1, 0.23, 0.23, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m8nut"]
+texture = ExtResource("2_lfbac")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 28, 28)
+modulate_color = Color(1, 0.226429, 0.227615, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_10cj2"]
+texture = SubResource("CompressedTexture2D_dcr4q")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 28, 28)
+modulate_color = Color(1, 0.23, 0.23, 1)
+
+[node name="LevelEntry" type="PanelContainer" node_paths=PackedStringArray("level_name_label", "last_played_label", "text_box", "rename_button", "save_button", "cancel_button", "delete_button", "you_sure_button")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 88.0
+grow_horizontal = 2
+script = ExtResource("1_57268")
+level_name_label = NodePath("MarginContainer/HBoxContainer/CenterContainer/Name")
+last_played_label = NodePath("MarginContainer/HBoxContainer/Date")
+text_box = NodePath("MarginContainer/HBoxContainer/CenterContainer/LineEdit")
+rename_button = NodePath("MarginContainer/HBoxContainer/Rename")
+save_button = NodePath("MarginContainer/HBoxContainer/Save_Rename")
+cancel_button = NodePath("MarginContainer/HBoxContainer/Cancel_Rename")
+delete_button = NodePath("MarginContainer/HBoxContainer/Delete")
+you_sure_button = NodePath("MarginContainer/HBoxContainer/You Sure?")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/CenterContainer"]
+visible = false
+layout_mode = 2
+max_length = 25
+expand_to_text_length = true
+
+[node name="Name" type="Label" parent="MarginContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 50
+text = "Name_empty"
+
+[node name="Date" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/font_size = 50
+text = "Date_empty"
+
+[node name="Rename" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Rename"
+
+[node name="Save_Rename" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Save"
+
+[node name="Cancel_Rename" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Cancel
+"
+
+[node name="Load" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Load"
+
+[node name="Delete" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Delete"
+
+[node name="You Sure?" type="Button" parent="MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_hover_pressed_color = Color(1, 0.6, 0.6, 1)
+theme_override_colors/font_hover_color = Color(1, 0.6, 0.6, 1)
+theme_override_colors/font_color = Color(1, 0.6, 0.6, 1)
+theme_override_colors/font_focus_color = Color(1, 0.6, 0.6, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.6, 0.6, 1)
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_lfbac")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m8nut")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_10cj2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_m8nut")
+text = "SURE ?"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Rename" to="." method="_on_rename_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Save_Rename" to="." method="_on_save_rename_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Cancel_Rename" to="." method="_on_cancel_rename_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Load" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/You Sure?" to="." method="_on_you_sure_pressed"]

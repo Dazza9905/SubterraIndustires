@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_s030c"]
 [ext_resource type="Texture2D" uid="uid://drl338ci5l4tj" path="res://placables/splitter/splitter_sprite.png" id="2_h6gh0"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="3_6ol5y"]
-[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_migdn"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_noymc"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="4_d5gum"]
 [ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_d82xm"]
@@ -12,6 +11,9 @@
 [ext_resource type="Script" uid="uid://disv18mivrlhp" path="res://components/go_components/split_merge_component.gd" id="6_urk3r"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="7_upk72"]
 [ext_resource type="PackedScene" uid="uid://o3sgu6cwgrdo" path="res://placables/splitter/splitter_ui.tscn" id="8_5g3rf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upk72"]
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5g3rf"]
 size = Vector2(16, 16)
@@ -37,7 +39,7 @@ code_name = "splitter"
 texture = ExtResource("2_h6gh0")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_migdn")
+shape = SubResource("RectangleShape2D_upk72")
 
 [node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
 process_mode = 4

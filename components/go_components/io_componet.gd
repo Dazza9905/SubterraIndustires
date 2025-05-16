@@ -94,17 +94,17 @@ func print_io_con() -> void:
 	var target_GO: GridObject = Globals.get_GRS().get_GO_from_XY(target_XY)
 	if (target_GO):
 		IO_connection = target_GO.request_connection(self)
-	else:
-		print("\tno GO on target_XY", self, self_XY, target_XY)
-	print(get_io_info())
+	#else:
+		#print("\tno GO on target_XY", self, self_XY, target_XY)
+	#print(get_io_info())
 		
 func accepts_conn_from(comp_to_test: IOComponent) -> bool:
 	if(IOComponent.are_diff(self, comp_to_test)): #are diff
 		if (self.get_parent_GO() != comp_to_test.get_parent_GO()):
-			print(self.get_parent_GO(), comp_to_test.get_parent_GO())
+			#print(self.get_parent_GO(), comp_to_test.get_parent_GO())
 		#if(IOComponent.are_facing_eachother(self, comp_to_test)): #are facing eachother (THIS REDUNDAND BECAUSE OF NEXT STEP, BUT JUST TO BE SURE)
 			if(self_XY == comp_to_test.target_XY and comp_to_test.self_XY == target_XY): #are actually tageting each other
-				print("AAAA:", self,"   ", comp_to_test)
+				#print("AAAA:", self,"   ", comp_to_test)
 				return true
 		#else:
 			#print("\t\tno same position:")

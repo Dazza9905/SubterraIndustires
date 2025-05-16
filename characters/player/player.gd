@@ -3,7 +3,7 @@ class_name Player
 # Variable for movement speed
 var speed = 5000
 
-var conveyor_speed = 32
+@export var conveyor_speed = 16
 
 @export var detector_area: Area2D
 @export var inventory: PlayerInventory
@@ -63,7 +63,7 @@ func _physics_process(delta):
 		var first_child := overlaped.get_child(0)
 		if first_child is PlayerMoveInfo:
 			global_deg_move += (first_child as PlayerMoveInfo).dir_degrees
-		print(global_deg_move)
+		#print(global_deg_move)
 		velocity += Vector2.from_angle(global_deg_move) * 32
 		break
 			

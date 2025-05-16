@@ -18,7 +18,7 @@ func link_to_component(components: Array[Component]) -> void:
 		if comp is CrafterComponent and comp.ui_link_id == ui_link_id:
 			#print(self.name, " linked to ", comp.name)
 			crafter_component = comp
-			crafter_component.craft_progress_changed.connect(update_progress.unbind(1))
+			crafter_component.craft_progress_changed.connect(update_progress)
 			crafter_component.recipe_changed.connect(_on_recipe_changed)
 			option_button.selected = Enums.recipes.find(crafter_component.recipe) + 1
 			_on_recipe_changed()
@@ -55,6 +55,7 @@ func _on_recipe_changed() -> void:
 	
 
 func update_progress(do_tween: bool = true):
+	print("adasd")
 	if crafter_component.recipe == null:
 		return
 	#if get_tree():
@@ -64,10 +65,11 @@ func update_progress(do_tween: bool = true):
 	
 	
 	if crafter_component.craft_progress != 0:
+		
 		if bar_progress > crafter_component.recipe.ticks_to_craft:
 			tween.tween_property(progress_bar, "value", 0, 0.0)
 		else:
-			tween.tween_property(progress_bar, "value", bar_progress, Globals.get_tts().tick_max_delta * 2)
+			tween.tween_property(progress_bar, "value", bar_progress, Globals.get_tts().tick_max_delta * 2 * int(do_tween))
 	else:
 		tween.tween_property(progress_bar, "value", 0, 0.0)
 #

@@ -10,12 +10,19 @@ enum CollisionType{
 	IS_BELT_UNALLOWED
 }
 
-
-
 @export var collision_type: CollisionType:
 	set(new_type):
 		collision_type = new_type
 		update_coliders()
+
+func GO_init():
+	print("aa")
+	if collision_type == CollisionType.IS_BELT:
+		collision_layer = is_belt_l
+		collision_mask = is_belt_m
+	if collision_type == CollisionType.IS_BELT_UNALLOWED:
+		collision_layer = is_belt_unallowed_l
+		collision_mask = is_belt_unallowed_m
 
 func _ready() -> void:
 	update_coliders()
@@ -34,7 +41,9 @@ func update_coliders() -> void:
 			if child is CollisionShape2D:
 				(child as CollisionShape2D).debug_color = Color(1.0, 0.427, 0.0, 0.392)
 	if collision_type == CollisionType.IS_BELT:
-		collision_layer = is_belt_l
+		collision_layer = is_belt_l - 524288
+		if Engine.is_editor_hint():
+			collision_layer = is_belt_l
 		collision_mask = is_belt_m
 		for child in get_children():
 			if child is CollisionShape2D:
@@ -46,7 +55,9 @@ func update_coliders() -> void:
 			if child is CollisionShape2D:
 				(child as CollisionShape2D).debug_color = Color(0.492, 0.478, 1.0, 0.392)
 	if collision_type == CollisionType.IS_BELT_UNALLOWED:
-		collision_layer = is_belt_unallowed_l
+		collision_layer = is_belt_unallowed_l - 524288
+		if Engine.is_editor_hint():
+			collision_layer = is_belt_unallowed_l
 		collision_mask = is_belt_unallowed_m
 		for child in get_children():
 			if child is CollisionShape2D:

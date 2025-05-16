@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpjvcjpehq56i"]
 
-[ext_resource type="Script" uid="uid://cms7nyjqrw126" path="res://crafter_comp_ui.gd" id="1_elapd"]
+[ext_resource type="Script" uid="uid://cms7nyjqrw126" path="res://components/ui_components/crafter/crafter_comp_ui.gd" id="1_elapd"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="3_dgwev"]
 
 [node name="CrafterCompUI" type="VBoxContainer" node_paths=PackedStringArray("progress_bar", "option_button", "recipe_details")]

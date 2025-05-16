@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_dfm3p"]
 [ext_resource type="Texture2D" uid="uid://b5uo83u41glmu" path="res://placables/merger/merger_sprite.png" id="2_mtmlr"]
-[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_1g2us"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_eh8j4"]
 [ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_qeyxs"]
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_2tk78"]
@@ -12,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cw03hna24eeyv" path="res://placables/merger/merger_ui.tscn" id="8_lctek"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="8_n2vm3"]
 [ext_resource type="Script" uid="uid://disv18mivrlhp" path="res://components/go_components/split_merge_component.gd" id="9_ibw3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jw33y"]
+size = Vector2(14, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lctek"]
 size = Vector2(16, 16)
@@ -27,7 +29,7 @@ movable = false
 demolishable = true
 
 [node name="merger" type="StaticBody2D"]
-collision_layer = 3584
+collision_layer = 3072
 collision_mask = 0
 script = ExtResource("1_dfm3p")
 self_packed_uid = "uid://588d3c4xhj67"
@@ -37,7 +39,7 @@ code_name = "merger"
 texture = ExtResource("2_mtmlr")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_1g2us")
+shape = SubResource("RectangleShape2D_jw33y")
 
 [node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
 process_mode = 4
@@ -57,6 +59,7 @@ root = NodePath("..")
 [node name="OpenUIButton" type="Button" parent="."]
 offset_right = 24.0
 offset_bottom = 24.0
+mouse_filter = 2
 theme_type_variation = &"InvisButton"
 script = ExtResource("7_jw33y")
 packed_ui = ExtResource("8_lctek")

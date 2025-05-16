@@ -2,6 +2,7 @@ extends Control
 
 var load_progress: Array[int]
 @export var level_picker: PackedScene
+@export var progress_bar: ProgressBar
 
 func _ready() -> void:
 	self.get_tree().paused = false
@@ -10,7 +11,7 @@ func _ready() -> void:
 
 func _on_begin_pressed() -> void:
 	ResourceLoader.load_threaded_request("res://levels/level1.tscn")
-	$ProgressBar.visible = true
+	progress_bar.visible = true
 	
 func _process(_delta: float) -> void:
 	var _status := ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)
@@ -21,7 +22,7 @@ func _process(_delta: float) -> void:
 	#print(load_desatinne*100)
 	
 	var tween := get_tree().create_tween()
-	tween.tween_property($ProgressBar, "value", load_desatinne*100, 0.1)
+	tween.tween_property(progress_bar, "value", load_desatinne*100, 0.1)
 	
 	
 	if (ResourceLoader.THREAD_LOAD_LOADED == ResourceLoader.load_threaded_get_status("res://levels/level1.tscn", load_progress)):

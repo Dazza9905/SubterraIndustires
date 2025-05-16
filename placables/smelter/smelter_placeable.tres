@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=13 format=3 uid="uid://bpytjbs0gasyx"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=10 format=3 uid="uid://bpytjbs0gasyx"]
 
 [ext_resource type="Texture2D" uid="uid://cbmw0blvmcgtn" path="res://placables/smelter/smelter_chimneys.png" id="1_h8xlt"]
 [ext_resource type="PackedScene" uid="uid://wx0imx3ix2ic" path="res://placables/smelter/smelter.tscn" id="2_l5c5b"]
@@ -8,18 +8,11 @@
 [ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="5_fkncx"]
 [ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="5_h8xlt"]
 [ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="6_c1kdy"]
-[ext_resource type="Script" uid="uid://cf7goamu2xxub" path="res://addons/grid_building/placement/placement_rules/template_rules/resources/resource_stack.gd" id="6_sqiyi"]
-[ext_resource type="Script" uid="uid://2co8g78q755p" path="res://addons/grid_building/placement/placement_rules/template_rules/spend_materials_rule_generic.gd" id="7_fvhh3"]
 
 [sub_resource type="Resource" id="Resource_h8xlt"]
 script = ExtResource("5_h8xlt")
 these_layers = 256
 metadata/_custom_type_script = "uid://cy11kg2kimykw"
-
-[sub_resource type="Resource" id="Resource_mhjfb"]
-script = ExtResource("7_fvhh3")
-resource_stacks_to_spend = Array[ExtResource("6_sqiyi")]([])
-metadata/_custom_type_script = "uid://2co8g78q755p"
 
 [resource]
 script = ExtResource("4_734x5")
@@ -27,5 +20,5 @@ display_name = &"Smelter"
 icon = ExtResource("1_h8xlt")
 packed_scene = ExtResource("2_l5c5b")
 tags = Array[ExtResource("5_537pv")]([ExtResource("6_c1kdy")])
-placement_rules = Array[ExtResource("3_di46v")]([SubResource("Resource_h8xlt"), ExtResource("5_fkncx"), SubResource("Resource_mhjfb")])
+placement_rules = Array[ExtResource("3_di46v")]([SubResource("Resource_h8xlt"), ExtResource("5_fkncx")])
 ignore_base_rules = false

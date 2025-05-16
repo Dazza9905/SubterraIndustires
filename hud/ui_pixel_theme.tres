@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=38 format=3 uid="uid://bqnstwubygps6"]
+[gd_resource type="Theme" load_steps=42 format=3 uid="uid://bqnstwubygps6"]
 
 [ext_resource type="FontFile" uid="uid://080v6gkwq3nt" path="res://hud/pixel_font.ttf" id="1_xiunv"]
 [ext_resource type="Texture2D" uid="uid://dcfe3h3dmcdi" path="res://hud/btn_normal.png" id="2_vk65x"]
 [ext_resource type="Texture2D" uid="uid://c6v8w66pm7fik" path="res://hud/btn_clicked.png" id="3_5qldq"]
+[ext_resource type="Texture2D" uid="uid://bjcwrdi73b61g" path="res://hud/slot.png" id="4_cstng"]
 [ext_resource type="Texture2D" uid="uid://dphbif4tqbboa" path="res://hud/ui_bg_1.png" id="4_cv5i3"]
 [ext_resource type="Texture2D" uid="uid://cdjuigsvkc5qt" path="res://hud/progress_bar_filled.png" id="4_sbeu5"]
 
@@ -48,6 +49,8 @@ texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 28, 28)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esx4t"]
@@ -85,6 +88,33 @@ region_rect = Rect2(0, 0, 28, 28)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cstng"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5vxfs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yal78"]
+texture = ExtResource("4_cstng")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cdk3d"]
+texture = ExtResource("4_cstng")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lsvah"]
+texture = ExtResource("4_cstng")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cv5i3"]
 texture = ExtResource("4_cv5i3")
@@ -250,6 +280,11 @@ Label/fonts/font = ExtResource("1_xiunv")
 LabelHeading/base_type = &"Label"
 LabelHeading/constants/outline_size = 5
 LabelHeading/font_sizes/font_size = 30
+LineEdit/font_sizes/font_size = 50
+LineEdit/fonts/font = ExtResource("1_xiunv")
+LineEdit/styles/focus = SubResource("StyleBoxTexture_yal78")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_cdk3d")
+LineEdit/styles/read_only = SubResource("StyleBoxTexture_lsvah")
 MarginContainer/constants/margin_right = 0
 OptionButton/constants/arrow_margin = 20
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_cv5i3")

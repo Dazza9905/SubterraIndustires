@@ -9,10 +9,11 @@ signal reload_worlds
 			#save_world_and_exit()
 
 func load_world(world_name: String) -> void:
-	Globals.load_level_path = world_name
+	Globals.load_level_file_name = world_name
+	print("grrrr " + world_name)
 	self.get_tree().change_scene_to_packed(load("uid://ctc8rnt7qr81d"))
-	#if ResourceLoader.exists(Globals.LEVEL_PATH + world_name):
-		#var current_world: PackedScene = load(Globals.LEVEL_PATH + world_name) as PackedScene
+	#if ResourceLoader.exists(Globals.GAME_SAVE_PATH + world_name):
+		#var current_world: PackedScene = load(Globals.GAME_SAVE_PATH + world_name) as PackedScene
 		##var current_world_instance: Node = current_world.instantiate()
 		#current_level = world_name
 		#self.get_tree().change_scene_to_packed(current_world)
@@ -23,54 +24,10 @@ func load_world(world_name: String) -> void:
 		#set_owner_recursively(child, owner_node)
 
 func delete_world(world_name: String) -> void:
-	if ResourceLoader.exists(Globals.LEVEL_PATH + world_name):
-		var error : Error = DirAccess.remove_absolute(Globals.LEVEL_PATH + world_name)
-		#if(error == OK):
-			#print("File deleted successfully.")
-		#else:
-			#print("Failed to delete the file. Error code: ", error)
-	#else:
-		#print("File does not exist: ", Globals.LEVEL_PATH + world_name)
+	if ResourceLoader.exists(Globals.GAME_SAVE_PATH + world_name):
+		var error : Error = DirAccess.remove_absolute(Globals.GAME_SAVE_PATH + world_name)
+
 	reload_worlds.emit()
-
-#func save_world_and_exit() -> void:
-	#self.get_tree().paused = true
-	#var world : PackedScene = PackedScene.new()
-	#set_owner_recursively(get_node("/root/Game"), get_node("/root/Game"))
-	#world.pack(get_node("/root/Game"))
-	#
-	#delete_world(current_level)
-	#create_world_from_packed(current_level, world)
-	#
-	#self.get_tree().change_scene_to_packed(load("res://hud/main_menu.tscn"))
-	#reload_worlds.emit()
-
-#func create_world(world_name: String) -> void:
-	#if world_name.strip_edges() != "":
-		#var template_path : String = "res://gameplay.tscn"
-		#if ResourceLoader.exists(template_path):
-			#var blank_world : Resource = load(template_path).duplicate(true)
-			#var new_world_path : String = Globals.LEVEL_PATH + world_name + ".tscn"
-			#var error : Error = ResourceSaver.save(blank_world, new_world_path)
-			#if error == OK:
-				#print("World created successfully at: ", new_world_path)
-			#else:
-				#print("Error saving world: ", error)
-		#else:
-			#print("Template file does not exist: ", template_path)
-	#reload_worlds.emit()
-
-#func create_world_from_packed(world_name: String, packed_scene: PackedScene) -> void:
-	#if world_name.strip_edges() != "":
-		#var new_world_path : String = Globals.LEVEL_PATH + world_name
-		#var error : Error = ResourceSaver.save(packed_scene, new_world_path)
-		#if error == OK:
-			#print("World created successfully at: ", new_world_path)
-		#else:
-			#print("Error saving world: ", error)
-	#else:
-		#print("Template file does not exist")
-	#reload_worlds.emit()
 
 func is_file_accessible(file_path: String) -> bool:
 	var file := FileAccess.open(file_path, FileAccess.READ)

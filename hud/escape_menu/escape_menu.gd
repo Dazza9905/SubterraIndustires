@@ -40,5 +40,5 @@ func _on_save_pressed() -> void:
 	level_saver.save_level()
 
 func _on_exit_pressed() -> void:
-	Globals.load_level_path = ""
+	Globals.load_level_file_name = ""
 	get_tree().change_scene_to_packed(main_menu)

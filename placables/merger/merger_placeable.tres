@@ -1,12 +1,18 @@
-[gd_resource type="Resource" script_class="Placeable" load_steps=8 format=3 uid="uid://g0c4gpa5md5p"]
+[gd_resource type="Resource" script_class="Placeable" load_steps=10 format=3 uid="uid://g0c4gpa5md5p"]
 
 [ext_resource type="Texture2D" uid="uid://b5uo83u41glmu" path="res://placables/merger/merger_sprite.png" id="1_f776t"]
 [ext_resource type="PackedScene" uid="uid://588d3c4xhj67" path="res://placables/merger/merger.tscn" id="2_wc4nx"]
 [ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_spcb1"]
 [ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="4_afuv0"]
 [ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="4_cd4vq"]
+[ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="5_8xiry"]
 [ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="5_0361t"]
 [ext_resource type="Resource" uid="uid://dixmv6k7i2vvi" path="res://placables/categories/belts.tres" id="6_ps04j"]
+
+[sub_resource type="Resource" id="Resource_ecx63"]
+script = ExtResource("5_8xiry")
+these_layers = 256
+metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]
 script = ExtResource("4_cd4vq")
@@ -14,5 +20,5 @@ display_name = &"Merger"
 icon = ExtResource("1_f776t")
 packed_scene = ExtResource("2_wc4nx")
 tags = Array[ExtResource("5_0361t")]([ExtResource("6_ps04j")])
-placement_rules = Array[ExtResource("3_spcb1")]([ExtResource("4_afuv0")])
+placement_rules = Array[ExtResource("3_spcb1")]([ExtResource("4_afuv0"), SubResource("Resource_ecx63")])
 ignore_base_rules = false

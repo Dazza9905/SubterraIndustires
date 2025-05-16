@@ -10,7 +10,18 @@ var occuppied_cells: Array[Vector2i]
 
 @export var self_packed_uid: String
 @export var code_name: String
-@export var init_after_place: Array[Node2D] = []
+@export var init_after_place: Array[Node2D] = []:
+	set(new_val):
+		var allow_new = true
+		if Engine.is_editor_hint():
+			for node in new_val:
+				if node is Node2D:
+					if not node.has_method("GO_init"):
+						#print(node.get_method_list())
+						allow_new = false
+						printerr("NODE DOES NOT IMPLEMNT GO_init()")
+		if allow_new:
+			init_after_place = new_val
 #@export var ui_button: Button
 var wannabe_rotation_degrees: float
 
@@ -86,6 +97,8 @@ func update_sprites() -> void:
 			(node as RotatableSprite2D).GO_init()
 		if node is AnimatedRotatableSprite2D:
 			(node as AnimatedRotatableSprite2D).GO_init()
+		if node is PresetsArea2D:
+			(node as PresetsArea2D).GO_init()
 	for comp in get_components():
 		if comp is IOComponent:
 			(comp as IOComponent).update_IO_port_view()

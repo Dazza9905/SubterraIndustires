@@ -1,20 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://1tsok1vm60ly"]
+[gd_scene load_steps=16 format=3 uid="uid://1tsok1vm60ly"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_4mkui"]
 [ext_resource type="Texture2D" uid="uid://b6ejlqs5454rd" path="res://placables/item_gen/item_gen_sprite.png" id="2_6pfpx"]
-[ext_resource type="Shape2D" uid="uid://c2nnb4ghxq5vm" path="res://custom_types/16x16_collision.tres" id="3_j5wg7"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="3_bpooy"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="3_uvgt1"]
 [ext_resource type="Script" uid="uid://cddjwc7btgmqk" path="res://addons/grid_building/placement/placement_rules/tile_check_rule.gd" id="4_y86mn"]
 [ext_resource type="Script" uid="uid://0u11g3ef6ucf" path="res://addons/grid_building/placement/manipulatable_settings.gd" id="5_xogw8"]
 [ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="6_pdaj7"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="7_8x721"]
 [ext_resource type="PackedScene" uid="uid://c3bb0sh1vqnpt" path="res://placables/item_gen/item_gen_ui.tscn" id="7_eatvi"]
-[ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://placables/belts/belt_0c/belt_0l/slot_item_sprite.gd" id="7_ga6pg"]
+[ext_resource type="Script" uid="uid://yb2oa2owdp0n" path="res://custom_types/slot_item_sprite.gd" id="7_ga6pg"]
 [ext_resource type="Script" uid="uid://bot7fp7d3t6im" path="res://components/go_components/spawner_comp.gd" id="9_niei1"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="10_i6dki"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpooy"]
-size = Vector2(15.9, 15.9)
+size = Vector2(15.95, 15.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocd5p"]
+size = Vector2(14, 14)
 
 [sub_resource type="Resource" id="Resource_j87vo"]
 script = ExtResource("5_xogw8")
@@ -45,15 +48,22 @@ collision_mask = 0
 [node name="Collision" type="CollisionShape2D" parent="ExtraPlayerCollision"]
 shape = SubResource("RectangleShape2D_bpooy")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Blocked" type="Area2D" parent="."]
+visible = false
 collision_layer = 4352
-collision_mask = 28672
+collision_mask = 61440
+script = ExtResource("3_bpooy")
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
 
-[node name="Collision" type="CollisionShape2D" parent="Area2D"]
+[node name="Collision" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(-0.0250001, 0)
 shape = SubResource("RectangleShape2D_bpooy")
+debug_color = Color(1, 0, 0, 0.392)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = ExtResource("3_j5wg7")
+visible = false
+position = Vector2(-2.38419e-07, 0)
+shape = SubResource("RectangleShape2D_ocd5p")
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("3_uvgt1")

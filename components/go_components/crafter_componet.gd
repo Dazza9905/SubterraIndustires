@@ -19,6 +19,7 @@ signal craft_progress_changed
 	set(new_progress):
 		craft_progress = new_progress
 		craft_progress_changed.emit()
+		
 
 var objective_system: ObjectiveSystem
 
@@ -33,7 +34,6 @@ func _on_machanine_tick() -> void:
 	var target_outputs: Array[int]
 	
 	if if_can_craft(target_outputs):
-		print("asd")
 		craft_progress += 1
 		
 		if craft_progress == recipe.ticks_to_craft:

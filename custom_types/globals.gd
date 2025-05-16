@@ -1,13 +1,13 @@
 extends Node
 
-const LEVEL_PATH = "user://gamesaves/"
+const GAME_SAVE_PATH = "user://gamesaves/"
+
 const ITEM_TEX_PATH = "res://items/"
 const ITEM_PATH = "res://items/"
 const RECIPE_PATH = "res://recipes/"
 const TILE_SIZE = 16
 
-var load_level_path: String = ""
-
+@export var load_level_file_name: String = ""
 
 enum SlotFlag {
 	APPROVED,

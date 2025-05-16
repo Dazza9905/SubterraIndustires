@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6w4tf1trx1rf"]
 
-[ext_resource type="Script" uid="uid://d0mi45qsue8i0" path="res://components/world_componets/world_input_comp.gd" id="1_yab5i"]
+[ext_resource type="Script" uid="uid://d0mi45qsue8i0" path="res://components/world_componets/world_io_comp.gd" id="1_yab5i"]
 [ext_resource type="Texture2D" uid="uid://ckqb7yvo30sbi" path="res://components/world_componets/world_io_comp_atlas.png" id="2_85a3h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_85a3h"]
