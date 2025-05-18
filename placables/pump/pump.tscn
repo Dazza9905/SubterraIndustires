@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://1ku3wq6et1pk"]
+[gd_scene load_steps=25 format=3 uid="uid://1ku3wq6et1pk"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_fa4ch"]
 [ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="2_gryw6"]
@@ -12,7 +12,6 @@
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="7_ynyim"]
 [ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="8_aldiq"]
 [ext_resource type="Resource" uid="uid://ce5kafijqvpxh" path="res://items/item_dirty_goo.tres" id="9_naxtb"]
-[ext_resource type="Resource" uid="uid://d02qjauj43boo" path="res://items/item_water.tres" id="10_naxtb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t1sx"]
 atlas = ExtResource("3_xinsd")
@@ -170,7 +169,7 @@ script = ExtResource("5_p7yq2")
 slot = NodePath("../SlotComponent")
 area = NodePath("../../MineChackArea")
 limit = true
-allow_to_mine = Array[ExtResource("8_aldiq")]([ExtResource("9_naxtb"), ExtResource("10_naxtb")])
+allow_to_mine = Array[ExtResource("8_aldiq")]([ExtResource("9_naxtb")])
 metadata/_custom_type_script = "uid://cp5x0nve6cj2j"
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]

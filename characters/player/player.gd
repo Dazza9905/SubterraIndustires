@@ -11,7 +11,7 @@ var speed = 5000
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if Input.is_action_pressed("camera_zoom_out"):
-			if ($Camera2D.zoom.x > 3):
+			if ($Camera2D.zoom.x > 2.5):
 				$Camera2D.zoom *= Vector2(0.952, 0.952)
 		if Input.is_action_pressed("camera_zoom_in"):
 			if ($Camera2D.zoom.x < 8):
@@ -25,13 +25,16 @@ func _input(event: InputEvent) -> void:
 			if ($Camera2D.zoom.x < 8):
 				$Camera2D.zoom *= Vector2(1.07, 1.07)
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			if ($Camera2D.zoom.x > 3):
+			if ($Camera2D.zoom.x > 2.5):
 				$Camera2D.zoom *= Vector2(0.95, 0.95)
 
 func _physics_process(delta):
 	var colliders = detector_area.get_overlapping_bodies()
 	
 	var conveyor_velocity = Vector2.ZERO
+	
+	
+	
 	
 	for collider in colliders:
 		if collider != null and collider.name.begins_with("belt"):
@@ -50,9 +53,14 @@ func _physics_process(delta):
 	# Normalize input direction to maintain consistent speed when moving diagonally
 	if input_direction.length() > 0:
 		input_direction = input_direction.normalized()
-		
-	var input_velocity = (input_direction * speed)*delta
-
+	
+	var running_mult = 1
+	if Input.is_action_pressed("sprint"):
+		running_mult = 1.5
+	
+	var input_velocity = (input_direction * speed * running_mult)*delta
+	
+	
 	# Apply delta to scale movement by frame time for frame rate independence
 	velocity = (input_velocity + conveyor_velocity)
 	

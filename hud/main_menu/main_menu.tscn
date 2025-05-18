@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwl1ideqa038k"]
+[gd_scene load_steps=8 format=3 uid="uid://cwl1ideqa038k"]
 
 [ext_resource type="Script" uid="uid://bi0xpeap8k1ep" path="res://hud/main_menu/main_menu.gd" id="1_5gt41"]
 [ext_resource type="PackedScene" uid="uid://1tbuyh1tbme" path="res://hud/main_menu/level_picker/level_picker.tscn" id="2_7h4so"]
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_mhrcu"]
 [ext_resource type="Texture2D" uid="uid://c8o1yf5l3kybv" path="res://art/Subterra Industries logo 1x.png" id="2_ycwou"]
+[ext_resource type="Script" uid="uid://c8pq0wjvrcbgn" path="res://hud/main_menu/world_loading_bar.gd" id="5_qa22u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h4so"]
 atlas = ExtResource("2_ycwou")
@@ -12,7 +13,7 @@ region = Rect2(0, 0, 128, 78)
 [sub_resource type="LabelSettings" id="LabelSettings_7h4so"]
 font_size = 30
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("progress_bar")]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +22,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5gt41")
 level_picker = ExtResource("2_7h4so")
-progress_bar = NodePath("MarginContainer/VBoxContainer2/ProgressBar")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
@@ -61,7 +61,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
-[node name="Begin" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+[node name="NewGame" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 3
@@ -86,10 +86,11 @@ theme_override_font_sizes/font_size = 48
 text = "Options"
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/VBoxContainer2"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
 value = 34.51
+script = ExtResource("5_qa22u")
+metadata/_custom_type_script = "uid://c8pq0wjvrcbgn"
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/ProgressBar"]
 layout_mode = 2
@@ -103,5 +104,5 @@ grow_horizontal = 2
 text = "LOADING WORLD..."
 label_settings = SubResource("LabelSettings_7h4so")
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/Begin" to="." method="_on_begin_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/NewGame" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer/LoadGame" to="." method="_on_load_game_pressed"]

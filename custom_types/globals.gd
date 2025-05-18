@@ -7,7 +7,8 @@ const ITEM_PATH = "res://items/"
 const RECIPE_PATH = "res://recipes/"
 const TILE_SIZE = 16
 
-@export var load_level_file_name: String = ""
+@export var lvl_uuid: String = ""
+@export var load_floor: int = 0
 
 enum SlotFlag {
 	APPROVED,
@@ -56,8 +57,11 @@ func get_UIS() -> UISystem:
 func get_ObjectiveSystem() -> ObjectiveSystem:
 	return get_node("/root/Game/Systems/ObjectiveSystem")
 
-func get_level_num() -> int:
-	return get_node("/root/Game/Systems/LevelInfo").level_num
+func get_LevelInfo() -> LevelInfo:
+	return get_node("/root/Game/Systems/LevelInfo")
+	
+func get_LevelSaverLoader() -> LevelSaverLoader:
+	return get_node("/root/Game/Systems/LevelSaverLoader")
 
 func get_GP_cell_postion() -> Vector2i:
 	return  Vector2((get_node("/root/Game/World/GridPositioner").position.x - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE, (get_node("/root/Game/World/GridPositioner").position.y - (Globals.TILE_SIZE/2))/Globals.TILE_SIZE) as Vector2i

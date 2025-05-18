@@ -3,6 +3,9 @@ class_name OpenUIButton
 
 @export var packed_ui: PackedScene
 
+func _init() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 func _ready() -> void:
 	Globals.get_mode_building_system().mode_state.mode_changed.connect(_on_mode_changed)
 	

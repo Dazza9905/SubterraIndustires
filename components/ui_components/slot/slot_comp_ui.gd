@@ -1,7 +1,6 @@
 extends ComponentUI
 class_name SlotComponentUI
 
-@export var ui_link_id: String
 @export var item_count_label: Label
 @export var item_texture: TextureRect
 @export var interactable: bool = true
@@ -18,6 +17,7 @@ func link_to_component(components: Array[Component]) -> void:
 				slot_component.slot_contents_changed.connect(update_ui)
 				update_ui()
 				is_linked = true
+				#print("ALKSJFKJLHASKFJLH" + " " + ui_link_id)
 	if not is_linked:
 		assert(self.name, " did not link!")
 	#print(slot_component)
@@ -39,7 +39,7 @@ func update_ui():
 	#print(slot_component)
 	
 func _get_drag_data(at_position: Vector2) -> DraggedItem:
-	if slot_component.item is Item and interactable:
+	if interactable and slot_component.item is Item:
 		var dragged_item: DraggedItem = DraggedItem.new(slot_component.item, slot_component)
 		
 		var item_drag_preview = TextureRect.new()

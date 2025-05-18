@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt081p0pbegd5"]
+
+[ext_resource type="Script" uid="uid://bk2gpfhdci17u" path="res://components/ui_components/core_drill_comp_ui/core_drill_comp_ui.gd" id="1_wo0cc"]
+
+[node name="CoreDrillCompUi" type="VBoxContainer" node_paths=PackedStringArray("progress_bar", "go_up_button", "go_down_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_wo0cc")
+progress_bar = NodePath("ProgressBar")
+go_up_button = NodePath("GoUp")
+go_down_button = NodePath("GoDown")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Mining progress:"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+
+[node name="GoUp" type="Button" parent="."]
+layout_mode = 2
+text = "go up"
+
+[node name="GoDown" type="Button" parent="."]
+layout_mode = 2
+disabled = true
+text = "go down"
+
+[connection signal="pressed" from="GoUp" to="." method="_on_go_up_pressed"]
+[connection signal="pressed" from="GoDown" to="." method="_on_go_down_pressed"]

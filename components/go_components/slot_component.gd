@@ -4,7 +4,7 @@ class_name SlotComponent
 signal slot_contents_changed
 
 
-@export var capacity: int = 1
+@export var capacity: int = 50
 @export var _amount: int = 0:
 	set(new_amount):
 		_amount = new_amount
@@ -17,6 +17,15 @@ signal slot_contents_changed
 	set(new_item):
 		item = new_item
 		slot_contents_changed.emit()
+
+func get_item_stack() -> ItemStack:
+	return ItemStack.create(item, _amount)
+
+func set_item_stack(n_stack: ItemStack) -> void:
+	_amount = n_stack.amount
+	item = n_stack.item
+
+
 
 func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
 	match [passed_item, item]:
@@ -44,6 +53,7 @@ func give_item(passed_item: Item, passed_amount: int = 1) -> Error:
 		_:
 			return FAILED
 
+
 func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 	match [passed_item, item]:
 		[null, _]:
@@ -66,8 +76,9 @@ func can_give_item(passed_item: Item, passed_amount: int = 1) -> bool:
 
 		_:
 			return false
-
-
+	
+	
+	
 #ANY
 func take(passed_amount: int = 1) -> Item: # -1 <- max amount
 	if (is_empty()):
@@ -81,6 +92,7 @@ func take(passed_amount: int = 1) -> Item: # -1 <- max amount
 			return temp_item
 		else:
 			return null
+	
 
 #SINGLE
 func take_sigle_type(passed_item_type: Enums.MATERIAL_ITEM, passed_amount = 1) -> Item:

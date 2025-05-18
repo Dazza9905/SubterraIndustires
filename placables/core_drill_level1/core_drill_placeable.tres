@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Placeable" load_steps=11 format=3 uid="uid://coick28xvywj2"]
 
-[ext_resource type="Texture2D" uid="uid://gw36487ax2sk" path="res://placables/core_drill/core_drill_head_frames.png" id="1_62fuk"]
-[ext_resource type="PackedScene" uid="uid://d2dk46qx62l7p" path="res://placables/core_drill/core_drill.tscn" id="2_dyvn7"]
+[ext_resource type="Texture2D" uid="uid://gw36487ax2sk" path="res://placables/core_drill_level1/core_drill_head_frames.png" id="1_62fuk"]
+[ext_resource type="PackedScene" uid="uid://d2dk46qx62l7p" path="res://placables/core_drill_level1/core_drill.tscn" id="2_dyvn7"]
 [ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_pwacr"]
 [ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="4_v7wrm"]
 [ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="5_2ubjv"]

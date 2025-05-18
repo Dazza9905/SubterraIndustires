@@ -1,18 +1,22 @@
-[gd_scene load_steps=42 format=3 uid="uid://d2dk46qx62l7p"]
+[gd_scene load_steps=46 format=3 uid="uid://d2dk46qx62l7p"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_tv0yf"]
-[ext_resource type="Texture2D" uid="uid://dvf77u7l8wm7a" path="res://placables/core_drill/core_drill_behing.png" id="2_7nte6"]
+[ext_resource type="Texture2D" uid="uid://dvf77u7l8wm7a" path="res://placables/core_drill_level1/core_drill_behing.png" id="2_7nte6"]
 [ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="3_eytwo"]
-[ext_resource type="Texture2D" uid="uid://gw36487ax2sk" path="res://placables/core_drill/core_drill_head_frames.png" id="4_pp4jo"]
+[ext_resource type="Texture2D" uid="uid://gw36487ax2sk" path="res://placables/core_drill_level1/core_drill_head_frames.png" id="4_pp4jo"]
 [ext_resource type="Script" uid="uid://cyfgylxq4wi5k" path="res://placables/_general/animated_rotatable_sprite.gd" id="5_hq8yd"]
 [ext_resource type="Script" uid="uid://cclesgul6qwot" path="res://addons/shaker/shaker.gd" id="5_tv0yf"]
-[ext_resource type="Texture2D" uid="uid://1dm0aix6n4q" path="res://placables/core_drill/core_drill_infront.png" id="6_iomvt"]
+[ext_resource type="Texture2D" uid="uid://1dm0aix6n4q" path="res://placables/core_drill_level1/core_drill_infront.png" id="6_iomvt"]
 [ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="7_6dy2f"]
 [ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="8_ej231"]
 [ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="9_yu54l"]
 [ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="10_wt51q"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="11_eytwo"]
 [ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="11_gscai"]
-[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="12_nimub"]
+[ext_resource type="PackedScene" uid="uid://bku5xn34eai6o" path="res://placables/core_drill_level1/core_drill_ui.tscn" id="12_pp4jo"]
+[ext_resource type="Script" uid="uid://myc4jbq5k32i" path="res://components/go_components/collect_component.gd" id="16_iomvt"]
+[ext_resource type="Resource" uid="uid://ciaha53jrj8j7" path="res://items/item_drill_iron.tres" id="17_ej231"]
+[ext_resource type="Script" uid="uid://bc4ukvoaf6k6g" path="res://components/go_components/core_drill_comp.gd" id="19_ej231"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlj04"]
 atlas = ExtResource("2_7nte6")
@@ -179,8 +183,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_tv0yf"]
 resource_name = "drilling"
-length = 15.0
-loop_mode = 1
+length = 12.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -242,7 +245,7 @@ collision_mask = 0
 script = ExtResource("1_tv0yf")
 self_packed_uid = "uid://d2dk46qx62l7p"
 code_name = "core_drill"
-init_after_place = [NodePath("Behind"), NodePath("Infront"), null]
+init_after_place = [NodePath("Behind"), NodePath("Infront")]
 
 [node name="Behind" type="Sprite2D" parent="."]
 clip_children = 2
@@ -280,7 +283,7 @@ metadata/_custom_type_script = "uid://svlocokxdnvo"
 libraries = {
 &"": SubResource("AnimationLibrary_7nte6")
 }
-autoplay = "drilling"
+autoplay = "RESET"
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
 script = ExtResource("7_6dy2f")
@@ -306,16 +309,18 @@ polygon = PackedVector2Array(0, 64, 48, 48, 64, 24, 88, 24, 88, -24, 64, -24, 48
 
 [node name="Blocked" type="Area2D" parent="."]
 collision_layer = 4352
-collision_mask = 28672
+collision_mask = 61440
 script = ExtResource("9_yu54l")
 metadata/_custom_type_script = "uid://cl18dhfx7rou1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocked"]
 shape = SubResource("CircleShape2D_pum6h")
+debug_color = Color(1, 0, 0, 0.392)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Blocked"]
 position = Vector2(80, 28)
 shape = SubResource("RectangleShape2D_3eyyu")
+debug_color = Color(1, 0, 0, 0.392)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Blocked"]
 polygon = PackedVector2Array(64, -32, 64, 32, 96, 32, 96, 24, 88, 24, 88, -24, 96, -24, 96, -32)
@@ -323,7 +328,7 @@ polygon = PackedVector2Array(64, -32, 64, 32, 96, 32, 96, 24, 88, 24, 88, -24, 9
 [node name="BlockedBeltAllow" type="Area2D" parent="."]
 visible = false
 collision_layer = 8448
-collision_mask = 12288
+collision_mask = 45056
 script = ExtResource("9_yu54l")
 collision_type = 1
 metadata/_custom_type_script = "uid://cl18dhfx7rou1"
@@ -331,45 +336,45 @@ metadata/_custom_type_script = "uid://cl18dhfx7rou1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlockedBeltAllow"]
 position = Vector2(92, 0)
 shape = SubResource("RectangleShape2D_xur2h")
-debug_color = Color(0.502135, 0.568266, 0.342822, 0.42)
+debug_color = Color(1, 0.427, 0, 0.392)
+
+[node name="OpenUIButton" type="Button" parent="."]
+offset_left = -56.0
+offset_top = -56.0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_type_variation = &"InvisButton"
+script = ExtResource("11_eytwo")
+packed_ui = ExtResource("12_pp4jo")
+metadata/_custom_type_script = "uid://dcpogcc84lab7"
 
 [node name="Components" type="Node2D" parent="."]
 
-[node name="SlotIN1" type="Node2D" parent="Components"]
+[node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("10_wt51q")
-capacity = 25
+ui_link_id = "slot_drills"
 metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 
-[node name="SlotIN2" type="Node2D" parent="Components"]
-script = ExtResource("10_wt51q")
-capacity = 25
-metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
-
-[node name="SlotOUT" type="Node2D" parent="Components"]
-script = ExtResource("10_wt51q")
-capacity = 25
-metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
-
-[node name="IN1" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(80, -16)
-script = ExtResource("11_gscai")
-cell_offset = Vector2i(5, -1)
-base_side = 2
-slot = NodePath("../SlotIN1")
-metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
-
-[node name="IN2" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(80, 0)
 script = ExtResource("11_gscai")
 cell_offset = Vector2i(5, 0)
 base_side = 2
-slot = NodePath("../SlotIN2")
+slot = NodePath("../SlotComponent")
+ui_link_id = "drill_head_in"
 metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
 
-[node name="OUT" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-position = Vector2(80, 16)
-script = ExtResource("12_nimub")
-cell_offset = Vector2i(5, 1)
-base_side = 2
-slot = NodePath("../SlotOUT")
-metadata/_custom_type_script = "uid://dv6bwtrax2k8t"
+[node name="CollectComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("16_iomvt")
+what_to_collect = ExtResource("17_ej231")
+how_much_to_collect = 5
+slot = NodePath("../SlotComponent")
+metadata/_custom_type_script = "uid://myc4jbq5k32i"
+
+[node name="CoreDrillComp" type="Node2D" parent="Components" node_paths=PackedStringArray("collect_component", "anim_player")]
+script = ExtResource("19_ej231")
+collect_component = NodePath("../CollectComponent")
+anim_player = NodePath("../../AnimationPlayer")
+full_progress = 3
+ui_link_id = "core_drill_comp"
+metadata/_custom_type_script = "uid://bc4ukvoaf6k6g"

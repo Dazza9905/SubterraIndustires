@@ -1,7 +1,6 @@
 extends ComponentUI
 class_name CrafterCompUI
 
-@export var ui_link_id: String
 @export var progress_bar: ProgressBar
 @export var option_button: OptionButton
 @export var recipe_details: VBoxContainer

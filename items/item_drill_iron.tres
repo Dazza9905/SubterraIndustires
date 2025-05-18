@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ciaha53jrj8j7"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_loixt"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_iygbn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx74p"]
+atlas = ExtResource("2_iygbn")
+region = Rect2(128, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_loixt")
+type = 42
+name = "Iron Drill"
+texture = SubResource("AtlasTexture_hx74p")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

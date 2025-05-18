@@ -205,7 +205,6 @@ metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 
 [node name="water" type="Node2D" parent="Components"]
 script = ExtResource("7_3ws4l")
-capacity = 5
 ui_link_id = "water_slot"
 metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 

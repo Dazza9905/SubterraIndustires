@@ -18,8 +18,12 @@ func load_levels():
 		while file_name != "":
 			if file_name.ends_with(".json"):
 				var level_entry := level_entry.instantiate() as LevelEntry
-				level_entry.file_name = file_name
-				level_entry.level_name_label.text = file_name.left(-42)
+				
+				level_entry.uuid = file_name.right(48).left(36)
+				level_entry.lvl_floor = int(file_name.right(6).left(1))
+				level_entry.level_name = file_name.left(-49)
+				level_entry.level_name_label.text = file_name.left(-49)
+				
 				var unix_time = FileAccess.get_modified_time(Globals.GAME_SAVE_PATH + file_name)
 				level_entry.last_played_label.text = Time.get_datetime_string_from_unix_time(unix_time)
 				

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvf77u7l8wm7a"
-path="res://.godot/imported/core_drill_behing.png-44181ae8efa432d42eaec3e6a9056b06.ctex"
+uid="uid://1dm0aix6n4q"
+path="res://.godot/imported/core_drill_infront.png-96a80e9c9bccf106d09f6a3b458c083a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placables/core_drill/core_drill_behing.png"
-dest_files=["res://.godot/imported/core_drill_behing.png-44181ae8efa432d42eaec3e6a9056b06.ctex"]
+source_file="res://placables/core_drill_level1/core_drill_infront.png"
+dest_files=["res://.godot/imported/core_drill_infront.png-96a80e9c9bccf106d09f6a3b458c083a.ctex"]
 
 [params]
 

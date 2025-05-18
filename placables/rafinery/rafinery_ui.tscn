@@ -94,8 +94,8 @@ ui_link_id = "dirty_slot"
 
 [node name="SlotComponentUi2" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_710i1")]
 layout_mode = 2
-ui_link_id = "water_slot"
 interactable = false
+ui_link_id = "water_slot"
 
 [node name="CrafterCompUI" parent="PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("6_att7b")]
 layout_mode = 2

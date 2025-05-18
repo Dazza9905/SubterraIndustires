@@ -10,7 +10,9 @@ class_name LevelEntry
 @export var delete_button: Button
 @export var you_sure_button: Button
 var you_sure_timer: Timer
-var file_name: String
+var level_name: String
+var uuid: String
+var lvl_floor: int
 var is_renaming: bool = false:
 	set(new_val):
 		is_renaming = new_val
@@ -30,7 +32,10 @@ var is_renaming: bool = false:
 			text_box.visible = false
 
 func _on_button_pressed() -> void:
-	GameManager.load_world(file_name)
+	print(level_name)
+	print(uuid)
+	print(lvl_floor)
+	GameManager.load_world(uuid, lvl_floor)
 
 
 func _on_delete_pressed() -> void:
@@ -49,24 +54,26 @@ func _on_save_rename_pressed() -> void:
 		is_renaming = false
 		return
 		
-	var uuid_and_extention: String = file_name.right(42)
-	var new_file_name: String = text_box.text + uuid_and_extention
-	var error = DirAccess.rename_absolute(Globals.GAME_SAVE_PATH + file_name,Globals.GAME_SAVE_PATH + new_file_name)
+	var error = DirAccess.rename_absolute(Globals.GAME_SAVE_PATH + "%s-%s-floor%s.json" % [level_name, uuid, lvl_floor],
+	Globals.GAME_SAVE_PATH + "%s-%s-floor%s.json" % [text_box.text, uuid, lvl_floor])
 	
 	if error == OK:
 		level_name_label.text = text_box.text
-		file_name = new_file_name
+		level_name = text_box.text
 		is_renaming = false
-		print("File renamed successfully to: ", new_file_name)
+		print("File renamed successfully to: ", level_name)
 	else:
 		print("Error renaming file: ", error)
+		
+	
 
 func _on_cancel_rename_pressed() -> void:
 	is_renaming = false
 
 
 func _on_you_sure_pressed() -> void:
-	GameManager.delete_world(file_name)
+	print("%s-%s-floor%s.json" % [level_name, uuid,  lvl_floor])
+	GameManager.delete_world("%s-%s-floor%s.json" % [level_name, uuid, lvl_floor])
 
 func _on_you_sure_timer_timeout():
 	delete_button.visible = true

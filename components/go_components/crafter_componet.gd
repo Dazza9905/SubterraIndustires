@@ -62,6 +62,8 @@ func if_can_craft(target_outputs: Array[int]) -> bool:
 		var ingredient_present: bool = false
 		for in_slot in inputs:
 			if(in_slot.item == in_ingradient.item and in_slot._amount >= in_ingradient.amount):
+				print(str(in_slot.item) + "grr")
+				
 				ingredient_present = true
 				break
 		if(ingredient_present != true):
