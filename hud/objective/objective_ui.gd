@@ -5,7 +5,6 @@ class_name ObjectiveUI
 @export var objective_label: Label
 @export var sub_objectives_parent: Control
 @export var objective_menu: Control
-@export var sub_objective_parent: Control
 @export var size_node: Control
 
 
@@ -14,7 +13,7 @@ func _ready() -> void:
 	objective_label.text = Globals.get_ObjectiveSystem().current_objective.name
 	for sub_objective in Globals.get_ObjectiveSystem().current_objective.sub_objectives:
 		sub_objectives_parent.add_child(SubObjectiveUI.new(sub_objective))
-	sub_objective_parent.connect("child_order_changed", _on_sub_objective_children_changed)
+	sub_objectives_parent.connect("child_order_changed", _on_sub_objective_children_changed)
 	_on_sub_objective_children_changed()
 
 func _on_sub_objective_children_changed() -> void:

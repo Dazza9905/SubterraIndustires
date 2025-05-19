@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvf77u7l8wm7a"
-path="res://.godot/imported/core_drill_behing.png-dec888c03c9aeb589c5d46e6cfd45081.ctex"
+uid="uid://bcfu0d83tr1ch"
+path="res://.godot/imported/Subterra Industries logo 10x-export.png-f664f571e89576f29be00a799c52000c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placables/core_drill_level1/core_drill_behing.png"
-dest_files=["res://.godot/imported/core_drill_behing.png-dec888c03c9aeb589c5d46e6cfd45081.ctex"]
+source_file="res://art/Subterra Industries logo 10x-export.png"
+dest_files=["res://.godot/imported/Subterra Industries logo 10x-export.png-f664f571e89576f29be00a799c52000c.ctex"]
 
 [params]
 

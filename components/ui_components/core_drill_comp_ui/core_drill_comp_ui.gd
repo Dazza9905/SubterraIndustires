@@ -34,8 +34,14 @@ func update():
 	
 
 func _on_go_up_pressed() -> void:
-	Globals.get_LevelInfo().current_floor += 1
+	Globals.get_LevelInfo().current_floor -= 1
+	GameManager.save_world()
+	Globals.load_floor = Globals.get_LevelInfo().current_floor
+	get_tree().change_scene_to_packed(preload("uid://dq0w7ijnukont"))
 
 
 func _on_go_down_pressed() -> void:
-	Globals.get_LevelInfo().current_floor -= 1
+	Globals.get_LevelInfo().current_floor += 1
+	GameManager.save_world()
+	Globals.load_floor = Globals.get_LevelInfo().current_floor
+	get_tree().change_scene_to_packed(preload("uid://dq0w7ijnukont"))

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gw36487ax2sk"
-path="res://.godot/imported/core_drill_head_frames.png-c123f1f80a904fe5ffa78dfbce0daae3.ctex"
+path="res://.godot/imported/core_drill_head_f2_frames.png-ca354cc1d5c5b7b5f4dfb48985c316ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://placables/core_drill_level1/core_drill_head_frames.png"
-dest_files=["res://.godot/imported/core_drill_head_frames.png-c123f1f80a904fe5ffa78dfbce0daae3.ctex"]
+source_file="res://placables/core_drill/floor2/core_drill_head_f2_frames.png"
+dest_files=["res://.godot/imported/core_drill_head_f2_frames.png-ca354cc1d5c5b7b5f4dfb48985c316ef.ctex"]
 
 [params]
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HighlightSettings" load_steps=2 format=3 uid="uid://fpio0x18yu51"]
+
+[ext_resource type="Script" uid="uid://b4kfcjekrmwxx" path="res://addons/grid_building/grid_targeting_system/highlight_settings.gd" id="1_hw3b8"]
+
+[resource]
+script = ExtResource("1_hw3b8")
+build_preview_color = Color(0.6, 0.6, 1, 0.8)
+info_hover_color = Color(0.6, 0.7, 0.7, 0.85)
+move_valid_color = Color(0.2, 1, 0.2, 1)
+move_invalid_color = Color(1, 0.2, 0.2, 1)
+active_manipulation_color = Color(0.2, 0.2, 1, 0.7)
+demolish_valid_color = Color(0.2, 1, 0.2, 1)
+demolish_invalid_color = Color(1, 0.2, 0.2, 1)
+reset_color = Color(1, 1, 1, 1)

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://dlluhhi8e5wxq"]
+
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_o46r2"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_yr166"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_yr166"]
+[ext_resource type="Resource" uid="uid://ba35edtbqwnv1" path="res://items/item_iron_ingot.tres" id="3_q3wmw"]
+[ext_resource type="Resource" uid="uid://c3nr0ur7fhvg1" path="res://items/item_iron_gear.tres" id="4_q3wmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u7hn"]
+atlas = ExtResource("1_yr166")
+region = Rect2(16, 144, 16, 16)
+
+[sub_resource type="Resource" id="Resource_x676j"]
+script = ExtResource("1_o46r2")
+item = ExtResource("3_q3wmw")
+amount = 5
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_q3wmw"]
+script = ExtResource("1_o46r2")
+item = ExtResource("4_q3wmw")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("2_yr166")
+name = "Iron Gear (2x)"
+icon = SubResource("AtlasTexture_0u7hn")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("1_o46r2")]([SubResource("Resource_x676j")])
+output_products = Array[ExtResource("1_o46r2")]([SubResource("Resource_q3wmw")])
+ticks_to_craft = 8
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

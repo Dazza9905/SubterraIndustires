@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GridTargetingSettings" load_steps=2 format=3 uid="uid://cxh6ovdppjekc"]
+
+[ext_resource type="Script" uid="uid://bf1f0wwpo5syj" path="res://addons/grid_building/grid_targeting_system/grid_targeting_settings.gd" id="1_jywom"]
+
+[resource]
+resource_name = "Custom Targeting Settings"
+script = ExtResource("1_jywom")
+limit_to_adjacent = false
+max_tile_distance = 3
+restrict_to_map_area = false
+show_debug = false
+region_size = Vector2i(50, 50)
+cell_shape = 0
+diaganol_mode = 0
+default_compute_heuristic = 0
+default_estimate_heuristic = 0
+hide_on_handled = true

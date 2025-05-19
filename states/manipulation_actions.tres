@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ManipulationActions" load_steps=2 format=3 uid="uid://djmcx8awd76nh"]
+
+[ext_resource type="Script" uid="uid://csdqshkhrm6w2" path="res://addons/grid_building/building_system/manipulation_actions.gd" id="1_p4bj3"]
+
+[resource]
+resource_name = "Template Manipulation Actions"
+script = ExtResource("1_p4bj3")
+confirm = &"confirm"
+rotate_right = &"rotate_right"
+rotate_left = &"rotate_left"
+flip_horizontal = &"flip_horizontal"
+flip_vertical = &"flip_vertical"

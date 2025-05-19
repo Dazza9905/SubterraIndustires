@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://cy11kg2kimykw"
 
 [resource]
 script = ExtResource("4_6edr4")
-display_name = &"Item Generator"
+display_name = &"Item Gen"
 icon = ExtResource("1_c3nnp")
 packed_scene = ExtResource("2_i05yk")
 tags = Array[ExtResource("5_6xb23")]([ExtResource("6_4pfqv")])

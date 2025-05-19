@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dgu7fks4v20cc"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_7ew64"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_3kphf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jp18p"]
+atlas = ExtResource("2_3kphf")
+region = Rect2(80, 64, 16, 16)
+
+[resource]
+script = ExtResource("1_7ew64")
+type = 46
+name = "Thungsten Rod"
+texture = SubResource("AtlasTexture_jp18p")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

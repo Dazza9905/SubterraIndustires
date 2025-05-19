@@ -329,20 +329,30 @@ slot_component = NodePath("../Components/SlotComponent")
 z_index = 2
 position = Vector2(-12.5, 0)
 texture = SubResource("AtlasTexture_1fphc")
+offset = Vector2(-1, 0)
 script = ExtResource("5_gq23d")
 is_symetric = false
 base_texture_atlas = ExtResource("4_p7fy5")
 base_regions = Array[AtlasTexture]([SubResource("AtlasTexture_1fphc"), SubResource("AtlasTexture_2m28s"), SubResource("AtlasTexture_8lpdl"), SubResource("AtlasTexture_go3c1")])
+right_position = Vector2i(-1, 0)
+down_position = Vector2i(0, -1)
+left_position = Vector2i(1, 0)
+up_position = Vector2i(0, 1)
 metadata/_custom_type_script = "uid://svlocokxdnvo"
 
 [node name="RotatableSprite2D2" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(12.5, 0)
 texture = SubResource("AtlasTexture_8lpdl")
+offset = Vector2(1, 0)
 script = ExtResource("5_gq23d")
 is_symetric = false
 base_texture_atlas = ExtResource("4_p7fy5")
 base_regions = Array[AtlasTexture]([SubResource("AtlasTexture_8lpdl"), SubResource("AtlasTexture_go3c1"), SubResource("AtlasTexture_1fphc"), SubResource("AtlasTexture_2m28s")])
+right_position = Vector2i(1, 0)
+down_position = Vector2i(0, 1)
+left_position = Vector2i(-1, 0)
+up_position = Vector2i(0, -1)
 metadata/_custom_type_script = "uid://svlocokxdnvo"
 
 [node name="InputCollider" type="CollisionShape2D" parent="."]
@@ -360,13 +370,13 @@ collision_mask = 0
 
 [node name="Bloacked" type="CollisionShape2D" parent="ExtraPlayerCollision"]
 self_modulate = Color(1, 0, 1, 1)
-position = Vector2(-12.5, -2.26513e-07)
+position = Vector2(-13.5, -2.26513e-07)
 shape = SubResource("RectangleShape2D_0gbdr")
 debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
 
 [node name="Bloacked2" type="CollisionShape2D" parent="ExtraPlayerCollision"]
 self_modulate = Color(1, 0, 1, 1)
-position = Vector2(12.5, 0)
+position = Vector2(13.5, 0)
 shape = SubResource("RectangleShape2D_0gbdr")
 debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
 

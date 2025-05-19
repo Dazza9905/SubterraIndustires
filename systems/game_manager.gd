@@ -19,13 +19,13 @@ func load_world(uuid: String = "", lvl_floor: int = 0) -> void:
 	match Globals.load_floor:
 		0:
 			print("LOADING FLOOR 0")
-			base_level_scene_uid = "uid://ctc8rnt7qr81d"
-		-1:
-			print("LOADING FLOOR -1")
-			base_level_scene_uid = "uid://blqvi0qpuaojs"
-		-2:
-			print("LOADING FLOOR -2")
-			base_level_scene_uid = "uid://blqvi0qpuaojs"
+			base_level_scene_uid = "uid://b7mwq0b7atito"
+		1:
+			print("LOADING FLOOR 1")
+			base_level_scene_uid = "uid://dx7w1sqkporio"
+		2:
+			print("LOADING FLOOR 2")
+			base_level_scene_uid = "uid://pl3uyhfmol6b"
 	
 	ResourceLoader.load_threaded_request(base_level_scene_uid)
 
@@ -44,6 +44,7 @@ func delete_world(world_name: String) -> void:
 		reload_worlds.emit()
 
 func save_world():
+	print(Globals.get_LevelSaverLoader().name)
 	Globals.get_LevelSaverLoader().save_level()
 
 func is_file_accessible(file_path: String) -> bool:

@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://di2i0pqevjvf4"]
+
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_wxtjj"]
+[ext_resource type="Texture2D" uid="uid://blshmc7jky2v2" path="res://placables/miner/miner_base.png" id="2_2j0yd"]
+[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="3_rtxu3"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="4_eoa2t"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="4_qxm31"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="5_eoa2t"]
+[ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="5_gd0jo"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="5_mxtqk"]
+[ext_resource type="PackedScene" uid="uid://bfrh3uyhat1ou" path="res://placables/chest/chest_ui.tscn" id="6_4mxpe"]
+[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="6_eoa2t"]
+[ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="11_gd0jo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxtqk"]
+atlas = ExtResource("2_2j0yd")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_821us"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_limng"]
+size = Vector2(31.95, 31.95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxtqk"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mxpe"]
+size = Vector2(30, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxm31"]
+size = Vector2(16, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd0jo"]
+size = Vector2(6, 16)
+
+[node name="Chest" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
+collision_layer = 3072
+collision_mask = 0
+script = ExtResource("1_wxtjj")
+self_packed_uid = "uid://di2i0pqevjvf4"
+code_name = "chest"
+init_after_place = [NodePath("RotatableSprite2D")]
+metadata/_custom_type_script = "uid://kjjkl8o0k1up"
+
+[node name="RotatableSprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mxtqk")
+script = ExtResource("3_rtxu3")
+base_texture_atlas = ExtResource("2_2j0yd")
+metadata/_custom_type_script = "uid://svlocokxdnvo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_821us")
+
+[node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("4_qxm31")
+settings = ExtResource("5_gd0jo")
+root = NodePath("..")
+metadata/_custom_type_script = "uid://bib4d58jc2hi1"
+
+[node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 512
+collision_mask = 0
+
+[node name="Bloacked" type="CollisionShape2D" parent="ExtraPlayerCollision"]
+self_modulate = Color(1, 0, 1, 1)
+shape = SubResource("RectangleShape2D_limng")
+debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
+
+[node name="Blocked" type="Area2D" parent="."]
+collision_layer = 4352
+collision_mask = 61440
+script = ExtResource("4_eoa2t")
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_mxtqk")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Blocked"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_4mxpe")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Blocked"]
+shape = SubResource("RectangleShape2D_qxm31")
+debug_color = Color(1, 0, 0, 0.392)
+
+[node name="BlockedBeltAllow" type="Area2D" parent="."]
+collision_layer = 8448
+collision_mask = 45056
+script = ExtResource("4_eoa2t")
+collision_type = 1
+metadata/_custom_type_script = "uid://cl18dhfx7rou1"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BlockedBeltAllow"]
+z_index = 4
+position = Vector2(-12, 0)
+shape = SubResource("RectangleShape2D_gd0jo")
+debug_color = Color(1, 0.427, 0, 0.392)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockedBeltAllow"]
+z_index = 4
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_gd0jo")
+debug_color = Color(1, 0.427, 0, 0.392)
+
+[node name="OpenUIButton" type="Button" parent="."]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+theme_type_variation = &"InvisButton"
+script = ExtResource("5_mxtqk")
+packed_ui = ExtResource("6_4mxpe")
+metadata/_custom_type_script = "uid://dcpogcc84lab7"
+
+[node name="Components" type="Node2D" parent="."]
+
+[node name="SlotComponent" type="Node2D" parent="Components"]
+script = ExtResource("5_eoa2t")
+capacity = 200
+ui_link_id = "slot_chest"
+
+[node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+rotation = 3.14159
+script = ExtResource("6_eoa2t")
+slot = NodePath("../SlotComponent")
+metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
+
+[node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
+script = ExtResource("11_gd0jo")
+base_side = 2
+slot = NodePath("../SlotComponent")
+metadata/_custom_type_script = "uid://dv6bwtrax2k8t"

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Placeable" load_steps=11 format=3 uid="uid://bry0fd5gw17xf"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_hw6ab"]
+[ext_resource type="PackedScene" uid="uid://oiqps0har6d2" path="res://placables/core_drill/floor2/core_drill_f2.tscn" id="2_hw6ab"]
+[ext_resource type="Script" uid="uid://ceem2vqcha7ki" path="res://addons/grid_building/placement/placement_rules/placement_rule.gd" id="3_c1lrv"]
+[ext_resource type="Resource" uid="uid://dr62hgc7ixa8h" path="res://gb_rules/Add-GRS-Ref.tres" id="4_i5few"]
+[ext_resource type="Script" uid="uid://cy11kg2kimykw" path="res://gb_rules/better-collision-check.gd" id="5_ky6hn"]
+[ext_resource type="Script" uid="uid://b01uvfnfuldd6" path="res://addons/grid_building/placement/placeable/placeable.gd" id="6_tydls"]
+[ext_resource type="Script" uid="uid://b064bdpoigkqi" path="res://addons/grid_building/placement/placeable/categorical_tag.gd" id="7_7l5rq"]
+[ext_resource type="Resource" uid="uid://41ylut0j802" path="res://placables/categories/machines.tres" id="8_ku4kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhj6s"]
+atlas = ExtResource("1_hw6ab")
+region = Rect2(128, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_67tfp"]
+script = ExtResource("5_ky6hn")
+these_layers = 256
+metadata/_custom_type_script = "uid://cy11kg2kimykw"
+
+[resource]
+script = ExtResource("6_tydls")
+display_name = &"Tough Drill"
+icon = SubResource("AtlasTexture_fhj6s")
+packed_scene = ExtResource("2_hw6ab")
+tags = Array[ExtResource("7_7l5rq")]([ExtResource("8_ku4kl")])
+placement_rules = Array[ExtResource("3_c1lrv")]([ExtResource("4_i5few"), SubResource("Resource_67tfp")])
+ignore_base_rules = false

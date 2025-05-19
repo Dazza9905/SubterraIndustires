@@ -4,7 +4,8 @@
 [ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_anpeq"]
 [ext_resource type="PackedScene" uid="uid://clfimfreq1gha" path="res://components/ui_components/flush_slots/flush_slots_ui.tscn" id="3_agngf"]
 [ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="4_xs42m"]
-[ext_resource type="Texture2D" uid="uid://djxwbwhrsi4id" path="res://placables/splitter/split_icon.png" id="5_0ixnh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2tnx"]
 
 [node name="SmelterUI" type="VBoxContainer" node_paths=PackedStringArray("ui_components", "close_button")]
 offset_right = 244.0
@@ -13,7 +14,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = -15
 script = ExtResource("1_241f3")
-ui_components = [NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton")]
+ui_components = [NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton"), NodePath("PanelContainer/MarginContainer/VBoxContainer/SlotComponentUi2"), NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SlotComponentUi"), NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SlotComponentUi3"), NodePath("PanelContainer/MarginContainer/VBoxContainer/SlotComponentUi4")]
 close_button = NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/CloseButton")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -59,6 +60,7 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "🗑"
+ui_link_ids = Array[String](["in1", "in2", "in3", "out1"])
 
 [node name="CloseButton" type="Button" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(45, 0)
@@ -99,7 +101,7 @@ ui_link_id = "in2"
 [node name="Panel" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-texture = ExtResource("5_0ixnh")
+texture = SubResource("AtlasTexture_w2tnx")
 
 [node name="SlotComponentUi3" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xs42m")]
 layout_mode = 2

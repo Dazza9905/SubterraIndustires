@@ -10,7 +10,8 @@ func _ready() -> void:
 	close_button.pressed.connect(close_ui)
 
 func _exit_tree() -> void:
-	grid_object.modulate = Color.WHITE
+	if grid_object:
+		grid_object.modulate = Color.WHITE
 
 func link_all_ui_components(grid_object: GridObject):
 	#print("link all")

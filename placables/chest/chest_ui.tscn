@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfrh3uyhat1ou"]
+
+[ext_resource type="PackedScene" uid="uid://c05rlou7d7i36" path="res://placables/_base/base_building_ui.tscn" id="1_05dka"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="2_fndsd"]
+
+[node name="SmelterUI" node_paths=PackedStringArray("ui_components") instance=ExtResource("1_05dka")]
+ui_components = [NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton"), NodePath("PanelContainer/MarginContainer/SlotComponentUi")]
+
+[node name="Label2" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer" index="0"]
+text = "Chest"
+
+[node name="FlushButton" parent="MarginContainer/HBoxContainer/MarginContainer/HBoxContainer" index="0"]
+ui_link_ids = Array[String](["slot_chest"])
+
+[node name="SlotComponentUi" parent="PanelContainer/MarginContainer" index="0" instance=ExtResource("2_fndsd")]
+layout_mode = 2
+ui_link_id = "slot_chest"

@@ -26,6 +26,7 @@ const ANIMATION_FPS := 32
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	tick_max_delta = 1.0 / ticks_per_second
 	if not paused:
 		#ANIMATION
 		_time_accum += delta

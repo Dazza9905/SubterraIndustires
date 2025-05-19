@@ -3,7 +3,8 @@ class_name MinerComp
 
 @export var slot: SlotComponent
 @export var area: Area2D
-var times_to_check: int = 2
+@export var tick_to_mine: int = 0
+var current_tick: int = 0
 var item: Item
 @export var limit: bool = false
 @export var allow_to_mine: Array[Item]
@@ -38,4 +39,7 @@ func _on_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int,
 		_process_tilemap_collision(body_rid, body)
 
 func _on_machanine_tick() -> void:
-	slot.give_item(item)
+	current_tick += 1
+	if current_tick >= tick_to_mine:
+		current_tick = 0
+		slot.give_item(item)

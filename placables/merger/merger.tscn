@@ -57,8 +57,10 @@ settings = SubResource("Resource_m5pbt")
 root = NodePath("..")
 
 [node name="OpenUIButton" type="Button" parent="."]
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
 mouse_filter = 2
 theme_type_variation = &"InvisButton"
 script = ExtResource("7_jw33y")
@@ -69,15 +71,19 @@ metadata/_custom_type_script = "uid://dcpogcc84lab7"
 
 [node name="Slot_In_Left" type="Node2D" parent="Components"]
 script = ExtResource("6_x1peo")
+ui_link_id = "in2"
 
 [node name="Slot_In_Top" type="Node2D" parent="Components"]
 script = ExtResource("6_x1peo")
+ui_link_id = "in1"
 
 [node name="Slot_In_Bot" type="Node2D" parent="Components"]
 script = ExtResource("6_x1peo")
+ui_link_id = "in3"
 
 [node name="Slot_Out_Right" type="Node2D" parent="Components"]
 script = ExtResource("6_x1peo")
+ui_link_id = "out1"
 
 [node name="InputComponentTop" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 rotation = 4.71239

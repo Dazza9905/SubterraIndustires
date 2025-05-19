@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://b0dgrlcpx7kmx"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_yjwv7"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_a2bad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfjdw"]
+atlas = ExtResource("2_a2bad")
+region = Rect2(80, 144, 16, 16)
+
+[resource]
+script = ExtResource("1_yjwv7")
+type = 45
+name = "Thungsten Gear"
+texture = SubResource("AtlasTexture_dfjdw")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

@@ -23,6 +23,15 @@ grow_vertical = 2
 script = ExtResource("1_5gt41")
 level_picker = ExtResource("2_7h4so")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0470588, 0.0901961, 1)
+
 [node name="TextureRect2" type="TextureRect" parent="."]
 visible = false
 layout_mode = 2
@@ -78,6 +87,7 @@ theme_override_font_sizes/font_size = 48
 text = "Load Game"
 
 [node name="Option" type="Button" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 3
@@ -97,9 +107,9 @@ layout_mode = 2
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -106.5
-offset_top = -19.0
+offset_top = -22.0
 offset_right = 106.5
-offset_bottom = 12.0
+offset_bottom = 9.0
 grow_horizontal = 2
 text = "LOADING WORLD..."
 label_settings = SubResource("LabelSettings_7h4so")

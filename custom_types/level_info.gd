@@ -1,17 +1,17 @@
 extends Node
 class_name LevelInfo
 
-var current_floor = 0:
+@export_file(".json") var template_save_file_path: String
+
+@export var current_floor = 0:
 	set(n_val):
 		if n_val > 2:
 			n_val = 2
-		elif n_val > 0:
+		elif n_val < 0:
 			n_val = 0
-			
 		if current_floor != n_val:
 			current_floor = n_val
-			GameManager.save_world()
-			GameManager.load_world(Globals.lvl_uuid, current_floor)
+
 
 func serialize() -> Dictionary:
 	var save_dict: Dictionary = {

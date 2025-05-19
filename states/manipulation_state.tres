@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ManipulationState" load_steps=3 format=3 uid="uid://bh1xg4614wdxk"]
+
+[ext_resource type="Resource" uid="uid://ca5vpvmmlkh6p" path="res://states/user_state.tres" id="1_bxe3v"]
+[ext_resource type="Script" uid="uid://tkxv7xnag6p" path="res://addons/grid_building/manipulation_system/manipulation_state.gd" id="2_x7mdi"]
+
+[resource]
+resource_name = "Custom Manipulation State"
+script = ExtResource("2_x7mdi")
+manipulator_state = ExtResource("1_bxe3v")

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://cld5mnawa1r1u"]
+
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="1_36025"]
+[ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="2_5uk73"]
+[ext_resource type="Resource" uid="uid://csxqli224jx02" path="res://items/item_thungsten_ingot.tres" id="3_36025"]
+[ext_resource type="Resource" uid="uid://b0dgrlcpx7kmx" path="res://items/item_thungsten_gear.tres" id="4_36025"]
+[ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="5_e77e8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u7hn"]
+atlas = ExtResource("1_36025")
+region = Rect2(80, 144, 16, 16)
+
+[sub_resource type="Resource" id="Resource_x676j"]
+script = ExtResource("2_5uk73")
+item = ExtResource("3_36025")
+amount = 5
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[sub_resource type="Resource" id="Resource_q3wmw"]
+script = ExtResource("2_5uk73")
+item = ExtResource("4_36025")
+amount = 2
+metadata/_custom_type_script = "uid://bfehi825e0pux"
+
+[resource]
+script = ExtResource("5_e77e8")
+name = "Thungsten Gear (2x)"
+icon = SubResource("AtlasTexture_0u7hn")
+valid_machines = Array[String](["assembler"])
+input_ingredients = Array[ExtResource("2_5uk73")]([SubResource("Resource_x676j")])
+output_products = Array[ExtResource("2_5uk73")]([SubResource("Resource_q3wmw")])
+ticks_to_craft = 8
+metadata/_custom_type_script = "uid://ipyjq45ixx6s"

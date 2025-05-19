@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BuildingActions" load_steps=2 format=3 uid="uid://eisk2xdbcb7m"]
+
+[ext_resource type="Script" uid="uid://dbfae2hnwld67" path="res://addons/grid_building/building_system/building_actions.gd" id="1_3i7q8"]
+
+[resource]
+resource_name = "Custom Building Actions"
+script = ExtResource("1_3i7q8")
+confirm = "confirm"

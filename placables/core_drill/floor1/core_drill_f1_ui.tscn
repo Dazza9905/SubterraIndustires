@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://bku5xn34eai6o"]
 
-[ext_resource type="PackedScene" uid="uid://c05rlou7d7i36" path="res://placables/_base/base_building_ui.tscn" id="1_7683v"]
-[ext_resource type="Script" uid="uid://bjkb51coc8nyj" path="res://components/ui_components/slot/slot_comp_ui.gd" id="2_skqxj"]
-[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="3_psw25"]
-[ext_resource type="PackedScene" uid="uid://dt081p0pbegd5" path="res://components/ui_components/core_drill_comp_ui/core_drill_comp_ui.tscn" id="4_ip6qw"]
+[ext_resource type="PackedScene" uid="uid://c05rlou7d7i36" path="res://placables/_base/base_building_ui.tscn" id="1_hq2yc"]
+[ext_resource type="Script" uid="uid://bjkb51coc8nyj" path="res://components/ui_components/slot/slot_comp_ui.gd" id="2_20jy6"]
+[ext_resource type="PackedScene" uid="uid://dxuc7q0xgbp6l" path="res://components/ui_components/slot/slot_comp_ui.tscn" id="3_l4e7g"]
+[ext_resource type="PackedScene" uid="uid://dt081p0pbegd5" path="res://components/ui_components/core_drill_comp_ui/core_drill_comp_ui.tscn" id="4_vy0hk"]
 
-[node name="CoreDrillUI" node_paths=PackedStringArray("ui_components") instance=ExtResource("1_7683v")]
+[node name="CoreDrillUI" node_paths=PackedStringArray("ui_components") instance=ExtResource("1_hq2yc")]
 ui_components = [NodePath("MarginContainer/HBoxContainer/MarginContainer/HBoxContainer/FlushButton"), NodePath("PanelContainer/MarginContainer/VBoxContainer/CoreDrillCompUi"), NodePath("PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/SlotComponentUi")]
 
 [node name="Label2" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer" index="0"]
@@ -15,7 +15,7 @@ text = "CORE DRIll"
 ui_link_ids = Array[String](["slot_drills"])
 
 [node name="MarginContainer" parent="PanelContainer" index="0"]
-script = ExtResource("2_skqxj")
+script = ExtResource("2_20jy6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" index="0"]
 layout_mode = 2
@@ -27,14 +27,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2" index="0"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "SUPPLY 10x
+text = "SUPPLY 20x
 IRON DRILLS:"
 
-[node name="SlotComponentUi" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2" index="1" instance=ExtResource("3_psw25")]
+[node name="SlotComponentUi" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2" index="1" instance=ExtResource("3_l4e7g")]
 layout_mode = 2
 ui_link_id = "slot_drills"
 
-[node name="CoreDrillCompUi" parent="PanelContainer/MarginContainer/VBoxContainer" index="1" instance=ExtResource("4_ip6qw")]
+[node name="CoreDrillCompUi" parent="PanelContainer/MarginContainer/VBoxContainer" index="1" instance=ExtResource("4_vy0hk")]
 layout_mode = 2
 size_flags_horizontal = 3
 ui_link_id = "core_drill_comp"

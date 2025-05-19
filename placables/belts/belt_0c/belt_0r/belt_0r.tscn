@@ -27,7 +27,7 @@ collision_mask = 0
 script = ExtResource("1_4bvu2")
 self_packed_uid = "uid://bolshrsaj453m"
 code_name = "belt_0r"
-init_after_place = [NodePath("IsBeltUnallowed")]
+init_after_place = [NodePath("IsBeltUnallowed"), NodePath("ItemSprite")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 2

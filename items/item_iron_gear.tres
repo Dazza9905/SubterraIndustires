@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://c3nr0ur7fhvg1"]
+
+[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="1_idus5"]
+[ext_resource type="Texture2D" uid="uid://cprry7pw8mif6" path="res://items/_general/item_sprite-sheet.png" id="2_fg6hx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfjdw"]
+atlas = ExtResource("2_fg6hx")
+region = Rect2(16, 144, 16, 16)
+
+[resource]
+script = ExtResource("1_idus5")
+type = 44
+name = "Iron Gear"
+texture = SubResource("AtlasTexture_dfjdw")
+metadata/_custom_type_script = "uid://b7vpmvrb860r4"

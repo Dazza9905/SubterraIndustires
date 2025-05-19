@@ -62,7 +62,7 @@ func if_can_craft(target_outputs: Array[int]) -> bool:
 		var ingredient_present: bool = false
 		for in_slot in inputs:
 			if(in_slot.item == in_ingradient.item and in_slot._amount >= in_ingradient.amount):
-				print(str(in_slot.item) + "grr")
+				#print(str(in_slot.item) + "grr")
 				
 				ingredient_present = true
 				break
@@ -92,7 +92,7 @@ func process_items(target_outputs: Array[int]) -> void:
 				
 	for i in range(0, target_outputs.size()):
 		outputs[i].give_item(recipe.output_products[i].item, recipe.output_products[i].amount)
-		objective_system.complete_produce(recipe.output_products[i].item, recipe.output_products[i].amount)
+		#objective_system.complete_produce(recipe.output_products[i].item, recipe.output_products[i].amount)
 
 func serialize() -> Dictionary:
 	var save_dict: Dictionary = {

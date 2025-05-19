@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dl4l2mrxxfm0n"]
+[gd_scene load_steps=20 format=3 uid="uid://dl4l2mrxxfm0n"]
 
 [ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_sipws"]
 [ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="2_uj563"]
@@ -10,8 +10,9 @@
 [ext_resource type="Script" uid="uid://cp5x0nve6cj2j" path="res://components/go_components/miner_component.gd" id="5_okaoa"]
 [ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="7_wcnmi"]
 [ext_resource type="Script" uid="uid://dv6bwtrax2k8t" path="res://components/go_components/output_component.gd" id="8_6sql8"]
-[ext_resource type="Script" uid="uid://b7vpmvrb860r4" path="res://custom_types/item.gd" id="11_6pojf"]
-[ext_resource type="Resource" uid="uid://bk2y708itnjap" path="res://items/item_coal.tres" id="12_w23mw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da041"]
+atlas = ExtResource("3_wcnmi")
 
 [sub_resource type="Resource" id="Resource_aiahj"]
 script = ExtResource("5_jievt")
@@ -54,7 +55,7 @@ code_name = "miner"
 init_after_place = [NodePath("RotatableSprite2D")]
 
 [node name="RotatableSprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_wcnmi")
+texture = SubResource("AtlasTexture_da041")
 script = ExtResource("2_uj563")
 base_texture_atlas = ExtResource("3_wcnmi")
 metadata/_custom_type_script = "uid://svlocokxdnvo"
@@ -86,7 +87,7 @@ debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
 [node name="Blocked" type="Area2D" parent="."]
 visible = false
 collision_layer = 4352
-collision_mask = 28672
+collision_mask = 61440
 script = ExtResource("7_wcnmi")
 metadata/_custom_type_script = "uid://cl18dhfx7rou1"
 
@@ -108,7 +109,7 @@ debug_color = Color(1, 0, 0, 0.392)
 [node name="BlockedBeltAllow" type="Area2D" parent="."]
 visible = false
 collision_layer = 8448
-collision_mask = 12288
+collision_mask = 45056
 script = ExtResource("7_wcnmi")
 collision_type = 1
 metadata/_custom_type_script = "uid://cl18dhfx7rou1"
@@ -132,7 +133,6 @@ debug_color = Color(0.961747, 0.000756615, 0.96174, 0.419608)
 
 [node name="SlotComponent" type="Node2D" parent="Components"]
 script = ExtResource("3_uvyhf")
-capacity = 50
 
 [node name="OutputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 script = ExtResource("8_6sql8")
@@ -143,4 +143,4 @@ slot = NodePath("../SlotComponent")
 script = ExtResource("5_okaoa")
 slot = NodePath("../SlotComponent")
 area = NodePath("../../Area2D")
-allow_to_mine = Array[ExtResource("11_6pojf")]([ExtResource("12_w23mw")])
+tick_to_mine = 8

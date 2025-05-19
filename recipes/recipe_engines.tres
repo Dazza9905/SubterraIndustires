@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://bfehi825e0pux" path="res://custom_types/stack.gd" id="1_15ael"]
 [ext_resource type="Script" uid="uid://ipyjq45ixx6s" path="res://custom_types/recipe.gd" id="2_e7yy3"]
 [ext_resource type="Resource" uid="uid://bg3i0vrxwro5o" path="res://items/item_thungsten_plate.tres" id="3_1gbuj"]
+[ext_resource type="Resource" uid="uid://dgu7fks4v20cc" path="res://items/item_thungsten_rod.tres" id="4_1ltn2"]
 [ext_resource type="Resource" uid="uid://bckdyip66r7nb" path="res://items/item_copper_wire_insulated.tres" id="4_bb5ln"]
-[ext_resource type="Resource" uid="uid://d2v0grehasgm4" path="res://items/item_chip_mono.tres" id="5_dc46j"]
 [ext_resource type="Resource" uid="uid://cf180qoinsgfx" path="res://items/item_engines.tres" id="6_5qewo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_epjl2"]
@@ -20,14 +20,14 @@ metadata/_custom_type_script = "uid://bfehi825e0pux"
 
 [sub_resource type="Resource" id="Resource_sy3n3"]
 script = ExtResource("1_15ael")
-item = ExtResource("4_bb5ln")
+item = ExtResource("4_1ltn2")
 amount = 32
 metadata/_custom_type_script = "uid://bfehi825e0pux"
 
 [sub_resource type="Resource" id="Resource_sks1a"]
 script = ExtResource("1_15ael")
-item = ExtResource("5_dc46j")
-amount = 12
+item = ExtResource("4_bb5ln")
+amount = 24
 metadata/_custom_type_script = "uid://bfehi825e0pux"
 
 [sub_resource type="Resource" id="Resource_cw401"]
@@ -43,5 +43,5 @@ icon = SubResource("AtlasTexture_epjl2")
 valid_machines = Array[String](["assembler"])
 input_ingredients = Array[ExtResource("1_15ael")]([SubResource("Resource_wc8m8"), SubResource("Resource_sy3n3"), SubResource("Resource_sks1a")])
 output_products = Array[ExtResource("1_15ael")]([SubResource("Resource_cw401")])
-ticks_to_craft = 60
+ticks_to_craft = 80
 metadata/_custom_type_script = "uid://ipyjq45ixx6s"

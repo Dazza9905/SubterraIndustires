@@ -23,9 +23,15 @@ func load_levels():
 				level_entry.lvl_floor = int(file_name.right(6).left(1))
 				level_entry.level_name = file_name.left(-49)
 				level_entry.level_name_label.text = file_name.left(-49)
-				
+				match level_entry.lvl_floor:
+					0:
+						level_entry.floor_label.text = "Ground"
+					1:
+						level_entry.floor_label.text = "Cave"
+					2:
+						level_entry.floor_label.text = "Lava"
 				var unix_time = FileAccess.get_modified_time(Globals.GAME_SAVE_PATH + file_name)
-				level_entry.last_played_label.text = Time.get_datetime_string_from_unix_time(unix_time)
+				level_entry.last_played_label.text = Time.get_datetime_string_from_unix_time(unix_time + 7200).replace("T", " ") #add 2 hours
 				
 				level_picker_container.add_child(level_entry)
 			file_name = dir.get_next()

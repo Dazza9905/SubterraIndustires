@@ -13,10 +13,10 @@ func _on_mode_changed(building_mode: GBEnums.Mode) -> void:
 	print(building_mode)
 	if (building_mode == GBEnums.Mode.OFF):
 		mouse_filter = Control.MOUSE_FILTER_STOP
-		print("buttons are active")
+		#print("buttons are active")
 	else:
 		mouse_filter = Control.MOUSE_FILTER_IGNORE
-		print("buttons are inactive")
+		#print("buttons are inactive")
 		
 func _pressed() -> void:
 	Globals.get_UIS().display_new_building_ui(packed_ui, self.get_parent())

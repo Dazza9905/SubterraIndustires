@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="UserState" load_steps=2 format=3 uid="uid://ca5vpvmmlkh6p"]
+
+[ext_resource type="Script" uid="uid://bw1nc5pykfud1" path="res://addons/grid_building/user/user_state.gd" id="1_nmdat"]
+
+[resource]
+resource_name = "Custom User State"
+script = ExtResource("1_nmdat")
+allow_overriding_user = true
+output_change_fail = true

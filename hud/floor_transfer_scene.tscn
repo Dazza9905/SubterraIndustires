@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq0w7ijnukont"]
+
+[ext_resource type="Script" uid="uid://cjxg24ervu3fc" path="res://hud/floor_transfer_scene.gd" id="1_2d0fl"]
+[ext_resource type="Script" uid="uid://c8pq0wjvrcbgn" path="res://hud/main_menu/world_loading_bar.gd" id="2_riomm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g0n3y"]
+font_size = 30
+
+[node name="FloorTransferScene" type="Node2D"]
+script = ExtResource("1_2d0fl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 17.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.9
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+value = 34.51
+script = ExtResource("2_riomm")
+metadata/_custom_type_script = "uid://c8pq0wjvrcbgn"
+
+[node name="Label" type="Label" parent="CanvasLayer/ProgressBar"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.5
+offset_top = -22.0
+offset_right = 106.5
+offset_bottom = 9.0
+grow_horizontal = 2
+text = "TRANSFERING TO FLOOR..."
+label_settings = SubResource("LabelSettings_g0n3y")

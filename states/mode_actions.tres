@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModeInputActions" load_steps=2 format=3 uid="uid://bgyxlmxoykaif"]
+
+[ext_resource type="Script" uid="uid://biy0g1ayuhirh" path="res://addons/grid_building/mode/mode_input_actions.gd" id="1_82sln"]
+
+[resource]
+resource_name = "Custom Mode Actions"
+script = ExtResource("1_82sln")
+off_mode = &"off_mode"
+info_mode = &"info_mode"
+build_mode = &"build_mode"
+moving_mode = &"moving_mode"
+demolish_mode = &"demolish_mode"

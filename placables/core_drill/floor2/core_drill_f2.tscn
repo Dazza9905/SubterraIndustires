@@ -1,85 +1,85 @@
-[gd_scene load_steps=46 format=3 uid="uid://d2dk46qx62l7p"]
+[gd_scene load_steps=46 format=3 uid="uid://oiqps0har6d2"]
 
-[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_tv0yf"]
-[ext_resource type="Texture2D" uid="uid://dvf77u7l8wm7a" path="res://placables/core_drill_level1/core_drill_behing.png" id="2_7nte6"]
-[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="3_eytwo"]
-[ext_resource type="Texture2D" uid="uid://gw36487ax2sk" path="res://placables/core_drill_level1/core_drill_head_frames.png" id="4_pp4jo"]
-[ext_resource type="Script" uid="uid://cyfgylxq4wi5k" path="res://placables/_general/animated_rotatable_sprite.gd" id="5_hq8yd"]
-[ext_resource type="Script" uid="uid://cclesgul6qwot" path="res://addons/shaker/shaker.gd" id="5_tv0yf"]
-[ext_resource type="Texture2D" uid="uid://1dm0aix6n4q" path="res://placables/core_drill_level1/core_drill_infront.png" id="6_iomvt"]
-[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="7_6dy2f"]
-[ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="8_ej231"]
-[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="9_yu54l"]
-[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="10_wt51q"]
-[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="11_eytwo"]
-[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="11_gscai"]
-[ext_resource type="PackedScene" uid="uid://bku5xn34eai6o" path="res://placables/core_drill_level1/core_drill_ui.tscn" id="12_pp4jo"]
-[ext_resource type="Script" uid="uid://myc4jbq5k32i" path="res://components/go_components/collect_component.gd" id="16_iomvt"]
-[ext_resource type="Resource" uid="uid://ciaha53jrj8j7" path="res://items/item_drill_iron.tres" id="17_ej231"]
-[ext_resource type="Script" uid="uid://bc4ukvoaf6k6g" path="res://components/go_components/core_drill_comp.gd" id="19_ej231"]
+[ext_resource type="Script" uid="uid://kjjkl8o0k1up" path="res://custom_types/grid_object.gd" id="1_gsq2d"]
+[ext_resource type="Texture2D" uid="uid://dvf77u7l8wm7a" path="res://placables/core_drill/core_drill_behing.png" id="2_pj0xt"]
+[ext_resource type="Script" uid="uid://svlocokxdnvo" path="res://placables/_general/RotatableSprite2D.gd" id="3_kajne"]
+[ext_resource type="Texture2D" uid="uid://gw36487ax2sk" path="res://placables/core_drill/floor2/core_drill_head_f2_frames.png" id="4_1qmsm"]
+[ext_resource type="Script" uid="uid://cyfgylxq4wi5k" path="res://placables/_general/animated_rotatable_sprite.gd" id="5_rb8n5"]
+[ext_resource type="Script" uid="uid://cclesgul6qwot" path="res://addons/shaker/shaker.gd" id="6_xm4e2"]
+[ext_resource type="Texture2D" uid="uid://1dm0aix6n4q" path="res://placables/core_drill/core_drill_infront.png" id="7_is10s"]
+[ext_resource type="Script" uid="uid://bib4d58jc2hi1" path="res://addons/grid_building/components/manipulatable.gd" id="8_w5eay"]
+[ext_resource type="Resource" uid="uid://cx2bgibcempgo" path="res://states/only_rotatable.tres" id="9_qcj1l"]
+[ext_resource type="Script" uid="uid://cl18dhfx7rou1" path="res://custom_types/presets-area-2d.gd" id="10_187on"]
+[ext_resource type="Script" uid="uid://dcpogcc84lab7" path="res://hud/open_ui_button.gd" id="11_0nmeb"]
+[ext_resource type="PackedScene" uid="uid://clfea36invtgi" path="res://placables/core_drill/floor2/core_drill_f2_ui.tscn" id="12_jltgl"]
+[ext_resource type="Script" uid="uid://c1tx53ndkd4hs" path="res://components/go_components/slot_component.gd" id="13_nrjm6"]
+[ext_resource type="Script" uid="uid://cq1gsvh5qth0n" path="res://components/go_components/input_component.gd" id="14_3tx65"]
+[ext_resource type="Script" uid="uid://myc4jbq5k32i" path="res://components/go_components/collect_component.gd" id="15_jnhn3"]
+[ext_resource type="Resource" uid="uid://boc230e0qnxce" path="res://items/item_drill_thungsten.tres" id="16_jltgl"]
+[ext_resource type="Script" uid="uid://bc4ukvoaf6k6g" path="res://components/go_components/core_drill_comp.gd" id="17_nvfli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hlj04"]
-atlas = ExtResource("2_7nte6")
+atlas = ExtResource("2_pj0xt")
 region = Rect2(0, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4f4j"]
-atlas = ExtResource("2_7nte6")
+atlas = ExtResource("2_pj0xt")
 region = Rect2(0, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3eyyu"]
-atlas = ExtResource("2_7nte6")
+atlas = ExtResource("2_pj0xt")
 region = Rect2(0, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xur2h"]
-atlas = ExtResource("2_7nte6")
+atlas = ExtResource("2_pj0xt")
 region = Rect2(208, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cly7d"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(0, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tv0yf"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(64, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7nte6"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(128, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eytwo"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(192, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pp4jo"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(256, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hq8yd"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(320, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iomvt"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(384, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6dy2f"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(448, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ej231"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(512, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yu54l"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(576, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wt51q"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(640, 0, 64, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gscai"]
-atlas = ExtResource("4_pp4jo")
+atlas = ExtResource("4_1qmsm")
 region = Rect2(704, 0, 64, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nimub"]
@@ -127,19 +127,19 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0bce"]
-atlas = ExtResource("6_iomvt")
+atlas = ExtResource("7_is10s")
 region = Rect2(0, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3sj4"]
-atlas = ExtResource("6_iomvt")
+atlas = ExtResource("7_is10s")
 region = Rect2(208, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pum6h"]
-atlas = ExtResource("6_iomvt")
+atlas = ExtResource("7_is10s")
 region = Rect2(416, 0, 208, 208)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onqoo"]
-atlas = ExtResource("6_iomvt")
+atlas = ExtResource("7_is10s")
 region = Rect2(624, 0, 208, 208)
 
 [sub_resource type="Animation" id="Animation_7nte6"]
@@ -242,17 +242,17 @@ size = Vector2(8, 48)
 [node name="CoreDrill" type="StaticBody2D" node_paths=PackedStringArray("init_after_place")]
 collision_layer = 3072
 collision_mask = 0
-script = ExtResource("1_tv0yf")
-self_packed_uid = "uid://d2dk46qx62l7p"
+script = ExtResource("1_gsq2d")
+self_packed_uid = "uid://oiqps0har6d2"
 code_name = "core_drill"
 init_after_place = [NodePath("Behind"), NodePath("Infront")]
 
 [node name="Behind" type="Sprite2D" parent="."]
 clip_children = 2
 texture = SubResource("AtlasTexture_hlj04")
-script = ExtResource("3_eytwo")
+script = ExtResource("3_kajne")
 is_symetric = false
-base_texture_atlas = ExtResource("2_7nte6")
+base_texture_atlas = ExtResource("2_pj0xt")
 base_regions = Array[AtlasTexture]([SubResource("AtlasTexture_hlj04"), SubResource("AtlasTexture_n4f4j"), SubResource("AtlasTexture_3eyyu"), SubResource("AtlasTexture_xur2h")])
 metadata/_custom_type_script = "uid://svlocokxdnvo"
 
@@ -260,11 +260,11 @@ metadata/_custom_type_script = "uid://svlocokxdnvo"
 position = Vector2(0, 80)
 sprite_frames = SubResource("SpriteFrames_nimub")
 autoplay = "default"
-script = ExtResource("5_hq8yd")
+script = ExtResource("5_rb8n5")
 metadata/_custom_type_script = "uid://cyfgylxq4wi5k"
 
 [node name="Shaker" type="Node" parent="Behind/AnimatedRotatableSprite2D" node_paths=PackedStringArray("target_node")]
-script = ExtResource("5_tv0yf")
+script = ExtResource("6_xm4e2")
 target_node = NodePath("..")
 target_property = &"position"
 constant = true
@@ -273,9 +273,9 @@ metadata/_custom_type_script = "uid://cclesgul6qwot"
 
 [node name="Infront" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_b0bce")
-script = ExtResource("3_eytwo")
+script = ExtResource("3_kajne")
 is_symetric = false
-base_texture_atlas = ExtResource("6_iomvt")
+base_texture_atlas = ExtResource("7_is10s")
 base_regions = Array[AtlasTexture]([SubResource("AtlasTexture_b0bce"), SubResource("AtlasTexture_o3sj4"), SubResource("AtlasTexture_pum6h"), SubResource("AtlasTexture_onqoo")])
 metadata/_custom_type_script = "uid://svlocokxdnvo"
 
@@ -286,8 +286,8 @@ libraries = {
 autoplay = "RESET"
 
 [node name="Manipulatable" type="Node" parent="." node_paths=PackedStringArray("root")]
-script = ExtResource("7_6dy2f")
-settings = ExtResource("8_ej231")
+script = ExtResource("8_w5eay")
+settings = ExtResource("9_qcj1l")
 root = NodePath("..")
 
 [node name="ExtraPlayerCollision" type="StaticBody2D" parent="."]
@@ -310,7 +310,7 @@ polygon = PackedVector2Array(0, 64, 48, 48, 64, 24, 88, 24, 88, -24, 64, -24, 48
 [node name="Blocked" type="Area2D" parent="."]
 collision_layer = 4352
 collision_mask = 61440
-script = ExtResource("9_yu54l")
+script = ExtResource("10_187on")
 metadata/_custom_type_script = "uid://cl18dhfx7rou1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Blocked"]
@@ -329,7 +329,7 @@ polygon = PackedVector2Array(64, -32, 64, 32, 96, 32, 96, 24, 88, 24, 88, -24, 9
 visible = false
 collision_layer = 8448
 collision_mask = 45056
-script = ExtResource("9_yu54l")
+script = ExtResource("10_187on")
 collision_type = 1
 metadata/_custom_type_script = "uid://cl18dhfx7rou1"
 
@@ -344,20 +344,20 @@ offset_top = -56.0
 offset_right = 56.0
 offset_bottom = 56.0
 theme_type_variation = &"InvisButton"
-script = ExtResource("11_eytwo")
-packed_ui = ExtResource("12_pp4jo")
+script = ExtResource("11_0nmeb")
+packed_ui = ExtResource("12_jltgl")
 metadata/_custom_type_script = "uid://dcpogcc84lab7"
 
 [node name="Components" type="Node2D" parent="."]
 
 [node name="SlotComponent" type="Node2D" parent="Components"]
-script = ExtResource("10_wt51q")
+script = ExtResource("13_nrjm6")
 ui_link_id = "slot_drills"
 metadata/_custom_type_script = "uid://c1tx53ndkd4hs"
 
 [node name="InputComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
 position = Vector2(80, 0)
-script = ExtResource("11_gscai")
+script = ExtResource("14_3tx65")
 cell_offset = Vector2i(5, 0)
 base_side = 2
 slot = NodePath("../SlotComponent")
@@ -365,16 +365,16 @@ ui_link_id = "drill_head_in"
 metadata/_custom_type_script = "uid://cq1gsvh5qth0n"
 
 [node name="CollectComponent" type="Node2D" parent="Components" node_paths=PackedStringArray("slot")]
-script = ExtResource("16_iomvt")
-what_to_collect = ExtResource("17_ej231")
-how_much_to_collect = 5
+script = ExtResource("15_jnhn3")
+what_to_collect = ExtResource("16_jltgl")
+how_much_to_collect = 20
 slot = NodePath("../SlotComponent")
 metadata/_custom_type_script = "uid://myc4jbq5k32i"
 
 [node name="CoreDrillComp" type="Node2D" parent="Components" node_paths=PackedStringArray("collect_component", "anim_player")]
-script = ExtResource("19_ej231")
+script = ExtResource("17_nvfli")
 collect_component = NodePath("../CollectComponent")
 anim_player = NodePath("../../AnimationPlayer")
-full_progress = 3
+full_progress = 10
 ui_link_id = "core_drill_comp"
 metadata/_custom_type_script = "uid://bc4ukvoaf6k6g"

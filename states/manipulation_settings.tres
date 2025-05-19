@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ManipulationSettings" load_steps=2 format=3 uid="uid://vfkkf548l2bm"]
+
+[ext_resource type="Script" uid="uid://dd2upd0f43el6" path="res://addons/grid_building/manipulation_system/manipulation_settings.gd" id="1_eoe1p"]
+
+[resource]
+resource_name = "CusManipulation Settings"
+script = ExtResource("1_eoe1p")
+rotate_increment_degrees = 90.0
+enable_demolish = true
+demolish_while_moving = true
+enable_rotate = true
+enable_flip_horizontal = true
+enable_flip_vertical = true
+reset_transform_on_manipulation = false
+disable_layer_in_manipulation = false
+disabled_physics_layer = 0
+move_suffix = ""

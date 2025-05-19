@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GridTargetingState" load_steps=3 format=3 uid="uid://dkhv7kj2r2asv"]
+
+[ext_resource type="Resource" uid="uid://ca5vpvmmlkh6p" path="res://states/user_state.tres" id="1_bwbbk"]
+[ext_resource type="Script" uid="uid://c8hw374osd1hc" path="res://addons/grid_building/grid_targeting_system/grid_targeting_state.gd" id="2_n3ytw"]
+
+[resource]
+resource_name = "Custom Targeting State"
+script = ExtResource("2_n3ytw")
+origin_state = ExtResource("1_bwbbk")
