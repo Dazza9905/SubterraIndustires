@@ -102,7 +102,6 @@ shape = SubResource("RectangleShape2D_04fxs")
 debug_color = Color(0.50492, 0.572482, 0.263789, 0.42)
 
 [node name="BlockedBeltAllow" type="Area2D" parent="."]
-visible = false
 z_index = 5
 collision_layer = 8448
 collision_mask = 45056
@@ -120,7 +119,6 @@ shape = SubResource("RectangleShape2D_j37wi")
 debug_color = Color(1, 0.427, 0, 0.392)
 
 [node name="Blocked" type="Area2D" parent="."]
-visible = false
 collision_layer = 4352
 collision_mask = 61440
 script = ExtResource("4_32pie")
