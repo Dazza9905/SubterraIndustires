@@ -30,7 +30,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/collapse_folders/plugin.cfg", "res://addons/grid_building/plugin.cfg", "res://addons/post_processing/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/shaker/plugin.cfg")
+enabled=PackedStringArray("res://addons/collapse_folders/plugin.cfg", "res://addons/godot-vim/plugin.cfg", "res://addons/grid_building/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/shaker/plugin.cfg")
 
 [filesystem]
 

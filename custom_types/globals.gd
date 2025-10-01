@@ -1,6 +1,7 @@
 extends Node
 
-const GAME_SAVE_PATH = "user://gamesaves/"
+const GAME_SAVE_PATH = "user://gamesaves/levels/"
+const CHARACTER_SAVE_PATH = "user://gamesves/characters/"
 
 const ITEM_TEX_PATH = "res://items/"
 const ITEM_PATH = "res://items/"

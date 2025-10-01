@@ -1,35 +1,35 @@
-[gd_scene load_steps=11 format=3 uid="uid://cwl1ideqa038k"]
+[gd_scene load_steps=11 format=3 uid="uid://cj1uhlotk80hy"]
 
-[ext_resource type="Script" uid="uid://bi0xpeap8k1ep" path="res://hud/main_menu/main_menu.gd" id="1_5gt41"]
-[ext_resource type="PackedScene" uid="uid://1tbuyh1tbme" path="res://hud/main_menu/level_picker/level_picker.tscn" id="2_7h4so"]
-[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="2_mhrcu"]
-[ext_resource type="Texture2D" uid="uid://c8o1yf5l3kybv" path="res://art/Subterra Industries logo 1x.png" id="2_ycwou"]
-[ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="3_kd0vy"]
-[ext_resource type="Script" uid="uid://c8pq0wjvrcbgn" path="res://hud/main_menu/world_loading_bar.gd" id="5_qa22u"]
+[ext_resource type="Script" uid="uid://bi0xpeap8k1ep" path="res://hud/main_menu/main_menu.gd" id="1_d83yv"]
+[ext_resource type="PackedScene" uid="uid://1tbuyh1tbme" path="res://hud/main_menu/level_picker/level_picker.tscn" id="2_ahjsq"]
+[ext_resource type="Texture2D" uid="uid://dm610jhhrfe5r" path="res://art/downloaded/pixel_art_pack/TX Player.png" id="3_48rjt"]
+[ext_resource type="Theme" uid="uid://bqnstwubygps6" path="res://hud/ui_pixel_theme.tres" id="4_hec4o"]
+[ext_resource type="Texture2D" uid="uid://c8o1yf5l3kybv" path="res://art/Subterra Industries logo 1x.png" id="5_x2vet"]
+[ext_resource type="Script" uid="uid://c8pq0wjvrcbgn" path="res://hud/main_menu/world_loading_bar.gd" id="6_bbpbk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b1w5f"]
 font_size = 48
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h3v65"]
-atlas = ExtResource("3_kd0vy")
+atlas = ExtResource("3_48rjt")
 region = Rect2(0, 8, 32, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7h4so"]
-atlas = ExtResource("2_ycwou")
+atlas = ExtResource("5_x2vet")
 region = Rect2(0, 0, 128, 78)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7h4so"]
 font_size = 30
 
-[node name="MainMenu" type="Control"]
+[node name="CharacterScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5gt41")
-level_picker = ExtResource("2_7h4so")
+script = ExtResource("1_d83yv")
+level_picker = ExtResource("2_ahjsq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -88,7 +88,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_mhrcu")
+theme = ExtResource("4_hec4o")
 theme_override_font_sizes/font_size = 48
 text = "Characters"
 
@@ -117,7 +117,7 @@ theme_override_constants/separation = 10
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_mhrcu")
+theme = ExtResource("4_hec4o")
 theme_override_font_sizes/font_size = 48
 text = "New Game"
 
@@ -125,7 +125,7 @@ text = "New Game"
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_mhrcu")
+theme = ExtResource("4_hec4o")
 theme_override_font_sizes/font_size = 48
 text = "Load Game"
 
@@ -134,7 +134,7 @@ visible = false
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 3
-theme = ExtResource("2_mhrcu")
+theme = ExtResource("4_hec4o")
 theme_override_font_sizes/font_size = 48
 text = "Options"
 
@@ -142,7 +142,7 @@ text = "Options"
 layout_mode = 2
 size_flags_vertical = 4
 value = 34.51
-script = ExtResource("5_qa22u")
+script = ExtResource("6_bbpbk")
 metadata/_custom_type_script = "uid://c8pq0wjvrcbgn"
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2/ProgressBar"]
@@ -160,7 +160,16 @@ label_settings = SubResource("LabelSettings_7h4so")
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "saved characters:"
+label_settings = SubResource("LabelSettings_b1w5f")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/Characters" to="." method="_on_begin_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/VBoxContainer/NewGame" to="." method="_on_begin_pressed"]

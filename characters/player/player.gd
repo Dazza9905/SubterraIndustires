@@ -4,9 +4,9 @@ class_name Player
 var speed = 5000
 
 @export var conveyor_speed = 16
-
 @export var detector_area: Area2D
 @export var inventory: PlayerInventory
+var character_name: String
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
@@ -78,9 +78,19 @@ func _physics_process(delta):
 	# Move the character using the move_and_slide method
 	move_and_slide()
 
-func serialize() -> Dictionary: 
+func serialize_for_world() -> Dictionary: 
 	var save_dict: Dictionary = {
 		position = var_to_str(position),
+	}
+	
+	for slot_comp in inventory.components:
+		save_dict.inventory.push_back(slot_comp.serialize())
+		
+	return save_dict
+	
+func serialize_for_character() -> Dictionary: 
+	var save_dict: Dictionary = {
+		character_name = var_to_str(character_name),
 		inventory = []
 	}
 	
